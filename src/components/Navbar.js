@@ -37,13 +37,18 @@ const Navbar = () => {
       </H2>
       <UL>
         <Li>
-          <Link className="link" to="/">
+          <Link className="link" to="/signin">
             sign in
           </Link>
         </Li>
         <Li>
           <Link className="link" to="/">
             sign up
+          </Link>
+        </Li>
+        <Li>
+          <Link className="link" to="/dashboard">
+            dashboard
           </Link>
         </Li>
       </UL>
