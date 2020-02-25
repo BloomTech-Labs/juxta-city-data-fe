@@ -24,7 +24,7 @@ const App = () => {
   return (
     <Security
       issuer="https://dev-816550.okta.com/oauth2/default"
-      clientId="{0oa2kk6dn5jP7Eve04x6}"
+      clientId="0oa2kk6dn5jP7Eve04x6"
       redirectUri={window.location.origin + "/implicit/callback"}
       onAuthRequired={onAuthRequired}
       pkce={true}

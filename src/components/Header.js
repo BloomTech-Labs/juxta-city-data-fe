@@ -7,10 +7,6 @@ const HeaderDiv = styled.div`
 `;
 
 const Header = () => {
-  return (
-    <HeaderDiv>
-      <Navbar />
-    </HeaderDiv>
-  );
+  return <HeaderDiv>{/* <Navbar /> */}</HeaderDiv>;
 };
 export default Header;

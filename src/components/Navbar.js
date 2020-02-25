@@ -27,7 +27,7 @@ const Li = styled.li`
   text-transform: capitalize;
 `;
 
-const Navbar = () => {
+const Navbar = props => {
   return (
     <NavDiv>
       <H2>
