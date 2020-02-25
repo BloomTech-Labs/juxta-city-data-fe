@@ -34,6 +34,11 @@ const SignedInNavBar = () => {
       </H2>
       <UL>
         <Li>
+          <Link className="link" to={"/profile"}>
+            profile
+          </Link>
+        </Li>
+        <Li>
           <Link className="link" to={"/"}>
             sign out
           </Link>

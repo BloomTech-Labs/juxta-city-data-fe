@@ -5,10 +5,10 @@ import { UserContext } from "./contexts/UserContext";
 import styled from "styled-components";
 import { Security, SecureRoute, ImplicitCallback } from "@okta/okta-react";
 
-import Header from "./components/Header.js";
 import LandingPage from "./components/LandingPage.js";
 import Dashboard from "./components/Dashboard.js";
 import Signin from "./components/auth/SignIn.js";
+import Profile from "./components/pages/Profile.js";
 
 const AppDiv = styled.div`
   max-width: 1220px;
@@ -31,9 +31,9 @@ const App = () => {
     >
       <UserContext.Provider value={{ words: "hello" }}>
         <AppDiv className="App">
-          <Header />
           <Route exact path="/" component={LandingPage} />
           <SecureRoute path="/dashboard" exact component={Dashboard} />
+          <SecureRoute path="/profile" exact component={Profile} />
           <Route
             path="/signin"
             render={() => <Signin baseUrl="https://dev-816550.okta.com" />}
