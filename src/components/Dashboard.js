@@ -1,6 +1,12 @@
 import React from "react";
-import Navbar from "../components/Navbar.js";
+import SignedInNavBar from "./SignedInNavBar.js";
+import ContentBody from "./ContentBody.js";
 
 export default function Dashboard(props) {
-  return <div>Dashboard</div>;
+  return (
+    <>
+      <SignedInNavBar />
+      <ContentBody />
+    </>
+  );
 }
