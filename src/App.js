@@ -17,7 +17,7 @@ const AppDiv = styled.div`
 `;
 
 const onAuthRequired = ({ history }) => {
-  history.push("/sigin");
+  history.push("/signin");
 };
 
 const App = () => {
