@@ -22,17 +22,30 @@ const H2 = styled.h2`
   justify-content: flex-start;
 `;
 
+const Li = styled.li`
+  margin: 0 15px;
+  text-transform: capitalize;
+`;
+
 const Navbar = () => {
   return (
     <NavDiv>
-      <H2>findur</H2>
+      <H2>
+        <Link className="link" to="/">
+          findur
+        </Link>
+      </H2>
       <UL>
-        <li>
-          <Link to="/">sign in</Link>
-        </li>
-        <li>
-          <Link to="/">sign up</Link>
-        </li>
+        <Li>
+          <Link className="link" to="/">
+            sign in
+          </Link>
+        </Li>
+        <Li>
+          <Link className="link" to="/">
+            sign up
+          </Link>
+        </Li>
       </UL>
     </NavDiv>
   );

@@ -1,4 +1,20 @@
-li {
-  margin: 0 15px;
-  text-transform: capitalize;
+.link {
+  text-decoration: none;
+}
+
+a:link {
+  color: darkslategray;
+}
+
+a:visited {
+  color: darkslategray;
+}
+
+a:hover {
+  color: darkslategray;
+  font-size: 1.1rem;
+}
+
+a:active {
+  color: darkslategray;
 }
