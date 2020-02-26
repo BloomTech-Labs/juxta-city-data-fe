@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import OktaSignIn from "@okta/okta-signin-widget";
 import "@okta/okta-signin-widget/dist/css/okta-sign-in.min.css";
-import Navbar from "../Navbar.js";
 
 class SignInWidget extends Component {
   componentDidMount() {
@@ -11,6 +10,8 @@ class SignInWidget extends Component {
       // logo: 'logo.png',
       // make a simple and place in the public
       baseUrl: this.props.baseUrl,
+      // features is the addition that allows the registration link and signup tabs to be added once it has /// been enabled in the admin
+      features: { registration: true },
       authParams: {
         pkce: true
       }
