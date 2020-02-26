@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-export default function Trending(props){
-    return(
-        <div>Trending</div>
-    )
+function Trending(props) {
+  return <div>Trending</div>;
 }
+
+export default Trending;
