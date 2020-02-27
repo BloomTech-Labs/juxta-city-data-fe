@@ -1,12 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import axios from 'axios';
+import CityContext from '../../contexts/CityContext.js';
 
 const SearchBar = props => {
 const [search, setSearch]= useState("");
 const [cities, setCities]= useState([]);
+const {cityData, setCityData} = useContext(CityContext)
+console.log(cityData)
 const handleSubmit= e => {
   e.preventDefault()
-
+  axios.get(`https://junta-test.herokuapp.com/data?city=${search}`).then(res => {
+    setCityData(res.data);
+  })
   }
 const handleChange= e => {
   setSearch(e.target.value)

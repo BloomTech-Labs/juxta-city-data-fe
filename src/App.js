@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./index.scss";
 import { Route } from "react-router-dom";
-import { UserContext } from "./contexts/UserContext";
+import UserContext from "./contexts/UserContext";
 import styled from "styled-components";
 import { Security, SecureRoute, ImplicitCallback } from "@okta/okta-react";
 
