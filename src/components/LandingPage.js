@@ -84,12 +84,7 @@ export default withAuth(
           <UL>
             <Li>
               <Link className="link" onClick={this.login}>
-                sign in
-              </Link>
-            </Li>
-            <Li>
-              <Link className="link" to="/new-user">
-                sign up
+                sign in / sign up
               </Link>
             </Li>
           </UL>
