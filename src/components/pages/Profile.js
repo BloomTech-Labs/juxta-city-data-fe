@@ -4,7 +4,7 @@ const Profile = () => {
   return (
     <div>
       <SignedInNavBar />
-      <h3>User Profile goes here</h3>
+      <h3>User Profile goes here!</h3>
       <p>Welcome user! Blah blah blah</p>
     </div>
   );

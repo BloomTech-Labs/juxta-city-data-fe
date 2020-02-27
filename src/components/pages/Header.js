@@ -1,8 +1,10 @@
 import React from "react";
+import SearchBar from '../subComponents/SearchBar';
 
 const Header = () => {
   return (
     <div>
+      <SearchBar/>
       <p>
         header: Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         Molestiae accusantium eos amet, dolorem explicabo iusto consequuntur
