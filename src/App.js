@@ -11,7 +11,7 @@ import Signin from "./components/auth/SignIn.js";
 import Profile from "./components/pages/Profile.js";
 
 const AppDiv = styled.div`
-  max-width: 1220px;
+  max-width: 1440px;
   width: 100%;
   margin: 0 auto;
 `;
