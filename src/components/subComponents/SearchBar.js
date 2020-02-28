@@ -9,9 +9,8 @@ height: 18px;
 border: 0px
 `
 const Form = styled.form`
-width: 900px;
+width: 700px;
 background: lightgrey;
-height: 220px;
 margin: 0 auto;
 display: flex;
 flex-wrap: wrap;
@@ -22,16 +21,16 @@ justify-content:center;
 const Button = styled.button`
 border: 0px;
 background: white;
-height: 20px;
+height: 18px;
 `
 const CityDropDown = styled.div`
-  position: relative;
+  position: absolute;
   border: 1px solid #d4d4d4;
   border-bottom: none;
   border-top: none;
   z-index: 2;
   background: white;
-  top: 205px;
+  top: 295px;
 `
 const City = styled.p`
 width: 650px;
