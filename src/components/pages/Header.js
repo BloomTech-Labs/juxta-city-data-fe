@@ -6,7 +6,7 @@ const Div = styled.div`
 width: 100%;
 background: lightgrey;
 display: flex;
-height: 400px;
+height: 300px;
 margin: 10px;
 align-items: center
 `

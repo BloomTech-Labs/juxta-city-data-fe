@@ -30,7 +30,7 @@ const CityDropDown = styled.div`
   border-top: none;
   z-index: 2;
   background: white;
-  top: 295px;
+  top: 245px;
 `
 const City = styled.p`
 width: 650px;
@@ -79,7 +79,7 @@ setSearch(city);
         <Search type='string' name='city' value={search} onChange={handleChange} />
         <Button type='submit'>Search</Button>
         <CityDropDown>
-          {cities.splice(0,10).map(city => (
+          {cities.splice(0,6).map(city => (
             <City onClick={()=>handleCityClick(city)}>{city}</City>
           ))}
         </CityDropDown>
