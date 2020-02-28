@@ -1,7 +1,7 @@
-import React from "react";
-import Header from "../components/pages/Header.js";
-import Trending from "../components/Trending.js";
-import MarketingBox from "./MarketingBox.js";
+import React from 'react';
+import Header from '../components/pages/Header.js';
+import Trending from '../components/trendingCities/Trending.js';
+import MarketingBox from './MarketingBox.js';
 const ContentBody = () => {
   return (
     <div>
