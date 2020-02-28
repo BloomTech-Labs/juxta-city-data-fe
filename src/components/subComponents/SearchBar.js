@@ -9,12 +9,13 @@ height: 18px;
 border: 0px
 `
 const Form = styled.form`
-background: lightgrey;
 width: 900px;
+background: lightgrey;
+height: 220px;
 margin: 0 auto;
 display: flex;
 flex-wrap: wrap;
-height: 200px;
+z-index: 1;
 align-items: center;
 justify-content:center;
 `
@@ -24,13 +25,13 @@ background: white;
 height: 20px;
 `
 const CityDropDown = styled.div`
-  position: absolute;
+  position: relative;
   border: 1px solid #d4d4d4;
   border-bottom: none;
   border-top: none;
-  z-index: 99;
+  z-index: 2;
   background: white;
-  top: 185px;
+  top: 205px;
 `
 const City = styled.p`
 width: 650px;
@@ -45,6 +46,8 @@ const SearchBar = props => {
 const [search, setSearch]= useState("");
 const [cities, setCities]= useState([]);
 const {cityData, setCityData} = useContext(CityContext)
+console.log("Context",cityData)
+
 useEffect(()=>{
   if(search.length < 2 || undefined){
     console.log("waiting")
