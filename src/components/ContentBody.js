@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Header from "../components/pages/Header.js";
-import Trending from "../components/Trending.js";
+import Trending from "../components/trendingCities/Trending.js";
 import MarketingBox from "./MarketingBox.js";
 import CityContext from '../contexts/CityContext.js';
 

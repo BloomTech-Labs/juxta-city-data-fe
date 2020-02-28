@@ -54,10 +54,7 @@ useEffect(()=>{
     setCities([])
 }else{
   console.log("searching")
-  let arr = search.split("")
-  arr[0] = arr[0].toUpperCase()
-  let cityWithCaps = arr.join("")
-  axios.get(`https://junta-test.herokuapp.com/search?search=${cityWithCaps}`).then(res => {
+  axios.get(`https://junta-test.herokuapp.com/search?search=${search}`).then(res => {
     setCities(res.data)
   })
 }
