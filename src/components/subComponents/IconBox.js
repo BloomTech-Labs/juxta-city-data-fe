@@ -20,7 +20,7 @@ const IconBox = props => {
     <Container>
       <Grid>
         <Typography variant="h5" gutterBottom>"Find Ur" Place</Typography>
-        <Typography variant="p" gutterBottom>Findur is a place where you can learn
+        <Typography variant="body2" gutterBottom>Findur is a place where you can learn
           , compare, and receive recommendations on cities across the United States!
         </Typography>
         <Grid container spacing={2}>
@@ -33,7 +33,7 @@ const IconBox = props => {
                 style={{ width: '100px', height: 'auto', margin: '20px auto 5px' }}
               />
               <CardContent>
-                <Typography variant="p">Quickly compare up to 3 different cities
+                <Typography variant="body1">Quickly compare up to 3 different cities
                   side-by-side
                 </Typography>
               </CardContent>
@@ -48,7 +48,7 @@ const IconBox = props => {
                 style={{ width: '100px', height: 'auto', margin: '20px auto 5px' }}
               />
               <CardContent>
-                <Typography variant="p">Search for a city to view all the latest 
+                <Typography variant="body1">Search for a city to view all the latest 
                   information
                 </Typography>
               </CardContent>
@@ -63,7 +63,7 @@ const IconBox = props => {
                 style={{ width: '100px', height: 'auto', margin: '20px auto 5px' }}
               />
               <CardContent>
-                <Typography variant="p">Instantly receive a recommendation for
+                <Typography variant="body1">Instantly receive a recommendation for
                   the best place to live
                 </Typography>
               </CardContent>
