@@ -5,6 +5,10 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import CompareIcon from '../../assets/compare.png';
+import PinIcon from '../../assets/pin.png';
+import SearchIcon from '../../assets/search.png';
 
 const IconCard = styled(Card)({
   boxShadow: 'none',
@@ -22,6 +26,12 @@ const IconBox = props => {
         <Grid container spacing={2}>
           <Grid item xs>
             <IconCard>
+              <CardMedia
+                component="img"
+                image={CompareIcon}
+                title="Compare Icon"
+                style={{ width: '100px', height: 'auto', margin: '20px auto 5px' }}
+              />
               <CardContent>
                 <Typography variant="p">Quickly compare up to 3 different cities
                   side-by-side
@@ -31,6 +41,12 @@ const IconBox = props => {
           </Grid>
           <Grid item xs>
             <IconCard>
+              <CardMedia
+                component="img"
+                image={SearchIcon}
+                title="Search Icon"
+                style={{ width: '100px', height: 'auto', margin: '20px auto 5px' }}
+              />
               <CardContent>
                 <Typography variant="p">Search for a city to view all the latest 
                   information
@@ -40,6 +56,12 @@ const IconBox = props => {
           </Grid>
           <Grid item xs>
             <IconCard>
+              <CardMedia
+                component="img"
+                image={PinIcon}
+                title="Pin Icon"
+                style={{ width: '100px', height: 'auto', margin: '20px auto 5px' }}
+              />
               <CardContent>
                 <Typography variant="p">Instantly receive a recommendation for
                   the best place to live
