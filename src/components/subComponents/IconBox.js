@@ -16,7 +16,7 @@ const IconCard = styled(Card)({
 });
 
 const IconBoxGrid = styled(Grid)({
-  padding: '2% 5% 0'
+  padding: '7% 5% 3%'
 });
 
 const IconBox = props => {
