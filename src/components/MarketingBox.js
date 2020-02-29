@@ -5,7 +5,6 @@ import CallToAction from "./subComponents/CallToAction";
 const MarketingBox = props => {
   return (
     <div>
-      <p>Marketing Box</p>
       <IconBox />
       <Liveability />
       <CallToAction />
