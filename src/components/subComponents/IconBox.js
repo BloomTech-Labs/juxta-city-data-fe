@@ -12,11 +12,11 @@ import SearchIcon from '../../assets/search.png';
 
 const IconCard = styled(Card)({
   boxShadow: 'none',
-  height: 250 
+  height: 240 
 });
 
 const IconBoxGrid = styled(Grid)({
-  padding: '5% 0'
+  padding: '2% 0 0'
 });
 
 const IconBox = props => {
