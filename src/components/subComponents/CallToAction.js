@@ -12,7 +12,13 @@ const CallToAction = props => {
       <Grid item sm={6}>
       </Grid>
       <Grid item sm={6} style={{ position: 'relative' }}>
-        <Typography variant="h5" align="left" style={{ float: 'left' }}>
+        <Typography
+          variant="h5"
+          align="left"
+          style={{
+          float: 'left',
+          fontWeight: 500
+        }}>
           Join now and see what the locals love and hate about the city you're
           interested in 
         </Typography>

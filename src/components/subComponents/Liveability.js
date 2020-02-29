@@ -8,7 +8,7 @@ const Liveability = props => {
   return (
     <Container style={{ backgroundColor: '#F4F4F4', padding: '3% 10% 7%' }}>
       <Container style={{ marginBottom: 50 }}>
-        <Typography variant="h4" align="center" >
+        <Typography variant="h4" align="center" style={{ fontWeight: 700 }} >
           The Liveability Score
           <LiveabilityScoreIcon
             height={80}
