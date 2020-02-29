@@ -6,14 +6,18 @@ import LiveabilityScoreIcon from '../trendingCities/LiveabilityScoreIcon';
 
 const Liveability = props => {
   return (
-    <Container>
+    <Container style={{ backgroundColor: '#F4F4F4', padding: '3% 10% 7%' }}>
       <Container style={{ marginBottom: 50 }}>
-        <Typography variant="h4" align="center">
+        <Typography variant="h4" align="center" >
           The Liveability Score
           <LiveabilityScoreIcon
             height={80}
             width={60}
-            fontSize={24}
+            fontSize={30}
+            style={{
+              marginLeft: '25px',
+              paddingRight: '12px'
+            }}
           />
         </Typography>
       </Container>
