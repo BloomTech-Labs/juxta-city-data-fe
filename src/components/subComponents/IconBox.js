@@ -16,14 +16,14 @@ const IconCard = styled(Card)({
 });
 
 const IconBoxGrid = styled(Grid)({
-  padding: '7% 5% 3%'
+  padding: '5% 1% 1%'
 });
 
 const IconBox = props => {
   return (
     <IconBoxGrid>
-      <Typography variant="h5" gutterBottom>"Find Ur" Place</Typography>
-      <Typography variant="body2" gutterBottom>Findur is a place where you can learn
+      <Typography variant="h4" gutterBottom>"Find Ur" Place</Typography>
+      <Typography variant="body1" gutterBottom>Findur is a place where you can learn
         , compare, and receive recommendations on cities across the United States!
       </Typography>
       <Grid container>
