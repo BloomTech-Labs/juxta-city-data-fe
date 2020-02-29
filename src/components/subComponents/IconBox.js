@@ -15,9 +15,13 @@ const IconCard = styled(Card)({
   height: 250 
 });
 
+const IconBoxGrid = styled(Grid)({
+  padding: '5% 0'
+});
+
 const IconBox = props => {
   return (
-    <Grid>
+    <IconBoxGrid>
       <Typography variant="h5" gutterBottom>"Find Ur" Place</Typography>
       <Typography variant="body2" gutterBottom>Findur is a place where you can learn
         , compare, and receive recommendations on cities across the United States!
@@ -69,7 +73,7 @@ const IconBox = props => {
           </IconCard>
         </Grid>
       </Grid>
-    </Grid>
+    </IconBoxGrid>
   );
 };
 export default IconBox;
