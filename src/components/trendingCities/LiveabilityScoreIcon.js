@@ -2,25 +2,34 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Icon = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
   background: #687fad;
-  height: 40px;
-  width: 30px;
+  height: ${ props => props.height ? props.height + 'px' : '40px'};
+  width: ${props => props.width ? props.width + 'px' : '30px'};
   border: 2px solid goldenrod;
 `;
 
-const Score = styled.div`
+const ScoreBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Score = styled.p`
   color: white;
-  font-size: 15px;
+  font-size: ${props => props.fontSize ? props.fontSize + 'px' : '15px'};
   font-weight: bold;
 `;
 
-const LiveabilityScoreIcon = () => {
+
+const LiveabilityScoreIcon = (props) => {
   return (
-    <Icon>
-      <Score>80</Score>
+    <Icon {...props}>
+      <ScoreBox>
+        <Score {...props}>
+          {props.score || 80}
+        </Score>
+      </ScoreBox>
     </Icon>
   );
 };
