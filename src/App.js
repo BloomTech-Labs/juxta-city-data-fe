@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./index.scss";
 import { Route } from "react-router-dom";
-import { UserContext } from "./contexts/UserContext";
+import UserContext from "./contexts/UserContext";
 import styled from "styled-components";
 import { Security, SecureRoute, ImplicitCallback } from "@okta/okta-react";
 
@@ -11,7 +11,7 @@ import Signin from "./components/auth/SignIn.js";
 import Profile from "./components/pages/Profile.js";
 
 const AppDiv = styled.div`
-  max-width: 1440px;
+  max-width: 1280px;
   width: 100%;
   margin: 0 auto;
 `;
