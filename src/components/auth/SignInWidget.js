@@ -14,7 +14,8 @@ class SignInWidget extends Component {
       features: { registration: true },
       authParams: {
         pkce: true
-      }
+      },
+      idps: [{ type: "GOOGLE", id: "0oa2kk6dn5jP7Eve04x6" }]
     });
     this.widget.renderEl({ el }, this.props.onSuccess, this.props.onError);
   }
