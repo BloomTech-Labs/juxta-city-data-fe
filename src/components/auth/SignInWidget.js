@@ -15,6 +15,8 @@ class SignInWidget extends Component {
       authParams: {
         pkce: true
       },
+      // This is add social media buttons
+      // Currently account for Google has been set, still cannot get it to link properly
       idps: [
         { type: "GOOGLE", id: "0oa2kk6dn5jP7Eve04x6" },
         { type: "FACEBOOK", id: "0oa2kk6dn5jP7Eve04x6" },
