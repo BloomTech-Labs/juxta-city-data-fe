@@ -48,10 +48,8 @@ const {cityData, setCityData} = useContext(CityContext)
 let history = useHistory();
 useEffect(()=>{
   if(search.length < 2 || undefined){
-    console.log("waiting")
     setCities([])
 }else{
-  console.log("searching")
   axios.get(`https://junta-test.herokuapp.com/search?search=${search}`).then(res => {
     setCities(res.data)
   })

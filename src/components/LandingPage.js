@@ -4,6 +4,7 @@ import { withAuth } from "@okta/okta-react";
 
 import styled from "styled-components";
 import ContentBody from "./ContentBody";
+import NavBar from "./NavBar.js";
 
 const NavDiv = styled.div`
   display: flex;
@@ -32,68 +33,22 @@ const Li = styled.li`
 export default withAuth(
   class Home extends Component {
     state = { authenticated: null };
-
     checkAuthentication = async () => {
       const authenticated = await this.props.auth.isAuthenticated();
       if (authenticated !== this.state.authenticated) {
         this.setState({ authenticated });
       }
     };
-
     async componentDidMount() {
       this.checkAuthentication();
     }
-
     async componentDidUpdate() {
       this.checkAuthentication();
     }
-
-    login = async () => {
-      this.props.auth.login("/dashboard");
-    };
-
-    logout = async () => {
-      this.props.auth.logout("/");
-    };
-
     render() {
-      if (this.state.authenticated === null) return null;
-
-      const Access = this.state.authenticated ? (
-        <NavDiv>
-          <H2>
-            <Link className="link" to="/">
-              findur
-            </Link>
-          </H2>
-          <UL>
-            <Li>
-              <Link className="link" onClick={this.logout}>
-                sign out
-              </Link>
-            </Li>
-          </UL>
-        </NavDiv>
-      ) : (
-        <NavDiv>
-          <H2>
-            <Link className="link" to="/">
-              findur
-            </Link>
-          </H2>
-          <UL>
-            <Li>
-              <Link className="link" onClick={this.login}>
-                sign in / sign up
-              </Link>
-            </Li>
-          </UL>
-        </NavDiv>
-      );
-
       return (
         <div>
-          <section>{Access}</section>
+          <NavBar {...this.props}/>
           <ContentBody />
         </div>
       );
