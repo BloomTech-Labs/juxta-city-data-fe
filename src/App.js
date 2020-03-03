@@ -28,10 +28,10 @@ const App = () => {
       onAuthRequired={onAuthRequired}
       pkce={true}
     >
-      <UserContext.Provider value={{ words: "hello" }}>
+      <UserContext.Provider>
         <AppDiv className="App">
           <Route exact path="/" component={LandingPage} />
-          <SecureRoute path="/dashboard" exact component={Dashboard} />
+          <Route path="/dashboard" exact component={Dashboard} />
           <SecureRoute path="/profile" exact component={Profile} />
           <Route
             path="/signin"
