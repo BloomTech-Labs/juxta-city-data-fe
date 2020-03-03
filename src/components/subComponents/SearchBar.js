@@ -1,10 +1,9 @@
 import React, {useState, useEffect, useContext} from "react";
+import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import CityContext from '../../contexts/CityContext.js';
 import styled from 'styled-components';
 import SearchIcon from '@material-ui/icons/Search';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const Search = styled.input`
 postition: relative;
@@ -46,6 +45,7 @@ const SearchBar = props => {
 const [search, setSearch]= useState("");
 const [cities, setCities]= useState([]);
 const {cityData, setCityData} = useContext(CityContext)
+let history = useHistory();
 useEffect(()=>{
   if(search.length < 2 || undefined){
     console.log("waiting")
@@ -62,6 +62,7 @@ const handleSubmit= e => {
   e.preventDefault()
   axios.get(`https://junta-test.herokuapp.com/data?city=${search}`).then(res => {
     setCityData(res.data);
+    history.push('/dashboard')
   })
   }
 const handleChange= e => {

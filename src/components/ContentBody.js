@@ -5,13 +5,13 @@ import MarketingBox from "./MarketingBox.js";
 import CityContext from '../contexts/CityContext.js';
 
 const ContentBody = () => {
-  const [cityData, setCityData] = useState({})
+  const [cityData, setCityData] = useState({});
   return ( 
     <div>
       <CityContext.Provider value={{cityData, setCityData}}>
-      <Header />
-      <Trending />
-      <MarketingBox />
+        <Header/>
+        <Trending/>
+        <MarketingBox/>
       </CityContext.Provider>
     </div>
   );
