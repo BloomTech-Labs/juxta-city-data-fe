@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { withAuth } from "@okta/okta-react";
 
 import styled from "styled-components";
-import ContentBody from "./ContentBody";
 import NavBar from "./NavBar.js";
+import Header from "./pages/Header.js";
+import Trending from "./trendingCities/Trending.js";
+import MarketingBox from './MarketingBox.js';
 
 const NavDiv = styled.div`
   display: flex;
@@ -49,7 +51,9 @@ export default withAuth(
       return (
         <div>
           <NavBar {...this.props}/>
-          <ContentBody />
+          <Header/>
+          <Trending/>
+          <MarketingBox/>
         </div>
       );
     }

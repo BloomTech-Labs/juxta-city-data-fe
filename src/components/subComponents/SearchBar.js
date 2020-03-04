@@ -60,7 +60,7 @@ const handleSubmit= e => {
   e.preventDefault()
   axios.get(`https://junta-test.herokuapp.com/data?city=${search}`).then(res => {
     setCityData(res.data);
-    history.push('/dashboard')
+    history.push('/cityview')
   })
   }
 const handleChange= e => {
