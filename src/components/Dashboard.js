@@ -2,8 +2,9 @@ import React from "react";
 import NavBar from "./NavBar.js";
 import Header from "./pages/Header.js";
 import Trending from "./trendingCities/Trending";
+import { withAuth } from "@okta/okta-react";
 
-export default function Dashboard(props) {
+function Dashboard(props) {
   return (
     <>
       <NavBar {...props}/>
@@ -12,3 +13,5 @@ export default function Dashboard(props) {
     </>
   );
 }
+
+export default withAuth(Dashboard);

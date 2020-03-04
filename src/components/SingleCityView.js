@@ -1,9 +1,9 @@
 import React, {useContext, useEffect} from 'react';
 import CityContext from '../contexts/CityContext.js';
 import NavBar from './NavBar.js';
+import { withAuth } from "@okta/okta-react";
 
-
-export default function SingleCityView(props){
+function SingleCityView(props){
     const {cityData, setCityData} = useContext(CityContext)
     console.log(cityData)
     useEffect(()=> {
@@ -18,3 +18,5 @@ export default function SingleCityView(props){
         </div>
     )
 }
+
+export default withAuth(SingleCityView);
