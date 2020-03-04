@@ -8,30 +8,6 @@ import Header from "./pages/Header.js";
 import Trending from "./trendingCities/Trending.js";
 import MarketingBox from './MarketingBox.js';
 
-const NavDiv = styled.div`
-  display: flex;
-  justify-content: space-around;
-`;
-
-const UL = styled.ul`
-  width: 60%;
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-`;
-
-const H2 = styled.h2`
-  width: 40%;
-  justify-content: flex-start;
-`;
-
-const Li = styled.li`
-  margin: 0 15px;
-  text-transform: capitalize;
-`;
-
 export default withAuth(
   class Home extends Component {
     state = { authenticated: null };
