@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import CityContext from '../contexts/CityContext.js';
-import NavBar from './NavBar.js';
+import NavBar from './Navbar.js';
 import { withAuth } from "@okta/okta-react";
 
 function SingleCityView(props){

@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Header from "./pages/Header.js";
 import Trending from "./trendingCities/Trending.js";
 import MarketingBox from './MarketingBox.js';
-import NavBar from './NavBar';
+import NavBar from './Navbar';
 
 
  const LandingPage = (props) => {
