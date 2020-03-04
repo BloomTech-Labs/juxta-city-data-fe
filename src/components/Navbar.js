@@ -26,7 +26,7 @@ import "../App.css";
     text-transform: capitalize;
   `;
 
-const SignedInNavBar = (props) => {
+const NavBar = (props) => {
   const login = async () => {
     props.auth.login("/dashboard");
   };
@@ -71,4 +71,4 @@ const SignedInNavBar = (props) => {
     )
   );
 };
-export default SignedInNavBar;
+export default NavBar;
