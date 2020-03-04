@@ -12,6 +12,7 @@ import Signin from "./components/auth/SignIn.js";
 import Profile from "./components/pages/Profile.js";
 import SingleCityView from './components/SingleCityView.js';
 
+
 const AppDiv = styled.div`
   max-width: 1280px;
   width: 100%;

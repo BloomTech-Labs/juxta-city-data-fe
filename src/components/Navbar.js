@@ -27,6 +27,7 @@ import "../App.css";
   `;
 
 const NavBar = (props) => {
+  console.log(props.auth)
   const login = () => {
     props.auth.login("/dashboard");
   };
