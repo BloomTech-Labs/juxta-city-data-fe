@@ -27,7 +27,6 @@ import "../App.css";
   `;
 
 const SignedInNavBar = (props) => {
-  console.log(props)
   const login = async () => {
     props.auth.login("/dashboard");
   };
