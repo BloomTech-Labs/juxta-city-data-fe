@@ -1,12 +1,17 @@
 import React from "react";
-import SignedInNavBar from "./SignedInNavBar.js";
-import ContentBody from "./ContentBody.js";
+import NavBar from "./Navbar.js";
+import Header from "./pages/Header.js";
+import Trending from "./trendingCities/Trending";
+import { withAuth } from "@okta/okta-react";
 
-export default function Dashboard(props) {
+function Dashboard(props) {
   return (
     <>
-      <SignedInNavBar />
-      <ContentBody />
+      <NavBar {...props}/>
+      <Header/>
+      <Trending/>
     </>
   );
 }
+
+export default withAuth(Dashboard);

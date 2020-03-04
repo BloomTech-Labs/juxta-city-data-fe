@@ -1,7 +1,22 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
+import CityContext from '../contexts/CityContext.js';
+import NavBar from './Navbar.js';
+import { withAuth } from "@okta/okta-react";
 
-export default function SingleCityView(props){
+function SingleCityView(props){
+    const {cityData, setCityData} = useContext(CityContext)
+    console.log(cityData)
+    useEffect(()=> {
+        if(!cityData.city){
+            return props.history.push('dashboard');
+        }
+    },[])
     return(
-        <div>SingleCityView</div>
+        <div>
+            <NavBar {...props}/>
+    <p>city: {cityData.city}</p>
+        </div>
     )
 }
+
+export default withAuth(SingleCityView);

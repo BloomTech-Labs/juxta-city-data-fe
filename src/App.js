@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./index.scss";
 import { Route } from "react-router-dom";
 import UserContext from "./contexts/UserContext";
+import CityContext from './contexts/CityContext.js';
 import styled from "styled-components";
 import { Security, SecureRoute, ImplicitCallback } from "@okta/okta-react";
 
@@ -9,6 +10,8 @@ import LandingPage from "./components/LandingPage.js";
 import Dashboard from "./components/Dashboard.js";
 import Signin from "./components/auth/SignIn.js";
 import Profile from "./components/pages/Profile.js";
+import SingleCityView from './components/SingleCityView.js';
+
 
 const AppDiv = styled.div`
   max-width: 1280px;
@@ -19,8 +22,8 @@ const AppDiv = styled.div`
 const onAuthRequired = ({ history }) => {
   history.push("/signin");
 };
-
 const App = () => {
+  const [cityData, setCityData] = useState({});
   return (
     <Security
       issuer="https://dev-816550.okta.com/oauth2/default"
@@ -29,18 +32,22 @@ const App = () => {
       onAuthRequired={onAuthRequired}
       pkce={true}
     >
-      <UserContext.Provider value={{ words: "hello" }}>
-        <AppDiv className="App">
-          <Route exact path="/" component={LandingPage} />
-          <SecureRoute path="/dashboard" exact component={Dashboard} />
-          <SecureRoute path="/profile" exact component={Profile} />
-          <Route
+      <CityContext.Provider value={{cityData, setCityData}}>
+        <UserContext.Provider>
+          <AppDiv className="App">
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/dashboard" exact component={Dashboard} />
+            <Route path='/cityview' exact component={SingleCityView}/>
+            <SecureRoute path="/profile" exact component={Profile} />
+            <Route
             path="/signin"
             render={() => <Signin baseUrl="https://dev-816550.okta.com" />}
-          />
-          <Route path="/implicit/callback" component={ImplicitCallback} />
-        </AppDiv>
-      </UserContext.Provider>
+            />
+            <Route path="/implicit/callback" component={ImplicitCallback} />
+          </AppDiv>
+        </UserContext.Provider>
+      </CityContext.Provider>
+      
     </Security>
   );
 };
