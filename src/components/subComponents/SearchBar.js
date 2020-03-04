@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import SearchIcon from '@material-ui/icons/Search';
 
 const Search = styled.input`
-postition: relative;
+position: relative;
 width: 450px;
 height: 30px;
 border: 0px;
