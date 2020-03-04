@@ -7,14 +7,14 @@ export default function SingleCityView(props){
     const {cityData, setCityData} = useContext(CityContext)
     console.log(cityData)
     useEffect(()=> {
-        if(!cityData[0].city){
+        if(!cityData.city){
             return props.history.push('dashboard');
         }
     },[])
     return(
         <div>
             <NavBar {...props}/>
-    <p>city: {cityData[0].city}</p>
+    <p>city: {cityData.city}</p>
         </div>
     )
 }
