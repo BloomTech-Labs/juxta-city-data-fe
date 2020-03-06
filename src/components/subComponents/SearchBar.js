@@ -10,7 +10,7 @@ position: relative;
 width: 670px;
 height: 30px;
 border: 0px;
-font-size: 14px;
+font-size: 19px;
 `
 const Form = styled.form`
 width: 800px;
@@ -40,15 +40,14 @@ width: 670px;
 margin-right: 45px;
 `
 const City = styled.p`
-line-height: 1;
-font-size: 16px;
+line-height: 1.5;
+font-size: 19px;
 margin: 0px;
 
 background: white;
 background: whitesmoke;
-border: 1px solid lightgrey;
 :hover {
-  background: lightgrey;
+  background: #BBDEFB;
 }
 `
 
@@ -87,9 +86,11 @@ setSearch(city);
         <Search type='string' name='city' value={search} placeholder='Search for a City' onChange={handleChange} />
         <Button type='submit'><SearchIcon/></Button>
         <CityDropDown>
-          {cities.length > 1 ? cities.splice(0,10).map(city => (
-            <City onClick={()=>handleCityClick(city)}>{city}</City>
-          )): <div></div>}
+          {cities.length == 0 && search !== "" && search.split("").length > 2? <City>No Matches Found...</City> :
+            cities.splice(0,4).map(city => (
+              <City onClick={()=>handleCityClick(city)}>{city}</City>
+            ))
+          }
         </CityDropDown>    
       </Form>
   );
