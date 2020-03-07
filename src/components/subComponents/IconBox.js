@@ -14,13 +14,19 @@ import { bold } from "ansi-colors";
 
 const IconCard = styled(Card)({
   boxShadow: 'none',
-  height: 250
+  height: 250,
+  '@media (max-width: 768px)': {
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  }
 });
 const TypoH4 = styled(Typography)({
 fontWeight: 'bold',
 })
 const TypoBody = styled(Typography)({
-  width: '876px',
+  width: '75%',
   margin: '0 auto',
   fontSize: '18px',
   marginBottom: 30
@@ -34,7 +40,21 @@ const IconBoxGrid = styled(Grid)({
   flexDirection: 'column',
 });
 const TypoIcon =styled(Typography)({
-  fontSize: 18
+  fontSize: 18,
+  '@media (max-width: 768px)': {
+    textAlign: 'center',
+    width: '50%',
+    margin: '0 auto',
+  }
+})
+
+const Container = styled(Grid)({
+'@media (max-width: 768px)': {
+  flexDirection: 'column',
+  width: '100%',
+  margin: '0 auto',
+}
+  
 })
 
 
@@ -45,14 +65,14 @@ const IconBox = props => {
       <TypoBody variant="body1" gutterBottom>Findur is a place where you can learn
         , compare, and receive recommendations on cities across the United States!
       </TypoBody>
-      <Grid container>
-        <Grid item xs>
+      <Container container>
+        <Grid item xs style={{width: '100%'}}>
           <IconCard>
             <CardMedia
               component="img"
               image={CompareIcon}
               title="Compare Icon"
-              style={{ width: '100px', height: 'auto', margin: '20px auto 5px' }}
+              style={{ width: '100px', height: '100px', margin: '20px' }}
             />
             <CardContent>
               <TypoIcon variant="body1">Quickly compare up to 3 different cities
@@ -67,7 +87,7 @@ const IconBox = props => {
               component="img"
               image={SearchIcon}
               title="Search Icon"
-              style={{ width: '100px', height: 'auto', margin: '20px auto 5px' }}
+              style={{ width: '100px', height: '100px', margin: '20px auto 5px' }}
             />
             <CardContent>
               <TypoIcon variant="body1">Search for a city to view all the latest 
@@ -82,7 +102,7 @@ const IconBox = props => {
               component="img"
               image={PinIcon}
               title="Pin Icon"
-              style={{ width: '74px', height: 'auto', margin: '20px auto 5px' }}
+              style={{ width: '75px', height: '105px', margin: '20px auto 5px' }}
             />
             <CardContent>
               <TypoIcon variant="body1">Instantly receive a recommendation for
@@ -91,7 +111,7 @@ const IconBox = props => {
             </CardContent>
           </IconCard>
         </Grid>
-      </Grid>
+      </Container>
     </IconBoxGrid>
   );
 };

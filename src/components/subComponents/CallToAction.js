@@ -6,17 +6,17 @@ import Button from '@material-ui/core/Button';
 
 const CallToAction = props => {
   return (
-    <Grid container style={{ padding: '3% 10%', width: 1100, margin: '0 auto'}}>
+    <Grid container style={{ padding: '3% 10%', width: '100%', margin: '0 auto'}}>
       <Grid item sm={6}>
       </Grid>
       <Grid item style={{ width: '100%', display: 'flex', flexDirection:'column'}}>
-      <Link to="/signin" style={{margin: '0 auto'}}>
+      <Link to="/signin" style={{margin: '0 auto',textDecoration: 'none'}}>
           <Button
             variant="contained"
             style={{
               backgroundColor: "#8BC34A",
               color: 'white',
-              width: 180
+              width: 180,
           }}>
             Sign Up
           </Button>
@@ -26,7 +26,7 @@ const CallToAction = props => {
           align="center"
           style={{
             width: '100%',
-          fontWeight: 500,
+          fontWeight: 400,
           fontSize: 18
         }}>
           Join now and see what the locals love and hate about the city you're

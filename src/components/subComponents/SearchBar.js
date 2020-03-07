@@ -7,13 +7,13 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const Search = styled.input`
 position: relative;
-width: 670px;
+width: 58%;
 height: 30px;
 border: 0px;
 font-size: 19px;
 `
 const Form = styled.form`
-width: 800px;
+width: 90%;
 margin: 0 auto;
 display: flex;
 flex-wrap: wrap;
@@ -36,7 +36,7 @@ justify-content: center;
 
 const CityDropDown = styled.div`
 z-index: 2;
-width: 670px;
+width: 58%;
 margin-right: 45px;
 `
 const City = styled.p`
