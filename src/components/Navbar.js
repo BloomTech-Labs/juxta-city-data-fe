@@ -2,27 +2,34 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "../App.css";
+import Logo from '../assets/logo.png'
 
   const NavDiv = styled.div`
     display: flex;
-    justify-content: flex-start;
+    height: 80px;
   `;
   const UL = styled.ul`
-    width: 60%;
+    width: 65%;
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-end;
   `;
 
   const H2 = styled.h2`
-    width: 40%;
+    width: 25%;
+    margin-left: 50px;
     justify-content: flex-start;
+    padding-right: 30px;
   `;
 
   const Li = styled.li`
+    width: 18%;
+    text-decoration: none;
+    max-padding: 0 20px;
     margin: 0 15px;
+    font-weight: 600;
     text-transform: capitalize;
   `;
 
@@ -44,7 +51,7 @@ const NavBar = (props) => {
       <NavDiv>
         <H2>
           <Link className="link" to="/">
-            findur
+            <img src={Logo}/>
           </Link>
         </H2>
         <UL>
@@ -59,10 +66,15 @@ const NavBar = (props) => {
       <NavDiv>
         <H2>
           <Link className="link" to="/">
-            findur
+          <img src={Logo}/>
           </Link>
         </H2>
         <UL>
+          <Li>
+            <Link className="link" to='/about'>
+            About
+            </Link>
+          </Li>
           <Li>
             <Link className="link" onClick={login} >
               sign in / sign up
