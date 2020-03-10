@@ -35,7 +35,7 @@ const App = () => {
       <CityContext.Provider value={{cityData, setCityData}}>
         <UserContext.Provider>
           <AppDiv className="App">
-            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/" component={LandingPage}/>
             <Route path="/dashboard" exact component={Dashboard} />
             <Route path='/cityview' exact component={SingleCityView}/>
             <SecureRoute path="/profile" exact component={Profile} />
