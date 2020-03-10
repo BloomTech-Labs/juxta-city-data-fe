@@ -1,15 +1,15 @@
-import React from "react";
-import NavBar from "./Navbar.js";
-import Header from "./pages/Header.js";
-import Trending from "./trendingCities/Trending";
-import { withAuth } from "@okta/okta-react";
+import React from 'react';
+import NavBar from './Navbar.js';
+import Header from './pages/Header.js';
+import BestCities from './bestCities/BestCities';
+import { withAuth } from '@okta/okta-react';
 
 function Dashboard(props) {
   return (
     <>
-      <NavBar {...props}/>
-      <Header/>
-      <Trending/>
+      <NavBar {...props} />
+      <Header />
+      <BestCities />
     </>
   );
 }

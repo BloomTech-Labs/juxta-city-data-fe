@@ -1,23 +1,22 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { withAuth } from "@okta/okta-react";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { withAuth } from '@okta/okta-react';
 
-import styled from "styled-components";
-import Header from "./pages/Header.js";
-import Trending from "./trendingCities/Trending.js";
+import styled from 'styled-components';
+import Header from './pages/Header.js';
+import BestCities from './bestCities/BestCities';
 import MarketingBox from './MarketingBox.js';
 import NavBar from './Navbar';
 
+const LandingPage = props => {
+  return (
+    <div>
+      <NavBar {...props} />
+      <Header />
+      <BestCities />
+      <MarketingBox />
+    </div>
+  );
+};
 
- const LandingPage = (props) => {
-      return (
-        <div>
-          <NavBar {...props}/>
-          <Header/>
-          <Trending/>
-          <MarketingBox/>
-        </div>
-      );
-  }
-
-  export default withAuth(LandingPage)
+export default withAuth(LandingPage);
