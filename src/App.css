@@ -5,6 +5,9 @@
 .link {
   text-decoration: none;
 }
+.link:hover {
+  font-weight: 700;
+}
 
 a:link {
   color: darkslategray;
@@ -16,7 +19,7 @@ a:visited {
 
 a:hover {
   color: darkslategray;
-  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 a:active {

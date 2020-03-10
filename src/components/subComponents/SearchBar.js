@@ -7,13 +7,13 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const Search = styled.input`
 position: relative;
-width: 450px;
+width: 58%;
 height: 30px;
 border: 0px;
-font-size: 20px;
+font-size: 19px;
 `
 const Form = styled.form`
-width: 620px;
+width: 90%;
 margin: 0 auto;
 display: flex;
 flex-wrap: wrap;
@@ -23,21 +23,31 @@ justify-content:center;
 const Button = styled.button`
 border: 0px;
 background: white;
+width: 45px;
 height: 30px;
+background: #8BC34A;
+color: white;
+display: flex;
+justify-content: center;
+:hover {
+  border: 1px solid white;
+}
 `
+
 const CityDropDown = styled.div`
 z-index: 2;
+width: 58%;
+margin-right: 45px;
 `
 const City = styled.p`
-width: 487px;
-line-height: 1;
-font-size: 20px;
-background: white;
+line-height: 1.5;
+font-size: 19px;
 margin: 0px;
+
+background: white;
 background: whitesmoke;
-border: 1px solid lightgrey;
 :hover {
-  background: lightgrey;
+  background: #BBDEFB;
 }
 `
 
@@ -73,12 +83,14 @@ setSearch(city);
 
   return (
       <Form autoComplete='off' onSubmit={handleSubmit}>
-        <Search type='string' name='city' value={search} onChange={handleChange} />
+        <Search type='string' name='city' value={search} placeholder='Search for a City' onChange={handleChange} />
         <Button type='submit'><SearchIcon/></Button>
         <CityDropDown>
-          {cities.length > 1 ? cities.splice(0,10).map(city => (
-            <City onClick={()=>handleCityClick(city)}>{city}</City>
-          )): <div></div>}
+          {cities.length == 0 && search !== "" && search.split("").length > 2? <City>No Matches Found...</City> :
+            cities.splice(0,4).map(city => (
+              <City onClick={()=>handleCityClick(city)}>{city}</City>
+            ))
+          }
         </CityDropDown>    
       </Form>
   );

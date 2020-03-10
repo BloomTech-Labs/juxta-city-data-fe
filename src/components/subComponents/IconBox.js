@@ -8,36 +8,76 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CompareIcon from '../../assets/compare.png';
 import PinIcon from '../../assets/pin.png';
 import SearchIcon from '../../assets/search.png';
+import { fontSize, display } from "@material-ui/system";
+import { blue } from "@material-ui/core/colors";
+import { bold } from "ansi-colors";
 
 const IconCard = styled(Card)({
   boxShadow: 'none',
-  height: 240 
+  height: 250,
+  '@media (max-width: 768px)': {
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  }
 });
-
+const TypoH4 = styled(Typography)({
+fontWeight: 'bold',
+})
+const TypoBody = styled(Typography)({
+  width: '75%',
+  margin: '0 auto',
+  fontSize: '18px',
+  marginBottom: 30
+})
 const IconBoxGrid = styled(Grid)({
-  padding: '5% 1% 1%'
+  padding: '1% 1% -1%',
+  maxWidth: '1100px',
+  margin: '30px auto',
+  boxShadow:' 0px 1px 12px rgba(0, 0, 0, 0.12), 0px 4px 8px rgba(0, 0, 0, 0.02), 0px 1px 4px rgba(0, 0, 0, 0.01)',
+  display: 'flex',
+  flexDirection: 'column',
 });
+const TypoIcon =styled(Typography)({
+  fontSize: 18,
+  '@media (max-width: 768px)': {
+    textAlign: 'center',
+    width: '50%',
+    margin: '0 auto',
+  }
+})
+
+const Container = styled(Grid)({
+'@media (max-width: 768px)': {
+  flexDirection: 'column',
+  width: '100%',
+  margin: '0 auto',
+}
+  
+})
+
 
 const IconBox = props => {
   return (
     <IconBoxGrid>
-      <Typography variant="h4" gutterBottom>"Find Ur" Place</Typography>
-      <Typography variant="body1" gutterBottom>Findur is a place where you can learn
+      <TypoH4 variant="h4" align='center' gutterBottom>"Find Ur" place</TypoH4>
+      <TypoBody variant="body1" gutterBottom>Findur is a place where you can learn
         , compare, and receive recommendations on cities across the United States!
-      </Typography>
-      <Grid container>
-        <Grid item xs>
+      </TypoBody>
+      <Container container>
+        <Grid item xs style={{width: '100%'}}>
           <IconCard>
             <CardMedia
               component="img"
               image={CompareIcon}
               title="Compare Icon"
-              style={{ width: '100px', height: 'auto', margin: '20px auto 5px' }}
+              style={{ width: '100px', height: '100px', margin: '20px' }}
             />
             <CardContent>
-              <Typography variant="body1">Quickly compare up to 3 different cities
+              <TypoIcon variant="body1">Quickly compare up to 3 different cities
                 side-by-side
-              </Typography>
+              </TypoIcon>
             </CardContent>
           </IconCard>
         </Grid>
@@ -47,12 +87,12 @@ const IconBox = props => {
               component="img"
               image={SearchIcon}
               title="Search Icon"
-              style={{ width: '100px', height: 'auto', margin: '20px auto 5px' }}
+              style={{ width: '100px', height: '100px', margin: '20px auto 5px' }}
             />
             <CardContent>
-              <Typography variant="body1">Search for a city to view all the latest 
+              <TypoIcon variant="body1">Search for a city to view all the latest 
                 information
-              </Typography>
+              </TypoIcon>
             </CardContent>
           </IconCard>
         </Grid>
@@ -62,16 +102,16 @@ const IconBox = props => {
               component="img"
               image={PinIcon}
               title="Pin Icon"
-              style={{ width: '100px', height: 'auto', margin: '20px auto 5px' }}
+              style={{ width: '75px', height: '105px', margin: '20px auto 5px' }}
             />
             <CardContent>
-              <Typography variant="body1">Instantly receive a recommendation for
+              <TypoIcon variant="body1">Instantly receive a recommendation for
                 the best place to live
-              </Typography>
+              </TypoIcon>
             </CardContent>
           </IconCard>
         </Grid>
-      </Grid>
+      </Container>
     </IconBoxGrid>
   );
 };
