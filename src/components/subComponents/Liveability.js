@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const styles = makeStyles(theme => ({
   container: {
+    height: 260,
     [theme.breakpoints.down('sm')]: {
       height: 370,
       width: '90%'
@@ -14,6 +15,9 @@ const styles = makeStyles(theme => ({
   h4: {
     fontWeight: 700,
     fontSize: 40,
+    textAlign: 'center',
+    margin: 0,
+    paddingBottom: 55,
     [theme.breakpoints.down('sm')]: {
       fontStyle: 'normal',
       fontWeight: 500,
@@ -23,7 +27,10 @@ const styles = makeStyles(theme => ({
     }
   },
   Icon : {
+    position: 'absolute',
+    marginLeft: 15,
     [theme.breakpoints.down('sm')]: {
+      position: 'relative',
       width: 45,
       alignSelf: 'flex-end',
       marginLeft: '80%'
@@ -38,7 +45,7 @@ const Liveability = props => {
       className={classes.container}
       style={{
         maxWidth: 1100,
-        padding: '1.5% 2.5% 2%',
+        padding: '3.5% 2.5% 2%',
         boxShadow:
           ' 0px 1px 12px rgba(0, 0, 0, 0.12), 0px 4px 8px rgba(0, 0, 0, 0.02), 0px 1px 4px rgba(0, 0, 0, 0.01)',
       }}

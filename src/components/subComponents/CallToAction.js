@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 const CallToAction = props => {
   return (
-    <Grid container style={{ padding: '20% 10%', width: '100%', margin: '0 auto'}}>
+    <Grid container style={{ padding: '80px 10%', width: '100%', margin: '0 auto'}}>
       <Grid item sm={6}>
       </Grid>
       <Grid item style={{ width: '100%', display: 'flex', flexDirection:'column'}}>
