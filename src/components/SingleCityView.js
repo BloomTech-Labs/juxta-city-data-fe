@@ -17,7 +17,6 @@ const styles = makeStyles(theme => ({
 function SingleCityView(props){
     const {cityData, setCityData} = useContext(CityContext)
     const classes = styles();
-    console.log(cityData)
     useEffect(()=> {
         if(!cityData.city){
             return props.history.replace('/dashboard');

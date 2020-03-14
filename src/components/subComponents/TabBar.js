@@ -29,10 +29,11 @@ const classes = styles();
 const handleChange = (event, newValue) => {
     setValue(newValue)
     const ele = document.getElementById(newValue)
-    console.log(ele.offsetTop)
-    const offset = ele.offsetTop
-    console.log(offset)
-    if (ele) window.scrollTo(0, offset);
+    
+    if (ele){
+        const offset = ele.offsetTop
+        window.scrollTo(0, offset);
+    } 
 }
 
     return(

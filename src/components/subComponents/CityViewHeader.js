@@ -35,7 +35,6 @@ const styles = makeStyles(theme => ({
 }));
 
 export default function CityViewHeader(props){
-    console.log(props)
     const classes = styles();
     return(
         <div className={classes.root}>
