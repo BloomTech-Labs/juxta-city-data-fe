@@ -42,7 +42,8 @@ padding: 0 10px;
 }
 `
 
-const Header = () => {
+const Header = (props) => {
+  
   return (
     <Div>
       <Heading>FIND THE PERFECT <LargeText> CITY </LargeText> TO CALL <LargeText> HOME </LargeText></Heading>

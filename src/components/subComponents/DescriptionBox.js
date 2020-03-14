@@ -9,7 +9,7 @@ import styled from 'styled-components';
 const styles = makeStyles(theme => ({
     root: {
         width: '50%',
-        margin: '62px 0 0 123px'
+        margin: '67px 0 0 123px',
     },
     heading: {
         fontStyle: 'normal',
@@ -26,7 +26,7 @@ const styles = makeStyles(theme => ({
 export default function CityContent(props){
     const classes = styles();
     return (
-        <div className={classes.root}>
+        <div className={classes.root} id={props.title.trim()}>
             <h2 className={classes.heading}>{props.title}</h2>
             <p className={classes.description}>{props.data}</p>
         </div>

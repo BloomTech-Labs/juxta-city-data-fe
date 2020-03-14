@@ -8,13 +8,17 @@ import { useMediaQuery } from '@material-ui/core';
 
 
 const styles = makeStyles(theme => ({
+    container: {
+        position: 'sticky',
+        top: 80
+    },
     Tabs : {
         background: '#2196F3',
         fontStyle: 'normal',
         fontWeight: 500,
         fontSize: 24,
         lineHeight: 28,
-        color: 'white'
+        color: 'white',
     }
 }))
 
@@ -24,11 +28,16 @@ const classes = styles();
 
 const handleChange = (event, newValue) => {
     setValue(newValue)
-    props.history.replace(`/cityview/#${newValue}`)
+    const ele = document.getElementById(newValue)
+    console.log(ele.offsetTop)
+    const offset = ele.offsetTop
+    console.log(offset)
+    if (ele) window.scrollTo(0, offset);
 }
 
     return(
-        <AppBar position="static" color="default">
+        <div className={classes.container}>
+            <AppBar position="sticky" className='classes.AppBar' color="default">
             <Tabs
             className={classes.Tabs}
             value={value}
@@ -43,9 +52,11 @@ const handleChange = (event, newValue) => {
                 <Tab label="Population" value="Population" />
                 <Tab label="Climate" value="Climate"/>
                 <Tab label="Economy" value="Economy"/>
-                <Tab label="Cost of Living" value="CostOfLiving"/>
+                <Tab label="Cost of Living" value="Cost of Living"/>
             </Tabs>
             
         </AppBar>
+        </div>
+        
     )
 }

@@ -3,11 +3,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "../App.css";
 import Logo from '../assets/logo.png'
+import LogoWhite from '../assets/logo-white.png'
 
-  const NavDiv = styled.div`
-    display: flex;
-    height: 80px;
-  `;
+  
   const UL = styled.ul`
     width: 65%;
     list-style-type: none;
@@ -34,8 +32,15 @@ import Logo from '../assets/logo.png'
   `;
 
 const NavBar = (props) => {
-  
-  console.log(props.auth)
+  const NavDiv = styled.div`
+    display: flex;
+    height: 80px;
+    z-index: 1;
+    position: ${!props.location.pathname.includes('/cityview') ? 'relative' : 'sticky; top: 0'};
+    width: 1280px;
+    background: ${ !props.location.pathname.includes('/cityview') ? 'white' : '#2196F3'};
+    
+  `;
   const login = () => {
     props.auth.login("/dashboard");
   };
@@ -51,7 +56,7 @@ const NavBar = (props) => {
       <NavDiv>
         <H2>
           <Link className="link" to="/">
-            <img src={Logo}/>
+            <img src={props.location.pathname !== '/cityview' ? Logo : LogoWhite}/>
           </Link>
         </H2>
         <UL>
@@ -66,7 +71,7 @@ const NavBar = (props) => {
       <NavDiv>
         <H2>
           <Link className="link" to="/">
-          <img src={Logo}/>
+          <img src={props.location.pathname !== '/cityview' ? Logo : LogoWhite}/>
           </Link>
         </H2>
         <UL>

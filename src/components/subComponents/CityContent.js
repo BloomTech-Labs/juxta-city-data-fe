@@ -14,13 +14,12 @@ const styles = makeStyles(theme => ({
 }))
 export default function CityContent(props){
     const classes = styles();
-    console.log(props)
     return (
         <div className='classes.root'>
-            <DescriptionBox id='Population' {...props} title={'Population'} data={props.cityData.population_desc}/>
-            <DescriptionBox id='Climate' {...props} title={'Climate'} data={props.cityData.climate_desc}/>
-            <DescriptionBox id='Economy' {...props} title={'Economy'} data={props.cityData.economy_desc}/>
-            <DescriptionBox id='CostOfLiving' {...props} title={'Cost of Living'} data={props.cityData.living_cost_desc}/>
+            <DescriptionBox  {...props} title={'Population'} data={props.cityData.population_desc}/>
+            <DescriptionBox  {...props} title={'Climate'} data={props.cityData.climate_desc}/>
+            <DescriptionBox  {...props} title={'Economy'} data={props.cityData.economy_desc}/>
+            <DescriptionBox  {...props} title={'Cost of Living'} data={props.cityData.living_cost_desc}/>
         </div>
     )
 }
