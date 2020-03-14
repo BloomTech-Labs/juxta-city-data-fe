@@ -32,7 +32,7 @@ const handleChange = (event, newValue) => {
     
     if (ele){
         const offset = ele.offsetTop
-        window.scrollTo(0, offset);
+        window.scrollTo(0, offset-190);
     } 
 }
 

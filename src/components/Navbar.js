@@ -37,7 +37,7 @@ const NavBar = (props) => {
     height: 80px;
     z-index: 1;
     position: ${!props.location.pathname.includes('/cityview') ? 'relative' : 'sticky; top: 0'};
-    width: 1280px;
+    max-width: 1280px;
     background: ${ !props.location.pathname.includes('/cityview') ? 'white' : '#2196F3'};
     
   `;
