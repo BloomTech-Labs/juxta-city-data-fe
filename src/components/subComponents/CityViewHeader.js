@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import fullheart from '../../assets/fullheart.png'
+import emptyheart from '../../assets/emptyheart.png'
 
 import { makeStyles } from '@material-ui/core/styles';
 import { useMediaQuery } from '@material-ui/core';
@@ -39,7 +40,7 @@ export default function CityViewHeader(props){
     return(
         <div className={classes.root}>
             <div className={classes.HeadingBox}>
-                <img className={classes.Heart} src={fullheart}/>
+                <img className={classes.Heart} src={localStorage.getItem('okta-token-storage')? fullheart: emptyheart}/>
                <h3 className={classes.Heading}>{props.cityData.city}</h3> 
             </div>
             <p className={classes.Note}>Population: {props.cityData.population}</p>
