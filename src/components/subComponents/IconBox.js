@@ -73,6 +73,7 @@ const IconBox = props => {
               image={CompareIcon}
               title="Compare Icon"
               style={{ width: '100px', height: '100px', margin: '20px' }}
+              alt="Compare Icon"
             />
             <CardContent>
               <TypoIcon variant="body1">Quickly compare up to 3 different cities
@@ -88,6 +89,7 @@ const IconBox = props => {
               image={SearchIcon}
               title="Search Icon"
               style={{ width: '100px', height: '100px', margin: '20px auto 5px' }}
+              alt="Search Icon"
             />
             <CardContent>
               <TypoIcon variant="body1">Search for a city to view all the latest 
@@ -103,6 +105,7 @@ const IconBox = props => {
               image={PinIcon}
               title="Pin Icon"
               style={{ width: '75px', height: '105px', margin: '20px auto 5px' }}
+              alt="Pin Icon"
             />
             <CardContent>
               <TypoIcon variant="body1">Instantly receive a recommendation for
