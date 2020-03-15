@@ -22,7 +22,7 @@ const CallToAction = props => {
           </Button>
         </Link>
         <Typography
-          variant="p"
+          variant="body1"
           align="center"
           style={{
             width: '100%',
