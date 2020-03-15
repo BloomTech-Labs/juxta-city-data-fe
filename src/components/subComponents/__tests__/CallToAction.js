@@ -16,7 +16,6 @@ function renderWithRouter(
   }
 }
 
-
 it('should render sign up button', () => {
   const { getByText } = renderWithRouter(<CallToAction />);
   const signUpBtn = getByText(/Sign Up/);
@@ -39,5 +38,4 @@ it('should route to /signup on button click', () => {
   fireEvent.click(signUpBtn);
 
   expect(history.entries[history.entries.length -1].pathname).toMatch(/\/signin/);
-
 });
