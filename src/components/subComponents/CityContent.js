@@ -10,12 +10,15 @@ import styled from 'styled-components';
 const styles = makeStyles(theme => ({
     root: {
         width: '50%',
+        [theme.breakpoints.down('sm')]: {
+            width: '90%',
+        }
     }
 }))
 export default function CityContent(props){
     const classes = styles();
     return (
-        <div className='classes.root'>
+        <div className={classes.root}>
             <DescriptionBox  {...props} title={'Population'} data={props.cityData.population_desc}/>
             <DescriptionBox  {...props} title={'Climate'} data={props.cityData.climate_desc}/>
             <DescriptionBox  {...props} title={'Economy'} data={props.cityData.economy_desc}/>

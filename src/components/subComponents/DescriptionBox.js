@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const styles = makeStyles(theme => ({
     root: {
-        width: '50%',
+        width: '100%',
         margin: '67px 0 0 123px',
         [theme.breakpoints.down('sm')]: {
             margin: '67px 0 0 0'
@@ -18,11 +18,19 @@ const styles = makeStyles(theme => ({
         fontStyle: 'normal',
         fontWeight: 500,
         fontSize: 24,
+        [theme.breakpoints.down('sm')]: {
+            width: '90%',
+            margin: '0 auto',
+        }
     },
     description: {
         width: 400,
         fontWeight: 400,
-        fontSize: 16
+        fontSize: 16,
+        [theme.breakpoints.down('sm')]: {
+            width: '90%',
+            margin: '0 auto',
+        }
     }
 
 }))

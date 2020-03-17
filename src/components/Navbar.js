@@ -61,9 +61,9 @@ const NavBar = (props) => {
         </H2>
         <UL>
           <Li>
-            <Link className="link" onClick={logout}>
+            <button className="link" onClick={logout}>
               sign out
-            </Link>
+            </button>
           </Li>
         </UL>
       </NavDiv>
@@ -81,9 +81,9 @@ const NavBar = (props) => {
             </Link>
           </Li>
           <Li>
-            <Link className="link" onClick={login} >
+            <button className="link" onClick={login} >
               sign in / sign up
-            </Link>
+            </button>
           </Li>
         </UL>
       </NavDiv>

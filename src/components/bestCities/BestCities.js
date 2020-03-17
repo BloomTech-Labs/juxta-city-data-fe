@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { useMediaQuery } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 
 import MaterialUiGridList from './MaterialUIGridList';
 
@@ -12,14 +13,18 @@ const useStyles = makeStyles(theme => ({
   root: {
     marginTop: 52,
     marginBottom: 52,
-    maxWidth: '90%',
-    margin: '0 auto',
   },
   titleBar: {
     background: 'none',
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 24,
+  },
+  hover: {
+    '&:hover': {
+      background: '#000',
+      opacity: '0.8',
+    },
   },
 }));
 
@@ -29,7 +34,7 @@ const Heading = styled.h2`
 
 const Trending = () => {
   const classes = useStyles();
-  const mobile = useMediaQuery('(max-width: 1023px)');
+  const mobile = useMediaQuery('(max-width: 600px)');
   const [gridList, setGridList] = useState([]);
 
   useEffect(() => {
@@ -42,10 +47,15 @@ const Trending = () => {
   }, []);
 
   return (
-    <div className={classes.root}>
+    <Container className={classes.root}>
       <Heading>Best Cities</Heading>
-      <MaterialUiGridList mobile={mobile} gridList={gridList} />
-    </div>
+      <MaterialUiGridList
+        mobile={mobile}
+        gridList={gridList}
+        titleBar={classes.titleBar}
+        hover={classes.hover}
+      />
+    </Container>
   );
 };
 
