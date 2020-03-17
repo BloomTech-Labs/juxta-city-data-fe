@@ -3,8 +3,6 @@ import CompareIcon from '../../assets/compare.png';
 import PinIcon from '../../assets/pin.png';
 import SearchIcon from '../../assets/search.png';
 import { makeStyles } from '@material-ui/core/styles';
-import {Container} from '@material-ui/core';
-
 
 const styles = makeStyles(theme => ({
   root: {
@@ -102,21 +100,30 @@ const IconBox = props => {
             <img
               className={classes.img}
               src={CompareIcon}
+              alt='Compare Icon'
             />
-              <p className={classes.body}>Quickly compare up to 3 different cities
-                side-by-side
-              </p>
+            <p className={classes.body}>Quickly compare up to 3 different cities
+              side-by-side
+            </p>
           </div>
 
           
           <div className={classes.IconCard}>
-          <img className={classes.img} src={SearchIcon}/>
+            <img
+              className={classes.img} 
+              src={SearchIcon}
+              alt='Search Icon'
+            />
             <p className={classes.body}>Search for a city to view all the latest 
   information </p>
           </div>
 
           <div className={classes.IconCard}> 
-            <img className={classes.img} src={PinIcon}/>
+            <img
+              className={classes.img} 
+              src={PinIcon}
+              alt='Pin Icon'
+            />
             <p className={classes.body}>Instantly receive a recommendation for the best place to live</p>  
           </div>
         </div>
