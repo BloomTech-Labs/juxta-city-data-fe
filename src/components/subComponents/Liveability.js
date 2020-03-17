@@ -8,7 +8,7 @@ const styles = makeStyles(theme => ({
   container: {
     height: 260,
     [theme.breakpoints.down('sm')]: {
-      height: 370,
+      minHeight: 455,
       width: '90%'
     },
   },
