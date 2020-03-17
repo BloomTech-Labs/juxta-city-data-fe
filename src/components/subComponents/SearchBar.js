@@ -11,6 +11,9 @@ width: 58%;
 height: 30px;
 border: 0px;
 font-size: 19px;
+@media screen and (max-width: 600px){
+  width: 84%
+}
 `
 const Form = styled.form`
 width: 90%;
@@ -38,6 +41,9 @@ const CityDropDown = styled.div`
 z-index: 2;
 width: 58%;
 margin-right: 45px;
+@media screen and (max-width: 600px){
+  width: 84%
+}
 `
 const City = styled.p`
 line-height: 1.5;
