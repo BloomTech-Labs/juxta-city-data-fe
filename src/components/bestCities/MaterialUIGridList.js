@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { useHistory } from 'react-router-dom';
+
+import CityContext from '../../contexts/CityContext';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { GridList } from '@material-ui/core';
@@ -17,33 +21,34 @@ const useStyles = makeStyles(theme => ({
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
   },
-  titleBar: {
-    background: 'none',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 24,
-  },
 }));
 
 const MaterialUiGridList = props => {
   const classes = useStyles();
   const gridList = props.gridList.slice(0, 4);
+  const { setCityData } = useContext(CityContext);
+  const history = useHistory();
+
+  function handleClick(city) {
+    console.log(city);
+    setCityData(city);
+    routeToCity();
+  }
+
+  function routeToCity() {
+    history.push('/cityview');
+  }
 
   return (
     <div className={classes.root}>
-      <GridList
-        cols={props.mobile ? 1.5 : 4}
-        spacing={100}
-        cellHeight={296}
-        className={classes.gridList}
-      >
+      <GridList cols={props.mobile ? 1.5 : 4} className={classes.gridList}>
         {gridList.map(tile => (
-          <GridListTile key={tile.city}>
-            <img src={tile.photo_url} alt={tile.city} />
+          <GridListTile key={tile.city} onClick={() => handleClick(tile)}>
+            <img src={tile.photo_url} alt={tile.city} className={props.hover} />
             <GridListTileBar
               title={`${tile.city}`}
               titlePosition='top'
-              className={classes.titleBar}
+              className={props.titleBar}
             />
           </GridListTile>
         ))}
