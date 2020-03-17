@@ -10,7 +10,11 @@ import { useMediaQuery } from '@material-ui/core';
 const styles = makeStyles(theme => ({
     container: {
         position: 'sticky',
-        top: 80
+        top: 80,
+        [theme.breakpoints.down('sm')]: {
+            position: 'fixed',
+            top: 80,
+        },
     },
     Tabs : {
         background: '#2196F3',

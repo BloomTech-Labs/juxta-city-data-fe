@@ -10,6 +10,9 @@ const styles = makeStyles(theme => ({
     root: {
         width: '50%',
         margin: '67px 0 0 123px',
+        [theme.breakpoints.down('sm')]: {
+            margin: '67px 0 0 0'
+        },
     },
     heading: {
         fontStyle: 'normal',

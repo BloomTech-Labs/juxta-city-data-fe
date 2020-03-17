@@ -14,7 +14,10 @@ const styles = makeStyles(theme => ({
     HeadingBox: {
         display: 'flex',
         alignItems: 'center',
-        margin: '25px 0 0 80px'
+        margin: '25px 0 0 80px',
+        [theme.breakpoints.down('sm')]: {
+            margin: '30px 0 0 0',
+        }
     },
     Heart : {
             width: 20,
