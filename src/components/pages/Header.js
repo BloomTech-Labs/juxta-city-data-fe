@@ -9,7 +9,11 @@ display: flex;
 flex-direction: column;
 height: 370px;
 margin: 10px 0;
-align-items: center
+align-items: center;
+@media screen and (max-width: 600px){
+  margin: 0;
+  height: 326px; 
+}
 `
 const Heading = styled.h1`
 display: flex;
@@ -19,6 +23,11 @@ font-size: 24px;
 font-weight: 400;
 color: white;
 font-family: Oswald;
+@media screen and (max-width: 600px){
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+}
 `
 const LargeText = styled.h1`
 font-size: 44px;
@@ -26,9 +35,15 @@ font-weight: 400;
 color: white;
 font-family: Oswald;
 padding: 0 10px;
+@media screen and (max-width: 600px){
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+}
 `
 
-const Header = () => {
+const Header = (props) => {
+  
   return (
     <Div>
       <Heading>FIND THE PERFECT <LargeText> CITY </LargeText> TO CALL <LargeText> HOME </LargeText></Heading>

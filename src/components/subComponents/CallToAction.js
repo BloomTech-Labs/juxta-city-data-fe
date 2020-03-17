@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 const CallToAction = props => {
   return (
-    <Grid container style={{ padding: '3% 10%', width: '100%', margin: '0 auto'}}>
+    <Grid container style={{ padding: '80px 10%', width: '100%', margin: '0 auto'}}>
       <Grid item sm={6}>
       </Grid>
       <Grid item style={{ width: '100%', display: 'flex', flexDirection:'column'}}>
@@ -17,6 +17,9 @@ const CallToAction = props => {
               backgroundColor: "#8BC34A",
               color: 'white',
               width: 180,
+              fontStyle: 'normal',
+              fontWeight: 500,
+              fontSize: 18,
           }}>
             Sign Up
           </Button>
@@ -27,7 +30,10 @@ const CallToAction = props => {
           style={{
             width: '100%',
           fontWeight: 400,
-          fontSize: 18
+          fontSize: 18,
+          paddingTop: 15,
+          fontStyle: 'normal',
+          fontWeight: 300,
         }}>
           Join now and see what the locals love and hate about the city you're
           interested in 

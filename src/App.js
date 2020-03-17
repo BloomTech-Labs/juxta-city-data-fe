@@ -33,6 +33,7 @@ const App = () => {
     >
       <CityContext.Provider value={{ cityData, setCityData }}>
         <UserContext.Provider>
+
           <AppDiv className='App'>
             <Route exact path='/' component={LandingPage} />
             <Route path='/dashboard' exact component={Dashboard} />

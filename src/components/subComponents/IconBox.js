@@ -1,118 +1,126 @@
 import React from "react";
-import { styled } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import CompareIcon from '../../assets/compare.png';
 import PinIcon from '../../assets/pin.png';
 import SearchIcon from '../../assets/search.png';
-import { fontSize, display } from "@material-ui/system";
-import { blue } from "@material-ui/core/colors";
-import { bold } from "ansi-colors";
+import { makeStyles } from '@material-ui/core/styles';
+import {Container} from '@material-ui/core';
 
-const IconCard = styled(Card)({
-  boxShadow: 'none',
-  height: 250,
-  '@media (max-width: 768px)': {
-    display: 'flex',
+
+const styles = makeStyles(theme => ({
+  root: {
+    height: 380,
+    margin: '0 auto 65px auto',
+    boxShadow: '0px 1px 12px rgba(0, 0, 0, 0.12), 0px 4px 8px rgba(0, 0, 0, 0.02), 0px 1px 4px rgba(0, 0, 0, 0.01)',
+    maxWidth: 1100,
+    [theme.breakpoints.down('md')]: {
+      maxWidth: 900,
+    },
+    [theme.breakpoints.down('sm')]: {
+      height: 617,
+      width: '90%'
+    }
+  },
+  header: {
     width: '100%',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-  }
-});
-const TypoH4 = styled(Typography)({
-fontWeight: 'bold',
-})
-const TypoBody = styled(Typography)({
-  width: '75%',
-  margin: '0 auto',
-  fontSize: '18px',
-  marginBottom: 30
-})
-const IconBoxGrid = styled(Grid)({
-  padding: '1% 1% -1%',
-  maxWidth: '1100px',
-  margin: '30px auto',
-  boxShadow:' 0px 1px 12px rgba(0, 0, 0, 0.12), 0px 4px 8px rgba(0, 0, 0, 0.02), 0px 1px 4px rgba(0, 0, 0, 0.01)',
-  display: 'flex',
-  flexDirection: 'column',
-});
-const TypoIcon =styled(Typography)({
-  fontSize: 18,
-  '@media (max-width: 768px)': {
-    textAlign: 'center',
-    width: '50%',
     margin: '0 auto',
+  },
+  h4: {
+    textAlign: 'center',
+    fontSize: 36,
+    paddingTop: 12,
+    marginBottom: 10,
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'left',
+      fontSize: 24,
+      padding: '20px 0 0 40px'
+    }
+  },
+  intro: {
+    width: '75%',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 18,
+    margin: '0 auto',
+    marginBottom: 60,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 16,
+      marginBottom: 25,
+      lineHeight: 1
+    }
+  },
+  IconBox: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    padding: '0 20px',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column'
+    }
+  },
+  IconCard: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '30%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      flexDirection: 'row',
+      margin: '25px 0',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    }
+  },
+  body: {
+    fontWeight: 'normal',
+    fontSize: 18,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 16,
+      paddingLeft: 30,
+      width: '65%'
+    }
+  },
+  img: {
+    margin: '0 auto',
+    [theme.breakpoints.down('xs')]: {
+      width: '20%',
+      margin: 0
+    }
   }
-})
-
-const Container = styled(Grid)({
-'@media (max-width: 768px)': {
-  flexDirection: 'column',
-  width: '100%',
-  margin: '0 auto',
-}
-  
-})
-
+}))
 
 const IconBox = props => {
+  const classes = styles();
   return (
-    <IconBoxGrid>
-      <TypoH4 variant="h4" align='center' gutterBottom>"Find Ur" place</TypoH4>
-      <TypoBody variant="body1" gutterBottom>Findur is a place where you can learn
-        , compare, and receive recommendations on cities across the United States!
-      </TypoBody>
-      <Container container>
-        <Grid item xs style={{width: '100%'}}>
-          <IconCard>
-            <CardMedia
-              component="img"
-              image={CompareIcon}
-              title="Compare Icon"
-              style={{ width: '100px', height: '100px', margin: '20px' }}
+      <div className={classes.root}>
+        <div className={classes.header}>
+          <h4 className={classes.h4}>"Find Ur" place</h4>
+        <p className={classes.intro}>Findur is a place where you can learn
+          , compare, and receive recommendations on cities across the United States!
+        </p>
+        </div>
+        
+        <div className={classes.IconBox}>
+          <div className={classes.IconCard}>
+            <img
+              className={classes.img}
+              src={CompareIcon}
             />
-            <CardContent>
-              <TypoIcon variant="body1">Quickly compare up to 3 different cities
+              <p className={classes.body}>Quickly compare up to 3 different cities
                 side-by-side
-              </TypoIcon>
-            </CardContent>
-          </IconCard>
-        </Grid>
-        <Grid item xs>
-          <IconCard>
-            <CardMedia
-              component="img"
-              image={SearchIcon}
-              title="Search Icon"
-              style={{ width: '100px', height: '100px', margin: '20px auto 5px' }}
-            />
-            <CardContent>
-              <TypoIcon variant="body1">Search for a city to view all the latest 
-                information
-              </TypoIcon>
-            </CardContent>
-          </IconCard>
-        </Grid>
-        <Grid item xs>
-          <IconCard>
-            <CardMedia
-              component="img"
-              image={PinIcon}
-              title="Pin Icon"
-              style={{ width: '75px', height: '105px', margin: '20px auto 5px' }}
-            />
-            <CardContent>
-              <TypoIcon variant="body1">Instantly receive a recommendation for
-                the best place to live
-              </TypoIcon>
-            </CardContent>
-          </IconCard>
-        </Grid>
-      </Container>
-    </IconBoxGrid>
+              </p>
+          </div>
+
+          
+          <div className={classes.IconCard}>
+          <img className={classes.img} src={SearchIcon}/>
+            <p className={classes.body}>Search for a city to view all the latest 
+  information </p>
+          </div>
+
+          <div className={classes.IconCard}> 
+            <img className={classes.img} src={PinIcon}/>
+            <p className={classes.body}>Instantly receive a recommendation for the best place to live</p>  
+          </div>
+        </div>
+      </div>      
   );
 };
 export default IconBox;
