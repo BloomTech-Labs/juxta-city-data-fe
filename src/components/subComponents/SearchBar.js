@@ -58,42 +58,55 @@ background: whitesmoke;
 `
 
 const SearchBar = props => {
-const [search, setSearch]= useState("");
-const [cities, setCities]= useState([]);
-const {cityData, setCityData} = useContext(CityContext)
-let history = useHistory();
-useEffect(()=>{
-  if(search.length < 2 || undefined){
-    setCities([])
-}else{
-  axios.get(`https://junta-test.herokuapp.com/search?search=${search}`).then(res => {
-    setCities(res.data)
-  })
-}
-}, [search])
+  const [search, setSearch]= useState("");
+  const [cities, setCities]= useState([]);
+  const {cityData, setCityData} = useContext(CityContext)
+  let history = useHistory();
 
-const handleSubmit= e => {
-  e.preventDefault()
-  axios.get(`https://junta-test.herokuapp.com/data?city=${search}`).then(res => {
-    setCityData(res.data);
-    history.push('/cityview')
-  })
+  useEffect(()=>{
+    if(search.length < 2 || undefined){
+      setCities([])
+    } else {
+      axios.get(`https://junta-test.herokuapp.com/search?search=${search}`)
+        .then(res => {
+          setCities(res.data)
+        })
+    }
+  }, [search])
+
+  const handleSubmit= e => {
+    e.preventDefault()
+    axios.get(`https://junta-test.herokuapp.com/data?city=${search}`)
+      .then(res => {
+        setCityData(res.data);
+        history.push('/cityview')
+      })
   }
-const handleChange= e => {
-  setSearch(e.target.value)
-}
 
-const handleCityClick=(city)=>{
-setSearch(city);
-}
+  const handleChange= e => {
+    setSearch(e.target.value)
+  }
+
+  const handleCityClick=(city)=>{
+    setSearch(city);
+  }
 
   return (
       <Form autoComplete='off' onSubmit={handleSubmit}>
-        <Search type='string' name='city' value={search} placeholder='Search for a City' onChange={handleChange} />
-        <Button type='submit'><SearchIcon/></Button>
+        <Search
+          type='string'
+          name='city' 
+          value={search} 
+          placeholder='Search for a City'
+          onChange={handleChange}
+        />
+        <Button type='submit'>
+          <SearchIcon/>
+        </Button>
         <CityDropDown>
-          {cities.length == 0 && search !== "" && search.split("").length > 2? <City>No Matches Found...</City> :
-            cities.splice(0,4).map(city => (
+          {cities.length == 0 && search !== "" && search.split("").length > 2
+            ? <City>No Matches Found...</City> 
+            : cities.splice(0,4).map(city => (
               <City onClick={()=>handleCityClick(city)}>{city}</City>
             ))
           }
@@ -101,4 +114,5 @@ setSearch(city);
       </Form>
   );
 };
+
 export default SearchBar;
