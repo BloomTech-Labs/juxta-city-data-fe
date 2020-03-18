@@ -7,28 +7,25 @@ import Navbar from './Navbar.js';
 it('renders without crashing', () => {
   render(
     <Router>
-      <Navbar />
+      <Route
+        path="/"
+        render={({ history, location }) => (
+          <Navbar history={history} location={location} /> 
+        )}
+     />
     </Router>
   );
 });
 
-//{...props, location: {...props.location , pathname: ' 'cityview'}}
-
 it('renders About link', () => {
-  let location, history;
-
   const { getByText } = render(
-    <Router initialEntries={['/']}>
+    <Router>
       <Route
-        path="/cityview"
-        render={({ history, location }) => {
-          history = history;
-          location = { pathname: '/cityview'};
-          return null;
-        }}
-      >
-        <Navbar />
-      </Route>
+          path="/"
+          render={({ history, location }) => (
+            <Navbar history={history} location={location} /> 
+          )}
+       />
     </Router>
   );
 
@@ -37,21 +34,14 @@ it('renders About link', () => {
 });
 
 it('renders sign in / sign up link', () => {
-
-  let location, history;
-
   const { getByText } = render(
-    <Router initialEntries={['/cityview']} >
+    <Router>
       <Route
-          path="/cityview"
-          render={({ history, location }) => {
-            history = history;
-            location = { pathname: '/cityview'};
-            return null;
-          }}
-      >
-        <Navbar />
-      </Route>
+          path="/"
+          render={({ history, location }) => (
+            <Navbar history={history} location={location} /> 
+          )}
+       />
     </Router>);
   const linkElement = getByText(/sign in \/ sign up/i);
   expect(linkElement).toBeInTheDocument();
