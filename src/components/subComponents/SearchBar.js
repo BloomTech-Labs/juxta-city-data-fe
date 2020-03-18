@@ -64,7 +64,7 @@ const SearchBar = props => {
   let history = useHistory();
 
   useEffect(()=>{
-    if(search.length < 2 || undefined){
+    if(search.length < 3 || undefined){
       setCities([])
     } else {
       axios.get(`https://junta-test.herokuapp.com/search?search=${search}`)
@@ -94,7 +94,7 @@ const SearchBar = props => {
   return (
       <Form autoComplete='off' onSubmit={handleSubmit}>
         <Search
-          type='string'
+          type='text'
           name='city' 
           value={search} 
           placeholder='Search for a City'
