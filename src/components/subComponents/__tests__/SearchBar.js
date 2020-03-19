@@ -68,7 +68,7 @@ it('displays a list of matching cities when characters are input', async () => {
 
   fireEvent.change(searchBar, { target: { value: 'sea' } });
 
-  wait(expect(axios.get).toHaveBeenCalledTimes(1));
+  await wait(expect(axios.get).toHaveBeenCalledTimes(1));
 
   let dropdownCities = await findAllByText(/sea/i);
 
