@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, wait } from '@testing-library/react';
 import CityContext from '../../../contexts/CityContext';
 import SearchBar from '../SearchBar';
 
@@ -31,9 +31,7 @@ it('renders the search form', () => {
 it('displays a list of matching cities when characters are input', async () => {
   let cityData = '';
   const setCityData = data => cityData = data;
-
-  axios.get.mockResolvedValueOnce({
-    data: [
+  const mockResponse =  [
     "Seaford, New York",
     "Seaside, Oregon",
     "Seabrook, Texas",
@@ -47,9 +45,13 @@ it('displays a list of matching cities when characters are input', async () => {
     "Seal Beach, California",
     "Seaside, California",
     "Searcy, Arkansas"
-  ]})
+  ];
 
-  const { getByPlaceholderText, getByDisplayValue } = render(
+  axios.get.mockResolvedValueOnce({
+    data: mockResponse
+  })
+
+  const { getByPlaceholderText, findAllByText } = render(
     <CityContext.Provider value={{cityData, setCityData}}>
       <SearchBar />
     </CityContext.Provider>
@@ -62,16 +64,18 @@ it('displays a list of matching cities when characters are input', async () => {
 
   fireEvent.change(searchBar, { target: { value: 'se' } });
   expect(axios.get).toHaveBeenCalledTimes(0);
+  expect(searchBar.value).toBe('se');
 
   fireEvent.change(searchBar, { target: { value: 'sea' } });
 
+  await wait(expect(axios.get).toHaveBeenCalledTimes(1));
 
-  searchBar = await screen.getByDisplayValue(/sea/i); 
-  console.log('searchBar:' , searchBar.value);
+  let dropdownCities = await findAllByText(/sea/i);
 
-  expect(axios.get).toHaveBeenCalledTimes(1);
-  // TODOs:
-  // - Figure out how to pass this assertion
-  // - Add assertions for dropdown display 
+  expect(dropdownCities).toHaveLength(4);
+  expect(dropdownCities[0].innerHTML).toMatch(/seaford, new york/i);
+  expect(dropdownCities[1].innerHTML).toMatch(/seaside, oregon/i);
+  expect(dropdownCities[2].innerHTML).toMatch(/seabrook, texas/i);
+  expect(dropdownCities[3].innerHTML).toMatch(/seagoville, texas/i);
 
 });
