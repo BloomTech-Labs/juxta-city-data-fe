@@ -30,7 +30,6 @@ const MaterialUiGridList = props => {
   const history = useHistory();
 
   function handleClick(city) {
-    console.log(city);
     setCityData(city);
     routeToCity();
   }
