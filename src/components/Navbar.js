@@ -76,11 +76,6 @@ const NavBar = (props) => {
         </H2>
         <UL>
           <Li>
-            <Link className="link" to='/about'>
-            About
-            </Link>
-          </Li>
-          <Li>
             <button className="link" onClick={login} >
               sign in / sign up
             </button>
