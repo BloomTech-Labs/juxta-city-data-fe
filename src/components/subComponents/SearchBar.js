@@ -104,10 +104,10 @@ const SearchBar = props => {
           <SearchIcon/>
         </Button>
         <CityDropDown>
-          {cities.length == 0 && search !== "" && search.split("").length > 2
+          {cities.length === 0 && search !== "" && search.split("").length > 2
             ? <City>No Matches Found...</City> 
-            : cities.splice(0,4).map(city => (
-              <City onClick={()=>handleCityClick(city)}>{city}</City>
+            : cities.splice(0,4).map((city,idx) => (
+              <City key={idx} onClick={()=>handleCityClick(city)}>{city}</City>
             ))
           }
         </CityDropDown>    
