@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import axios from 'axios';
 
 import { useHistory } from 'react-router-dom';
 
@@ -29,8 +30,12 @@ const MaterialUiGridList = props => {
   const { setCityData } = useContext(CityContext);
   const history = useHistory();
 
-  function handleClick(city) {
-    setCityData(city);
+  async function handleClick(city) {
+    const res = await axios.get(
+      `https://junta-test.herokuapp.com/data?city=${city.city}`,
+    );
+
+    setCityData(res.data);
     routeToCity();
   }
 
