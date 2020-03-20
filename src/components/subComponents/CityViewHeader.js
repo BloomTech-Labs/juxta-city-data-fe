@@ -43,7 +43,6 @@ export default function CityViewHeader(props){
     const classes = styles();
     const {userData, setUserData} = useContext(UserContext);
     useEffect(()=> {
-    
     }, [])
     const handleFavorite = e => {
         e.preventDefault();
@@ -59,13 +58,19 @@ export default function CityViewHeader(props){
             props.history.push('/signup')
         }
     }
-    return(
-        <div className={classes.root}>
-            <div className={classes.HeadingBox}>
-                <img className={classes.Heart} onClick={handleFavorite} src={!userData.favorites ? emptyheart : !props.cityData.city.includes(props.cityData.city) ? fullheart: emptyheart}/>
-    <h3 className={classes.Heading}>{props.cityData.city}</h3> 
+    if(!props.cityData.population){
+        console.log(props.cityData.data)
+        return <div className={classes.root}>Loading...</div>
+    }else{
+        return(
+            <div className={classes.root}>
+                <div className={classes.HeadingBox}>
+                    <img className={classes.Heart} onClick={handleFavorite} src={!userData.favorites ? emptyheart : !props.cityData.city.includes(props.cityData.city) ? fullheart: emptyheart}/>
+                    <h3 className={classes.Heading}>{props.cityData.city}</h3> 
+                </div>
+                <p className={classes.Note}>Population: {props.cityData.population}</p>
             </div>
-            <p className={classes.Note}>Population: {props.cityData.population}</p>
-        </div>
-    )
+    )}
+    
+    
 }
