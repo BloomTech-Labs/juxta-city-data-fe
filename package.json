@@ -41,9 +41,11 @@
       "last 1 safari version"
     ]
   },
-  "collectCoverageFrom": [
-      "**/*.{js,jsx}",
-      "!**/node_modules/**",
-      "!**/vendor/**"
-  ]
+  "jest": { 
+    "collectCoverageFrom": [
+        "**/*.{js,jsx}",
+        "!**/node_modules/**",
+        "!**/vendor/**"
+    ]
+  }
 }
