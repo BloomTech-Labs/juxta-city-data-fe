@@ -47,7 +47,11 @@ const MaterialUiGridList = props => {
     <div className={classes.root}>
       <GridList cols={props.mobile ? 1.5 : 4} className={classes.gridList}>
         {gridList.map(tile => (
-          <GridListTile key={tile.city} onClick={() => handleClick(tile)}>
+          <GridListTile
+            key={tile.city}
+            onClick={() => handleClick(tile)}
+            data-testid='grid-tile'
+          >
             <img src={tile.photo_url} alt={tile.city} className={props.hover} />
             <GridListTileBar
               title={`${tile.city}`}
