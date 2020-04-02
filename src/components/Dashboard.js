@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from './Navbar.js';
 import Header from './pages/Header.js';
 import BestCities from './bestCities/BestCities';
+import Favorites from './Favorites/Favorites.js';
 import { withAuth } from '@okta/okta-react';
 
 function Dashboard(props) {
@@ -9,6 +10,7 @@ function Dashboard(props) {
     <>
       <NavBar {...props} />
       <Header />
+      <Favorites/>
       <BestCities />
     </>
   );

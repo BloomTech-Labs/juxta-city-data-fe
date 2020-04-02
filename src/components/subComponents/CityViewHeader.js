@@ -58,8 +58,7 @@ export default function CityViewHeader(props){
             props.history.push('/signup')
         }
     }
-    if(!props.cityData.population){
-        console.log(props.cityData.data)
+    if(!props.cityData.population){    
         return <div className={classes.root}>Loading...</div>
     }else{
         return(
