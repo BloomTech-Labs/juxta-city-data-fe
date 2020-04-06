@@ -47,11 +47,11 @@ export default function CityViewHeader(props){
     const handleFavorite = e => {
         e.preventDefault();
         if(userData.name && !userData.favorites.includes(props.cityData.city)){
-            axios.post('', {user_id: userData.id, city_id: props.cityData.id}).then(res=> {
+            axios.post(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}`, {user_id: userData.id, city_id: props.cityData.id}).then(res=> {
                 console.log(res, 'favorite completed!')
             })
         }else if(userData.name && userData.favorites.includes(props.cityData.city)){
-            axios.delete('', {user_id: userData.id, city_id: props.cityData.id}).then(res=> {
+            axios.delete(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}/delete/${props.cityData.id}`).then(res=> {
                 console.log(res, 'unfavorite completed!')
             })
         }else{

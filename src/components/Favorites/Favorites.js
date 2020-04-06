@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import UserContext from '../../contexts/UserContext';
@@ -33,14 +33,32 @@ const styles = makeStyles(theme => ({
 
 export default function Favoirtes(props){
     const classes = styles()
-    const [cities, setCities] = useState(['Austin, Texas', 'Seattle, Washington', 'Los Angeles, California'])
+    const [cities, setCities] = useState([])
+    const {userData, setUserData}= useContext(UserContext)
     useEffect(()=>{
-        // axios.get('').then(res =>{
-        //     console.log(res.data)
-        // })
+        const userToken = localStorage.getItem('okta-token-storage')
+        const name = JSON.parse(userToken).idToken.claims.name;
+        console.log(JSON.parse(userToken))
+        let data = {}
+        axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${1}`).then(res=> {
+            data = res.data
+            setUserData(res.data)
+            axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${1}/favorites`).then(res=>{
+                setUserData({...data, favorites: res.data})
+                res.data.forEach(favorite => {
+                    axios.get(`https://junta-test.herokuapp.com/name?id=${favorite.city_id}`).then(res => {
+                        setCities([...cities, res.data])
+                    })
+                })
+            })
+        }).catch(err => {
+            console.log(err)
+        })
     }, [])
-
-    return (
+    return cities.length < 1 ? (
+        <p>loading...</p>
+    ):
+    (
         <Container className={classes.root}>
             <div className={classes.header}>
                 Favorite Cities
