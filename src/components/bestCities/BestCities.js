@@ -32,7 +32,7 @@ const Heading = styled.h2`
   text-align: center;
 `;
 
-const Trending = () => {
+const BestCities = () => {
   const classes = useStyles();
   const mobile = useMediaQuery('(max-width: 600px)');
   const [gridList, setGridList] = useState([]);
@@ -59,4 +59,4 @@ const Trending = () => {
   );
 };
 
-export default Trending;
+export default BestCities;

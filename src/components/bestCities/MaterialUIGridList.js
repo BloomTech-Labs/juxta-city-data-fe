@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import axios from 'axios';
 
 import { useHistory } from 'react-router-dom';
 
@@ -29,9 +30,12 @@ const MaterialUiGridList = props => {
   const { setCityData } = useContext(CityContext);
   const history = useHistory();
 
-  function handleClick(city) {
-    console.log(city);
-    setCityData(city);
+  async function handleClick(city) {
+    const res = await axios.get(
+      `https://junta-test.herokuapp.com/data?city=${city.city}`,
+    );
+
+    setCityData(res.data);
     routeToCity();
   }
 
@@ -43,7 +47,11 @@ const MaterialUiGridList = props => {
     <div className={classes.root}>
       <GridList cols={props.mobile ? 1.5 : 4} className={classes.gridList}>
         {gridList.map(tile => (
-          <GridListTile key={tile.city} onClick={() => handleClick(tile)}>
+          <GridListTile
+            key={tile.city}
+            onClick={() => handleClick(tile)}
+            data-testid='grid-tile'
+          >
             <img src={tile.photo_url} alt={tile.city} className={props.hover} />
             <GridListTileBar
               title={`${tile.city}`}
