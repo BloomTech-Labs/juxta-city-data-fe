@@ -43,14 +43,29 @@ export default function CityViewHeader(props){
     const classes = styles();
     const {userData, setUserData} = useContext(UserContext);
     useEffect(()=> {
+        console.log(userData)
+        if(!userData.id && localStorage.getItem('okta-token-storage')){
+            const token = localStorage.getItem('okta-token-storage')
+            const name = JSON.parse(token).idToken.claims.name;
+            let data = {}
+            axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${1}`).then(res=> {
+                data = res.data
+                setUserData(res.data)
+                axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${1}/favorites`).then(res=>{
+                    setUserData({...data, favorites: res.data})
+                }).catch(err => console.log(err))
+            }).catch(err => console.log(err))
+        }
     }, [])
     const handleFavorite = e => {
         e.preventDefault();
-        if(userData.name && !userData.favorites.includes(props.cityData.city)){
-            axios.post(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}`, {user_id: userData.id, city_id: props.cityData.id}).then(res=> {
+        if(userData.id && !userData.favorites.some(fav => fav.city_id === props.cityData.id)){
+        const object = {user_id: userData.id, city_id: props.cityData.id}
+            axios.post(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}/favorites`, object).then(res=> {
                 console.log(res, 'favorite completed!')
             })
-        }else if(userData.name && userData.favorites.includes(props.cityData.city)){
+        }else if(userData.id && userData.favorites.some(fav => fav.city_id === props.cityData.id)){
+            console.log('user id =>', userData.id, 'city Id =>', props.cityData.id)
             axios.delete(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}/delete/${props.cityData.id}`).then(res=> {
                 console.log(res, 'unfavorite completed!')
             })
@@ -64,7 +79,7 @@ export default function CityViewHeader(props){
         return(
             <div className={classes.root}>
                 <div className={classes.HeadingBox}>
-                    <img className={classes.Heart} onClick={handleFavorite} src={!userData.favorites ? emptyheart : !props.cityData.city.includes(props.cityData.city) ? fullheart: emptyheart}/>
+                    <img className={classes.Heart} onClick={handleFavorite} src={!userData.favorites ? emptyheart : userData.favorites.some(fav => fav.city_id === props.cityData.id) ? fullheart: emptyheart}/>
                     <h3 className={classes.Heading}>{props.cityData.city}</h3> 
                 </div>
                 <p className={classes.Note}>Population: {props.cityData.population}</p>
