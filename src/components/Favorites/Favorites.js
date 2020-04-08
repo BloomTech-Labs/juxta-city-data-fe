@@ -38,17 +38,22 @@ export default function Favoirtes(props){
     const {userData, setUserData}= useContext(UserContext)
     const history = useHistory();
     useEffect(()=>{
+        //if there is no token use is pushed to landing page
         if(!localStorage.getItem('okta-token-storage')){
             history.push('/')
         }
         const userToken = localStorage.getItem('okta-token-storage')
         const claims = JSON.parse(userToken).idToken.claims;
+        //variable data needed because the 2nd axios call doesnt have access to the new userContext yet
         let data = {}
+        //call to grab userData
         axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${2}`).then(res=> {
             data = res.data
             setUserData(res.data)
+            //call to get the user favorites and then add it to the userContext
             axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${2}/favorites`).then(res=>{
                 setUserData({...data, favorites: res.data})
+                //for each favorite it makes a API call to get the city name
                 res.data.map(favorite => {
                     axios.get(`https://junta-test.herokuapp.com/name?id=${favorite.city_id}`).then(res => {
                         setCities(oldCities => [...oldCities, res.data])

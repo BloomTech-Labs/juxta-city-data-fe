@@ -44,13 +44,16 @@ export default function CityViewHeader(props){
     const {userData, setUserData} = useContext(UserContext);
     useEffect(()=> {
         console.log(userData)
+        //checks to see if their is no userContext and if their is a usertoken it can grab an id from 
         if(!userData.id && localStorage.getItem('okta-token-storage')){
             const token = localStorage.getItem('okta-token-storage')
             const name = JSON.parse(token).idToken.claims.name;
             let data = {}
+            //restores usercontext
             axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${1}`).then(res=> {
                 data = res.data
                 setUserData(res.data)
+                //adds users favorite cities
                 axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${1}/favorites`).then(res=>{
                     setUserData({...data, favorites: res.data})
                 }).catch(err => console.log(err))
@@ -59,18 +62,23 @@ export default function CityViewHeader(props){
     }, [])
     const handleFavorite = e => {
         e.preventDefault();
+        //checks if theire is a user logged in and if the they have the current city saved
         if(userData.id && !userData.favorites.some(fav => fav.city_id === props.cityData.id)){
-        const object = {user_id: userData.id, city_id: props.cityData.id}
+            //creates the body to add a favorite city
+            const object = {user_id: userData.id, city_id: props.cityData.id}
             axios.post(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}/favorites`, object).then(res=> {
                 console.log(res, 'favorite completed!')
             }).catch(err => console.log(err))
+        //checks if theire is a user logged in and if the they have the current city saved
         }else if(userData.id && userData.favorites.some(fav => fav.city_id === props.cityData.id)){
             console.log('user id =>', userData.id, 'city Id =>', props.cityData.id)
+            //deletes the favorite
             axios.delete(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}/delete/${props.cityData.id}`).then(res=> {
                 console.log(res, 'unfavorite completed!')
             })
         }else{
-            props.history.push('/signup')
+            //brings user to signin page if they arent logged in
+            props.history.push('/signin')
         }
     }
     if(!props.cityData.population){    

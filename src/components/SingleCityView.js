@@ -21,9 +21,12 @@ function SingleCityView(props){
     console.log(cityData)
     const classes = styles();
     useEffect(()=> {
+        //checks local storage for cityname if there is no city context
         if(!cityData.city && !localStorage.getItem('cityName')){
+            //if there is nothing in local storage it send user back to /dashboard
             return props.history.replace('/dashboard');
         }else if(!cityData.city && localStorage.getItem('cityName')){
+            //grabs cityName from localStorage and makes get call to grab the city data
             const city = localStorage.getItem('cityName');
             axios.get(`https://junta-test.herokuapp.com/data?city=${city}`).then(newCity=> {
                 setCityData(newCity.data)

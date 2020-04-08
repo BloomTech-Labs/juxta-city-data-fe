@@ -38,6 +38,7 @@ const {userData, setUserData} = useContext(UserContext)
 const history = useHistory();
 
 useEffect(()=>{
+    //grabs the cityData for the city so the city can be favorited/unfavorited 
     axios.get(`https://junta-test.herokuapp.com/data?city=${props.cityData}`)
     .then(res => {
         setCity(res.data)
@@ -45,16 +46,14 @@ useEffect(()=>{
 }, [])
 
 const handleClick = e => {
-    axios.get(`https://junta-test.herokuapp.com/data?city=${props.cityData}`)
-    .then(res => {
-      console.log()
-      setCityData(res.data);
-      localStorage.setItem('cityName', res.data.city)
-      history.push('/cityview')
-    })
+    //sets context, saves name to storage, pushes to cityview page
+    setCityData(city);
+    localStorage.setItem('cityName', city.city)
+    history.push('/cityview')
 }
 
 const handleFavorite = e => {
+    //either deletes or adds favorite based off the favorite useState
     if(favorited){
         setFavorited(false)
         axios.delete(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}/delete/${city.id}`).then(res=> {
@@ -62,6 +61,10 @@ const handleFavorite = e => {
             })
     }else{
         setFavorited(true)
+        const object = {user_id: userData.id, city_id: props.cityData.id}
+            axios.post(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}/favorites`, object).then(res=> {
+                console.log(res, 'favorite completed!')
+            }).catch(err => console.log(err))
     }
 }
     return(
