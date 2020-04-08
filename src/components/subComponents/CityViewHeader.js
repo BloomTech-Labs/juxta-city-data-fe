@@ -63,7 +63,7 @@ export default function CityViewHeader(props){
         const object = {user_id: userData.id, city_id: props.cityData.id}
             axios.post(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}/favorites`, object).then(res=> {
                 console.log(res, 'favorite completed!')
-            })
+            }).catch(err => console.log(err))
         }else if(userData.id && userData.favorites.some(fav => fav.city_id === props.cityData.id)){
             console.log('user id =>', userData.id, 'city Id =>', props.cityData.id)
             axios.delete(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}/delete/${props.cityData.id}`).then(res=> {

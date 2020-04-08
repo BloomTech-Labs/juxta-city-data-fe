@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,6 +6,7 @@ import fullheart from '../../assets/fullheart.png';
 import emptyheart from '../../assets/emptyheart.png';
 import { lightBlue } from '@material-ui/core/colors';
 import CityContext from '../../contexts/CityContext';
+import UserContext from '../../contexts/UserContext';
 const styles = makeStyles(theme => ({
     root: {
         width: '50%',
@@ -30,9 +31,18 @@ const styles = makeStyles(theme => ({
 }))
 export default function FavoiriteCityCard(props){
 const classes = styles()
+const [city, setCity] = useState({})
 const [favorited, setFavorited] = useState(true)
 const {cityData, setCityData} = useContext(CityContext)
+const {userData, setUserData} = useContext(UserContext)
 const history = useHistory();
+
+useEffect(()=>{
+    axios.get(`https://junta-test.herokuapp.com/data?city=${props.cityData}`)
+    .then(res => {
+        setCity(res.data)
+    })
+}, [])
 
 const handleClick = e => {
     axios.get(`https://junta-test.herokuapp.com/data?city=${props.cityData}`)
@@ -47,8 +57,9 @@ const handleClick = e => {
 const handleFavorite = e => {
     if(favorited){
         setFavorited(false)
-        // axios.delete('').then(res => { 
-        // })
+        axios.delete(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}/delete/${city.id}`).then(res=> {
+                console.log(res, 'unfavorite completed!')
+            })
     }else{
         setFavorited(true)
     }

@@ -43,24 +43,24 @@ export default function Favoirtes(props){
         }
         const userToken = localStorage.getItem('okta-token-storage')
         const claims = JSON.parse(userToken).idToken.claims;
-        console.log(claims)
         let data = {}
         axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${2}`).then(res=> {
             data = res.data
             setUserData(res.data)
             axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${2}/favorites`).then(res=>{
                 setUserData({...data, favorites: res.data})
-                res.data.forEach(favorite => {
+                res.data.map(favorite => {
                     axios.get(`https://junta-test.herokuapp.com/name?id=${favorite.city_id}`).then(res => {
-                        setCities([...cities, res.data])
+                        setCities(oldCities => [...oldCities, res.data])
                     })
                 })
             })
         }).catch(err => {
             console.log(err)
         })
+        
     }, [!localStorage.getItem('userId')])
-    console.log(userData)
+    console.log(cities)
     return cities.length < 1 ? (
         <p>loading...</p>
     ):
