@@ -75,14 +75,6 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: 'bold'
     }
   },
-  bakground: {
-    position: "absolute",
-    zIndex: 2,
-    width: 100,
-    height: 100,
-    background: 'black',
-    color: 'red'
-  },
   darken : {
     position: 'absolute',
     width:'10000px',
@@ -119,6 +111,20 @@ const NavBar = ({ auth, history, location }) => {
     setOpen(!open);
 
   };
+
+  const handleAbout = () => {
+    history.push('/')
+    setOpen(false)
+    setTimeout(()=>{
+      const ele = document.getElementById('about')
+      if(ele){
+          const offset = ele.offsetTop
+          window.scrollTo(0, offset);
+      }
+  }, 200 )
+    
+}
+
   const logout = () => {
     localStorage.removeItem("okta-token-storage")
     localStorage.removeItem("okta-cache-storage")
@@ -130,11 +136,11 @@ const NavBar = ({ auth, history, location }) => {
   };
   const body = (
     <>
-      <div className={classes.darken}></div>
+      <div className={classes.darken} onClick={handleOpen}></div>
       <div className={classes.paper}>
         <ul className={classes.modalLi}>
-          <li className={classes.modalLi} onClick={()=>{history.push('/profile')}}>Profile</li>
-          <li className={classes.modalLi} onClick={()=>{history.push('/about')}}>About</li>
+          <li className={classes.modalLi} onClick={()=>{history.push('/')}}>Profile</li>
+          <a className={classes.modalLi} onClick={handleAbout}>About</a>
           <li className={classes.modalLi} onClick={logout}>Logout</li>
         </ul>
       </div>
