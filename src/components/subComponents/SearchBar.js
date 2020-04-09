@@ -80,10 +80,13 @@ const SearchBar = props => {
     axios
       .get(`https://junta-test.herokuapp.com/data?city=${search}`)
       .then(res => {
+        console.log()
         setCityData(res.data);
-        history.push('/cityview');
-      });
-  };
+        localStorage.setItem('cityName', res.data.city)
+        history.push('/cityview')
+      })
+  }
+
 
   const handleChange = e => {
     setSearch(e.target.value);

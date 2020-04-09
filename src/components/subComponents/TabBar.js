@@ -27,14 +27,14 @@ const styles = makeStyles(theme => ({
 }))
 
 export default function TabBar(props){
-const [value, setValue] = useState(null);
+const [value, setValue] = useState('Population');
 const classes = styles();
 
 const handleChange = (event, newValue) => {
     setValue(newValue)
     const ele = document.getElementById(newValue)
     
-    if (ele){
+    if(ele){
         const offset = ele.offsetTop
         window.scrollTo(0, offset-190);
     } 
@@ -53,7 +53,6 @@ const handleChange = (event, newValue) => {
             aria-label="scrollable auto tabs example"
             
             >
-                <Tab label="About" value='About'/>
                 <Tab label="Population" value="Population" />
                 <Tab label="Climate" value="Climate"/>
                 <Tab label="Economy" value="Economy"/>

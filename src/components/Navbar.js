@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "../App.css";
 import Logo from '../assets/logo.png'
 import LogoWhite from '../assets/logo-white.png'
+import UserContext from '../contexts/UserContext'
 
   
 const UL = styled.ul`
@@ -40,13 +41,19 @@ const NavDiv = styled.div`
 `;
 
 const NavBar = ({ auth, history, location }) => {
+
+  const {userData, setUserData} = useContext(UserContext)
   const login = () => {
     auth.login("/dashboard");
   };
 
   const logout = () => {
     localStorage.removeItem("okta-token-storage")
+    localStorage.removeItem("okta-cache-storage")
+    localStorage.removeItem("cityName")
+    localStorage.removeItem("userId")
     localStorage.removeItem("okta-pkce-storage")
+    setUserData({})
     history.push('/')
   };
   let token = localStorage.getItem("okta-token-storage");
@@ -80,11 +87,6 @@ const NavBar = ({ auth, history, location }) => {
           </Link>
         </H2>
         <UL>
-          <Li>
-            <Link className="link" to='/about'>
-            About
-            </Link>
-          </Li>
           <Li>
             <button className="link" onClick={login} >
               Sign In / Sign Up

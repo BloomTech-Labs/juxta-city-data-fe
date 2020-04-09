@@ -23,6 +23,7 @@ const onAuthRequired = ({ history }) => {
 };
 const App = () => {
   const [cityData, setCityData] = useState({});
+  const [userData, setUserData] = useState({})
   return (
     <Security
       issuer='https://dev-816550.okta.com/oauth2/default'
@@ -32,7 +33,7 @@ const App = () => {
       pkce={true}
     >
       <CityContext.Provider value={{ cityData, setCityData }}>
-        <UserContext.Provider>
+        <UserContext.Provider value={{userData, setUserData}}>
 
           <AppDiv className='App'>
             <Route exact path='/' component={LandingPage} />
