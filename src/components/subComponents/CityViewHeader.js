@@ -43,7 +43,6 @@ export default function CityViewHeader(props){
     const classes = styles();
     const {userData, setUserData} = useContext(UserContext);
     useEffect(()=> {
-        console.log(userData)
         //checks to see if their is no userContext and if their is a usertoken it can grab an id from 
         if(!userData.id && localStorage.getItem('okta-token-storage')){
             const token = localStorage.getItem('okta-token-storage')

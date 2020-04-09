@@ -18,7 +18,6 @@ const styles = makeStyles(theme => ({
 
 function SingleCityView(props){
     const {cityData, setCityData} = useContext(CityContext)
-    console.log(cityData)
     const classes = styles();
     useEffect(()=> {
         //checks local storage for cityname if there is no city context

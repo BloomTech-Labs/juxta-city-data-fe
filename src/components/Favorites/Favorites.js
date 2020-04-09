@@ -65,7 +65,6 @@ export default function Favoirtes(props){
         })
         
     }, [!localStorage.getItem('userId')])
-    console.log(cities)
     return cities.length < 1 ? (
         <p>loading...</p>
     ):
