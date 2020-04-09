@@ -1,12 +1,17 @@
-import React, {useContext} from "react";
+import React, {useState, useContext} from "react";
+import {useHistory} from 'react-router-dom'
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "../App.css";
 import Logo from '../assets/logo.png'
 import LogoWhite from '../assets/logo-white.png'
 import UserContext from '../contexts/UserContext'
+import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
+import poly from '../assets/polydown.png';
+import polyWhite from '../assets/polyWhite.png';
+import avatar from '../assets/avatar.png';
 
-  
 const UL = styled.ul`
   width: 65%;
   list-style-type: none;
@@ -34,18 +39,97 @@ const Li = styled.li`
 const NavDiv = styled.div`
   display: flex;
   height: 80px;
+  max-height: 80px;
   z-index: 1;
   position: ${ ({ pathname }) => !pathname.includes('/cityview') ? 'relative' : 'sticky; top: 0'};
   max-width: 1280px;
   background: ${ ({ pathname }) => !pathname.includes('/cityview') ? 'white': '#2196F3'};
 `;
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    position: 'absolute',
+    width: 110,
+    height: 160,
+    zIndex: 3,
+    marginTop: 100,
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    borderRadius: 4,
+    [theme.breakpoints.down('sm')]: {
+      right: 16
+    }
+  },
+  avatarBox: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  modalLi: {
+    padding: '7px 0',
+    textDecoration: 'none',
+    listStyleType: 'none',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 16
+  },
+  bakground: {
+    position: "absolute",
+    zIndex: 2,
+    width: 100,
+    height: 100,
+    background: 'black',
+    color: 'red'
+  },
+  darken : {
+    position: 'absolute',
+    width:'10000px',
+    height: '10000%',
+    background: 'rgba(0,0,0,0.5)',
+    left: -400,
+    top:80,
+    transition: 'ease-in-out 2s',
+    [theme.breakpoints.down('sm')]: {
+      top: 80
+    }
+  },
+  animation: {
+      transition: 'ease-in .2s',
+      width: 15,
+      height: 10
+  },
+  animation2 : {
+    transition: 'ease-in .2s',
+    transform: 'rotate(180deg)',
+    width: 15,
+    height: 10
+  }
+}));
 
 const NavBar = ({ auth, history, location }) => {
-
+  const classes = useStyles();
   const {userData, setUserData} = useContext(UserContext)
+  const [open, setOpen] = useState(false)
   const login = () => {
     auth.login("/dashboard");
   };
+  const handleOpen = () => {
+    setOpen(!open);
+
+  };
+
+  const body = (
+    <>
+      <div className={classes.darken}></div>
+      <div className={classes.paper}>
+        <ul className={classes.modalLi}>
+          <li className={classes.modalLi}>Profile</li>
+          <li className={classes.modalLi}>About</li>
+          <li className={classes.modalLi}>Logout</li>
+        </ul>
+      </div>
+    </>
+    
+  )
 
   const logout = () => {
     localStorage.removeItem("okta-token-storage")
@@ -59,6 +143,7 @@ const NavBar = ({ auth, history, location }) => {
   let token = localStorage.getItem("okta-token-storage");
   return (
      token ? (
+     
       <NavDiv pathname={location.pathname}>
         <H2>
           <Link className="link" to="/">
@@ -69,10 +154,13 @@ const NavBar = ({ auth, history, location }) => {
           </Link>
         </H2>
         <UL>
-          <Li>
-            <button className="link" onClick={logout}>
-              Sign Out
+          <Li className={classes.avatarBox}>
+            <img src={avatar}/>
+            <button className="link" onClick={handleOpen}>
+              <img className={!open ? classes.animation : classes.animation2} src={location.pathname !== '/cityview' ? poly : polyWhite}/>
             </button>
+            
+            {open? body : <></>}
           </Li>
         </UL>
       </NavDiv>
