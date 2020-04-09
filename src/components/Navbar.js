@@ -70,7 +70,10 @@ const useStyles = makeStyles((theme) => ({
     listStyleType: 'none',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    fontSize: 16
+    fontSize: 16,
+    '&:hover' : {
+      fontWeight: 'bold'
+    }
   },
   bakground: {
     position: "absolute",
@@ -116,21 +119,6 @@ const NavBar = ({ auth, history, location }) => {
     setOpen(!open);
 
   };
-
-  const body = (
-    <>
-      <div className={classes.darken}></div>
-      <div className={classes.paper}>
-        <ul className={classes.modalLi}>
-          <li className={classes.modalLi}>Profile</li>
-          <li className={classes.modalLi}>About</li>
-          <li className={classes.modalLi}>Logout</li>
-        </ul>
-      </div>
-    </>
-    
-  )
-
   const logout = () => {
     localStorage.removeItem("okta-token-storage")
     localStorage.removeItem("okta-cache-storage")
@@ -140,6 +128,21 @@ const NavBar = ({ auth, history, location }) => {
     setUserData({})
     history.push('/')
   };
+  const body = (
+    <>
+      <div className={classes.darken}></div>
+      <div className={classes.paper}>
+        <ul className={classes.modalLi}>
+          <li className={classes.modalLi} onClick={()=>{history.push('/profile')}}>Profile</li>
+          <li className={classes.modalLi} onClick={()=>{history.push('/about')}}>About</li>
+          <li className={classes.modalLi} onClick={logout}>Logout</li>
+        </ul>
+      </div>
+    </>
+    
+  )
+
+ 
   let token = localStorage.getItem("okta-token-storage");
   return (
      token ? (
