@@ -8,7 +8,7 @@ background: #2196F3;
 display: flex;
 flex-direction: column;
 height: 370px;
-margin: 10px 0;
+margin: 0 0 10px 0;
 align-items: center;
 @media screen and (max-width: 600px){
   margin: 0;

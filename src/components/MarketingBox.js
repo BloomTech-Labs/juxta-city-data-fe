@@ -6,7 +6,7 @@ import {Container} from '@material-ui/core';
 const MarketingBox = props => {
   return (
     <Container>
-      <IconBox />
+      <IconBox id='about'/>
       <Liveability />
       <CallToAction />
     </Container>

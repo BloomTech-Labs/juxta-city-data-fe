@@ -87,7 +87,7 @@ const styles = makeStyles(theme => ({
 const IconBox = props => {
   const classes = styles();
   return (
-      <div className={classes.root}>
+      <div id='about'className={classes.root}>
         <div className={classes.header}>
           <h4 className={classes.h4}>"Find Ur" place</h4>
         <p className={classes.intro}>Findur is a place where you can learn
