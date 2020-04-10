@@ -3,6 +3,7 @@ import CompareIcon from '../../assets/compare.png';
 import PinIcon from '../../assets/pin.png';
 import SearchIcon from '../../assets/search.png';
 import { makeStyles } from '@material-ui/core/styles';
+import IconCard from './IconCard'
 
 const styles = makeStyles(theme => ({
   root: {
@@ -53,34 +54,6 @@ const styles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column'
     }
-  },
-  IconCard: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '30%',
-    [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      flexDirection: 'row',
-      margin: '25px 0',
-      justifyContent: 'space-between',
-      alignItems: 'center'
-    }
-  },
-  body: {
-    fontWeight: 'normal',
-    fontSize: 18,
-    [theme.breakpoints.down('sm')]: {
-      fontSize: 16,
-      paddingLeft: 30,
-      width: '65%'
-    }
-  },
-  img: {
-    margin: '0 auto',
-    [theme.breakpoints.down('xs')]: {
-      width: '20%',
-      margin: 0
-    }
   }
 }))
 
@@ -96,36 +69,9 @@ const IconBox = props => {
         </div>
         
         <div className={classes.IconBox}>
-          <div className={classes.IconCard}>
-            <img
-              className={classes.img}
-              src={CompareIcon}
-              alt='Compare Icon'
-            />
-            <p className={classes.body}>Quickly compare up to 3 different cities
-              side-by-side
-            </p>
-          </div>
-
-          
-          <div className={classes.IconCard}>
-            <img
-              className={classes.img} 
-              src={SearchIcon}
-              alt='Search Icon'
-            />
-            <p className={classes.body}>Search for a city to view all the latest 
-  information </p>
-          </div>
-
-          <div className={classes.IconCard}> 
-            <img
-              className={classes.img} 
-              src={PinIcon}
-              alt='Pin Icon'
-            />
-            <p className={classes.body}>Instantly receive a recommendation for the best place to live</p>  
-          </div>
+          <IconCard image={{src:CompareIcon ,alt:'Compare Icon'}} body={'Quickly compare up to 3 different cities side-by-side'}/>
+          <IconCard image={{src:SearchIcon ,alt:'Search Icon'}} body={'Search for a city to view all the latest information'}/>
+          <IconCard image={{src:PinIcon, alt:'Pin Icon'}} body={'Instantly receive a recommendation for the best place to live'}/>
         </div>
       </div>      
   );
