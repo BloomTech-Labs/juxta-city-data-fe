@@ -58,7 +58,7 @@ export default function CityViewHeader(props){
                 }).catch(err => console.log(err))
             }).catch(err => console.log(err))
         }
-    }, [])
+    }, [setUserData, userData.id])
     const handleFavorite = e => {
         e.preventDefault();
         //checks if theire is a user logged in and if the they have the current city saved
@@ -86,7 +86,18 @@ export default function CityViewHeader(props){
         return(
             <div className={classes.root}>
                 <div className={classes.HeadingBox}>
-                    <img className={classes.Heart} onClick={handleFavorite} src={!userData.favorites ? emptyheart : userData.favorites.some(fav => fav.city_id === props.cityData.id) ? fullheart: emptyheart}/>
+                    <img
+                      className={classes.Heart}
+                      onClick={handleFavorite}
+                      src={!userData.favorites
+                        ? emptyheart
+                        : userData
+                          .favorites
+                          .some(fav => fav.city_id === props.cityData.id)
+                            ? fullheart
+                            : emptyheart}
+                      alt="favorite icon"
+                    />
                     <h3 className={classes.Heading}>{props.cityData.city}</h3> 
                 </div>
                 <p className={classes.Note}>Population: {props.cityData.population}</p>
