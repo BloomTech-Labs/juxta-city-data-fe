@@ -102,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
 
 const NavBar = ({ auth, history, location }) => {
   const classes = useStyles();
-  const {userData, setUserData} = useContext(UserContext)
+  const { setUserData} = useContext(UserContext)
   const [open, setOpen] = useState(false)
   const login = () => {
     auth.login("/dashboard");
