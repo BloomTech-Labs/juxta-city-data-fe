@@ -15,21 +15,22 @@ align-items: center;
   height: 326px; 
 }
 `
-const Heading = styled.h1`
+const Heading = styled.p`
 display: flex;
 align-items: baseline;
-height: 98px;
 font-size: 24px;
 font-weight: 400;
 color: white;
 font-family: Oswald;
+padding-top: 20px;
 @media screen and (max-width: 600px){
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
 }
 `
-const LargeText = styled.h1`
+const LargeText = styled.span`
+display: inline-block;
 font-size: 44px;
 font-weight: 400;
 color: white;
@@ -42,8 +43,7 @@ padding: 0 10px;
 }
 `
 
-const Header = (props) => {
-  
+const Header = () => {
   return (
     <Div>
       <Heading>FIND THE PERFECT <LargeText> CITY </LargeText> TO CALL <LargeText> HOME </LargeText></Heading>
