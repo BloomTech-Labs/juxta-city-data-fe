@@ -46,7 +46,7 @@ export default function CityViewHeader(props){
         //checks to see if their is no userContext and if their is a usertoken it can grab an id from 
         if(!userData.id && localStorage.getItem('okta-token-storage')){
             const token = localStorage.getItem('okta-token-storage')
-            const name = JSON.parse(token).idToken.claims.name;
+            //const name = JSON.parse(token).idToken.claims.name;
             let data = {}
             //restores usercontext
             axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${1}`).then(res=> {
