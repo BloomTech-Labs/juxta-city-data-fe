@@ -1,5 +1,4 @@
 import React, {useState, useContext} from "react";
-import {useHistory} from 'react-router-dom'
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -7,7 +6,6 @@ import Logo from '../assets/logo.png'
 import LogoWhite from '../assets/logo-white.png'
 import UserContext from '../contexts/UserContext'
 import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
 import poly from '../assets/polydown.png';
 import polyWhite from '../assets/polyWhite.png';
 import avatar from '../assets/avatar.png';
@@ -140,7 +138,7 @@ const NavBar = ({ auth, history, location }) => {
       <div className={classes.paper}>
         <ul className={classes.modalLi}>
           <li className={classes.modalLi} onClick={()=>{history.push('/')}}>Profile</li>
-          <a className={classes.modalLi} onClick={handleAbout}>About</a>
+          <li className={classes.modalLi} onClick={handleAbout}>About</li>
           <li className={classes.modalLi} onClick={logout}>Logout</li>
         </ul>
       </div>
@@ -164,9 +162,9 @@ const NavBar = ({ auth, history, location }) => {
         </H2>
         <UL>
           <Li className={classes.avatarBox}>
-            <img src={avatar}/>
+            <img src={avatar} alt='avatar'/>
             <button className="link" onClick={handleOpen}>
-              <img className={!open ? classes.animation : classes.animation2} src={location.pathname !== '/cityview' ? poly : polyWhite}/>
+              <img className={!open ? classes.animation : classes.animation2} src={location.pathname !== '/cityview' ? poly : polyWhite} alt='navigation arrow'/>
             </button>
             
             {open? body : <></>}

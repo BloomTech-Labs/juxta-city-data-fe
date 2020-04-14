@@ -1,12 +1,10 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useEffect, useContext} from 'react';
 import axios from 'axios';
-import styled from 'styled-components'
 import fullheart from '../../assets/fullheart.png'
 import emptyheart from '../../assets/emptyheart.png'
 import TabBar from './TabBar'
 
 import { makeStyles } from '@material-ui/core/styles';
-import { useMediaQuery } from '@material-ui/core';
 import UserContext from '../../contexts/UserContext';
 const styles = makeStyles(theme => ({
     root: {
