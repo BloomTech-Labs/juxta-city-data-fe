@@ -20,6 +20,7 @@ const styles = makeStyles(theme => ({
           },
     },
     header: {
+        color: 'rgba(33, 33, 33, 0.8)',
         width: '100%',
         textAlign: 'center',
         fonStyle: 'normal',
