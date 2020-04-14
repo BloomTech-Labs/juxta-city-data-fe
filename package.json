@@ -49,11 +49,7 @@
         "!**/vendor/**",
         "!**/coverage/**",
         "!**/src/*",
-        "!**/auth/**",
-        "!**/components/ContentBody.js",
-        "!**/components/Dashboard.js",
-        "!**/components/LandingPage.js",
-        "!**/components/MarketingBox.js"
+        "!**/auth/**"
     ] 
   }
 }
