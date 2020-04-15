@@ -30,7 +30,7 @@ function SingleCityView(props){
                 setCityData(newCity.data)
             })
         }
-    },[])
+    },[cityData.city, props.history, setCityData])
     return(
         <div className={classes.root}>
             <NavBar {...props}/>

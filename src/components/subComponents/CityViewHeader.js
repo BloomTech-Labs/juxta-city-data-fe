@@ -44,7 +44,7 @@ export default function CityViewHeader(props){
     useEffect(()=> {
         //checks to see if their is no userContext and if their is a usertoken it can grab an id from 
         if(!userData.id && localStorage.getItem('okta-token-storage')){
-            const token = localStorage.getItem('okta-token-storage')
+            //const token = localStorage.getItem('okta-token-storage')
             //const name = JSON.parse(token).idToken.claims.name;
             let data = {}
             //restores usercontext
@@ -57,7 +57,7 @@ export default function CityViewHeader(props){
                 }).catch(err => console.log(err))
             }).catch(err => console.log(err))
         }
-    }, [])
+    })
     const handleFavorite = e => {
         e.preventDefault();
         //checks if theire is a user logged in and if the they have the current city saved
@@ -87,7 +87,7 @@ export default function CityViewHeader(props){
                 <TabBar/>
                 <div className={classes.root}>
                     <div className={classes.HeadingBox}>
-                        <img className={classes.Heart} onClick={handleFavorite} src={!userData.favorites ? emptyheart : userData.favorites.some(fav => fav.city_id === props.cityData.id) ? fullheart: emptyheart}/>
+                        <img className={classes.Heart} onClick={handleFavorite} src={!userData.favorites ? emptyheart : userData.favorites.some(fav => fav.city_id === props.cityData.id) ? fullheart: emptyheart} alt='heart'/>
                         <h3 className={classes.Heading}>{props.cityData.city}</h3> 
                     </div>
                 </div>

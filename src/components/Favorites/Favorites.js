@@ -36,15 +36,15 @@ const styles = makeStyles(theme => ({
 export default function Favoirtes(props){
     const classes = styles()
     const [cities, setCities] = useState([])
-    const {userData, setUserData}= useContext(UserContext)
+    const {setUserData}= useContext(UserContext)
     const history = useHistory();
     useEffect(()=>{
         //if there is no token use is pushed to landing page
         if(!localStorage.getItem('okta-token-storage')){
             history.push('/')
         }
-        const userToken = localStorage.getItem('okta-token-storage')
-        const claims = JSON.parse(userToken).idToken.claims;
+        //const userToken = localStorage.getItem('okta-token-storage')
+        //const claims = JSON.parse(userToken).idToken.claims;
         //variable data needed because the 2nd axios call doesnt have access to the new userContext yet
         let data = {}
         //call to grab userData
@@ -56,7 +56,7 @@ export default function Favoirtes(props){
                 setUserData({...data, favorites: res.data})
                 //for each favorite it makes a API call to get the city name
                 res.data.map(favorite => {
-                    axios.get(`https://junta-test.herokuapp.com/name?id=${favorite.city_id}`).then(res => {
+                    return axios.get(`https://junta-test.herokuapp.com/name?id=${favorite.city_id}`).then(res => {
                         setCities(oldCities => [...oldCities, res.data])
                     })
                 })
@@ -65,7 +65,7 @@ export default function Favoirtes(props){
             console.log(err)
         })
         
-    }, [!localStorage.getItem('userId')])
+    }, [history, setUserData])
     return cities.length < 1 ? (
         <p>loading...</p>
     ):

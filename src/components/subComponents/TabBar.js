@@ -4,7 +4,6 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs'
 
 import { makeStyles } from '@material-ui/core/styles';
-import { useMediaQuery } from '@material-ui/core';
 
 
 const styles = makeStyles(theme => ({

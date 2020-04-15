@@ -41,7 +41,7 @@ const NavDiv = styled.div`
   z-index: 1;
   position: ${ ({ pathname }) => !pathname.includes('/cityview')  ? 'relative' : 'sticky; top: 0'};
   max-width: 1280px;
-  background: ${ ({ pathname }) => pathname.includes('/cityview')? '#2196F3' : pathname.includes('/recomended') ? '#2196F3': 'white'};
+  background: ${ ({ pathname }) => pathname.includes('/cityview')? '#2196F3' : pathname.includes('/recommended') ? '#2196F3': 'white'};
 `;
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -123,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
 
 const NavBar = ({ auth, history, location }) => {
   const classes = useStyles();
-  const {userData, setUserData} = useContext(UserContext)
+  const {setUserData} = useContext(UserContext)
   const [open, setOpen] = useState(false)
   const login = () => {
     auth.login("/dashboard");
@@ -178,7 +178,7 @@ const NavBar = ({ auth, history, location }) => {
         <H2>
           <Link className="link" to="/">
             <img
-              src={location.pathname !== '/cityview' || '/recomended' ? Logo : LogoWhite}
+              src={location.pathname !== '/cityview' ? Logo : location.pathname !== 'recommended'? Logo: LogoWhite}
               alt='Find Ur City Logo'
             />
           </Link>
@@ -187,7 +187,7 @@ const NavBar = ({ auth, history, location }) => {
           <Li className={classes.avatarBox}>
             <img src={avatar} alt='avatar'/>
             <button className="link" onClick={handleOpen}>
-              <img className={!open ? classes.animation : classes.animation2} src={location.pathname !== '/cityview' ? poly : polyWhite} alt='navigation arrow'/>
+              <img className={!open ? classes.animation : classes.animation2} src={location.pathname !== '/cityview' ? poly : location.pathname !== '/recommended'? poly: polyWhite} alt='navigation arrow'/>
             </button>
             
             {open? body : <></>}
@@ -199,14 +199,14 @@ const NavBar = ({ auth, history, location }) => {
         <H2>
           <Link className="link" to="/">
           <img
-            src={location.pathname === '/cityview' ? LogoWhite : location.pathname === '/recomended'? LogoWhite :  Logo}
+            src={location.pathname === '/cityview' ? LogoWhite : location.pathname === '/recommended'? LogoWhite :  Logo}
             alt='Find Ur City Logo'
           />
           </Link>
         </H2>
         <UL>
           <Li>
-            <button className={location.pathname === '/cityview' ? classes.SignInBlue : location.pathname === '/recomended'? classes.SignInBlue : classes.SignInWhite } onClick={login} >
+            <button className={location.pathname === '/cityview' ? classes.SignInBlue : location.pathname === '/recommended'? classes.SignInBlue : classes.SignInWhite } onClick={login} >
               Sign In
             </button>
           </Li>

@@ -1,5 +1,4 @@
 import React from 'react';
-import IconBox from './IconBox';
 import {makeStyles} from '@material-ui/core/styles'
 
 const styles = makeStyles(theme => ({

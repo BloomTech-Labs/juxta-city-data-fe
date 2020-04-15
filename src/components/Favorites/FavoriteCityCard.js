@@ -4,7 +4,6 @@ import {useHistory} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import fullheart from '../../assets/fullheart.png';
 import emptyheart from '../../assets/emptyheart.png';
-import { lightBlue } from '@material-ui/core/colors';
 import CityContext from '../../contexts/CityContext';
 import UserContext from '../../contexts/UserContext';
 const styles = makeStyles(theme => ({
@@ -33,8 +32,8 @@ export default function FavoiriteCityCard(props){
 const classes = styles()
 const [city, setCity] = useState({})
 const [favorited, setFavorited] = useState(true)
-const {cityData, setCityData} = useContext(CityContext)
-const {userData, setUserData} = useContext(UserContext)
+const {setCityData} = useContext(CityContext)
+const {userData} = useContext(UserContext)
 const history = useHistory();
 
 useEffect(()=>{
@@ -43,7 +42,7 @@ useEffect(()=>{
     .then(res => {
         setCity(res.data)
     })
-}, [])
+}, [props.cityData])
 
 const handleClick = e => {
     //sets context, saves name to storage, pushes to cityview page

@@ -40,7 +40,7 @@ const App = () => {
             <Route exact path='/' component={LandingPage} />
             <Route path='/dashboard' exact component={Dashboard} />
             <Route path='/cityview' exact component={SingleCityView} />
-            <Route path='/recomended' exact component={RecomendedDashboard}/>
+            <Route path='/recommended' exact component={RecomendedDashboard}/>
             <SecureRoute path='/profile' exact component={Profile} />
             <Route
               path='/signin'
