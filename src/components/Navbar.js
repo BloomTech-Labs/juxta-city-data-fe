@@ -39,9 +39,9 @@ const NavDiv = styled.div`
   height: 80px;
   max-height: 80px;
   z-index: 1;
-  position: ${ ({ pathname }) => !pathname.includes('/cityview') ? 'relative' : 'sticky; top: 0'};
+  position: ${ ({ pathname }) => !pathname.includes('/cityview')  ? 'relative' : 'sticky; top: 0'};
   max-width: 1280px;
-  background: ${ ({ pathname }) => !pathname.includes('/cityview') ? 'white': '#2196F3'};
+  background: ${ ({ pathname }) => pathname.includes('/cityview')? '#2196F3' : pathname.includes('/recomended') ? '#2196F3': 'white'};
 `;
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -95,6 +95,29 @@ const useStyles = makeStyles((theme) => ({
     transform: 'rotate(180deg)',
     width: 15,
     height: 10
+  },
+  SignInBlue: {
+    border: '0',
+    background: 'none',
+    fontSize: 16,
+    color: 'white',
+    [theme.breakpoints.down('sm')]: {
+      background: '#687FAD',
+      color: 'white',
+      fontSize: 16,
+      border: '0'
+    }
+  },
+  SignInWhite: {
+    border: '0',
+    background: 'none',
+    fontSize: 16,
+    [theme.breakpoints.down('sm')]: {
+      background: '#687FAD',
+      color: 'white',
+      fontSize: 16,
+      border: '0'
+    }
   }
 }));
 
@@ -155,7 +178,7 @@ const NavBar = ({ auth, history, location }) => {
         <H2>
           <Link className="link" to="/">
             <img
-              src={location.pathname !== '/cityview' ? Logo : LogoWhite}
+              src={location.pathname !== '/cityview' || '/recomended' ? Logo : LogoWhite}
               alt='Find Ur City Logo'
             />
           </Link>
@@ -176,15 +199,15 @@ const NavBar = ({ auth, history, location }) => {
         <H2>
           <Link className="link" to="/">
           <img
-            src={location.pathname !== '/cityview' ? Logo : LogoWhite}
+            src={location.pathname === '/cityview' ? LogoWhite : location.pathname === '/recomended'? LogoWhite :  Logo}
             alt='Find Ur City Logo'
           />
           </Link>
         </H2>
         <UL>
           <Li>
-            <button className="link" onClick={login} >
-              Sign In / Sign Up
+            <button className={location.pathname === '/cityview' ? classes.SignInBlue : location.pathname === '/recomended'? classes.SignInBlue : classes.SignInWhite } onClick={login} >
+              Sign In
             </button>
           </Li>
         </UL>

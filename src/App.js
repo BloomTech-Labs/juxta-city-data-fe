@@ -11,6 +11,7 @@ import Dashboard from './components/Dashboard.js';
 import Signin from './components/auth/SignIn.js';
 import Profile from './components/pages/Profile.js';
 import SingleCityView from './components/SingleCityView.js';
+import RecomendedDashboard from './components/recomended/RecomendedDashboard';
 
 const AppDiv = styled.div`
   max-width: 1280px;
@@ -39,6 +40,7 @@ const App = () => {
             <Route exact path='/' component={LandingPage} />
             <Route path='/dashboard' exact component={Dashboard} />
             <Route path='/cityview' exact component={SingleCityView} />
+            <Route path='/recomended' exact component={RecomendedDashboard}/>
             <SecureRoute path='/profile' exact component={Profile} />
             <Route
               path='/signin'
