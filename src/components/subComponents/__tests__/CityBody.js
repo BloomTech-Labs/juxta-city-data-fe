@@ -2,40 +2,32 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import CityContent from "../CityContent.js";
 import TabBar from "../TabBar.js";
+import CityBody from "../CityBody.js";
 
-it("should render tabs with values", () => {
-  const { getByText, getByTestId } = render(<TabBar />);
+it("should render tabs and headers with values", () => {
+  const cityData = {
+    population_desc: "Test description",
+    climate_desc: "Test climate",
+    economy_desc: "Test economy",
+    living_cost_desc: "Test living cost",
+  };
+
+  const { getAllByText, getByTestId } = render(
+    <CityBody cityData={cityData} />
+  );
 
   const tabs = getByTestId("tabs");
   expect(tabs).toBeInTheDocument();
 
-  const populationTab = getByText(/population/i);
-  const climateTab = getByText(/climate/i);
-  const economyTab = getByText(/economy/i);
-  const colTab = getByText(/cost of living/i);
+  const population = getAllByText(/population/i);
+  const climate = getAllByText(/climate/i);
+  const economy = getAllByText(/economy/i);
+  const costOfLiving = getAllByText(/cost of living/i);
 
-  expect(populationTab).toBeInTheDocument();
-  expect(climateTab).toBeInTheDocument();
-  expect(economyTab).toBeInTheDocument();
-  expect(colTab).toBeInTheDocument();
-});
-
-it("should toggle the 'Mui-selected' class when a different tab is clicked", () => {
-  const { getByTestId } = render(<TabBar />);
-
-  const populationTab = getByTestId("population-tab");
-  expect(populationTab).toBeInTheDocument();
-
-  const climateTab = getByTestId("climate-tab");
-  expect(climateTab).toBeInTheDocument();
-
-  expect([...populationTab.classList]).toContain("Mui-selected");
-  expect([...climateTab.classList]).not.toContain("Mui-selected");
-
-  fireEvent.click(climateTab);
-
-  expect([...populationTab.classList]).not.toContain("Mui-selected");
-  expect([...climateTab.classList]).toContain("Mui-selected");
+  expect(population).toHaveLength(2);
+  expect(climate).toHaveLength(3);
+  expect(economy).toHaveLength(3);
+  expect(costOfLiving).toHaveLength(2);
 });
 
 it("should render four description boxes with data from props", () => {
@@ -46,7 +38,7 @@ it("should render four description boxes with data from props", () => {
     living_cost_desc: "Test living cost",
   };
 
-  const { getByText } = render(<CityContent cityData={cityData} />);
+  const { getByText } = render(<CityBody cityData={cityData} />);
 
   const populationBox = getByText(/test description/i);
   const climateBox = getByText(/test climate/i);
