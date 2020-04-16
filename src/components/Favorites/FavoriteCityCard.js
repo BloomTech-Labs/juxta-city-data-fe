@@ -6,6 +6,7 @@ import fullheart from '../../assets/fullheart.png';
 import emptyheart from '../../assets/emptyheart.png';
 import CityContext from '../../contexts/CityContext';
 import UserContext from '../../contexts/UserContext';
+import FavoriteIcon from '../subComponents/FavoriteIcon';
 const styles = makeStyles(theme => ({
     root: {
         width: '50%',
@@ -50,25 +51,9 @@ const handleClick = e => {
     localStorage.setItem('cityName', city.city)
     history.push('/cityview')
 }
-
-const handleFavorite = e => {
-    //either deletes or adds favorite based off the favorite useState
-    if(favorited){
-        setFavorited(false)
-        axios.delete(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}/delete/${city.id}`).then(res=> {
-                console.log(res, 'unfavorite completed!')
-            })
-    }else{
-        setFavorited(true)
-        const object = {user_id: userData.id, city_id: props.cityData.id}
-            axios.post(`https://production-juxta-city-be.herokuapp.com/api/users/${userData.id}/favorites`, object).then(res=> {
-                console.log(res, 'favorite completed!')
-            }).catch(err => console.log(err))
-    }
-}
     return(
         <div className={classes.root}>
-            <img className={classes.image} src={favorited ? fullheart: emptyheart} onClick={handleFavorite} alt='favorite heart Icon'/>
+            <FavoriteIcon class={classes.image} {...props} cityData={props.cityData} />
             <p className={classes.cityName} onClick={handleClick}>{props.cityData}</p>
         </div>
     )

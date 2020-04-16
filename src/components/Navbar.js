@@ -178,7 +178,7 @@ const NavBar = ({ auth, history, location }) => {
         <H2>
           <Link className="link" to="/">
             <img
-              src={location.pathname !== '/cityview' ? Logo : location.pathname !== 'recommended'? Logo: LogoWhite}
+              src={location.pathname === '/cityview' ? LogoWhite : location.pathname === '/recommended'? LogoWhite: Logo}
               alt='Find Ur City Logo'
             />
           </Link>
@@ -187,7 +187,7 @@ const NavBar = ({ auth, history, location }) => {
           <Li className={classes.avatarBox}>
             <img src={avatar} alt='avatar'/>
             <button className="link" onClick={handleOpen}>
-              <img className={!open ? classes.animation : classes.animation2} src={location.pathname !== '/cityview' ? poly : location.pathname !== '/recommended'? poly: polyWhite} alt='navigation arrow'/>
+              <img className={!open ? classes.animation : classes.animation2} src={location.pathname === '/cityview' ? polyWhite : location.pathname === '/recommended'? polyWhite: poly} alt='navigation arrow'/>
             </button>
             
             {open? body : <></>}
