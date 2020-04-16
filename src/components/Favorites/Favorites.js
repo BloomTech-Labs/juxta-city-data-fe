@@ -1,6 +1,5 @@
 import React, {useEffect, useState, useContext} from 'react';
 import {useHistory} from 'react-router-dom';
-import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import UserContext from '../../contexts/UserContext';
 import { Container } from '@material-ui/core';
@@ -36,7 +35,7 @@ const styles = makeStyles(theme => ({
 export default function Favoirtes(props){
     const classes = styles()
     const [cities, setCities] = useState([])
-    const {userData, setUserData}= useContext(UserContext)
+    const {userData}= useContext(UserContext)
     const history = useHistory();
     useEffect(()=>{
         //if there is no token use is pushed to landing page
@@ -57,7 +56,7 @@ export default function Favoirtes(props){
             </div>
             <div className={classes.favoritesBox}>
                 {cities.map(city=> (
-                    <FavoriteCityCard cityData={city}/>
+                    <FavoriteCityCard key={city.id} cityData={city}/>
                 ))}
             </div>
         </Container>

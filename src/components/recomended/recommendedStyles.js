@@ -53,8 +53,14 @@ description: {
     overflow: 'hidden'
 },
 learn : {
+    fontSize: 14,
     textDecoration: 'none',
     margin: '0 0 0 250px',
+    border: 'none',
+    background: 'none',
+    '&:hover': {
+        fontWeight: 'bold'
+    }
 }
 }
 export default useStyles;

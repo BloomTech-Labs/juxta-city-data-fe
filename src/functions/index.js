@@ -1,5 +1,4 @@
 import axios from 'axios';
-import UserConext from '../contexts/UserContext';
 
 const addFavorite = (userId, cityId) => {
     const object = {user_id: userId, city_id: cityId}
@@ -12,6 +11,11 @@ const removeFavorite = (userId, cityId) => {
     axios.delete(`https://production-juxta-city-be.herokuapp.com/api/users/${userId}/delete/${cityId}`).then(res=> {
         console.log(res, 'unfavorite completed!')
     })
+}
+
+const getCityData = async(cityName) => {
+    let res = await axios.get(`https://junta-test.herokuapp.com/data?city=${cityName}`)
+    return res.data
 }
 
 const createUserContext = async() => {
@@ -33,4 +37,4 @@ const createUserContext = async() => {
     return context;
 }
 
-export {addFavorite, removeFavorite, createUserContext}
+export {addFavorite, removeFavorite, createUserContext, getCityData}

@@ -8,8 +8,11 @@ export default function FavoriteIcon(props){
     const [favorited, setFavorited] = useState(false)
     const {userData} = useContext(UserContext)
     useEffect(()=>{
-        userData.favorites.includes(props.cityData)? setFavorited(true): setFavorited(false)
-    }, [])
+        if(userData.favorites){
+            userData.favorites.some(city => city.id === props.cityData.id)? setFavorited(true): setFavorited(false)
+        }
+    }, [userData.favorites, props.cityData.id])
+
     const handleClick = e => {
         e.preventDefault();
         if(favorited && userData.id){
@@ -23,6 +26,6 @@ export default function FavoriteIcon(props){
         }
     }
     return (
-        <img className={props.class} src={favorited ? fullheart: emptyheart} onClick={handleClick}/>
+        <img className={props.class} src={favorited ? fullheart: emptyheart} onClick={handleClick} alt='heart icon'/>
     )
 }

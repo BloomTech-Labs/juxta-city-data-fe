@@ -5,7 +5,6 @@ import UserContext from './contexts/UserContext';
 import CityContext from './contexts/CityContext.js';
 import styled from 'styled-components';
 import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
-import {createUserContext} from './functions';
 
 import LandingPage from './components/LandingPage.js';
 import Dashboard from './components/Dashboard.js';
@@ -26,12 +25,6 @@ const onAuthRequired = ({ history }) => {
 const App = () => {
   const [cityData, setCityData] = useState({});
   const [userData, setUserData] = useState({});
-  useEffect(()=>{
-    if(localStorage.getItem('okta-token-storage')){
-      
-      createUserContext().then(res => {setUserData(res)})
-    }
-  },[])
   return (
     <Security
       issuer='https://dev-816550.okta.com/oauth2/default'
