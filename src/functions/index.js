@@ -28,7 +28,7 @@ const createUserContext = async() => {
         const result = await axios.get(
           `https://junta-test.herokuapp.com/name?id=${favorite.city_id}`
         );
-        context.favorites.push(result.data);
+        context.favorites.push({id: favorite.city_id ,city: result.data});
       }
     return context;
 }

@@ -54,7 +54,7 @@ const handleClick = e => {
     return(
         <div className={classes.root}>
             <FavoriteIcon class={classes.image} {...props} cityData={props.cityData} />
-            <p className={classes.cityName} onClick={handleClick}>{props.cityData}</p>
+            <p className={classes.cityName} onClick={handleClick}>{props.cityData.city}</p>
         </div>
     )
 }
