@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import SearchBar from '../subComponents/SearchBar';
 import styled from 'styled-components';
 
+
 const Div = styled.div`
   width: 100%;
   background: #2196f3;
@@ -50,7 +51,6 @@ const Paragraph = styled.p`
   margin: 230px 0 20px 0;
   font-size: 18px;
   color: #f4f4f4;
-
   @media (max-width: 600px) {
     font-size: 14px;
     margin-bottom: 26px;
@@ -70,7 +70,7 @@ const Button = styled.button`
   outline: none;
 `;
 
-const Header = (props) => {
+const Header = () => {
   const history = useHistory();
 
   function handleClick() {

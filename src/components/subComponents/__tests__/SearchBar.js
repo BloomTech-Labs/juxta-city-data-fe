@@ -21,7 +21,7 @@ it('renders the search form', () => {
   const setCityData = data => cityData = data;
 
   const { getByPlaceholderText } = render(
-    <CityContext.Provider value={{cityData, setCityData}}>
+    <CityContext.Provider value={{setCityData}}>
       <SearchBar />
     </CityContext.Provider>
   );

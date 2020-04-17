@@ -1,30 +1,30 @@
-import React, { useContext } from 'react';
-import axios from 'axios';
+import React, { useContext } from "react";
+import axios from "axios";
 
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
-import CityContext from '../../contexts/CityContext';
+import CityContext from "../../contexts/CityContext";
 
-import { makeStyles } from '@material-ui/core/styles';
-import { GridList } from '@material-ui/core';
-import { GridListTile } from '@material-ui/core';
-import { GridListTileBar } from '@material-ui/core';
+import { makeStyles } from "@material-ui/core/styles";
+import { GridList } from "@material-ui/core";
+import { GridListTile } from "@material-ui/core";
+import { GridListTileBar } from "@material-ui/core";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    overflow: "hidden",
   },
   gridList: {
-    flexWrap: 'nowrap',
+    flexWrap: "nowrap",
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-    transform: 'translateZ(0)',
+    transform: "translateZ(0)",
   },
 }));
 
-const MaterialUiGridList = props => {
+const MaterialUiGridList = (props) => {
   const classes = useStyles();
   const gridList = props.gridList.slice(0, 4);
   const { setCityData } = useContext(CityContext);
@@ -32,7 +32,7 @@ const MaterialUiGridList = props => {
 
   async function handleClick(city) {
     const res = await axios.get(
-      `https://junta-test.herokuapp.com/data?city=${city.city}`,
+      `https://junta-test.herokuapp.com/data?city=${city.city}`
     );
 
     setCityData(res.data);
@@ -40,22 +40,23 @@ const MaterialUiGridList = props => {
   }
 
   function routeToCity() {
-    history.push('/cityview');
+    history.push("/cityview");
   }
 
   return (
     <div className={classes.root}>
       <GridList cols={props.mobile ? 1.5 : 4} className={classes.gridList}>
-        {gridList.map(tile => (
+        {gridList.map((tile) => (
           <GridListTile
             key={tile.city}
             onClick={() => handleClick(tile)}
-            data-testid='grid-tile'
+            data-testid="grid-tile"
           >
             <img src={tile.photo_url} alt={tile.city} className={props.hover} />
             <GridListTileBar
+              key={tile.city}
               title={`${tile.city}`}
-              titlePosition='top'
+              titlePosition="top"
               className={props.titleBar}
             />
           </GridListTile>
