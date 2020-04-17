@@ -11,33 +11,14 @@ const CallToAction = props => {
       </Grid>
       <Grid item style={{ width: '100%', display: 'flex', flexDirection:'column'}}>
       <Link to="/signin" style={{margin: '0 auto',textDecoration: 'none'}}>
-          <Button
-            variant="contained"
-            style={{
-              backgroundColor: "#8BC34A",
-              color: 'white',
-              width: 180,
-              fontStyle: 'normal',
-              fontWeight: 500,
-              fontSize: 18,
-          }}>
+          <Button variant="contained" style={{backgroundColor: "#8BC34A", color: 'white', width: 180, fontStyle: 'normal', fontWeight: 500, fontSize: 18}}>
             Sign Up
           </Button>
         </Link>
-        <Typography
-          variant="body1"
-          align="center"
-          style={{
-            width: '100%',
-          fontSize: 18,
-          paddingTop: 15,
-          fontStyle: 'normal',
-          fontWeight: 300,
-        }}>
+        <Typography variant="body1" align="center" style={{ width: '100%', fontSize: 18, paddingTop: 15, fontStyle: 'normal', fontWeight: 300,}}>
           Join now and see what the locals love and hate about the city you're
           interested in 
         </Typography>
-        
       </Grid>
     </Grid>
   );
