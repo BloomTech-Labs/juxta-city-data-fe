@@ -11,6 +11,7 @@ import Dashboard from './components/Dashboard.js';
 import Signin from './components/auth/SignIn.js';
 import Profile from './components/pages/Profile.js';
 import SingleCityView from './components/SingleCityView.js';
+import SurveyQuestions from './components/surveyQuestions/SurveyQuestions.js';
 import RecomendedDashboard from './components/recomended/RecomendedDashboard';
 
 const AppDiv = styled.div`
@@ -34,13 +35,13 @@ const App = () => {
       pkce={true}
     >
       <CityContext.Provider value={{ cityData, setCityData }}>
-        <UserContext.Provider value={{userData, setUserData}}>
-
+        <UserContext.Provider value={{ userData, setUserData }}>
           <AppDiv className='App'>
             <Route exact path='/' component={LandingPage} />
             <Route path='/dashboard' exact component={Dashboard} />
             <Route path='/cityview' exact component={SingleCityView} />
-            <Route path='/recommended' exact component={RecomendedDashboard}/>
+            <Route path='/survey' exact component={SurveyQuestions} />
+            <Route path='/recommended' exact component={RecomendedDashboard} />
             <SecureRoute path='/profile' exact component={Profile} />
             <Route
               path='/signin'
