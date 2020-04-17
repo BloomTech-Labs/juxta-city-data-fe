@@ -29,7 +29,7 @@ font-family: Oswald;
   font-size: 18px;
 }
 `
-const LargeText = styled.h1`
+const LargeText = styled.span`
 font-size: 44px;
 font-weight: 400;
 color: white;
