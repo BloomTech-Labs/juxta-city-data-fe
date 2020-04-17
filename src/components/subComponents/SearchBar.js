@@ -69,7 +69,6 @@ const SearchBar = props => {
         getCityArray(search).then(res => setCities(res));
     }
   }, [search]);
-
   const handleSubmit = e => {
     e.preventDefault();
     getCityData(search)
