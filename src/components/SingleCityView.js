@@ -8,7 +8,6 @@ import CityBody from './subComponents/CityBody.js';
 import { withAuth } from '@okta/okta-react';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { useMediaQuery } from '@material-ui/core';
 
 const styles = makeStyles(theme => ({
   root: {
@@ -31,7 +30,7 @@ function SingleCityView(props){
                 setCityData(newCity.data)
             })
         }
-    },[])
+    },[cityData.city, props.history, setCityData])
     return(
         <div className={classes.root}>
             <NavBar {...props}/>

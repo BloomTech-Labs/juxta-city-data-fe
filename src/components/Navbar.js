@@ -1,5 +1,4 @@
 import React, {useState, useContext} from "react";
-import {useHistory} from 'react-router-dom'
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -7,7 +6,6 @@ import Logo from '../assets/logo.png'
 import LogoWhite from '../assets/logo-white.png'
 import UserContext from '../contexts/UserContext'
 import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
 import poly from '../assets/polydown.png';
 import polyWhite from '../assets/polyWhite.png';
 import avatar from '../assets/avatar.png';
@@ -41,9 +39,9 @@ const NavDiv = styled.div`
   height: 80px;
   max-height: 80px;
   z-index: 1;
-  position: ${ ({ pathname }) => !pathname.includes('/cityview') ? 'relative' : 'sticky; top: 0'};
+  position: ${ ({ pathname }) => !pathname.includes('/cityview')  ? 'relative' : 'sticky; top: 0'};
   max-width: 1280px;
-  background: ${ ({ pathname }) => !pathname.includes('/cityview') ? 'white': '#2196F3'};
+  background: ${ ({ pathname }) => pathname.includes('/cityview')? '#2196F3' : pathname.includes('/recommended') ? '#2196F3': 'white'};
 `;
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -97,12 +95,35 @@ const useStyles = makeStyles((theme) => ({
     transform: 'rotate(180deg)',
     width: 15,
     height: 10
+  },
+  SignInBlue: {
+    border: '0',
+    background: 'none',
+    fontSize: 16,
+    color: 'white',
+    [theme.breakpoints.down('sm')]: {
+      background: '#687FAD',
+      color: 'white',
+      fontSize: 16,
+      border: '0'
+    }
+  },
+  SignInWhite: {
+    border: '0',
+    background: 'none',
+    fontSize: 16,
+    [theme.breakpoints.down('sm')]: {
+      background: '#687FAD',
+      color: 'white',
+      fontSize: 16,
+      border: '0'
+    }
   }
 }));
 
 const NavBar = ({ auth, history, location }) => {
   const classes = useStyles();
-  const {userData, setUserData} = useContext(UserContext)
+  const {setUserData} = useContext(UserContext)
   const [open, setOpen] = useState(false)
   const login = () => {
     auth.login("/dashboard");
@@ -140,7 +161,7 @@ const NavBar = ({ auth, history, location }) => {
       <div className={classes.paper}>
         <ul className={classes.modalLi}>
           <li className={classes.modalLi} onClick={()=>{history.push('/')}}>Profile</li>
-          <a className={classes.modalLi} onClick={handleAbout}>About</a>
+          <li className={classes.modalLi} onClick={handleAbout}>About</li>
           <li className={classes.modalLi} onClick={logout}>Logout</li>
         </ul>
       </div>
@@ -157,16 +178,16 @@ const NavBar = ({ auth, history, location }) => {
         <H2>
           <Link className="link" to="/">
             <img
-              src={location.pathname !== '/cityview' ? Logo : LogoWhite}
+              src={location.pathname === '/cityview' ? LogoWhite : location.pathname === '/recommended'? LogoWhite: Logo}
               alt='Find Ur City Logo'
             />
           </Link>
         </H2>
         <UL>
           <Li className={classes.avatarBox}>
-            <img src={avatar}/>
+            <img src={avatar} alt='avatar'/>
             <button className="link" onClick={handleOpen}>
-              <img className={!open ? classes.animation : classes.animation2} src={location.pathname !== '/cityview' ? poly : polyWhite}/>
+              <img className={!open ? classes.animation : classes.animation2} src={location.pathname === '/cityview' ? polyWhite : location.pathname === '/recommended'? polyWhite: poly} alt='navigation arrow'/>
             </button>
             
             {open? body : <></>}
@@ -178,15 +199,15 @@ const NavBar = ({ auth, history, location }) => {
         <H2>
           <Link className="link" to="/">
           <img
-            src={location.pathname !== '/cityview' ? Logo : LogoWhite}
+            src={location.pathname === '/cityview' ? LogoWhite : location.pathname === '/recommended'? LogoWhite :  Logo}
             alt='Find Ur City Logo'
           />
           </Link>
         </H2>
         <UL>
           <Li>
-            <button className="link" onClick={login} >
-              Sign In / Sign Up
+            <button className={location.pathname === '/cityview' ? classes.SignInBlue : location.pathname === '/recommended'? classes.SignInBlue : classes.SignInWhite } onClick={login} >
+              Sign In
             </button>
           </Li>
         </UL>
