@@ -60,6 +60,6 @@ it("renders sign in / sign up link", () => {
       </Router>
     </UserContext.Provider>
   );
-  const linkElement = getByText(/sign in \/ sign up/i);
+  const linkElement = getByText(/sign in/i);
   expect(linkElement).toBeInTheDocument();
 });
