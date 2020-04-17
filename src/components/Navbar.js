@@ -9,10 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import poly from '../assets/polydown.png';
 import polyWhite from '../assets/polyWhite.png';
 import avatar from '../assets/avatar.png';
-import { ExpansionPanelActions } from "@material-ui/core";
 
-let w = window.innerWidth;
-let h = window.innerHeight;
 const UL = styled.ul`
   width: 65%;
   list-style-type: none;
@@ -133,20 +130,19 @@ const NavBar = ({ auth, history, location }) => {
     auth.login("/dashboard");
   };
   const handleOpen = () => {
-    setOpen(!open);
     let background = document.getElementById('darken');
-    if(!open){
-      background.style.display = 'block';
-    }else{
+    if(open){
       background.style.display = 'none';
+    }else{
+      background.style.display = 'block';
     }
-    
+    setOpen(!open);
 
   };
 
   const handleAbout = () => {
     history.push('/')
-    setOpen(false)
+    
     setTimeout(()=>{
       const ele = document.getElementById('about')
       if(ele){
@@ -158,11 +154,8 @@ const NavBar = ({ auth, history, location }) => {
 }
 
   const logout = () => {
-    localStorage.removeItem("okta-token-storage")
-    localStorage.removeItem("okta-cache-storage")
-    localStorage.removeItem("cityName")
-    localStorage.removeItem("userId")
-    localStorage.removeItem("okta-pkce-storage")
+    handleOpen()
+    localStorage.clear()
     setUserData({})
     history.push('/')
   };

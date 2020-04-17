@@ -4,6 +4,7 @@ import axios from 'axios';
 import CityContext from '../../contexts/CityContext.js';
 import styled from 'styled-components';
 import SearchIcon from '@material-ui/icons/Search';
+import {getCityData, getCityArray} from '../../functions';
 
 const Search = styled.input`
   position: relative;
@@ -67,22 +68,19 @@ const SearchBar = props => {
     if (search.length < 3 || undefined) {
       setCities([]);
     } else {
-      axios
-        .get(`https://junta-test.herokuapp.com/search?search=${search}`)
+        getCityArray(search)
         .then(res => {
-          setCities(res.data);
+          setCities(res);
         });
     }
   }, [search]);
 
   const handleSubmit = e => {
     e.preventDefault();
-    axios
-      .get(`https://junta-test.herokuapp.com/data?city=${search}`)
+      getCityData(search)
       .then(res => {
-        console.log()
-        setCityData(res.data);
-        localStorage.setItem('cityName', res.data.city)
+        setCityData(res);
+        localStorage.setItem('cityName', res.city)
         history.push('/cityview')
       })
   }
