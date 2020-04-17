@@ -44,10 +44,12 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "**/*.{js,jsx}",
-      "!**/node_modules/**",
-      "!**/vendor/**",
-      "!**/coverage/**"
+        "**/*.{js,jsx}",
+        "!**/node_modules/**",
+        "!**/vendor/**",
+        "!**/coverage/**",
+        "!**/src/*",
+        "!**/auth/**"
     ]
   }
 }
