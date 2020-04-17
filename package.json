@@ -42,7 +42,7 @@
       "last 1 safari version"
     ]
   },
-  "jest": { 
+  "jest": {
     "collectCoverageFrom": [
         "**/*.{js,jsx}",
         "!**/node_modules/**",
@@ -50,6 +50,6 @@
         "!**/coverage/**",
         "!**/src/*",
         "!**/auth/**"
-    ] 
+    ]
   }
 }
