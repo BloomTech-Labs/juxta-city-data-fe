@@ -29,7 +29,6 @@ const CallToAction = props => {
           align="center"
           style={{
             width: '100%',
-          fontWeight: 400,
           fontSize: 18,
           paddingTop: 15,
           fontStyle: 'normal',

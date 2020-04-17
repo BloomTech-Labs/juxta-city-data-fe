@@ -60,7 +60,7 @@ const City = styled.p`
 const SearchBar = props => {
   const [search, setSearch] = useState('');
   const [cities, setCities] = useState([]);
-  const { cityData, setCityData } = useContext(CityContext);
+  const {setCityData } = useContext(CityContext);
   let history = useHistory();
 
   useEffect(() => {

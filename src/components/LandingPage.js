@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { withAuth } from '@okta/okta-react';
 
-import styled from 'styled-components';
 import Header from './pages/Header.js';
 import BestCities from './bestCities/BestCities';
 import MarketingBox from './MarketingBox.js';

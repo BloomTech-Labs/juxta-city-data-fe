@@ -55,7 +55,7 @@ const Liveability = props => {
           className={classes.h4}
         >
           The Liveability Score
-          <img className={classes.Icon} src={LiveabilityScoreIcon}/>
+          <img className={classes.Icon} src={LiveabilityScoreIcon} alt='livability score icon'/>
 
         </h4>
       </Container>

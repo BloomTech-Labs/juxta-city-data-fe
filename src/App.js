@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.scss';
 import { Route } from 'react-router-dom';
 import UserContext from './contexts/UserContext';
@@ -11,6 +11,7 @@ import Dashboard from './components/Dashboard.js';
 import Signin from './components/auth/SignIn.js';
 import Profile from './components/pages/Profile.js';
 import SingleCityView from './components/SingleCityView.js';
+import RecomendedDashboard from './components/recomended/RecomendedDashboard';
 
 const AppDiv = styled.div`
   max-width: 1280px;
@@ -23,7 +24,7 @@ const onAuthRequired = ({ history }) => {
 };
 const App = () => {
   const [cityData, setCityData] = useState({});
-  const [userData, setUserData] = useState({})
+  const [userData, setUserData] = useState({});
   return (
     <Security
       issuer='https://dev-816550.okta.com/oauth2/default'
@@ -39,6 +40,7 @@ const App = () => {
             <Route exact path='/' component={LandingPage} />
             <Route path='/dashboard' exact component={Dashboard} />
             <Route path='/cityview' exact component={SingleCityView} />
+            <Route path='/recommended' exact component={RecomendedDashboard}/>
             <SecureRoute path='/profile' exact component={Profile} />
             <Route
               path='/signin'

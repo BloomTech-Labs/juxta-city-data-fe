@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-
-import { makeStyles } from "@material-ui/core/styles";
-import { useMediaQuery } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
 
 const styles = makeStyles((theme) => ({
   container: {
