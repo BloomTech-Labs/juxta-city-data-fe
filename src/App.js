@@ -19,6 +19,17 @@ const AppDiv = styled.div`
   width: 100%;
   margin: 0 auto;
 `;
+const Darken = styled.div`
+  position: absolute;
+  zIndex: 1;
+  width: 100%;
+  height: 200vh;
+  background: rgba(0,0,0,0.5);
+  top: 80px;
+  transition: ease-in-out 2s;
+  @media screen and(max-width: 600px) {
+    top: 80px
+  }`
 
 const onAuthRequired = ({ history }) => {
   history.push('/signin');
@@ -34,6 +45,7 @@ const App = () => {
       onAuthRequired={onAuthRequired}
       pkce={true}
     >
+      <Darken id='darken' style={{display: 'none'}}/>
       <CityContext.Provider value={{ cityData, setCityData }}>
         <UserContext.Provider value={{ userData, setUserData }}>
           <AppDiv className='App'>

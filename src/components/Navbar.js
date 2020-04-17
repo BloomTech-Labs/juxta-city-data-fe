@@ -9,7 +9,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import poly from '../assets/polydown.png';
 import polyWhite from '../assets/polyWhite.png';
 import avatar from '../assets/avatar.png';
+import { ExpansionPanelActions } from "@material-ui/core";
 
+let w = window.innerWidth;
+let h = window.innerHeight;
 const UL = styled.ul`
   width: 65%;
   list-style-type: none;
@@ -75,10 +78,11 @@ const useStyles = makeStyles((theme) => ({
   },
   darken : {
     position: 'absolute',
-    width:'10000px',
-    height: '10000%',
+    zIndex: 2,
+    border: '1px solid red',
+    width:`100vh`,
+    height: `100vh`,
     background: 'rgba(0,0,0,0.5)',
-    left: -400,
     top:80,
     transition: 'ease-in-out 2s',
     [theme.breakpoints.down('sm')]: {
@@ -130,6 +134,13 @@ const NavBar = ({ auth, history, location }) => {
   };
   const handleOpen = () => {
     setOpen(!open);
+    let background = document.getElementById('darken');
+    if(!open){
+      background.style.display = 'block';
+    }else{
+      background.style.display = 'none';
+    }
+    
 
   };
 
@@ -156,8 +167,6 @@ const NavBar = ({ auth, history, location }) => {
     history.push('/')
   };
   const body = (
-    <>
-      <div className={classes.darken} onClick={handleOpen}></div>
       <div className={classes.paper}>
         <ul className={classes.modalLi}>
           <li className={classes.modalLi} onClick={()=>{history.push('/')}}>Profile</li>
@@ -165,7 +174,6 @@ const NavBar = ({ auth, history, location }) => {
           <li className={classes.modalLi} onClick={logout}>Logout</li>
         </ul>
       </div>
-    </>
     
   )
 
@@ -173,7 +181,7 @@ const NavBar = ({ auth, history, location }) => {
   let token = localStorage.getItem("okta-token-storage");
   return (
      token ? (
-     
+     <>
       <NavDiv pathname={location.pathname}>
         <H2>
           <Link className="link" to="/">
@@ -194,6 +202,8 @@ const NavBar = ({ auth, history, location }) => {
           </Li>
         </UL>
       </NavDiv>
+     </>
+      
     ) : (
       <NavDiv pathname={location.pathname}>
         <H2>
