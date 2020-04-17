@@ -11,11 +11,8 @@ import Dashboard from './components/Dashboard.js';
 import Signin from './components/auth/SignIn.js';
 import Profile from './components/pages/Profile.js';
 import SingleCityView from './components/SingleCityView.js';
-<<<<<<< HEAD
 import SurveyQuestions from './components/surveyQuestions/SurveyQuestions.js';
-=======
 import RecomendedDashboard from './components/recomended/RecomendedDashboard';
->>>>>>> 307cdf9a35a81acd42a30ed06cc653122e738760
 
 const AppDiv = styled.div`
   max-width: 1280px;
@@ -43,11 +40,8 @@ const App = () => {
             <Route exact path='/' component={LandingPage} />
             <Route path='/dashboard' exact component={Dashboard} />
             <Route path='/cityview' exact component={SingleCityView} />
-<<<<<<< HEAD
             <Route path='/survey' exact component={SurveyQuestions} />
-=======
-            <Route path='/recommended' exact component={RecomendedDashboard}/>
->>>>>>> 307cdf9a35a81acd42a30ed06cc653122e738760
+            <Route path='/recommended' exact component={RecomendedDashboard} />
             <SecureRoute path='/profile' exact component={Profile} />
             <Route
               path='/signin'
