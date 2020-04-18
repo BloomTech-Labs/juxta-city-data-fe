@@ -12,7 +12,7 @@ it('renders the Icon', ()=> {
     let comp = render(
         <UserContext.Provider value={{userData, setUserData}}>
             <FavoriteIcon cityData={cityData}/>
-        </UserContext.Provider>  
+        </UserContext.Provider>   
     )
     const image = comp.getByAltText(/heart icon/i)
     expect(image).toBeInTheDocument();

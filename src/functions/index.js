@@ -4,7 +4,9 @@ const addFavorite = (userId, cityId) => {
     const object = {user_id: userId, city_id: cityId}
     axios.post(`https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites`, object).then(res=> {
         console.log(res, 'favorite completed!')
-    }).catch(err => console.log(err))
+    }).catch(err => {
+        console.log(err)
+    })
 }
 
 const removeFavorite = (userId, cityId) => {

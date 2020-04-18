@@ -24,11 +24,14 @@ function SingleCityView(props){
         }else if(!cityData.city && localStorage.getItem('cityName')){
             const city = localStorage.getItem('cityName');
             getCityData(city).then(newCity=> {
-                setCityData(newCity.data)
+                console.log(newCity)
+                setCityData(newCity)
             })
         }
-    },[cityData.city, props.history, setCityData])
-    return(
+    },[])
+    return !cityData ? (
+        <NavBar {...props}/>
+    ):(
         <div className={classes.root}>
             <NavBar {...props}/>
             <CityViewHeader {...props} cityData={cityData}/>

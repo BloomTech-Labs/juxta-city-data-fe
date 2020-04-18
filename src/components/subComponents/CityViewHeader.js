@@ -38,19 +38,15 @@ const styles = makeStyles((theme) => ({
 
 export default function CityViewHeader(props) {
   const classes = styles();
-  if (!props.cityData.population) {
-    return <div className={classes.root}>Loading...</div>;
-  } else {
     return (
       <>
         <TabBar />
         <div className={classes.root}>
           <div className={classes.HeadingBox}>
-            <FavoriteIcon class={classes.Heart} cityData={props.cityData} />
+            <FavoriteIcon class={classes.Heart} cityData={props.cityData} {...props} />
             <h3 className={classes.Heading}>{props.cityData.city}</h3>
           </div>
         </div>
       </>
     );
-  }
 }
