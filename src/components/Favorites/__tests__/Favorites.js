@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react';
-import FavoriteCityCard from '../FavoriteCityCard';
+import Favorites from '../Favorites';
 import UserContext from '../../../contexts/UserContext';
 
 jest.mock('react-router-dom', () => ({
@@ -9,13 +9,13 @@ jest.mock('react-router-dom', () => ({
     }),
   }));
 
-it('renders the CityCard', ()=> {
+it('renders the component', ()=> {
     let userData = {id: 2, username: 'Jake', favorites:[{id:235, city: 'Seattle, Washington'}]}
-    let cityData = {id: 2, city: 'Seattle, Washington'}
     let comp = render(
         <UserContext.Provider value={{userData}}>
-            <FavoriteCityCard cityData={cityData}/>
+            <Favorites/>
         </UserContext.Provider>
     )
-    expect(comp.getByText(`${cityData.city}`)).toBeInTheDocument();
+    expect(comp.getByText(/Favorite Cities/i)).toBeInTheDocument();
+    expect(comp.getByText(/Seattle, Washington/i)).toBeInTheDocument();
 })
