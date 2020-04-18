@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import {render, fireEvent} from '@testing-library/react';
 import FavoriteIcon from '../FavoriteIcon';
 import UserContext from '../../../contexts/UserContext';

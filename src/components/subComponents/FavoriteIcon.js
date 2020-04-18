@@ -7,7 +7,6 @@ import {addFavorite , removeFavorite} from '../../functions';
 export default function FavoriteIcon(props){
     const [favorited, setFavorited] = useState(false)
     const {userData} = useContext(UserContext)
-    console.log(props)
     useEffect(()=>{
         if(userData.favorites){
             userData.favorites.some(city => city.id === props.cityData.id)? setFavorited(true): setFavorited(false)
