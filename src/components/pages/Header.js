@@ -47,7 +47,8 @@ const LargeText = styled.span`
 `;
 
 const Paragraph = styled.p`
-  margin: 72px 0 20px 0;
+  position: absolute;
+  margin: 230px 0 20px 0;
   font-size: 18px;
   color: #f4f4f4;
   @media (max-width: 600px) {
@@ -57,6 +58,8 @@ const Paragraph = styled.p`
 `;
 
 const Button = styled.button`
+  position: absolute;
+  margin: 280px 0 20px 0;
   background: #8bc34a;
   padding: 9px 16px;
   border-radius: 4px;

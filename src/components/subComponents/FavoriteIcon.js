@@ -22,7 +22,7 @@ export default function FavoriteIcon(props){
             addFavorite(userData.id, props.cityData.id)
             setFavorited(true)
         }else{
-            props.history.replace('/signin')
+            props.history.push('/signin')
         }
     }
     return (

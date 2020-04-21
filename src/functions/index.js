@@ -4,7 +4,9 @@ const addFavorite = (userId, cityId) => {
     const object = {user_id: userId, city_id: cityId}
     axios.post(`https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites`, object).then(res=> {
         console.log(res, 'favorite completed!')
-    }).catch(err => console.log(err))
+    }).catch(err => {
+        console.log(err)
+    })
 }
 
 const removeFavorite = (userId, cityId) => {
@@ -14,8 +16,13 @@ const removeFavorite = (userId, cityId) => {
 }
 
 const getCityData = async(cityName) => {
-    let res = await axios.get(`https://junta-test.herokuapp.com/data?city=${cityName}`)
+    let res = await axios.get(`https://junta-test.herokuapp.com/data?city=${cityName}`);
     return res.data
+}
+
+const getCityArray = async(chars) => {
+    let res = await axios.get(`https://junta-test.herokuapp.com/search?search=${chars}`);
+    return res.data;
 }
 
 const createUserContext = async() => {
@@ -37,4 +44,4 @@ const createUserContext = async() => {
     return context;
 }
 
-export {addFavorite, removeFavorite, createUserContext, getCityData}
+export {addFavorite, removeFavorite, createUserContext, getCityData, getCityArray}

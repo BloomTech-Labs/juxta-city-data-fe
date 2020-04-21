@@ -38,18 +38,12 @@ export default function Favoirtes(props){
     const {userData}= useContext(UserContext)
     const history = useHistory();
     useEffect(()=>{
-        //if there is no token use is pushed to landing page
-        if(!localStorage.getItem('okta-token-storage')){
-            history.push('/')
-        }
-        if(userData.favorites){
-            setCities(userData.favorites)
-        }
+        if(!localStorage.getItem('okta-token-storage')){history.push('/')};
+        if(userData.favorites){setCities(userData.favorites)};
     }, [history, userData])
     return !cities ? (
         <p>loading...</p>
-    ):
-    (
+    ):(
         <Container className={classes.root}>
             <div className={classes.header}>
                 Favorite Cities

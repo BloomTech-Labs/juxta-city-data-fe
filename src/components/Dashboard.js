@@ -11,7 +11,7 @@ function Dashboard(props) {
   const {setUserData} = useContext(UserContext)
   useEffect(()=> {
     createUserContext().then(res => setUserData(res))
-  },[])
+  },[setUserData])
   return (
     <>
       <NavBar {...props} />

@@ -41,22 +41,13 @@ const styles = makeStyles(theme => ({
 const Liveability = props => {
   const classes = styles();
   return (
-    <Container
-      className={classes.container}
-      style={{
-        maxWidth: 1100,
-        padding: '3.5% 2.5% 2%',
-        boxShadow:
-          ' 0px 1px 12px rgba(0, 0, 0, 0.12), 0px 4px 8px rgba(0, 0, 0, 0.02), 0px 1px 4px rgba(0, 0, 0, 0.01)',
-      }}
+    <Container className={classes.container} 
+    style={{ maxWidth: 1100, padding: '3.5% 2.5% 2%', boxShadow: ' 0px 1px 12px rgba(0, 0, 0, 0.12), 0px 4px 8px rgba(0, 0, 0, 0.02), 0px 1px 4px rgba(0, 0, 0, 0.01)'}} 
     >
       <Container className={classes.heading}>
-        <h4
-          className={classes.h4}
-        >
+        <h4 className={classes.h4} >
           The Liveability Score
           <img className={classes.Icon} src={LiveabilityScoreIcon} alt='livability score icon'/>
-
         </h4>
       </Container>
       <Container>
