@@ -61,6 +61,6 @@ learn : {
     '&:hover': {
         fontWeight: 'bold'
     }
-}
+},
 }
 export default useStyles;
