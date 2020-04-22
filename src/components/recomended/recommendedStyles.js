@@ -11,15 +11,17 @@ heading: {
     fontSize: 36
 },
 cardBox : {
+    margin: '0 auto',
     display: 'flex',
     width: '100%',
     flexWrap: 'wrap',
+    justifyContent:'space-around',
 },
 cardRoot : {
-    margin: '10px auto',
+    margin: '10px 5px',
     width: 355,
     maxWidth: '95%',
-    height: 270
+    height: 270,
 },
 cardHeader : {
     display: 'flex',

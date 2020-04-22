@@ -5,9 +5,7 @@ import useStyles from './recommendedStyles';
 import { makeStyles } from '@material-ui/core';
 import cityscape from '../../assets/cityscape.png';
 
-export default function recommendedDashboard({ auth, history, location }) {
-   
-    const cityData = [
+const cityData = [
     {
         id: 223,
         city: 'Seattle, Washington',
@@ -39,31 +37,33 @@ export default function recommendedDashboard({ auth, history, location }) {
         population_desc: 'lorem ipsum blah blah blah'
     }
     ] 
+    
+
+    export default function recommendedDashboard({ auth, history, location }) {
     const classes = makeStyles((theme) => ({...useStyles,
-        header: {
-            width: '90%',
-            marginLeft: 60,
-            [theme.breakpoints.down('sm')]: {
-                margin: '0 auto'
-            },
+    header: {
+        width: '90%',
+        marginLeft: 60,
+        [theme.breakpoints.down('sm')]: {
+            margin: '0 auto'
         },
-        heading: {
-            fontSize: 36,
-            [theme.breakpoints.down('sm')]: {
-                fontSize: 26,
-                margin: '0 auto'
-            },
+    },
+    heading: {
+        fontSize: 36,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: 26,
+            margin: '0 auto'
         },
-        cityscape : {
-            margin: '30px auto',
-            width: 355,
-            padding: '0 ',
-            maxWidth: '95%',
-            height: 220
-        }
+    },
+    cityscape : {
+        margin: '30px 5px',
+        width: 355,
+        padding: '0 ',
+        maxWidth: '95%',
+        height: 220
+    }
     }))();
     const props = { auth, history, location, cityData};
-    
     return (
         <div className={classes.root}>
             <NavBar {...props}/>
