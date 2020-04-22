@@ -44,25 +44,25 @@ export default function RecommendedComponent(props){
             population_desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis ullamcorper mauris, sed tincidunt dui laoreet sed. Donec at elementum massa. Vivamus pellentesque quam ligula, a malesuada mauris condimentum vitae. Nullam metus erat, tincidunt vitae tortor sit amet, interdum ullamcorper nunc. Curabitur eget odio metus. Praesent tempor tincidunt arcu, ut ornare dui porta sed. Mauris a dignissim quam. Phasellus lobortis venenatis sagittis.'
         },
         {
-            id: 453,
+            id: 4523,
             city: 'Stockton',
             livabilityScore: 76.5,
             population_desc: 'lorem ipsum blah blah blah'
         },
         {
-            id: 453,
+            id: 4543,
             city: 'Stockton',
             livabilityScore: 76.5,
             population_desc: 'lorem ipsum blah blah blah'
         },
         {
-            id: 453,
+            id: 4573,
             city: 'Stockton',
             livabilityScore: 76.5,
             population_desc: 'lorem ipsum blah blah blah'
         },
         {
-            id: 453,
+            id: 45763,
             city: 'Stockton',
             livabilityScore: 76.5,
             population_desc: 'lorem ipsum blah blah blah'
