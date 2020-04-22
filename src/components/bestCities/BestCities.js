@@ -28,8 +28,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Heading = styled.h2`
+const Heading = styled.h1`
   text-align: center;
+  font-size: 38px;
 `;
 
 const BestCities = () => {

@@ -2,21 +2,23 @@ import livabilityIcon from '../../assets/livabilityIcon.png';
 
 const useStyles = {
 root : {
-    
+    margin: '0 auto'
 },
 header: {
     width: '100%',
-    marginLeft: 60
 },
 heading: {
     fontSize: 36
 },
 cardBox : {
     display: 'flex',
+    width: '100%',
+    flexWrap: 'wrap',
 },
 cardRoot : {
-    margin: 10,
+    margin: '10px auto',
     width: 355,
+    maxWidth: '95%',
     height: 270
 },
 cardHeader : {

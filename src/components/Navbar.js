@@ -24,6 +24,9 @@ const H2 = styled.h2`
   margin-left: 50px;
   justify-content: flex-start;
   padding-right: 30px;
+  @media(max-width: 500px){
+    margin: auto 0;
+  }
 `;
 
 const Li = styled.li`
@@ -169,13 +172,13 @@ const NavBar = ({ auth, history, location }) => {
   return (
     <NavDiv pathname={location.pathname}>
       <H2>
-          <Link className="link" to="/">
-            <img
-              src={location.pathname === '/cityview' ? LogoWhite : location.pathname === '/recommended'? LogoWhite: Logo}
-              alt='Find Ur City Logo'
-            />
-          </Link>
-        </H2>
+        <Link className="link" to="/">
+          <img
+            src={location.pathname === '/cityview' ? LogoWhite : location.pathname === '/recommended'? LogoWhite: Logo}
+            alt='Find Ur City Logo'
+          />
+        </Link>
+      </H2>
         {token ? (
           <UL>
             <Li className={classes.avatarBox}>

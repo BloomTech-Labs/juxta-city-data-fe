@@ -3,8 +3,7 @@ import NavBar from '../Navbar';
 import RecommendedCard from './RecommendedCard';
 import useStyles from './recommendedStyles';
 import { makeStyles } from '@material-ui/core';
-
-
+import cityscape from '../../assets/cityscape.png';
 
 export default function recommendedDashboard({ auth, history, location }) {
    
@@ -20,10 +19,51 @@ export default function recommendedDashboard({ auth, history, location }) {
         city: 'Stockton',
         livabilityScore: 76.5,
         population_desc: 'lorem ipsum blah blah blah'
+    },
+    {
+        id: 453,
+        city: 'Stockton',
+        livabilityScore: 76.5,
+        population_desc: 'lorem ipsum blah blah blah'
+    },
+    {
+        id: 453,
+        city: 'Stockton',
+        livabilityScore: 76.5,
+        population_desc: 'lorem ipsum blah blah blah'
+    },
+    {
+        id: 453,
+        city: 'Stockton',
+        livabilityScore: 76.5,
+        population_desc: 'lorem ipsum blah blah blah'
     }
     ] 
+    const classes = makeStyles((theme) => ({...useStyles,
+        header: {
+            width: '90%',
+            marginLeft: 60,
+            [theme.breakpoints.down('sm')]: {
+                margin: '0 auto'
+            },
+        },
+        heading: {
+            fontSize: 36,
+            [theme.breakpoints.down('sm')]: {
+                fontSize: 26,
+                margin: '0 auto'
+            },
+        },
+        cityscape : {
+            margin: '30px auto',
+            width: 355,
+            padding: '0 ',
+            maxWidth: '95%',
+            height: 220
+        }
+    }))();
     const props = { auth, history, location, cityData};
-    const classes = makeStyles((theme) => (useStyles))();
+    
     return (
         <div className={classes.root}>
             <NavBar {...props}/>
@@ -34,6 +74,7 @@ export default function recommendedDashboard({ auth, history, location }) {
                 {cityData.map(city => (
                     <RecommendedCard {...props} cityData={city}/>
                 ))}
+                <img src={cityscape} className={classes.cityscape} alt='cityscape'/>
             </div>
         </div>
     )
