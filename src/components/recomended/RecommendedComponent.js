@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) =>( {
         display: 'flex',
         justifyContent: 'space-around',
         [theme.breakpoints.down('sm')]:{
-            display: 'flex',
+            justifyContent: 'flex-start',
             flexWrap: "nowrap",
             transform: "translateZ(0)",
         },
@@ -74,7 +74,7 @@ export default function RecommendedComponent(props){
         ):(
         <Container className={classes.root}>
             <h1 className={classes.header}>Your Recommended Cities</h1>
-            <GridList cellHeight={270} className={classes.gridList} >
+            <GridList className={classes.gridList} >
                 {cityData.map(city => (
                     <RecommendedCard key={city.id} {...props} cityData={city}/>
                 ))}
