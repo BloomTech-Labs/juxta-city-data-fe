@@ -2,7 +2,6 @@ import axios from 'axios';
 import { buildQueryString } from './buildQueryString';
 
 const addFavorite = (userId, cityId) => {
-<<<<<<< HEAD
   const object = { user_id: userId, city_id: cityId };
   axios
     .post(
@@ -12,17 +11,10 @@ const addFavorite = (userId, cityId) => {
     .then((res) => {
       console.log(res, 'favorite completed!');
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      console.log(err);
+    });
 };
-=======
-    const object = {user_id: userId, city_id: cityId}
-    axios.post(`https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites`, object).then(res=> {
-        console.log(res, 'favorite completed!')
-    }).catch(err => {
-        console.log(err)
-    })
-}
->>>>>>> 65aa4b63a22b9188e090b221b14b64220698474a
 
 const removeFavorite = (userId, cityId) => {
   axios
@@ -76,34 +68,42 @@ const getRecomendedCities = async (queryParameters) => {
   return res.data;
 };
 
-const getCityData = async(cityName) => {
-    let res = await axios.get(`https://junta-test.herokuapp.com/data?city=${cityName}`);
-    return res.data
-}
+const getCityData = async (cityName) => {
+  let res = await axios.get(
+    `https://junta-test.herokuapp.com/data?city=${cityName}`,
+  );
+  return res.data;
+};
 
-const getCityArray = async(chars) => {
-    let res = await axios.get(`https://junta-test.herokuapp.com/search?search=${chars}`);
-    return res.data;
-}
+const getCityArray = async (chars) => {
+  let res = await axios.get(
+    `https://junta-test.herokuapp.com/search?search=${chars}`,
+  );
+  return res.data;
+};
 
-const createUserContext = async() => {
-    let context = {
-        favorites: []
-    };
-    // const token = localStorage.getItem('okta-token-storage')
-    // const claims = JSON.parse(token).idToken.claims;
-    let user = await axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${2}`);
-    let userData = await user.data;
-    context = {...context, ...userData};
-    let favorites = await axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/${2}/favorites`)
-    for (const favorite of favorites.data) {
-        const result = await axios.get(
-          `https://junta-test.herokuapp.com/name?id=${favorite.city_id}`
-        );
-        context.favorites.push({id: favorite.city_id ,city: result.data});
-      }
-    return context;
-}
+const createUserContext = async () => {
+  let context = {
+    favorites: [],
+  };
+  // const token = localStorage.getItem('okta-token-storage')
+  // const claims = JSON.parse(token).idToken.claims;
+  let user = await axios.get(
+    `https://production-juxta-city-be.herokuapp.com/api/users/${2}`,
+  );
+  let userData = await user.data;
+  context = { ...context, ...userData };
+  let favorites = await axios.get(
+    `https://production-juxta-city-be.herokuapp.com/api/users/${2}/favorites`,
+  );
+  for (const favorite of favorites.data) {
+    const result = await axios.get(
+      `https://junta-test.herokuapp.com/name?id=${favorite.city_id}`,
+    );
+    context.favorites.push({ id: favorite.city_id, city: result.data });
+  }
+  return context;
+};
 
 export {
   addFavorite,
