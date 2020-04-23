@@ -75,10 +75,11 @@ const useStyles = makeStyles((theme) => ({
   },
   darken : {
     position: 'absolute',
-    width:'10000px',
-    height: '10000%',
+    zIndex: 2,
+    border: '1px solid red',
+    width:`100vh`,
+    height: `100vh`,
     background: 'rgba(0,0,0,0.5)',
-    left: -400,
     top:80,
     transition: 'ease-in-out 2s',
     [theme.breakpoints.down('sm')]: {
@@ -129,53 +130,45 @@ const NavBar = ({ auth, history, location }) => {
     auth.login("/dashboard");
   };
   const handleOpen = () => {
+    let background = document.getElementById('darken');
+    if(open){
+      background.style.display = 'none';
+    }else{
+      background.style.display = 'block';
+    }
     setOpen(!open);
 
   };
 
   const handleAbout = () => {
     history.push('/')
-    setOpen(false)
     setTimeout(()=>{
       const ele = document.getElementById('about')
       if(ele){
           const offset = ele.offsetTop
           window.scrollTo(0, offset);
       }
-  }, 200 )
-    
+  }, 200) 
 }
-
   const logout = () => {
-    localStorage.removeItem("okta-token-storage")
-    localStorage.removeItem("okta-cache-storage")
-    localStorage.removeItem("cityName")
-    localStorage.removeItem("userId")
-    localStorage.removeItem("okta-pkce-storage")
+    handleOpen()
+    localStorage.clear()
     setUserData({})
     history.push('/')
   };
   const body = (
-    <>
-      <div className={classes.darken} onClick={handleOpen}></div>
       <div className={classes.paper}>
         <ul className={classes.modalLi}>
           <li className={classes.modalLi} onClick={()=>{history.push('/')}}>Profile</li>
           <li className={classes.modalLi} onClick={handleAbout}>About</li>
           <li className={classes.modalLi} onClick={logout}>Logout</li>
         </ul>
-      </div>
-    </>
-    
-  )
-
- 
+      </div> 
+  ) 
   let token = localStorage.getItem("okta-token-storage");
   return (
-     token ? (
-     
-      <NavDiv pathname={location.pathname}>
-        <H2>
+    <NavDiv pathname={location.pathname}>
+      <H2>
           <Link className="link" to="/">
             <img
               src={location.pathname === '/cityview' ? LogoWhite : location.pathname === '/recommended'? LogoWhite: Logo}
@@ -183,36 +176,28 @@ const NavBar = ({ auth, history, location }) => {
             />
           </Link>
         </H2>
-        <UL>
-          <Li className={classes.avatarBox}>
-            <img src={avatar} alt='avatar'/>
-            <button className="link" onClick={handleOpen}>
-              <img className={!open ? classes.animation : classes.animation2} src={location.pathname === '/cityview' ? polyWhite : location.pathname === '/recommended'? polyWhite: poly} alt='navigation arrow'/>
-            </button>
-            
-            {open? body : <></>}
-          </Li>
-        </UL>
-      </NavDiv>
-    ) : (
-      <NavDiv pathname={location.pathname}>
-        <H2>
-          <Link className="link" to="/">
-          <img
-            src={location.pathname === '/cityview' ? LogoWhite : location.pathname === '/recommended'? LogoWhite :  Logo}
-            alt='Find Ur City Logo'
-          />
-          </Link>
-        </H2>
-        <UL>
-          <Li>
-            <button className={location.pathname === '/cityview' ? classes.SignInBlue : location.pathname === '/recommended'? classes.SignInBlue : classes.SignInWhite } onClick={login} >
-              Sign In
-            </button>
-          </Li>
-        </UL>
-      </NavDiv>
-    )
+        {token ? (
+          <UL>
+            <Li className={classes.avatarBox}>
+              <img src={avatar} alt='avatar'/>
+              <button className="link" onClick={handleOpen}>
+                <img className={!open ? classes.animation : classes.animation2} src={location.pathname === '/cityview' ? polyWhite : location.pathname === '/recommended'? polyWhite: poly} alt='navigation arrow'/>
+              </button>
+              
+              {open? body : <></>}
+            </Li>
+          </UL>
+        ) : (
+          <UL>
+            <Li>
+              <button className={location.pathname === '/cityview' ? classes.SignInBlue : location.pathname === '/recommended'? classes.SignInBlue : classes.SignInWhite } onClick={login} >
+                Sign In
+              </button>
+            </Li>
+          </UL>
+      )}
+    </NavDiv>
+     
   );
 };
 

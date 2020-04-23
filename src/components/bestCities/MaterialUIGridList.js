@@ -32,6 +32,7 @@ const MaterialUiGridList = (props) => {
           >
             <img src={tile.photo_url} alt={tile.city} className={props.hover} />
             <GridListTileBar
+              key={tile.city}
               title={`${tile.city}`}
               titlePosition='top'
               className={props.titleBar}
