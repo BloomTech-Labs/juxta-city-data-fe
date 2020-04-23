@@ -1,28 +1,13 @@
-import React, { useContext } from "react";
-import axios from "axios";
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { GridList } from '@material-ui/core';
+import { GridListTile } from '@material-ui/core';
+import { GridListTileBar } from '@material-ui/core';
 
-import { useHistory } from "react-router-dom";
+import CityContext from '../../contexts/CityContext';
 
-import CityContext from "../../contexts/CityContext";
-
-import { makeStyles } from "@material-ui/core/styles";
-import { GridList } from "@material-ui/core";
-import { GridListTile } from "@material-ui/core";
-import { GridListTileBar } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-  },
-  gridList: {
-    flexWrap: "nowrap",
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-    transform: "translateZ(0)",
-  },
-}));
+import { getCityData } from '../../functions';
+import { useStyles } from './styles/MarialUIGridListStyles';
 
 const MaterialUiGridList = (props) => {
   const classes = useStyles();
@@ -30,17 +15,10 @@ const MaterialUiGridList = (props) => {
   const { setCityData } = useContext(CityContext);
   const history = useHistory();
 
-  async function handleClick(city) {
-    const res = await axios.get(
-      `https://junta-test.herokuapp.com/data?city=${city.city}`
-    );
-
-    setCityData(res.data);
-    routeToCity();
-  }
-
-  function routeToCity() {
-    history.push("/cityview");
+  function handleClick(city) {
+    getCityData(city)
+      .then((city) => setCityData(city))
+      .then(() => history.push('./cityview'));
   }
 
   return (
@@ -49,14 +27,14 @@ const MaterialUiGridList = (props) => {
         {gridList.map((tile) => (
           <GridListTile
             key={tile.city}
-            onClick={() => handleClick(tile)}
-            data-testid="grid-tile"
+            onClick={() => handleClick(tile.city)}
+            data-testid='grid-tile'
           >
             <img src={tile.photo_url} alt={tile.city} className={props.hover} />
             <GridListTileBar
               key={tile.city}
               title={`${tile.city}`}
-              titlePosition="top"
+              titlePosition='top'
               className={props.titleBar}
             />
           </GridListTile>

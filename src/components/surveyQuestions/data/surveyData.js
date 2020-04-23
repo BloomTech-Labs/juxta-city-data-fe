@@ -1,7 +1,7 @@
 const questions = [
   {
     question: 'What is an acceptable cost of living index for your new city?',
-    name: 'col',
+    name: 'cost_of_living',
     options: [
       { description: 'Very low 75', value: '1' },
       { description: 'Low 76 - 99', value: '2' },
@@ -12,7 +12,7 @@ const questions = [
   },
   {
     question: 'What is your age group?',
-    name: 'age',
+    name: 'median_age',
     options: [
       { description: '17 and younger', value: '1' },
       { description: '18 - 29', value: '2' },
@@ -23,7 +23,7 @@ const questions = [
   },
   {
     question: 'What is the population of your dream city?',
-    name: 'pop',
+    name: 'population',
 
     options: [
       { description: 'No preference', value: '1' },
@@ -35,7 +35,7 @@ const questions = [
   },
   {
     question: 'What is a reasonable commute time for routine travel?',
-    name: 'cmt',
+    name: 'average_commute',
     options: [
       { description: 'No preference', value: '1' },
       { description: '0 - 10 minutes', value: '2' },
