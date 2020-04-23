@@ -1,9 +1,9 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import RecommendedCard from './RecommendedCard';
 import { makeStyles } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import { GridList } from "@material-ui/core";
-import UserContext from '../../contexts/UserContext';
+import RecomendedContext from '../../contexts/RecomendedContext';
 import cityscape from '../../assets/cityscape.png'
 
 const useStyles = makeStyles((theme) =>( {
@@ -20,7 +20,9 @@ const useStyles = makeStyles((theme) =>( {
     gridList: {
         display: 'flex',
         justifyContent: 'space-around',
+        overflowY: 'inherit',
         [theme.breakpoints.down('sm')]:{
+            overflowY: 'auto',
             justifyContent: 'flex-start',
             flexWrap: "nowrap",
             transform: "translateZ(0)",
@@ -35,47 +37,20 @@ const useStyles = makeStyles((theme) =>( {
 }));
 export default function RecommendedComponent(props){
     const classes = useStyles();
-    const {userData} = useContext(UserContext);
-    const cityData = [
-        {
-            id: 223,
-            city: 'Seattle, Washington',
-            livabilityScore: 56.5,
-            population_desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis ullamcorper mauris, sed tincidunt dui laoreet sed. Donec at elementum massa. Vivamus pellentesque quam ligula, a malesuada mauris condimentum vitae. Nullam metus erat, tincidunt vitae tortor sit amet, interdum ullamcorper nunc. Curabitur eget odio metus. Praesent tempor tincidunt arcu, ut ornare dui porta sed. Mauris a dignissim quam. Phasellus lobortis venenatis sagittis.'
-        },
-        {
-            id: 4523,
-            city: 'Stockton',
-            livabilityScore: 76.5,
-            population_desc: 'lorem ipsum blah blah blah'
-        },
-        {
-            id: 4543,
-            city: 'Stockton',
-            livabilityScore: 76.5,
-            population_desc: 'lorem ipsum blah blah blah'
-        },
-        {
-            id: 4573,
-            city: 'Stockton',
-            livabilityScore: 76.5,
-            population_desc: 'lorem ipsum blah blah blah'
-        },
-        {
-            id: 45763,
-            city: 'Stockton',
-            livabilityScore: 76.5,
-            population_desc: 'lorem ipsum blah blah blah'
+    const [cities, setCities] = useState(null)
+    const {recomendedCity} = useContext(RecomendedContext);
+    useEffect(()=>{
+        if(recomendedCity.length > 0){
+            setCities(recomendedCity)
         }
-        ] ;
-
-        return !cityData ? (
+    },[recomendedCity])
+        return !cities ? (
             <></>
         ):(
         <Container className={classes.root}>
             <h1 className={classes.header}>Your Recommended Cities</h1>
             <GridList className={classes.gridList} >
-                {cityData.map(city => (
+                {cities.map(city => (
                     <RecommendedCard key={city.id} {...props} cityData={city}/>
                 ))}
                 <img src={cityscape} className={classes.cityscape}  style={{width: 355, height: 220}} alt='cityscape'/>

@@ -1,6 +1,7 @@
 import livabilityIcon from '../../assets/livabilityIcon.png';
+import {makeStyles} from '@material-ui/core/styles';
 
-const useStyles = {
+const useStyles = makeStyles((theme) => ({
 root : {
     margin: '0 auto'
 },
@@ -30,9 +31,10 @@ cardHeader : {
 },
 cardHeading : {
     width: '75%',
-    textAlign: 'center'
+    textAlign: 'center',
 },
 livability: {
+    width: 50,
     height: 60,
     color: 'white',
     fontWeight: 'bold', 
@@ -66,5 +68,26 @@ learn : {
         fontWeight: 'bold'
     }
 },
-}
-export default useStyles;
+header: {
+    width: '90%',
+    marginLeft: 60,
+    [theme.breakpoints.down('sm')]: {
+        margin: '0 auto'
+    },
+},
+heading: {
+    fontSize: 36,
+    [theme.breakpoints.down('sm')]: {
+        fontSize: 26,
+        margin: '0 auto'
+    },
+},
+cityscape : {
+    margin: '30px 5px',
+    width: 355,
+    padding: '0 ',
+    maxWidth: '95%',
+    height: 220
+}    
+}))
+export {useStyles};
