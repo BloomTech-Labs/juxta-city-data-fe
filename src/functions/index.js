@@ -62,7 +62,7 @@ const getBestCities = async () => {
 };
 
 const getRecomendedCities = async (queryParameters) => {
-  let url = 'http://junta-test.herokuapp.com/recommend';
+  let url = 'https://junta-test.herokuapp.com/recommend';
   url = buildQueryString(url, queryParameters);
   const res = await axios.get(url);
   return res.data;
