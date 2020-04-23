@@ -68,41 +68,11 @@ const getRecomendedCities = async (queryParameters) => {
   return res.data;
 };
 
-const getCityData = async (cityName) => {
-  let res = await axios.get(
-    `https://junta-test.herokuapp.com/data?city=${cityName}`,
-  );
-  return res.data;
-};
-
 const getCityArray = async (chars) => {
   let res = await axios.get(
     `https://junta-test.herokuapp.com/search?search=${chars}`,
   );
   return res.data;
-};
-
-const createUserContext = async () => {
-  let context = {
-    favorites: [],
-  };
-  // const token = localStorage.getItem('okta-token-storage')
-  // const claims = JSON.parse(token).idToken.claims;
-  let user = await axios.get(
-    `https://production-juxta-city-be.herokuapp.com/api/users/${2}`,
-  );
-  let userData = await user.data;
-  context = { ...context, ...userData };
-  let favorites = await axios.get(
-    `https://production-juxta-city-be.herokuapp.com/api/users/${2}/favorites`,
-  );
-  for (const favorite of favorites.data) {
-    const result = await axios.get(
-      `https://junta-test.herokuapp.com/name?id=${favorite.city_id}`,
-    );
-    context.favorites.push({ id: favorite.city_id, city: result.data });
-  }
-  return context;
 };
 
 export {
@@ -112,4 +82,5 @@ export {
   getCityData,
   getBestCities,
   getRecomendedCities,
+  getCityArray,
 };
