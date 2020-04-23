@@ -1,37 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-
-import styled from 'styled-components';
-
-import { makeStyles } from '@material-ui/core/styles';
-import { useMediaQuery } from '@material-ui/core';
 import { Container } from '@material-ui/core';
+import { useMediaQuery } from '@material-ui/core';
 
 import MaterialUiGridList from './MaterialUIGridList';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    marginTop: 52,
-    marginBottom: 52,
-  },
-  titleBar: {
-    background: 'none',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 24,
-  },
-  hover: {
-    '&:hover': {
-      background: '#000',
-      opacity: '0.8',
-    },
-  },
-}));
-
-const Heading = styled.h1`
-  text-align: center;
-  font-size: 38px;
-`;
+import { getBestCities } from '../../functions/index';
+import { useStyles, Heading } from './styles/BestCitiesStyles';
 
 const BestCities = () => {
   const classes = useStyles();
@@ -39,12 +12,7 @@ const BestCities = () => {
   const [gridList, setGridList] = useState([]);
 
   useEffect(() => {
-    const getBestCities = async () => {
-      const res = await axios.get('https://junta-test.herokuapp.com/top25');
-      setGridList(res.data);
-    };
-
-    getBestCities();
+    getBestCities().then((cities) => setGridList(cities));
   }, []);
 
   return (

@@ -7,10 +7,11 @@ import cityscape from '../../assets/cityscape.png';
 
 const cityData = [
     {
-        id: 223,
-        city: 'Seattle, Washington',
-        livabilityScore: 56.5,
-        population_desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis ullamcorper mauris, sed tincidunt dui laoreet sed. Donec at elementum massa. Vivamus pellentesque quam ligula, a malesuada mauris condimentum vitae. Nullam metus erat, tincidunt vitae tortor sit amet, interdum ullamcorper nunc. Curabitur eget odio metus. Praesent tempor tincidunt arcu, ut ornare dui porta sed. Mauris a dignissim quam. Phasellus lobortis venenatis sagittis.'
+      id: 223,
+      city: 'Seattle, Washington',
+      livabilityScore: 56.5,
+      population_desc:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis ullamcorper mauris, sed tincidunt dui laoreet sed. Donec at elementum massa. Vivamus pellentesque quam ligula, a malesuada mauris condimentum vitae. Nullam metus erat, tincidunt vitae tortor sit amet, interdum ullamcorper nunc. Curabitur eget odio metus. Praesent tempor tincidunt arcu, ut ornare dui porta sed. Mauris a dignissim quam. Phasellus lobortis venenatis sagittis.',
     },
     {
         id: 453,
@@ -79,3 +80,4 @@ const cityData = [
         </div>
     )
 }
+
