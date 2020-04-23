@@ -5,12 +5,6 @@ const useStyles = makeStyles((theme) => ({
 root : {
     margin: '0 auto'
 },
-header: {
-    width: '100%',
-},
-heading: {
-    fontSize: 36
-},
 cardBox : {
     margin: '0 auto',
     display: 'flex',
@@ -88,6 +82,27 @@ cityscape : {
     padding: '0 ',
     maxWidth: '95%',
     height: 220
+},
+dashboard : {
+    padding: '10px 15px',
+    background: '#2196f3',
+    textDecoration: 'none',
+    fontSize: '14px',
+    borderRadius: '4px',
+    float: 'right',
+    textTransform: 'uppercase',
+    border: 'none',
+    outline: 'none',
+    cursor: 'pointer',
+    marginBottom: '50px',
+    color: 'white',
+    '&:hover': {
+        color: 'white',
+        fontWeight: 500,
+    },
+    '&:visited': {
+        color: 'white'
+    }
 }    
 }))
 export {useStyles};

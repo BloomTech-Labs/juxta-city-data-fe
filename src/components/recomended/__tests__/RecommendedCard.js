@@ -9,8 +9,8 @@ it("renders the card and data", ()=>{
     let userData = {id: 2, username: 'Jake', favorites:[{id:235, city: 'Seattle, Washington'}]};
     let cityData = {
         id: 223,
-        city: 'Seattle, Washington',
-        livabilityScore: 56.5,
+        name_and_state: 'Seattle, Washington',
+        livability_score: 56.5,
         population_desc: 'test pop'
     }
     let setCityData = data => cityData = {...cityData,data};

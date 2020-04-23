@@ -30,7 +30,7 @@ export default function RecommendedDashboard({ auth, history, location }) {
               )): <></>}
               <img src={cityscape} className={classes.cityscape} alt='cityscape'/>
           </div>
-          <Link to='/dashboard'>Dashboard</Link>
+          <Link to='/dashboard' className={classes.dashboard}>Go To Dashboard</Link>
       </div>
   )
 }
