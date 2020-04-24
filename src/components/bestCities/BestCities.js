@@ -3,7 +3,6 @@ import { Container } from '@material-ui/core';
 import { useMediaQuery } from '@material-ui/core';
 
 import MaterialUiGridList from './MaterialUIGridList';
-
 import { getBestCities } from '../../functions/index';
 import { useStyles, Heading } from './styles/BestCitiesStyles';
 

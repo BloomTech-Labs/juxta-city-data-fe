@@ -1,23 +1,22 @@
 import livabilityIcon from '../../assets/livabilityIcon.png';
+import {makeStyles} from '@material-ui/core/styles';
 
-const useStyles = {
+const useStyles = makeStyles((theme) => ({
 root : {
-    
-},
-header: {
-    width: '100%',
-    marginLeft: 60
-},
-heading: {
-    fontSize: 36
+    margin: '0 auto'
 },
 cardBox : {
+    margin: '0 auto',
     display: 'flex',
+    width: '100%',
+    flexWrap: 'wrap',
+    justifyContent:'space-around',
 },
 cardRoot : {
-    margin: 10,
+    margin: '10px 5px',
     width: 355,
-    height: 270
+    maxWidth: '95%',
+    height: 270,
 },
 cardHeader : {
     display: 'flex',
@@ -26,9 +25,10 @@ cardHeader : {
 },
 cardHeading : {
     width: '75%',
-    textAlign: 'center'
+    textAlign: 'center',
 },
 livability: {
+    width: 50,
     height: 60,
     color: 'white',
     fontWeight: 'bold', 
@@ -61,6 +61,48 @@ learn : {
     '&:hover': {
         fontWeight: 'bold'
     }
-}
-}
-export default useStyles;
+},
+header: {
+    width: '90%',
+    marginLeft: 60,
+    [theme.breakpoints.down('sm')]: {
+        margin: '0 auto'
+    },
+},
+heading: {
+    fontSize: 36,
+    [theme.breakpoints.down('sm')]: {
+        fontSize: 26,
+        margin: '0 auto'
+    },
+},
+cityscape : {
+    margin: '30px 5px',
+    width: 355,
+    padding: '0 ',
+    maxWidth: '95%',
+    height: 220
+},
+dashboard : {
+    padding: '10px 15px',
+    background: '#2196f3',
+    textDecoration: 'none',
+    fontSize: '14px',
+    borderRadius: '4px',
+    float: 'right',
+    textTransform: 'uppercase',
+    border: 'none',
+    outline: 'none',
+    cursor: 'pointer',
+    marginBottom: '50px',
+    color: 'white',
+    '&:hover': {
+        color: 'white',
+        fontWeight: 500,
+    },
+    '&:visited': {
+        color: 'white'
+    }
+}    
+}))
+export {useStyles};

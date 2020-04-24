@@ -1,6 +1,7 @@
 import React, {useEffect, useContext} from 'react';
 import NavBar from './Navbar.js';
 import Header from './pages/Header.js';
+import RecommendedComponent from './recomended/RecommendedComponent';
 import BestCities from './bestCities/BestCities';
 import Favorites from './Favorites/Favorites.js';
 import { withAuth } from '@okta/okta-react';
@@ -16,6 +17,7 @@ function Dashboard(props) {
     <>
       <NavBar {...props} />
       <Header />
+      <RecommendedComponent {...props}/>
       <Favorites/>
       <BestCities />
     </>

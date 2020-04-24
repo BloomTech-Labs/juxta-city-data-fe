@@ -22,4 +22,5 @@ export const useStyles = makeStyles((theme) => ({
 
 export const Heading = styled.h2`
   text-align: center;
+  font-size: 38px;
 `;
