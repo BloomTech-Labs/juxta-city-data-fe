@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -129,11 +129,13 @@ const NavBar = ({ auth, history, location }) => {
   const classes = useStyles();
   const {setUserData} = useContext(UserContext)
   const [open, setOpen] = useState(false)
+
   const login = () => {
     auth.login("/dashboard");
   };
+  
   const handleOpen = () => {
-    let background = document.getElementById('darken');
+    let background = document.getElementById('darken')
     if(open){
       background.style.display = 'none';
     }else{
@@ -184,7 +186,7 @@ const NavBar = ({ auth, history, location }) => {
             <Li className={classes.avatarBox}>
               <img src={avatar} alt='avatar'/>
               <button className="link" onClick={handleOpen}>
-                <img className={!open ? classes.animation : classes.animation2} src={location.pathname === '/cityview' ? polyWhite : location.pathname === '/recommended'? polyWhite: poly} alt='navigation arrow'/>
+                <img id='dropdown' className={!open ? classes.animation : classes.animation2} src={location.pathname === '/cityview' ? polyWhite : location.pathname === '/recommended'? polyWhite: poly} alt='navigation arrow'/>
               </button>
               
               {open? body : <></>}

@@ -35,6 +35,12 @@ const Darken = styled.div`
 const onAuthRequired = ({ history }) => {
   history.push('/signin');
 };
+const handleClick = e => {
+  let background = document.getElementById('darken');
+  background.style.display = 'none';
+  let arrow = document.getElementById('dropdown')
+  console.log(arrow)
+}
 const App = () => {
   const [cityData, setCityData] = useState({});
   const [userData, setUserData] = useState({});
@@ -47,7 +53,7 @@ const App = () => {
       onAuthRequired={onAuthRequired}
       pkce={true}
     >
-      <Darken id='darken' style={{display: 'none'}}/>
+      <Darken id='darken' onClick={handleClick}style={{display: 'none'}}/>
       <CityContext.Provider value={{ cityData, setCityData }}>
         <UserContext.Provider value={{ userData, setUserData }}>
           <RecomendedContext.Provider
