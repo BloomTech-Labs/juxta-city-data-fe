@@ -4,16 +4,14 @@ You can find the deployed project at [https://www.findur.city](https://www.findu
 
 ## Contributors
 
-|                                                      [Student 1](https://github.com/)                                                       |                                                       [Student 2](https://github.com/)                                                        |                                                      [Student 3](https://github.com/)                                                       |                                                       [Student 4](https://github.com/)                                                        |                                                      [Student 5](https://github.com/)                                                       |
-| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) |
-|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)                             |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                           |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)                            |
-|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |
+|                                       [Alfonso Ruiz](https://github.com/alfonsoruiz)                                       |                                          [Jack Kim](https://github.com/jackskim)                                          |                                        [Logan Karnes](https://github.com/lkarnes)                                         |                                         [Zac Smith](https://github.com/mrzacsmith)                                          |
+| :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: |
+|                   [<img src="./src/assets/alfonso.png" width = "200" />](https://github.com/alfonsoruiz)                   |                     [<img src="./src/assets/jack.jpeg" width = "200" />](https://github.com/jackskim)                     |                     [<img src="./src/assets/logan.png" width = "200" />](https://github.com/lkarnes)                      |                     [<img src="./src/assets/zac.jpeg" width = "200" />](https://github.com/mrzacsmith)                      |
+|                  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/alfonsoruiz)                  |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jackskim)                   |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lkarnes)                    |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/mrzacsmith)                   |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/mralfonsoruiz) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jackskim/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/logan-karnes) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/mrzacsmith/) |
 
 <br>
 <br>
-
-🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
@@ -21,94 +19,90 @@ You can find the deployed project at [https://www.findur.city](https://www.findu
 ![Code Coverage](https://api.codeclimate.com/v1/badges/981e0174c4f6059b773c/maintainability)
 ![Test Coverage](https://api.codeclimate.com/v1/badges/981e0174c4f6059b773c/test_coverage)
 
-🚫 more info on using badges [here](https://github.com/badges/shields)
-
 ## Project Overview
 
-1️⃣ [Trello Board](https://trello.com/b/R2QOaAEe/labspt7-juxta-city-data)
+[Trello Board](https://trello.com/b/R2QOaAEe/labspt7-juxta-city-data)
 
-1️⃣ [Product Canvas](https://www.notion.so/Juxta-City-Data-06550a97dd9b41f1aea4b4b6de46ecb5)
+[Product Canvas](https://www.notion.so/Juxta-City-Data-06550a97dd9b41f1aea4b4b6de46ecb5)
 
-1️⃣ [UX Design files](🚫add link to design files here)
+[UX Design files](https://www.figma.com/file/YS5Ykd25k90FbD7UkDq2fa/Juxta-City-Data-Ryan-and-Stephen?node-id=769%3A23)
 
-🚫 Replace lorem ipsum with a description of your project
+Find Ur City provides city data about important factors in deciding where to live, such as:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+- Population
+- Average resident age
+- Climate
+- Median household income
+- Cost of living
+- Average Commute time
+- and much more!
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Find Ur City presents this important data in an intuitive and easy to understand interface.
 
-### 4️⃣ Key Features
+### Key Features
 
-- feature one
-- feature two
-- feature three
-- feature four
-- feature five
+- Ability to search for a city located in the US
+- Customized 'Recommended Cities' list based on user's survey selections
+- View detailed information about individual cities
+- Ability to save your Favorite cities
 
-## 1️⃣ Tech Stack
+## Tech Stack
 
 ### Front end built using:
 
-#### _Front end framework goes here_
+#### React
 
-🚫 Why did you choose this framework?
+Why?
 
-- point one
-- point two
-- point three
-- point four
+- Declarative
+- Component-based
+- Hooks for functional components
+- Popularity
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+#### Material UI
 
-#### Front end deployed to `🚫insert service here`
+Why?
 
-#### [Back end](🚫link to back end repo here) built using:
+- Most popular framework
+- Lots of resources and documentation
 
-#### 🚫 back end framework goes here
+#### Front end deployed to Heroku
 
-- point one
-- point two
-- point three
+#### [Back end](https://github.com/Lambda-School-Labs/juxta-city-data-be) built using:
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+#### Node + Express
+
+- Write backend code in JavaScript
+- Fast, unopinionated, minimalist
+
+#### PostgreSQL
+
+- Data persistence on Heroku
+- Powerful, open-source
 
 # APIs
 
-## 2️⃣ Authentication API here
+## Authentication API here
 
 🚫Replace text below with a description of the API
 
 Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
 
-## 2️⃣ Payment API here
+## Payment API here
 
 🚫Replace text below with a description of the API
 
 This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
 
-## 3️⃣ Misc API here
+## Misc API here
 
 🚫Replace text below with a description of the API
 
 You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
 
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
-
-# 3️⃣ Environment Variables
+# Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
-
-🚫These are just examples, replace them with the specifics for your app
 
     *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
     *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
@@ -121,7 +115,7 @@ In order for the app to function correctly, the user must set up their own envir
     *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
     *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
 
-# 5️⃣ Content Licenses
+# Content Licenses
 
 🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
 
@@ -130,22 +124,35 @@ In order for the app to function correctly, the user must set up their own envir
 | doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
 | rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
 
-# 4️⃣ Testing
+# Testing
 
-🚫Document what you used for testing and why
+#### React Testing Library (Jest)
 
-# 4️⃣ Installation Instructions
+Why?
 
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
+- Made for React Testing
+- Focus on simplicity
+- Minimal configuration
+
+# Installation Instructions
+
+Make sure you have [PostgreSQL](https://www.postgresql.org/) and [pgAdmin4](https://www.pgadmin.org/) installed on your computer.
+
+```sh
+git clone https://github.com/Lambda-School-Labs/juxta-city-data-fe.git
+cd juxta-city-data-fe
+npm install
+npm run start
+```
 
 ## Other Scripts
 
-🚫replace these examples with your own
-
-    * typecheck - runs the TypeScript compiler
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
+    * start - runs the app in development mode
+    * build - builds the app for production to the build folder
+    * test - runs the test watcher in an interactive mode
+    * eject - copys all config files and transitive dependencies into root
+    folder
+    * coverage -  generates a test coverage report
 
 # Contributing
 
@@ -186,4 +193,4 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](🚫*link to your backend readme here*) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/juxta-city-data-be/blob/master/README.md) for details on the backend of our project.
