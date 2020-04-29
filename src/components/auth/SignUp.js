@@ -87,7 +87,7 @@ export default function SignUp(props){
     })
   }
   return (
-    <div className={classes.box} style={{background: '#2196F3',borderRight:'2px solid white', borderRadius:'2% 0 0 2%'}}>
+    <div className={classes.box} style={{background: '#2196F3'}}>
       <h3 className={classes.h3}>Sign Up</h3>
       <form onSubmit={handleSubmit} className={classes.form}>
         <p id='error-message' style={{display: 'none', color: 'red'}}>**Sorry the username and email must be unique**</p>

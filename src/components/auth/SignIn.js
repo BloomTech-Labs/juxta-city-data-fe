@@ -23,7 +23,7 @@ export default function SignIn(props){
   })
   }
   return (
-    <div className={classes.box} style={{background: '#8BC34A', borderRadius: '0% 2% 2% 0%'}}>
+    <div className={classes.box} style={{background: '#8BC34A'}}>
       <h3 className={classes.h3} style={{color: 'white'}}>Sign In</h3>
       <form onSubmit={handleSubmit} className={classes.form}>
         <p id='signin-error' style={{display: 'none', color: 'red'}}>Sorry User Not Found</p>

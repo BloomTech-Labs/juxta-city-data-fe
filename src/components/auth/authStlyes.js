@@ -8,16 +8,28 @@ const styles = makeStyles((theme) => ({
         maxWidth: '100%',
         margin: '20vh auto',
         justifyContent: 'center',
+        [theme.breakpoints.down('sm')]:{
+            flexDirection: 'column'
+        }
     },
     header: {
         width: '100%',
+        [theme.breakpoints.down('sm')]:{
+            paddingLeft: 20,
+        }
     },
     box: {
-        width: '50%',
+        width: '49%',
         display: 'flex',
         padding: 20,
+        margin: '2px',
         flexDirection: 'column',
         alignItems: 'center',
+        [theme.breakpoints.down('sm')]:{
+            width: '90%',
+            border: 0,
+            margin: '10px auto'
+        }
     },
     h3: {
       color: 'white',  
@@ -41,6 +53,10 @@ const styles = makeStyles((theme) => ({
         margin: '1% 15%',
         border: 'none',
         padding: 1,
+        [theme.breakpoints.down('sm')]:{
+            width: '100%',
+            fontSize: 13,
+        }
 
     },
     submit: {
