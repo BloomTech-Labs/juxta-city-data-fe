@@ -53,16 +53,11 @@ const App = () => {
               <Route path='/dashboard' exact component={Dashboard} />
               <Route path='/cityview' exact component={SingleCityView} />
               <Route path='/survey' exact component={SurveyQuestions} />
+              <Route exact path='/signin' component={Authentication}/>
               <Route
-                path='/recommended'
-                exact
-                component={RecomendedDashboard}
-              />
+                path='/recommended' exact component={RecomendedDashboard}/>
               <Route path='/profile' exact component={Profile} />
-              <Route
-                path='/signin'
-                render={() => <Authentication />}
-              />
+              
             </AppDiv>
           </RecomendedContext.Provider>
         </UserContext.Provider>

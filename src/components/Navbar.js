@@ -49,8 +49,8 @@ const NavDiv = styled.div`
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
-    width: 110,
-    height: 160,
+    width: 130,
+    height: 170,
     zIndex: 3,
     marginTop: 100,
     backgroundColor: theme.palette.background.paper,
@@ -133,7 +133,10 @@ const NavBar = ({ auth, history, location }) => {
   const login = () => {
     history.push('/signin')
   };
-  
+  const handleDash = ()=>{
+    handleOpen();
+    history.push('/dashboard')
+  }
   const handleOpen = () => {
     let background = document.getElementById('darken')
     if(open){
@@ -147,6 +150,7 @@ const NavBar = ({ auth, history, location }) => {
 
   const handleAbout = () => {
     history.push('/')
+    handleOpen()
     setTimeout(()=>{
       const ele = document.getElementById('about')
       if(ele){
@@ -166,6 +170,7 @@ const NavBar = ({ auth, history, location }) => {
         <ul className={classes.modalLi}>
           <li className={classes.modalLi} onClick={()=>{history.push('/')}}>Profile</li>
           <li className={classes.modalLi} onClick={handleAbout}>About</li>
+          <li className={classes.modalLi} onClick={handleDash}>Dashboard</li>
           <li className={classes.modalLi} onClick={logout}>Logout</li>
         </ul>
       </div> 

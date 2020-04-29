@@ -7,9 +7,6 @@ import MarketingBox from './MarketingBox.js';
 import NavBar from './Navbar';
 
 const LandingPage = props => {
-  if(localStorage.getItem('token')){
-    props.history.push('/dashboard')
-  }
   return (
     <div>
       <NavBar {...props} />

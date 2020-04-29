@@ -75,19 +75,22 @@ export default function SignUp(props){
   const classes = styles()
 
   const handleChange = e => {
-    console.log(e.target.value)
     setForm({...form, [e.target.name] : e.target.value})
   }
   const handleSubmit = e => {
     e.preventDefault();
     axios.post('https://production-juxta-city-be.herokuapp.com/api/auth/signup', form).then(res => {
-        console.log(res.data)
-    }).catch(err => {console.log(err)})
+        localStorage.setItem('token',res.data.token)
+        props.history.push('/dashboard')
+    }).catch(err => {
+      document.getElementById('error-message').style.display = 'block';
+    })
   }
   return (
-    <div className={classes.box} style={{background: '#2196F3',borderRight:'2px solid white', borderRadius:'5% 0 0 5%'}}>
+    <div className={classes.box} style={{background: '#2196F3',borderRight:'2px solid white', borderRadius:'2% 0 0 2%'}}>
       <h3 className={classes.h3}>Sign Up</h3>
       <form onSubmit={handleSubmit} className={classes.form}>
+        <p id='error-message' style={{display: 'none', color: 'red'}}>**Sorry the username and email must be unique**</p>
         <input className={classes.inputs} type="text" id="username" name="username" placeholder='username' value={form.username} onChange={handleChange} required/>
         <input className={classes.inputs} type="email" id="email" name="email" placeholder='email' value={form.email} onChange={handleChange} required/>
         <input className={classes.inputs} type="password" id="password" name="password" placeholder='password' value={form.password} onChange={handleChange} required/>

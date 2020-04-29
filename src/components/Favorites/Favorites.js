@@ -12,7 +12,6 @@ const styles = makeStyles(theme => ({
         boxShadow: '0px 1px 12px rgba(0, 0, 0, 0.12), 0px 4px 8px rgba(0, 0, 0, 0.02), 0px 1px 4px rgba(0, 0, 0, 0.01)',
         borderRadius: '4px',
         maxWidth: 1100,
-        maxHeight: 380,
         marginTop: 20,
         [theme.breakpoints.down('md')]: {
             width: '90%'
@@ -38,11 +37,11 @@ export default function Favoirtes(props){
     const {userData}= useContext(UserContext)
     const history = useHistory();
     useEffect(()=>{
-        if(!localStorage.getItem('okta-token-storage')){history.push('/')};
+        if(!localStorage.getItem('token')){history.push('/')};
         if(userData.favorites){setCities(userData.favorites)};
-    }, [history, userData])
-    return !cities ? (
-        <p>loading...</p>
+    }, [userData, setCities])
+    return cities.length === 0 ? (
+        <p></p>
     ):(
         <Container className={classes.root}>
             <div className={classes.header}>
