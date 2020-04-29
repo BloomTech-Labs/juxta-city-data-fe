@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -49,8 +49,8 @@ const NavDiv = styled.div`
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
-    width: 110,
-    height: 160,
+    width: 130,
+    height: 170,
     zIndex: 3,
     marginTop: 100,
     backgroundColor: theme.palette.background.paper,
@@ -129,11 +129,16 @@ const NavBar = ({ auth, history, location }) => {
   const classes = useStyles();
   const {setUserData} = useContext(UserContext)
   const [open, setOpen] = useState(false)
+
   const login = () => {
-    auth.login("/dashboard");
+    history.push('/signin')
   };
+  const handleDash = ()=>{
+    handleOpen();
+    history.push('/dashboard')
+  }
   const handleOpen = () => {
-    let background = document.getElementById('darken');
+    let background = document.getElementById('darken')
     if(open){
       background.style.display = 'none';
     }else{
@@ -145,6 +150,7 @@ const NavBar = ({ auth, history, location }) => {
 
   const handleAbout = () => {
     history.push('/')
+    handleOpen()
     setTimeout(()=>{
       const ele = document.getElementById('about')
       if(ele){
@@ -164,11 +170,12 @@ const NavBar = ({ auth, history, location }) => {
         <ul className={classes.modalLi}>
           <li className={classes.modalLi} onClick={()=>{history.push('/')}}>Profile</li>
           <li className={classes.modalLi} onClick={handleAbout}>About</li>
+          <li className={classes.modalLi} onClick={handleDash}>Dashboard</li>
           <li className={classes.modalLi} onClick={logout}>Logout</li>
         </ul>
       </div> 
   ) 
-  let token = localStorage.getItem("okta-token-storage");
+  let token = localStorage.getItem("token");
   return (
     <NavDiv pathname={location.pathname}>
       <H2>
@@ -184,7 +191,7 @@ const NavBar = ({ auth, history, location }) => {
             <Li className={classes.avatarBox}>
               <img src={avatar} alt='avatar'/>
               <button className="link" onClick={handleOpen}>
-                <img className={!open ? classes.animation : classes.animation2} src={location.pathname === '/cityview' ? polyWhite : location.pathname === '/recommended'? polyWhite: poly} alt='navigation arrow'/>
+                <img id='dropdown' className={!open ? classes.animation : classes.animation2} src={location.pathname === '/cityview' ? polyWhite : location.pathname === '/recommended'? polyWhite: poly} alt='navigation arrow'/>
               </button>
               
               {open? body : <></>}

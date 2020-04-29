@@ -69,7 +69,7 @@ const IconBox = props => {
         </div>
         
         <div className={classes.IconBox}>
-          <IconCard image={{src:CompareIcon ,alt:'Compare Icon'}} body={'Quickly compare up to 3 different cities side-by-side'}/>
+          <IconCard image={{src:CompareIcon ,alt:'Compare Icon'}} body={'Quickly compare different cities'}/>
           <IconCard image={{src:SearchIcon ,alt:'Search Icon'}} body={'Search for a city to view all the latest information'}/>
           <IconCard image={{src:PinIcon, alt:'Pin Icon'}} body={'Instantly receive a recommendation for the best place to live'}/>
         </div>

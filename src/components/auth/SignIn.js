@@ -1,57 +1,36 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import SignInWidget from "./SignInWidget.js";
-import { withAuth } from "@okta/okta-react";
+import React, { useState, useContext } from "react";
+import axios from 'axios';
+import {styles} from './authStlyes';
+import {createUserContext} from '../../functions';
+import UserContext from '../../contexts/UserContext';
 
-export default withAuth(
-  class SignIn extends Component {
-    constructor(props) {
-      super(props);
 
-      this.state = {
-        authenticated: null
-      };
-      this.checkAuthentication();
-    }
-
-    async checkAuthentication() {
-      const authenticated = await this.props.auth.isAuthenticated();
-      if (authenticated !== this.state.authenticated) {
-        this.setState({ authenticated });
-      }
-    }
-
-    componentDidUpdate() {
-      this.checkAuthentication();
-    }
-
-    onSuccess = res => {
-      if (res.status === "SUCCESS") {
-        return this.props.auth.redirect({
-          sessionToken: res.session.token
-        });
-      } else {
-        // The user can be in another authentication state that requires further action.
-        // For more information about these states, see:
-        //   https://github.com/okta/okta-signin-widget#rendereloptions-success-error
-      }
-    };
-
-    onError = err => {
-      console.log("error logging in", err);
-    };
-
-    render() {
-      if (this.state.authenticated === null) return null;
-      return this.state.authenticated ? (
-        <Redirect to={{ pathname: "/" }} />
-      ) : (
-        <SignInWidget
-          baseUrl={this.props.baseUrl}
-          onSuccess={this.onSuccess}
-          onError={this.onError}
-        />
-      );
-    }
+export default function SignIn(props){
+  const [form, setForm] = useState({})
+  const classes = styles();
+  const {setUserData} = useContext(UserContext)
+  const handleChange = e => {
+    setForm({...form, [e.target.name] : e.target.value})
   }
-);
+  const handleSubmit = e => {
+    e.preventDefault();
+    axios.post('https://production-juxta-city-be.herokuapp.com/api/auth/signin', form).then(res => {
+        localStorage.setItem('token', res.data.token)
+        props.history.push('/dashboard')
+  }).catch(err => {
+    console.log(err)
+    document.getElementById('signin-error').style.display = 'block';
+  })
+  }
+  return (
+    <div className={classes.box} style={{background: '#8BC34A'}}>
+      <h3 className={classes.h3} style={{color: 'white'}}>Sign In</h3>
+      <form onSubmit={handleSubmit} className={classes.form}>
+        <p id='signin-error' style={{display: 'none', color: 'red'}}>Sorry User Not Found</p>
+        <input className={classes.inputs} type="text" id="username2" name="username" placeholder='username' value={form.username} onChange={handleChange} required/>
+        <input className={classes.inputs} type="password" id="password2" name="password" placeholder='password' value={form.password} onChange={handleChange} required/>
+        <button className={classes.submit} style={{background: '#2196F3'}}>Submit</button>
+      </form>
+    </div>
+  )
+}

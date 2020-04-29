@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { buildQueryString } from './buildQueryString';
+import jwt_decode from 'jwt-decode';
+import {axiosWithAuth} from './axiosWithAuth';
 
 const addFavorite = (userId, cityId) => {
   const object = { user_id: userId, city_id: cityId };
-  axios
+  axiosWithAuth()
     .post(
       `https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites`,
       object,
@@ -17,9 +19,9 @@ const addFavorite = (userId, cityId) => {
 };
 
 const removeFavorite = (userId, cityId) => {
-  axios
+  axiosWithAuth()
     .delete(
-      `https://production-juxta-city-be.herokuapp.com/api/users/${userId}/delete/${cityId}`,
+      `https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites/${cityId}`,
     )
     .then((res) => {
       console.log(res, 'unfavorite completed!');
@@ -37,20 +39,14 @@ const createUserContext = async () => {
   let context = {
     favorites: [],
   };
-  // const token = localStorage.getItem('okta-token-storage')
-  // const claims = JSON.parse(token).idToken.claims;
-  let user = await axios.get(
-    `https://production-juxta-city-be.herokuapp.com/api/users/${2}`,
-  );
+  const token = localStorage.getItem('token');
+  const userId = jwt_decode(token).userid;
+  let user = await axiosWithAuth().get(`https://production-juxta-city-be.herokuapp.com/api/users/${userId}`);
   let userData = await user.data;
   context = { ...context, ...userData };
-  let favorites = await axios.get(
-    `https://production-juxta-city-be.herokuapp.com/api/users/${2}/favorites`,
-  );
+  let favorites = await axiosWithAuth().get(`https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites`);
   for (const favorite of favorites.data) {
-    const result = await axios.get(
-      `https://junta-test.herokuapp.com/name?id=${favorite.city_id}`,
-    );
+    const result = await axiosWithAuth().get(`https://junta-test.herokuapp.com/name?id=${favorite.city_id}`);
     context.favorites.push({ id: favorite.city_id, city: result.data });
   }
   return context;

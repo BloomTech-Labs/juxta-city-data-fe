@@ -24,4 +24,4 @@ it('renders the app', ()=> {
     expect(comp.getByText(/Your Recommended Cities/i)).toBeInTheDocument();
     expect(comp.getByText(/Stockton/i)).toBeInTheDocument();
     expect(comp.getByAltText(/cityscape/i)).toBeInTheDocument();
-})
+});

@@ -24,7 +24,7 @@ it("renders the card and data", ()=>{
         
     )
     expect(comp.getByText(/Seattle, Washington/i)).toBeInTheDocument();
-    expect(comp.getByText(/56.5/i)).toBeInTheDocument()
-    expect(comp.getByAltText(/heart icon/i)).toBeInTheDocument()
-    expect(comp.getByText(/test pop/i)).toBeInTheDocument()
+    expect(comp.getByText(/56.5/i)).toBeInTheDocument();
+    expect(comp.getByAltText(/heart icon/i)).toBeInTheDocument();
+    expect(comp.getByText(/test pop/i)).toBeInTheDocument();
 })
