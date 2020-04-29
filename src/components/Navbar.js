@@ -131,7 +131,7 @@ const NavBar = ({ auth, history, location }) => {
   const [open, setOpen] = useState(false)
 
   const login = () => {
-    auth.login("/dashboard");
+    history.push('/signin')
   };
   
   const handleOpen = () => {
@@ -170,7 +170,7 @@ const NavBar = ({ auth, history, location }) => {
         </ul>
       </div> 
   ) 
-  let token = localStorage.getItem("okta-token-storage");
+  let token = localStorage.getItem("token");
   return (
     <NavDiv pathname={location.pathname}>
       <H2>
