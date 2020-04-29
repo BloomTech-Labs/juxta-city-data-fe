@@ -22,7 +22,7 @@ it(`renders three icons`, () => {
 it(`renders card content`, () => {
   const { getByText } = render(<IconBox />);
 
-  expect(getByText(/quickly compare up to 3/i)).toBeInTheDocument();
+  expect(getByText(/quickly compare/i)).toBeInTheDocument();
   expect(getByText(/search for a city to view/i)).toBeInTheDocument();
   expect(getByText(/instantly receive a recommendation/i)).toBeInTheDocument();
 });
