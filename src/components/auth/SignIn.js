@@ -1,13 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { styles } from "./authStlyes";
-import { createUserContext } from "../../functions";
-import UserContext from "../../contexts/UserContext";
 
 export default function SignIn(props) {
   const [form, setForm] = useState({});
   const classes = styles();
-  const { setUserData } = useContext(UserContext);
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
