@@ -1,12 +1,10 @@
-import React from 'react';
-import { withAuth } from '@okta/okta-react';
+import React from "react";
+import Header from "./pages/Header.js";
+import BestCities from "./bestCities/BestCities";
+import MarketingBox from "./MarketingBox.js";
+import NavBar from "./Navbar";
 
-import Header from './pages/Header.js';
-import BestCities from './bestCities/BestCities';
-import MarketingBox from './MarketingBox.js';
-import NavBar from './Navbar';
-
-const LandingPage = props => {
+const LandingPage = (props) => {
   return (
     <div>
       <NavBar {...props} />
@@ -17,4 +15,4 @@ const LandingPage = props => {
   );
 };
 
-export default withAuth(LandingPage);
+export default LandingPage;
