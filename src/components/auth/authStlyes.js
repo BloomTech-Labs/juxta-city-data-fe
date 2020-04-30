@@ -14,6 +14,8 @@ const styles = makeStyles((theme) => ({
   },
   header: {
     width: "100%",
+    display: "flex",
+    justifyContent: "center",
     [theme.breakpoints.down("sm")]: {
       paddingLeft: 20,
     },
@@ -24,7 +26,7 @@ const styles = makeStyles((theme) => ({
     padding: 20,
     paddingTop: 40,
     margin: "2px",
-    marginTop: "10%",
+    marginTop: "5%",
     flexDirection: "column",
     alignItems: "center",
     [theme.breakpoints.down("sm")]: {
