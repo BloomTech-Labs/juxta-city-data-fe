@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
-import { makeStyles } from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
-import {useStyles} from './recommendedStyles';
-import FavoriteIcon from '../subComponents/FavoriteIcon';
-import CityContext from '../../contexts/CityContext';
-import { getCityData } from '../../functions';
+import React, { useContext } from "react";
+import Paper from "@material-ui/core/Paper";
+import { useStyles } from "./recommendedStyles";
+import FavoriteIcon from "../subComponents/FavoriteIcon";
+import CityContext from "../../contexts/CityContext";
+import { getCityData } from "../../functions";
 
 export default function RecommendedCard(props) {
   const { setCityData } = useContext(CityContext);
@@ -12,8 +11,8 @@ export default function RecommendedCard(props) {
   const handleClick = () => {
     getCityData(props.cityData.name_and_state).then((res) => {
       setCityData(res);
-      localStorage.setItem('cityName', props.cityData.city);
-      props.history.push('/cityview');
+      localStorage.setItem("cityName", props.cityData.city);
+      props.history.push("/cityview");
     });
   };
   return (
@@ -25,7 +24,7 @@ export default function RecommendedCard(props) {
       </div>
       <p className={classes.description}>{props.cityData.population_desc}</p>
       <button
-        style={{ color: '#2C98F0' }}
+        style={{ color: "#2C98F0" }}
         onClick={handleClick}
         className={classes.learn}
       >
