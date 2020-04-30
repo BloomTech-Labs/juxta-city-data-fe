@@ -22,6 +22,7 @@ const styles = makeStyles((theme) => ({
     width: "49%",
     display: "flex",
     padding: 20,
+    paddingTop: 40,
     margin: "2px",
     marginTop: "10%",
     flexDirection: "column",
