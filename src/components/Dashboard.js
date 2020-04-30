@@ -1,27 +1,26 @@
-import React, {useEffect, useContext} from 'react';
-import NavBar from './Navbar.js';
-import Header from './pages/Header.js';
-import RecommendedComponent from './recomended/RecommendedComponent';
-import BestCities from './bestCities/BestCities';
-import Favorites from './Favorites/Favorites.js';
-import { withAuth } from '@okta/okta-react';
-import {createUserContext} from '../functions';
-import UserContext from '../contexts/UserContext';
+import React, { useEffect, useContext } from "react";
+import NavBar from "./Navbar.js";
+import Header from "./pages/Header.js";
+import RecommendedComponent from "./recomended/RecommendedComponent";
+import BestCities from "./bestCities/BestCities";
+import Favorites from "./Favorites/Favorites.js";
+import { createUserContext } from "../functions";
+import UserContext from "../contexts/UserContext";
 
 function Dashboard(props) {
-  const {setUserData} = useContext(UserContext)
-  useEffect(()=> {
-    createUserContext().then(res => setUserData(res))
-  },[setUserData])
+  const { setUserData } = useContext(UserContext);
+  useEffect(() => {
+    createUserContext().then((res) => setUserData(res));
+  }, [setUserData]);
   return (
     <>
       <NavBar {...props} />
       <Header />
-      <RecommendedComponent {...props}/>
-      <Favorites/>
+      <RecommendedComponent {...props} />
+      <Favorites />
       <BestCities />
     </>
   );
 }
 
-export default withAuth(Dashboard);
+export default Dashboard;

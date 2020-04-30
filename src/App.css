@@ -8,6 +8,7 @@
   background: transparent;
   font-size: 16px;
   font-weight: normal;
+  cursor: pointer;
 }
 .link:hover {
   font-weight: 700;
@@ -15,6 +16,7 @@
 
 a:link {
   color: darkslategray;
+  cursor: pointer;
 }
 
 a:visited {

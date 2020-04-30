@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import CityContext from '../../contexts/CityContext.js';
-import styled from 'styled-components';
-import SearchIcon from '@material-ui/icons/Search';
-import {getCityData, getCityArray} from '../../functions';
+import React, { useState, useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import CityContext from "../../contexts/CityContext.js";
+import styled from "styled-components";
+import SearchIcon from "@material-ui/icons/Search";
+import { getCityData, getCityArray } from "../../functions";
 
 const Search = styled.input`
   position: relative;
@@ -34,6 +34,7 @@ const Button = styled.button`
   justify-content: center;
   :hover {
     border: 1px solid white;
+    cursor: pointer;
   }
 `;
 
@@ -57,42 +58,54 @@ const City = styled.p`
   }
 `;
 
-const SearchBar = props => {
-  const [search, setSearch] = useState('');
+const SearchBar = (props) => {
+  const [search, setSearch] = useState("");
   const [cities, setCities] = useState([]);
-  const {setCityData } = useContext(CityContext);
+  const { setCityData } = useContext(CityContext);
   let history = useHistory();
   useEffect(() => {
     if (search.length < 3 || undefined) {
       setCities([]);
     } else {
-        getCityArray(search).then(res => setCities(res));
+      getCityArray(search).then((res) => setCities(res));
     }
   }, [search]);
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    getCityData(search)
-    .then(res => {
+    getCityData(search).then((res) => {
       setCityData(res);
-      localStorage.setItem('cityName', res.city)
-      history.push('/cityview')
-    })
-  }
-  const handleChange = e => {
+      localStorage.setItem("cityName", res.city);
+      history.push("/cityview");
+    });
+  };
+  const handleChange = (e) => {
     setSearch(e.target.value);
   };
-  const handleCityClick = city => {
+  const handleCityClick = (city) => {
     setSearch(city);
   };
   return (
-    <Form autoComplete='off' onSubmit={handleSubmit}>
-      <Search type='text' name='city' value={search} placeholder='Search for a City' onChange={handleChange}/>
-      <Button type='submit'>
+    <Form autoComplete="off" onSubmit={handleSubmit}>
+      <Search
+        type="text"
+        name="city"
+        value={search}
+        placeholder="Search for a City"
+        onChange={handleChange}
+      />
+      <Button type="submit">
         <SearchIcon />
       </Button>
       <CityDropDown>
-        {cities.length === 0 && search !== '' && search.split('').length > 2 ? (<City>No Matches Found...</City>) :
-        (cities.splice(0, 4).map((city, idx) => (<City key={idx} onClick={() => handleCityClick(city)}>{city}</City>)))}
+        {cities.length === 0 && search !== "" && search.split("").length > 2 ? (
+          <City>No Matches Found...</City>
+        ) : (
+          cities.splice(0, 4).map((city, idx) => (
+            <City key={idx} onClick={() => handleCityClick(city)}>
+              {city}
+            </City>
+          ))
+        )}
       </CityDropDown>
     </Form>
   );

@@ -1,14 +1,14 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "../App.css";
-import Logo from '../assets/logo.png'
-import LogoWhite from '../assets/logo-white.png'
-import UserContext from '../contexts/UserContext'
-import { makeStyles } from '@material-ui/core/styles';
-import poly from '../assets/polydown.png';
-import polyWhite from '../assets/polyWhite.png';
-import avatar from '../assets/avatar.png';
+import Logo from "../assets/logo.png";
+import LogoWhite from "../assets/logo-white.png";
+import UserContext from "../contexts/UserContext";
+import { makeStyles } from "@material-ui/core/styles";
+import poly from "../assets/polydown.png";
+import polyWhite from "../assets/polyWhite.png";
+import avatar from "../assets/avatar.png";
 
 const UL = styled.ul`
   width: 65%;
@@ -24,7 +24,7 @@ const H2 = styled.h2`
   margin-left: 50px;
   justify-content: flex-start;
   padding-right: 30px;
-  @media(max-width: 500px){
+  @media (max-width: 500px) {
     margin: auto 0;
   }
 `;
@@ -37,18 +37,25 @@ const Li = styled.li`
   font-weight: 600;
   text-transform: capitalize;
 `;
+
 const NavDiv = styled.div`
   display: flex;
   height: 80px;
   max-height: 80px;
   z-index: 1;
-  position: ${ ({ pathname }) => !pathname.includes('/cityview')  ? 'relative' : 'sticky; top: 0'};
+  position: ${({ pathname }) =>
+    !pathname.includes("/cityview") ? "relative" : "sticky; top: 0"};
   max-width: 1280px;
-  background: ${ ({ pathname }) => pathname.includes('/cityview')? '#2196F3' : pathname.includes('/recommended') ? '#2196F3': 'white'};
+  background: ${({ pathname }) =>
+    pathname.includes("/cityview")
+      ? "#2196F3"
+      : pathname.includes("/recommended")
+      ? "#2196F3"
+      : "white"};
 `;
 const useStyles = makeStyles((theme) => ({
   paper: {
-    position: 'absolute',
+    position: "absolute",
     width: 130,
     height: 170,
     zIndex: 3,
@@ -57,157 +64,207 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     borderRadius: 4,
-    [theme.breakpoints.down('sm')]: {
-      right: 16
-    }
+    [theme.breakpoints.down("sm")]: {
+      right: 16,
+    },
   },
   avatarBox: {
-    display: 'flex',
-    alignItems: 'center'
+    display: "flex",
+    alignItems: "center",
   },
   modalLi: {
-    padding: '7px 0',
-    textDecoration: 'none',
-    listStyleType: 'none',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
+    padding: "7px 0",
+    textDecoration: "none",
+    listStyleType: "none",
+    fontStyle: "normal",
+    fontWeight: "normal",
     fontSize: 16,
-    '&:hover' : {
-      fontWeight: 'bold'
-    }
+    "&:hover": {
+      cursor: "pointer",
+      fontWeight: "bold",
+    },
   },
-  darken : {
-    position: 'absolute',
+  darken: {
+    position: "absolute",
     zIndex: 2,
-    border: '1px solid red',
-    width:`100vh`,
+    border: "1px solid red",
+    width: `100vh`,
     height: `100vh`,
-    background: 'rgba(0,0,0,0.5)',
-    top:80,
-    transition: 'ease-in-out 2s',
-    [theme.breakpoints.down('sm')]: {
-      top: 80
-    }
+    background: "rgba(0,0,0,0.5)",
+    top: 80,
+    transition: "ease-in-out 2s",
+    [theme.breakpoints.down("sm")]: {
+      top: 80,
+    },
   },
   animation: {
-      transition: 'ease-in .2s',
-      width: 15,
-      height: 10
-  },
-  animation2 : {
-    transition: 'ease-in .2s',
-    transform: 'rotate(180deg)',
+    transition: "ease-in .2s",
     width: 15,
-    height: 10
+    height: 10,
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+  animation2: {
+    transition: "ease-in .2s",
+    transform: "rotate(180deg)",
+    width: 15,
+    height: 10,
+    "&:hover": {
+      cursor: "pointer",
+    },
   },
   SignInBlue: {
-    border: '0',
-    background: 'none',
+    border: "0",
+    background: "none",
     fontSize: 16,
-    color: 'white',
-    [theme.breakpoints.down('sm')]: {
-      background: '#687FAD',
-      color: 'white',
+    color: "white",
+    [theme.breakpoints.down("sm")]: {
+      background: "#687FAD",
+      color: "white",
       fontSize: 16,
-      border: '0'
-    }
+      border: "0",
+    },
+    "&:hover": {
+      cursor: "pointer",
+    },
   },
   SignInWhite: {
-    border: '0',
-    background: 'none',
+    border: "0",
+    background: "none",
     fontSize: 16,
-    [theme.breakpoints.down('sm')]: {
-      background: '#687FAD',
-      color: 'white',
+    [theme.breakpoints.down("sm")]: {
+      background: "#687FAD",
+      color: "white",
       fontSize: 16,
-      border: '0'
-    }
-  }
+      border: "0",
+    },
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
 }));
 
 const NavBar = ({ auth, history, location }) => {
   const classes = useStyles();
-  const {setUserData} = useContext(UserContext)
-  const [open, setOpen] = useState(false)
+  const { setUserData } = useContext(UserContext);
+  const [open, setOpen] = useState(false);
 
   const login = () => {
-    history.push('/signin')
+    history.push("/signin");
   };
-  const handleDash = ()=>{
+  const handleDash = () => {
     handleOpen();
-    history.push('/dashboard')
-  }
+    history.push("/dashboard");
+  };
   const handleOpen = () => {
-    let background = document.getElementById('darken')
-    if(open){
-      background.style.display = 'none';
-    }else{
-      background.style.display = 'block';
+    let background = document.getElementById("darken");
+    if (open) {
+      background.style.display = "none";
+    } else {
+      background.style.display = "block";
     }
     setOpen(!open);
-
   };
 
   const handleAbout = () => {
-    history.push('/')
-    handleOpen()
-    setTimeout(()=>{
-      const ele = document.getElementById('about')
-      if(ele){
-          const offset = ele.offsetTop
-          window.scrollTo(0, offset);
+    history.push("/");
+    handleOpen();
+    setTimeout(() => {
+      const ele = document.getElementById("about");
+      if (ele) {
+        const offset = ele.offsetTop;
+        window.scrollTo(0, offset);
       }
-  }, 200) 
-}
+    }, 200);
+  };
   const logout = () => {
-    handleOpen()
-    localStorage.clear()
-    setUserData({})
-    history.push('/')
+    handleOpen();
+    localStorage.clear();
+    setUserData({});
+    history.push("/");
   };
   const body = (
-      <div className={classes.paper}>
-        <ul className={classes.modalLi}>
-          <li className={classes.modalLi} onClick={()=>{history.push('/')}}>Profile</li>
-          <li className={classes.modalLi} onClick={handleAbout}>About</li>
-          <li className={classes.modalLi} onClick={handleDash}>Dashboard</li>
-          <li className={classes.modalLi} onClick={logout}>Logout</li>
-        </ul>
-      </div> 
-  ) 
+    <div className={classes.paper}>
+      <ul className={classes.modalLi}>
+        <li
+          className={classes.modalLi}
+          onClick={() => {
+            history.push("/");
+          }}
+        >
+          Profile
+        </li>
+        <li className={classes.modalLi} onClick={handleAbout}>
+          About
+        </li>
+        <li className={classes.modalLi} onClick={handleDash}>
+          Dashboard
+        </li>
+        <li className={classes.modalLi} onClick={logout}>
+          Logout
+        </li>
+      </ul>
+    </div>
+  );
   let token = localStorage.getItem("token");
   return (
     <NavDiv pathname={location.pathname}>
       <H2>
         <Link className="link" to="/">
           <img
-            src={location.pathname === '/cityview' ? LogoWhite : location.pathname === '/recommended'? LogoWhite: Logo}
-            alt='Find Ur City Logo'
+            src={
+              location.pathname === "/cityview"
+                ? LogoWhite
+                : location.pathname === "/recommended"
+                ? LogoWhite
+                : Logo
+            }
+            alt="Find Ur City Logo"
           />
         </Link>
       </H2>
-        {token ? (
-          <UL>
-            <Li className={classes.avatarBox}>
-              <img src={avatar} alt='avatar'/>
-              <button className="link" onClick={handleOpen}>
-                <img id='dropdown' className={!open ? classes.animation : classes.animation2} src={location.pathname === '/cityview' ? polyWhite : location.pathname === '/recommended'? polyWhite: poly} alt='navigation arrow'/>
-              </button>
-              
-              {open? body : <></>}
-            </Li>
-          </UL>
-        ) : (
-          <UL>
-            <Li>
-              <button className={location.pathname === '/cityview' ? classes.SignInBlue : location.pathname === '/recommended'? classes.SignInBlue : classes.SignInWhite } onClick={login} >
-                Sign In
-              </button>
-            </Li>
-          </UL>
+      {token ? (
+        <UL>
+          <Li className={classes.avatarBox}>
+            <img src={avatar} alt="avatar" />
+            <button className="link" onClick={handleOpen}>
+              <img
+                id="dropdown"
+                className={!open ? classes.animation : classes.animation2}
+                src={
+                  location.pathname === "/cityview"
+                    ? polyWhite
+                    : location.pathname === "/recommended"
+                    ? polyWhite
+                    : poly
+                }
+                alt="navigation arrow"
+              />
+            </button>
+
+            {open ? body : <></>}
+          </Li>
+        </UL>
+      ) : (
+        <UL>
+          <Li>
+            <button
+              className={
+                location.pathname === "/cityview"
+                  ? classes.SignInBlue
+                  : location.pathname === "/recommended"
+                  ? classes.SignInBlue
+                  : classes.SignInWhite
+              }
+              onClick={login}
+            >
+              Sign In
+            </button>
+          </Li>
+        </UL>
       )}
     </NavDiv>
-     
   );
 };
 
