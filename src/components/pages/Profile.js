@@ -24,7 +24,7 @@ export function Profile(){
           </button>
         ) : (
             <button
-              onClick={async () => {
+              onClick = {async () => {
                 const userData = await SignIn();
                 setUserData(userData);
               }}
