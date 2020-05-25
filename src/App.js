@@ -1,6 +1,6 @@
-import React, { useState} from 'react';
+import React, { useState, useMemo } from 'react';
 import './index.scss';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router,Route } from 'react-router-dom';
 import UserContext from './contexts/UserContext';
 import CityContext from './contexts/CityContext.js';
 import RecomendedContext from './contexts/RecomendedContext';
@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import LandingPage from './components/LandingPage.js';
 import Dashboard from './components/Dashboard.js';
 import Authentication from './components/auth/Authentication.js';
-import Profile from './components/pages/Profile.js';
+import {Profile} from './components/pages/Profile.js';
 import SingleCityView from './components/SingleCityView.js';
 import SurveyQuestions from './components/surveyQuestions/SurveyQuestions.js';
 import RecomendedDashboard from './components/recomended/RecomendedDashboard';
@@ -37,14 +37,16 @@ const handleClick = e => {
   console.log(arrow)
 }
 const App = () => {
+  const [userData, setUserData] = useState(null);//created state for user
   const [cityData, setCityData] = useState({});
-  const [userData, setUserData] = useState({});
+  const value = useMemo(() => ({userData, setUserData}), [userData, setUserData]);//set state dependency array to setUser
   const [recomendedCity, setRecomendedCity] = useState([]);
   return (
+  <Router>
     <div>
       <Darken id='darken' onClick={handleClick}style={{display: 'none'}}/>
       <CityContext.Provider value={{ cityData, setCityData }}>
-        <UserContext.Provider value={{ userData, setUserData }}>
+        <UserContext.Provider value={{value}}>
           <RecomendedContext.Provider
             value={{ recomendedCity, setRecomendedCity }}
           >
@@ -63,6 +65,7 @@ const App = () => {
         </UserContext.Provider>
       </CityContext.Provider>
     </div>
+   </Router>
   );
 };
 
