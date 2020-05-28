@@ -209,6 +209,7 @@ const NavBar = ({ auth, history, location }) => {
   );
   let token = localStorage.getItem("token");
   return (
+    
     <NavDiv pathname={location.pathname}>
       <H2>
         <Link className="link" to="/">
@@ -243,7 +244,7 @@ const NavBar = ({ auth, history, location }) => {
               />
             </button>
 
-            {open ? body : <></>}
+            {open ? body : <span></span>}
           </Li>
         </UL>
       ) : (
@@ -265,6 +266,7 @@ const NavBar = ({ auth, history, location }) => {
         </UL>
       )}
     </NavDiv>
+              
   );
 };
 

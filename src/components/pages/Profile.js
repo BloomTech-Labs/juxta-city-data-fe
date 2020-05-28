@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import NavBar from "../Navbar.js";
-import {SignIn} from "../auth/SignIn"
+import SignIn from "../auth/SignIn"
+import {UserContext} from "./UserContext"
 
 
 export function Profile(){
