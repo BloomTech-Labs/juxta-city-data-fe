@@ -13,13 +13,14 @@ function Dashboard(props) {
     createUserContext().then((res) => setUserData(res));
   }, [setUserData]);
   return (
-    <>
-      <NavBar {...props} />
-      <Header />
-      <RecommendedComponent {...props} />
-      <Favorites />
-      <BestCities />
-    </>
+    <UserContext.Consumer>
+        <NavBar {...props} />
+        <Header />
+        <RecommendedComponent {...props} />
+        <Favorites />
+        <BestCities />
+    </UserContext.Consumer>
+    
   );
 }
 

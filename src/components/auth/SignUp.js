@@ -3,7 +3,7 @@ import axios from "axios";
 import { styles } from "./authStlyes";
 
 const states = (
-  <>
+  <div>
     <option>Select a State</option>
     <option value="AL">Alabama</option>
     <option value="AK">Alaska</option>
@@ -56,7 +56,7 @@ const states = (
     <option value="WV">West Virginia</option>
     <option value="WI">Wisconsin</option>
     <option value="WY">Wyoming</option>
-  </>
+  </div>
 );
 
 export default function SignUp(props) {

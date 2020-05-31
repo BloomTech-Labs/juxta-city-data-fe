@@ -4,12 +4,14 @@ import SignIn from "../auth/SignIn"
 import {UserContext} from "./UserContext"
 
 
-export function Profile(){
-    const {userData, setUserData} = useContext(UserContext)
+export function Profile(props){
+    const {userData, setUserData} = useContext(UserContext);
   
   return (
+
     <div>
-      <NavBar/>
+     
+      <NavBar {...props} />
       <h3>Welcome</h3>
       <div>
         <h2>{userData}</h2>
@@ -19,6 +21,7 @@ export function Profile(){
             onClick={() => {
               // call logout
               setUserData(null);
+          
             }}
           >
             logout
@@ -28,13 +31,15 @@ export function Profile(){
               onClick = {async () => {
                 const userData = await SignIn();
                 setUserData(userData);
+              
               }}
             >
               login
             </button>
           )}
       </div>
-    </div>
+      </div>
+  
   );
 };
 

@@ -10,6 +10,8 @@ import poly from "../assets/polydown.png";
 import polyWhite from "../assets/polyWhite.png";
 import avatar from "../assets/avatar.png";
 
+
+
 const UL = styled.ul`
   width: 65%;
   list-style-type: none;
@@ -43,7 +45,7 @@ const NavDiv = styled.div`
   height: 80px;
   max-height: 80px;
   z-index: 1;
-  position: ${({ pathname }) =>
+  position: ${({pathname}) =>
     !pathname.includes("/cityview") ? "relative" : "sticky; top: 0"};
   max-width: 1280px;
   background: ${({ pathname }) =>
@@ -51,7 +53,10 @@ const NavDiv = styled.div`
       ? "#2196F3"
       : pathname.includes("/recommended")
       ? "#2196F3"
-      : "white"};
+      : pathname.includes("/profile")
+      ? "#3BE1CD"
+      : null
+    };
 `;
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -207,10 +212,12 @@ const NavBar = ({ auth, history, location }) => {
       </ul>
     </div>
   );
+
   let token = localStorage.getItem("token");
   return (
+  
+     <NavDiv pathname={location.pathname}>
     
-    <NavDiv pathname={location.pathname}>
       <H2>
         <Link className="link" to="/">
           <img
@@ -266,7 +273,8 @@ const NavBar = ({ auth, history, location }) => {
         </UL>
       )}
     </NavDiv>
-              
+  
+   
   );
 };
 
