@@ -17,7 +17,7 @@ export default function SignIn(props) {
       )
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        props.history.push("/dashboard");
+        props.history.push("/profile");
       })
       .catch((err) => {
         console.log(err);

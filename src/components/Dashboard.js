@@ -14,7 +14,7 @@ function Dashboard(props) {
   }, [setUserData]);
   return (
     <UserContext.Consumer>
-        <NavBar {...props} />
+        {/*<NavBar {...props} />*/}
         <Header />
         <RecommendedComponent {...props} />
         <Favorites />

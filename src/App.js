@@ -13,6 +13,7 @@ import {Profile} from './components/pages/Profile.js';
 import SingleCityView from './components/SingleCityView.js';
 import SurveyQuestions from './components/surveyQuestions/SurveyQuestions.js';
 import RecomendedDashboard from './components/recomended/RecomendedDashboard';
+import Navbar from './components/Navbar';
 
 const AppDiv = styled.div`
   max-width: 1280px;
@@ -37,7 +38,7 @@ const handleClick = e => {
   console.log(arrow)
 }
 const App = () => {
-  const [userData, setUserData] = useState(null);//created state for user
+  const [userData, setUserData] = useState({});//created state for user
   const [cityData, setCityData] = useState({});
   const value = useMemo(() => ({userData, setUserData}), [userData, setUserData]);//set state dependency array to setUser
   const [recomendedCity, setRecomendedCity] = useState([]);
@@ -51,6 +52,7 @@ const App = () => {
             value={{ recomendedCity, setRecomendedCity }}
           >
             <AppDiv className='App'>
+            <Route path='/' component={Navbar}/>
               <Route exact path='/' component={LandingPage} />
               <Route path='/dashboard' exact component={Dashboard} />
               <Route path='/cityview' exact component={SingleCityView} />

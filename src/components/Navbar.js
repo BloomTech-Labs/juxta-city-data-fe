@@ -9,6 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import poly from "../assets/polydown.png";
 import polyWhite from "../assets/polyWhite.png";
 import avatar from "../assets/avatar.png";
+import SignIn from "./auth/SignIn";
 
 
 
@@ -152,7 +153,7 @@ const useStyles = makeStyles((theme) => ({
 
 const NavBar = ({ auth, history, location }) => {
   const classes = useStyles();
-  const { setUserData } = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
   const [open, setOpen] = useState(false);
 
   const login = () => {
@@ -175,6 +176,7 @@ const NavBar = ({ auth, history, location }) => {
   const handleAbout = () => {
     history.push("/");
     handleOpen();
+          
     setTimeout(() => {
       const ele = document.getElementById("about");
       if (ele) {
@@ -183,22 +185,21 @@ const NavBar = ({ auth, history, location }) => {
       }
     }, 200);
   };
+
   const logout = () => {
     handleOpen();
     localStorage.clear();
-    setUserData({});
+    //setUserData({});
     history.push("/");
   };
+
   const body = (
     <div className={classes.paper}>
       <ul className={classes.modalLi}>
         <li
-          className={classes.modalLi}
-          onClick={() => {
-            history.push("/");
-          }}
+          className={classes.modalLi}         
         >
-          Profile
+          <Link to="/profile">Profile</Link>
         </li>
         <li className={classes.modalLi} onClick={handleAbout}>
           About
@@ -246,7 +247,7 @@ const NavBar = ({ auth, history, location }) => {
                     : location.pathname === "/recommended"
                     ? polyWhite
                     : location.pathname === "/profile"
-                    ? setUserData
+                    ? UserContext
                     : poly
                     
                 }
