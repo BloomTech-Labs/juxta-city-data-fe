@@ -15,9 +15,15 @@ export function Profile(props){
     };
 
     // const getUserInfo = () => {
-    //   axios.get("", options).then(res => {
+    //   axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/$%7Bid%7D`, options).then(res => {
     //     setUser(res.data)
     //   })
+    // }
+
+    // if(!profile){
+    //   create profile
+    // }else{
+    //   update Profile
     // }
   
   return (
@@ -29,33 +35,7 @@ export function Profile(props){
       {/*UserName : {user.Name}*/}
 
   
-        {/*<h2>{userData}</h2>
-         <pre>{JSON.stringify(userData, null, 2)}</pre>
-         {userData ? (
-         */}
 </div>
-        //   <button
-        //     onClick={() => {
-        //       // call logout
-        //       setUserData(null);
-      
-        //     }}
-        //   >
-        //     logout
-        //   </button>
-        // ) : (
-        //     <button
-        //       onClick = {async () => {
-        //         const userData = await SignIn();
-        //         setUserData(userData);
-              
-        //       }}
-        //     >
-        //       login
-        //     </button>
-        //   )}
-  
-
   
    );
 };

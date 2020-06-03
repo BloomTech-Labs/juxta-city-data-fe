@@ -40,19 +40,18 @@ const handleClick = e => {
 const App = () => {
   const [userData, setUserData] = useState({});//created state for user
   const [cityData, setCityData] = useState({});
-  const value = useMemo(() => ({userData, setUserData}), [userData, setUserData]);//set state dependency array to setUser
+  //const value = useMemo(() => ({userData, setUserData}), [userData, setUserData]);//set state dependency array to setUser
   const [recomendedCity, setRecomendedCity] = useState([]);
   return (
   <Router>
     <div>
       <Darken id='darken' onClick={handleClick}style={{display: 'none'}}/>
       <CityContext.Provider value={{ cityData, setCityData }}>
-        <UserContext.Provider value={{value}}>
+        <UserContext.Provider value={{userData, setUserData}}>
           <RecomendedContext.Provider
             value={{ recomendedCity, setRecomendedCity }}
           >
             <AppDiv className='App'>
-            <Route path='/' component={Navbar}/>
               <Route exact path='/' component={LandingPage} />
               <Route path='/dashboard' exact component={Dashboard} />
               <Route path='/cityview' exact component={SingleCityView} />
@@ -60,7 +59,7 @@ const App = () => {
               <Route exact path='/signin' component={Authentication}/>
               <Route
                 path='/recommended' exact component={RecomendedDashboard}/>
-              <Route path='/profile' exact component={Profile} />
+            <Route path='/profile' exact component={Profile} />
               
             </AppDiv>
           </RecomendedContext.Provider>

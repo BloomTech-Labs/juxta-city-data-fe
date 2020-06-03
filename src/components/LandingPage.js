@@ -7,7 +7,7 @@ import NavBar from "./Navbar";
 const LandingPage = (props) => {
   return (
     <div>
-      {/*<NavBar {...props} />*/}
+      <NavBar {...props} />
       <Header />
       <BestCities />
       <MarketingBox />
