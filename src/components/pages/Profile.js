@@ -37,9 +37,22 @@ export function Profile(props){
     // const {username, email, password, first_name, last_name, dob, address, city, state, zip} = user;
   return (
     <div>
+
+
+
       <NavBar {...props} />
       <h3>Welcome</h3>
+
       <section>
+          {/* 
+            Image Field to be placed here
+          <img/>
+          
+        
+          */}
+
+
+
         Username: {user.username}
         <br />
         Email: {user.email} <br />
@@ -58,6 +71,8 @@ export function Profile(props){
         State: {user.state}
         <br />
         Zip: {user.zip}
+
+        {/* Button for Image upload */}
       </section>
     </div>
   );
