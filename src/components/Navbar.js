@@ -189,7 +189,7 @@ const NavBar = ({ auth, history, location }) => {
   const logout = () => {
     handleOpen();
     localStorage.clear();
-    //setUserData({});
+    setUserData({});
     history.push("/");
   };
 

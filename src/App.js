@@ -13,7 +13,7 @@ import {Profile} from './components/pages/Profile.js';
 import SingleCityView from './components/SingleCityView.js';
 import SurveyQuestions from './components/surveyQuestions/SurveyQuestions.js';
 import RecomendedDashboard from './components/recomended/RecomendedDashboard';
-import Navbar from './components/Navbar';
+
 
 const AppDiv = styled.div`
   max-width: 1280px;

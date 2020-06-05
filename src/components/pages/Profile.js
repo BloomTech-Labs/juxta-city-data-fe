@@ -7,36 +7,59 @@ import axios from "axios"
 
 export function Profile(props){
     const {userData, setUserData} = useContext(UserContext);
-    const[user, setUser] = useState(null);
+    const[user, setUser] = useState({});
 
     const token = localStorage.getItem('token');
     const options = {
     headers: { 'Authorization': token }
     };
 
-    // const getUserInfo = () => {
-    //   axios.get(`https://production-juxta-city-be.herokuapp.com/api/users/$%7Bid%7D`, options).then(res => {
-    //     setUser(res.data)
-    //   })
-    // }
+     const getUserInfo = () => {
+       axios
+            .get(`https://production-juxta-city-be.herokuapp.com/api/users/$%7Bid%7D`, options)
+            .then(res => {
+                console.log(res.data);
+                setUser(res.data);
+          })
+            .catch(err =>{
+                  console.error('Error:', err);
+          })
+
+     }
+
+      getUserInfo();
 
     // if(!profile){
     //   create profile
     // }else{
     //   update Profile
     // }
-  
+    // const {username, email, password, first_name, last_name, dob, address, city, state, zip} = user;
   return (
-
-  
-<div>
-      
+    <div>
+      <NavBar {...props} />
       <h3>Welcome</h3>
-      {/*UserName : {user.Name}*/}
-
-  
-</div>
-  
-   );
+      <section>
+        Username: {user.username}
+        <br />
+        Email: {user.email} <br />
+        Password: {user.password}
+        <br />
+        First Name: {user.first_name}
+        <br />
+        Last Name: {user.last_name}
+        <br />
+        DOB: {user.dob}
+        <br />
+        Address: {user.address}
+        <br />
+        City: {user.city}
+        <br />
+        State: {user.state}
+        <br />
+        Zip: {user.zip}
+      </section>
+    </div>
+  );
 };
 
