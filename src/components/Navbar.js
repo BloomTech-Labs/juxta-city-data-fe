@@ -9,6 +9,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import poly from "../assets/polydown.png";
 import polyWhite from "../assets/polyWhite.png";
 import avatar from "../assets/avatar.png";
+import SignIn from "./auth/SignIn";
+
+
 
 const UL = styled.ul`
   width: 65%;
@@ -43,7 +46,7 @@ const NavDiv = styled.div`
   height: 80px;
   max-height: 80px;
   z-index: 1;
-  position: ${({ pathname }) =>
+  position: ${({pathname}) =>
     !pathname.includes("/cityview") ? "relative" : "sticky; top: 0"};
   max-width: 1280px;
   background: ${({ pathname }) =>
@@ -51,7 +54,10 @@ const NavDiv = styled.div`
       ? "#2196F3"
       : pathname.includes("/recommended")
       ? "#2196F3"
-      : "white"};
+      : pathname.includes("/profile")
+      ? "#3BE1CD"
+      : null
+    };
 `;
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -147,7 +153,7 @@ const useStyles = makeStyles((theme) => ({
 
 const NavBar = ({ auth, history, location }) => {
   const classes = useStyles();
-  const { setUserData } = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
   const [open, setOpen] = useState(false);
 
   const login = () => {
@@ -170,6 +176,7 @@ const NavBar = ({ auth, history, location }) => {
   const handleAbout = () => {
     history.push("/");
     handleOpen();
+          
     setTimeout(() => {
       const ele = document.getElementById("about");
       if (ele) {
@@ -178,22 +185,21 @@ const NavBar = ({ auth, history, location }) => {
       }
     }, 200);
   };
+
   const logout = () => {
     handleOpen();
     localStorage.clear();
     setUserData({});
     history.push("/");
   };
+
   const body = (
     <div className={classes.paper}>
       <ul className={classes.modalLi}>
         <li
-          className={classes.modalLi}
-          onClick={() => {
-            history.push("/");
-          }}
+          className={classes.modalLi}         
         >
-          Profile
+          <Link to="/profile">Profile</Link>
         </li>
         <li className={classes.modalLi} onClick={handleAbout}>
           About
@@ -207,9 +213,12 @@ const NavBar = ({ auth, history, location }) => {
       </ul>
     </div>
   );
+
   let token = localStorage.getItem("token");
   return (
-    <NavDiv pathname={location.pathname}>
+  
+     <NavDiv pathname={location.pathname}>
+    
       <H2>
         <Link className="link" to="/">
           <img
@@ -237,13 +246,16 @@ const NavBar = ({ auth, history, location }) => {
                     ? polyWhite
                     : location.pathname === "/recommended"
                     ? polyWhite
+                    : location.pathname === "/profile"
+                    ? UserContext
                     : poly
+                    
                 }
                 alt="navigation arrow"
               />
             </button>
 
-            {open ? body : <></>}
+            {open ? body : <span></span>}
           </Li>
         </UL>
       ) : (
@@ -265,6 +277,8 @@ const NavBar = ({ auth, history, location }) => {
         </UL>
       )}
     </NavDiv>
+  
+   
   );
 };
 

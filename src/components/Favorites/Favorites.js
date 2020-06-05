@@ -35,16 +35,22 @@ const styles = makeStyles((theme) => ({
 export default function Favoirtes(props) {
   const classes = styles();
   const [cities, setCities] = useState([]);
-  const { userData } = useContext(UserContext);
+  const {userData} = useContext(UserContext);
+  console.log(userData, "Console.log worked");
+  
   const history = useHistory();
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       history.push("/");
+    
     }
+
     if (userData.favorites) {
+    
       setCities(userData.favorites);
     }
   }, [userData, setCities, history]);
+
   return cities.length === 0 ? (
     <p></p>
   ) : (

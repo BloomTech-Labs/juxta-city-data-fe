@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { styles } from "./authStlyes";
 
+
 // const states = (
 //   <>
 //     <option>Select a State</option>
@@ -58,6 +59,7 @@ import { styles } from "./authStlyes";
 //     <option value="WY">Wyoming</option>
 //   </>
 // );
+
 
 export default function SignUp(props) {
   const [form, setForm] = useState({
