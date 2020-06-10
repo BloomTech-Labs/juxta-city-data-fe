@@ -5,7 +5,7 @@ import axiosWithAuth from '../../functions/axiosWithAuth'
 
 
 
-    const ProfileEdit = () => (
+    const ProfileEdit = (props) => (
         <table>
             <thead>
                 <tr>
@@ -45,40 +45,8 @@ import axiosWithAuth from '../../functions/axiosWithAuth'
             </tbody>
         </table>
     )
-
+            
     export default ProfileEdit;
 
+            
 
-// const [user, setUser] = useState({
-//     id: null,
-//     email: "",
-//     first_name: "",
-//     last_name: "",
-//     dob: "",
-//     address: "",
-//     city: "",
-//     state: "",
-//     zip: ""
-
-// });
-
-// const onChange = e => {
-//     setUserData({ ...user, [e.target.name]: e.target.value });
-// }
-
-// const handleSubmit = e => {
-//     e.preventDefault();
-//     setUser({ ...user })
-//     axiosWithAuth()
-//         .post('/api/users', user)
-//         .then((res) => {
-//             setUser(user)
-//             props.history.push("/user_form")
-//             console.log(res.data);
-//         })
-//         .catch(err => {
-//             console.log("error", err);
-//         })
-// };
-
-}

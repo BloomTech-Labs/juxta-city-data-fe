@@ -1,28 +1,29 @@
-import React, {useContext, useState} from "react";
+import React, {useState, useEffect} from "react";
 import NavBar from "../Navbar.js";
 //import SignIn from "../auth/SignIn"
-import {UserContext} from "./UserContext"
+//import {UserContext} from "./UserContext"
 import {axiosWithAuth} from "../../functions/axiosWithAuth.js"
 import ProfileEdit from "./ProfileEdit"
 import AddUser from "./AddUser.js";
 
 export function Profile(props){
 
-    const subjectData = [
-      { id: props.match.params,
-        email: props.email,
-        first_name: props.first_name,
-        last_name: props.last_name,
-        dob: props.dob,
-        address: props.address,
-        city: props.city,
-        state: props.state,
-        zip: props.zip
-      }
-    ]
+    const [userInfo, setUserInfo] = useState([]);
+
+    useEffect(()=>{
+      axiosWithAuth()
+        .get("/api/users")
+        .then(res =>{
+            console.log("Other Users!", res.data)
+            setUserInfo(res.data);
+        })
+        .catch(err => {
+            console.log("Somethings Up!", err);
+        })
+    }, [])
 
    
-    const [userData, setUserData] = useState(subjectData);
+    
 
     
     
@@ -37,11 +38,11 @@ export function Profile(props){
         <div className="flex-row">
           <div className="flex-large">
             <h2>Add Your Info</h2>
-            <AddUser/>
+            <AddUser handleSubmit={props.handleSubmit}/>
           </div>
           <div className="flex-large">
             <h2>View & Edit</h2>
-            <ProfileEdit userData={userData}/>
+            <ProfileEdit userData={userInfo}/>
           </div>
         </div>
     </div>
