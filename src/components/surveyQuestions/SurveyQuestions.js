@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import RecomendedContext from '../../contexts/RecomendedContext';
 import { useHistory } from 'react-router-dom';
 import { Container } from '@material-ui/core';
@@ -7,10 +7,13 @@ import NavBar from '../Navbar.js';
 import SurveyQuestion from './SurveyQuestion';
 
 import { getRecomendedCities } from '../../functions/index';
-import surveyData from './data/surveyData';
+//import surveyData from './data/surveyData';
 import { Heading, SubmitButton, Form } from './styles/surveyQuestionsStyles';
+import axios from 'axios';
 
-const SurveyQuestions = (props) => {
+const SurveyQuestions = props => {
+  const [surveyData, setSurveyData] = useState([]);
+
   const [formState, setFormState] = useState({
     state: 'None',
     population: '0',
@@ -33,9 +36,20 @@ const SurveyQuestions = (props) => {
   function handleSubmit(event) {
     event.preventDefault();
     getRecomendedCities(formState)
-      .then((cities) => setRecomendedCity(cities))
+      .then(cities => setRecomendedCity(cities))
       .then(() => history.push('/recommended'));
   }
+
+  useEffect(() => {
+    axios
+      .get(
+        'https://production-juxta-city-be.herokuapp.com/api/questions/surveyobj'
+      )
+      .then(response => {
+        setSurveyData(response.data);
+      })
+      .catch(err => err);
+  }, []);
 
   return (
     <Container>
