@@ -4,11 +4,12 @@ import NavBar from "../Navbar.js";
 import {UserContext} from "./UserContext"
 import {axiosWithAuth} from "../../functions/axiosWithAuth.js"
 import ProfileEdit from "./ProfileEdit"
+import AddUser from "./AddUser.js";
 
 export function Profile(props){
 
     const subjectData = [
-      { id: props.id,
+      { id: props.match.params,
         email: props.email,
         first_name: props.first_name,
         last_name: props.last_name,
@@ -22,6 +23,7 @@ export function Profile(props){
 
    
     const [userData, setUserData] = useState(subjectData);
+
     
     
     
@@ -35,6 +37,7 @@ export function Profile(props){
         <div className="flex-row">
           <div className="flex-large">
             <h2>Add Your Info</h2>
+            <AddUser/>
           </div>
           <div className="flex-large">
             <h2>View & Edit</h2>
