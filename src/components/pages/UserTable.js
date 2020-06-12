@@ -1,11 +1,7 @@
-import React, { useState } from "react";
-import axiosWithAuth from '../../functions/axiosWithAuth'
+import React from "react";
 
 
-
-
-
-    const ProfileEdit = (props) => (
+    const UserTable = (props) => (
         <table>
             <thead>
                 <tr>
@@ -33,7 +29,7 @@ import axiosWithAuth from '../../functions/axiosWithAuth'
                     <td>Zip data</td>
                     <td>
                         <button className="button muted-button">Edit</button>
-                        <button className="button muted-button">Delete</button>
+                        <button onClick={()=> props.deleteUser(i.id)} className="button muted-button">Delete</button>
                     </td>
                 </tr>
             ))
@@ -46,7 +42,7 @@ import axiosWithAuth from '../../functions/axiosWithAuth'
         </table>
     )
             
-    export default ProfileEdit;
+    export default UserTable;
 
             
 
