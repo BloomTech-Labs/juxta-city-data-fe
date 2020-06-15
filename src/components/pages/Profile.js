@@ -4,8 +4,12 @@ import NavBar from "../Navbar.js";
 import {axiosWithAuth} from "../../functions/axiosWithAuth.js"
 import UserTable from "./UserTable"
 import AddUser from "./AddUser.js";
+import Container from '@material-ui/core/Container';
+
+
 
 export function Profile(props){
+
 
     const [userData, setUserData] = useState([]);
 
@@ -14,10 +18,9 @@ export function Profile(props){
     }
 
    
-
     useEffect(()=>{
       axiosWithAuth()
-        .get("/api/users")
+        .get(`/apihttps://production-juxta-city-be.herokuapp.com/api/users/${userData}/users`)
         .then(res =>{
             console.log("Other Users!", res.data)
             setUserData(res.data);
@@ -25,7 +28,7 @@ export function Profile(props){
         .catch(err => {
             console.log("Somethings Up!", err);
         })
-    }, [])
+    }, [userData])
 
    
     
@@ -34,19 +37,17 @@ export function Profile(props){
       <NavBar {...props} />
 
      
-    <div className="container">
+    <Container maxWidth="lg">
         <h1>WELCOME</h1>
-        <div className="flex-row">
-          <div className="flex-large">
+        
             <h2>Add Your Info</h2>
             <AddUser {...props} newUser={setUserData} />
-          </div>
-          <div className="flex-large">
+         
             <h2>View & Edit</h2>
             <UserTable {...props} userData={userData} deleteUser={deleteUser}/>
-          </div>
-        </div>
-    </div>
+         
+       
+    </Container>
   
         
 </section>

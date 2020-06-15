@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import {axiosWithAuth} from '../../functions/axiosWithAuth'
 
+
+
 const AddUser = props => {
 
     const initialFormState = { id: null, email: '', first_name: '', last_name: '', dob: '', address: '', city: '', state: '', zip: '' }
@@ -13,7 +15,7 @@ const AddUser = props => {
         e.preventDefault();
         setUserData({ ...userData })
         axiosWithAuth()
-            .post('/api/users', userData)
+            .post(`https://production-juxta-city-be.herokuapp.com/api/users/${userData}`, userData)
             .then((res) => {
                 setUserData(userData)
                 props.history.push("/user_form")
