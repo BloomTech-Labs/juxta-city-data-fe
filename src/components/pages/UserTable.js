@@ -66,7 +66,10 @@ const useStyles = makeStyles((theme) => ({
                     <td>
                         <CardActions>
 
-                            <IconButton arial-label="edit">
+                                <IconButton arial-label="edit" onClick={() => {
+                                    props.editRow(i.id)
+                                }}
+                                    className="button muted-button">
                                 <EditIcon/>
                             </IconButton>
                             <IconButton arial-label="delete" onClick={()=> props.deleteUser(i.id)} className="button muted-button">

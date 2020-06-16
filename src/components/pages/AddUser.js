@@ -7,7 +7,7 @@ const AddUser = props => {
 
     const initialFormState = { id: null, email: '', first_name: '', last_name: '', dob: '', address: '', city: '', state: '', zip: '' }
     const [userData, setUserData] = useState(initialFormState)
-    const onChange = e => {
+    const handleChange = e => {
         setUserData({ ...userData, [e.target.name]: e.target.value });
     }
 
@@ -37,21 +37,21 @@ const AddUser = props => {
             }}
         >
             <label>Email</label>
-            <input type="text" email="email" value={userData.email} onChange={onChange}/>
+            <input type="text" name="email" value={userData.email} onChange={handleChange}/>
             <label>First Name</label>
-            <input type="text" firstName="first_name" value={userData.first_name} onChange={onChange}/>
+            <input type="text" name="first_name" value={userData.first_name} onChange={handleChange}/>
             <label>Last Name</label>
-            <input type="text" lastName="last_name" value={userData.last_name} onChange={onChange}/>
+            <input type="text" name="last_name" value={userData.last_name} onChange={handleChange}/>
             <label>Date Of Birth</label>
-            <input type="text" dob="dob" value={userData.dob} onChange={onChange}/>
+            <input type="text" name="dob" value={userData.dob} onChange={handleChange}/>
             <label>Address</label>
-            <input type="text" address="address" value={userData.address} onChange={onChange}/>
+            <input type="text" name="address" value={userData.address} onChange={handleChange}/>
             <label>City</label>
-            <input type="text" city="city" value={userData.city} onChange={onChange}/>
+            <input type="text" name="city" value={userData.city} onChange={handleChange}/>
             <label>State</label>
-            <input type="text" state="state" value={userData.state} onChange={onChange}/>
+            <input type="text" name="state" value={userData.state} onChange={handleChange}/>
             <label>Zip</label>
-            <input type="number" zip="zip" value={userData.zip} onChange={onChange}/>
+            <input type="number" name="zip" value={userData.zip} onChange={handleChange}/>
             <button>Add new user</button>
         </form>
     )
