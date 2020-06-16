@@ -41,7 +41,7 @@ const AddUser = props => {
         .catch(err => {
             console.log("Somethings Up!", err);
         })
-    })
+    }, [])
 
     console.log(profile);
     console.log(userData);
