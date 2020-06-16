@@ -32,11 +32,12 @@ const useStyles = makeStyles((theme) => ({
 
     const UserTable = (props) => {
          const classes = useStyles();
-
+           
  return(
     <Card>
-        <table>
-            <CardContent>
+        <CardContent>
+            <table>
+            
             <thead>
                 <tr>
                     <th>Email</th>
@@ -49,20 +50,20 @@ const useStyles = makeStyles((theme) => ({
                     <th>Zip</th>
                 </tr>
             </thead>
-            </CardContent>
+           
             <tbody>
-            <CardContent>
+           
             {props.userData.length > 0 ? (
                 props.userData.map(i => (
                 <tr key={i.id}>
-                    <td>Email data</td>
-                    <td>First Name data</td>
-                    <td>Last Name data</td>
-                    <td>DOB data</td>
-                    <td>Address data</td>
-                    <td>City data</td>
-                    <td>State data</td>
-                    <td>Zip data</td>
+                    <td>{i.email}</td>
+                    <td>{i.first_name}</td>
+                    <td>{i.last_name}</td>
+                    <td>{i.dob}</td>
+                    <td>{i.address}</td>
+                    <td>{i.city}</td>
+                    <td>{i.state}</td>
+                    <td>{i.zip}</td>
                     <td>
                         <CardActions>
 
@@ -84,9 +85,10 @@ const useStyles = makeStyles((theme) => ({
                     <td colSpan={8}>Profile Empty!</td>
                 </tr>
             )}
-            </CardContent>
+           
             </tbody>
         </table>
+         </CardContent>
     </Card>
     )
  }

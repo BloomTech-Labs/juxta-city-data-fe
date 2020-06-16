@@ -6,14 +6,19 @@ import UserTable from "./UserTable"
 import AddUser from "./AddUser.js";
 import Container from '@material-ui/core/Container';
 import EditUser from './EditUser'
-
+import jwt_decode from 'jwt-decode';
 
 
 export function Profile(props){
+  const token = localStorage.getItem('token');
+  const userId = jwt_decode(token).userid;
+  console.log(token)
+  console.log(userId)
 
   const initialFormState = { id: null, email: '', first_name: '', last_name: '', dob: '', address: '', city: '', state: '', zip: '' }
   const [currentUser, setCurrentUser] = useState(initialFormState);
-
+  
+  
   const [editing, setEditing] = useState(false);
   const editRow = id => {
     setEditing(true)
@@ -35,7 +40,7 @@ export function Profile(props){
    
     useEffect(()=>{
       axiosWithAuth()
-        .get(`/apihttps://production-juxta-city-be.herokuapp.com/api/users/${userData}/users`)
+        .get(`https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/user`)
         .then(res =>{
             console.log("Other Users!", res.data)
             setUserData(res.data);
@@ -43,10 +48,10 @@ export function Profile(props){
         .catch(err => {
             console.log("Somethings Up!", err);
         })
-    }, [userData])
+    }, [])
 
    
-    
+    console.log(userData)
   return (
 <section>
       <NavBar {...props} />

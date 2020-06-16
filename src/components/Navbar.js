@@ -9,7 +9,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import poly from "../assets/polydown.png";
 import polyWhite from "../assets/polyWhite.png";
 import avatar from "../assets/avatar.png";
-import SignIn from "./auth/SignIn";
 
 
 
