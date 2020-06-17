@@ -18,6 +18,28 @@ const addFavorite = (userId, cityId) => {
     });
 };
 
+const addUserRequest = (userId, userData) => {
+  axiosWithAuth()
+    .post(`https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`, userData)
+    .then((res) => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log("error", err);
+    })
+}
+
+const getUserData = (userId) => {
+  axiosWithAuth()
+    .get(`https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`)
+    .then(res => {
+      console.log("SENT USER RETURNS!", res.data)
+    })
+    .catch(err => {
+      console.log("Somethings Up!", err);
+    })
+}
+
 const removeFavorite = (userId, cityId) => {
   axiosWithAuth()
     .delete(
@@ -79,4 +101,6 @@ export {
   getBestCities,
   getRecomendedCities,
   getCityArray,
+  addUserRequest,
+  getUserData
 };
