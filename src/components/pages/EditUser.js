@@ -18,7 +18,6 @@ const EditUser = props => {
         props.updateUser(user.id, user)
     }
     
-
     return (
        <EditForm handleInputChange={handleInputChange} handleSubmit={handleSubmit} user={user} setEditing={props.setEditing}/>
     )
