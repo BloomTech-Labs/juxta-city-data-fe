@@ -2,10 +2,6 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import { CardContent } from "@material-ui/core";
-import CardActions from '@material-ui/core/CardActions';
-import { IconButton } from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
 import UserTableData from './UsetTableData'
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-    const UserTable = (props) => {
+ const UserTable = (props) => {
         console.log(props.userData);
           //const classes = useStyles();
            
@@ -51,11 +47,9 @@ const useStyles = makeStyles((theme) => ({
                     <th>Zip</th>
                 </tr>
             </thead>
-           
 
             <tbody>
-           <userTableData props={props}/>
-           
+             <UserTableData props={props}/>
             </tbody>
         </table>
          </CardContent>

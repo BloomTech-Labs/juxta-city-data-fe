@@ -77,7 +77,7 @@ export function Profile(props){
           )}
          
             <h2>View & Edit</h2>
-            {/*<UserTable {...props} userData={userData} deleteUser={deleteUser} editUser={editRow}/>*/}
+            <UserTable {...props} userData={userData} deleteUser={deleteUser}/>
     </Container>
   
         

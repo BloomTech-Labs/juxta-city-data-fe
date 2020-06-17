@@ -1,6 +1,4 @@
 import React from 'react'
-import Card from '@material-ui/core/Card';
-import { CardContent } from "@material-ui/core";
 import CardActions from '@material-ui/core/CardActions';
 import { IconButton } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';

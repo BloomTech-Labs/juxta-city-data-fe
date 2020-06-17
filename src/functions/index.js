@@ -3,11 +3,13 @@ import { buildQueryString } from './buildQueryString';
 import jwt_decode from 'jwt-decode';
 import {axiosWithAuth} from './axiosWithAuth';
 
+// const url = "https://cors-anywhere.herokuapp.com/"
+
 const addFavorite = (userId, cityId) => {
   const object = { user_id: userId, city_id: cityId };
   axiosWithAuth()
     .post(
-      `https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites`,
+    `https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites`,
       object,
     )
     .then((res) => {
@@ -18,7 +20,8 @@ const addFavorite = (userId, cityId) => {
     });
 };
 
-const addUserRequest = (userId, userData) => {
+const addUserRequest = (userData, userId) => {
+  console.log(userData)
   axiosWithAuth()
     .post(`https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`, userData)
     .then((res) => {
