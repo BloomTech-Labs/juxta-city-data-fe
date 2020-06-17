@@ -11,7 +11,7 @@ const AddUser = props => {
 
     const initialFormState = { id: null, email: '', first_name: '', last_name: '', dob: '', address: '', city: '', state: '', zip: '' }
     const [userData, setUserData] = useState(initialFormState)
-    const handleChange = e => {
+    const addHandleChange = e => {
         setUserData({ ...userData, [e.target.name]: e.target.value });
     }
 
@@ -29,7 +29,7 @@ const AddUser = props => {
 
 
     return (
-       <AddUserForm userData={userData} handleSubmit={handleSubmit} handleChange={handleChange}/>
+       <AddUserForm userData={userData} handleSubmit={handleSubmit} addHandleChange={addHandleChange}/>
     )
 }
 

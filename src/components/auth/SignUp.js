@@ -76,7 +76,7 @@ export default function SignUp(props) {
   });
   const classes = styles();
 
-  const handleChange = (e) => {
+  const signUpChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
@@ -108,7 +108,7 @@ export default function SignUp(props) {
           name="username"
           placeholder="Username (required)"
           value={form.username}
-          onChange={handleChange}
+          onChange={signUpChange}
           required
         />
         <input
@@ -118,7 +118,7 @@ export default function SignUp(props) {
           name="email"
           placeholder="Email (required)"
           value={form.email}
-          onChange={handleChange}
+          onChange={signUpChange}
           required
         />
         <input
@@ -128,7 +128,7 @@ export default function SignUp(props) {
           name="password"
           placeholder="Password (required)"
           value={form.password}
-          onChange={handleChange}
+          onChange={signUpChange}
           required
         />
         {/* <input
