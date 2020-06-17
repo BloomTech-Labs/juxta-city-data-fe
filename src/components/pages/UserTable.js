@@ -25,13 +25,56 @@ const useStyles = makeStyles((theme) => ({
     expandOpen: {
         transform: 'rotate(180deg)',
     },
-    // avatar: {
-    //     backgroundColor: red[500],
-    // },
+    
 }));
 
+const userTableData = (props) => {
+   
+       
+    if (props.userData.length > 0){
+        return(
+            props.userData.map(i => (
+                <tr key={i.id}>
+                    <td>{i.email}</td>
+                    <td>{i.first_name}</td>
+                    <td>{i.last_name}</td>
+                    <td>{i.dob}</td>
+                    <td>{i.address}</td>
+                    <td>{i.city}</td>
+                    <td>{i.state}</td>
+                    <td>{i.zip}</td>
+                    <td>
+                        <CardActions>
+
+                            <IconButton arial-label="edit" onClick={() => {
+                                props.editRow(i.id)
+                            }}
+                                className="button muted-button">
+                                <EditIcon />
+                            </IconButton>
+                            <IconButton arial-label="delete" onClick={() => props.deleteUser(i.id)} className="button muted-button">
+                                <DeleteIcon />
+                            </IconButton>
+                        </CardActions>
+                    </td>
+                </tr>
+            )))
+    }else{
+        return (
+            <tr>
+                <td colSpan={8}>Profile Empty!</td>
+            </tr>
+        )
+    }
+                        
+       
+
+
+}
+
     const UserTable = (props) => {
-         const classes = useStyles();
+        console.log(props.userData);
+          //const classes = useStyles();
            
  return(
     <Card>
@@ -52,39 +95,7 @@ const useStyles = makeStyles((theme) => ({
             </thead>
            
             <tbody>
-           
-            {props.userData.length > 0 ? (
-                props.userData.map(i => (
-                <tr key={i.id}>
-                    <td>{i.email}</td>
-                    <td>{i.first_name}</td>
-                    <td>{i.last_name}</td>
-                    <td>{i.dob}</td>
-                    <td>{i.address}</td>
-                    <td>{i.city}</td>
-                    <td>{i.state}</td>
-                    <td>{i.zip}</td>
-                    <td>
-                        <CardActions>
-
-                                <IconButton arial-label="edit" onClick={() => {
-                                    props.editRow(i.id)
-                                }}
-                                    className="button muted-button">
-                                <EditIcon/>
-                            </IconButton>
-                            <IconButton arial-label="delete" onClick={()=> props.deleteUser(i.id)} className="button muted-button">
-                                 <DeleteIcon/>
-                            </IconButton>
-                        </CardActions>
-                    </td>
-                </tr>
-            ))
-            ):(
-                <tr>
-                    <td colSpan={8}>Profile Empty!</td>
-                </tr>
-            )}
+             {userTableData()}
            
             </tbody>
         </table>

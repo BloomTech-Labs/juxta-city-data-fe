@@ -15,16 +15,16 @@ export function Profile(props){
   console.log(token)
   console.log(userId)
 
-  const initialFormState = { id: null, email: '', first_name: '', last_name: '', dob: '', address: '', city: '', state: '', zip: '' }
-  const [currentUser, setCurrentUser] = useState(initialFormState);
+  // const initialFormState = { id: null, email: '', first_name: '', last_name: '', dob: '', address: '', city: '', state: '', zip: '' }
+  // const [currentUser, setCurrentUser] = useState(initialFormState);
   
   
   const [editing, setEditing] = useState(false);
-  const editRow = id => {
-    setEditing(true)
+  // const editRow = id => {
+  //   setEditing(true)
 
-    setCurrentUser({ ...currentUser, [id.target.name]: id.target.value })
-  }
+  //   setCurrentUser({ ...currentUser, [id.target.name]: id.target.value })
+  // }
 
     const [userData, setUserData] = useState([]);
     const deleteUser = id => {
@@ -65,7 +65,7 @@ export function Profile(props){
             <h2>Edit user</h2>
             <EditUser
               setEditing={setEditing}
-              currentUser={currentUser}
+              // currentUser={currentUser}
               updateUser={updateUser}
             />
           </div>
@@ -77,7 +77,7 @@ export function Profile(props){
           )}
          
             <h2>View & Edit</h2>
-            <UserTable {...props} userData={userData} deleteUser={deleteUser} editUser={editRow}/>
+            {/*<UserTable {...props} userData={userData} deleteUser={deleteUser} editUser={editRow}/>*/}
     </Container>
   
         

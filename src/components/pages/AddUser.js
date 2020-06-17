@@ -41,10 +41,9 @@ const AddUser = props => {
         .catch(err => {
             console.log("Somethings Up!", err);
         })
-    }, [])
+    }, [userId])
 
-    console.log(profile);
-    console.log(userData);
+
 ///////////////////////////////////////////////////////////////////
     return (
         <form 
@@ -54,6 +53,7 @@ const AddUser = props => {
 
                 handleSubmit(userData)
                 setUserData(initialFormState)
+                setProfile(userData)
             }}
         >
             <label>Email</label>
