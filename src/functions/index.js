@@ -25,7 +25,7 @@ const addUserRequest = (userData, userId) => {
   console.log("user data ======>",  userData)
   axiosWithAuth()
     .post(
-    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`,
+    url+`https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`,
       userData
     )
     .then((res) => {

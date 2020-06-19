@@ -151,6 +151,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NavBar = ({ auth, history, location }) => {
+  
   const classes = useStyles();
   const { userData, setUserData } = useContext(UserContext);
   const [open, setOpen] = useState(false);
@@ -193,12 +194,13 @@ const NavBar = ({ auth, history, location }) => {
   };
 
   const body = (
+    
     <div className={classes.paper}>
       <ul className={classes.modalLi}>
         <li
           className={classes.modalLi}         
         >
-          <Link to="/profile">Profile</Link>
+          <Link to={`/profile/${userData.id}`}>Profile</Link>
         </li>
         <li className={classes.modalLi} onClick={handleAbout}>
           About

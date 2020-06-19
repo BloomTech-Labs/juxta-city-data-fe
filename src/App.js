@@ -59,7 +59,7 @@ const App = () => {
               <Route exact path='/signin' component={Authentication}/>
               <Route
                 path='/recommended' exact component={RecomendedDashboard}/>
-            <Route path='/profile' exact component={Profile} />
+            <Route path='/profile/:id' exact component={Profile} />
               
             </AppDiv>
           </RecomendedContext.Provider>

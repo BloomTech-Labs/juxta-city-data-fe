@@ -39,15 +39,15 @@ export function Profile(props){
  
    
     useEffect(()=>{
-      // axiosWithAuth()
-      //   .get(`https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/user`)
-      //   .then(res =>{
-      //       console.log("Other Users!", res.data)
-      //       setUserData(res.data);
-      //   })
-      //   .catch(err => {
-      //       console.log("Somethings Up!", err);
-      //   })
+      axiosWithAuth()
+        .get(`https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/user`)
+        .then(res =>{
+            console.log("Other Users!", res.data)
+            setUserData(res.data);
+        })
+        .catch(err => {
+            console.log("Somethings Up!", err);
+        })
     }, [])
 
    
