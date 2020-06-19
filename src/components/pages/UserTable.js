@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import { CardContent } from "@material-ui/core";
 import UserTableData from './UsetTableData'
+import { getUserData } from "../../functions";
+import jwt_decode from "jwt-decode";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,7 +29,14 @@ const useStyles = makeStyles((theme) => ({
 
 
  const UserTable = (props) => {
-        console.log(props.userData);
+       const token = localStorage.getItem("token");
+       const userId = jwt_decode(token).userid;
+
+       console.log(props.userData, "========");
+
+        useEffect(() => {
+          getUserData(userId)
+        }, [])
           //const classes = useStyles();
            
  return(

@@ -9,17 +9,16 @@ const AddUser = props => {
     const userId = jwt_decode(token).userid;
 
     const initialFormState = {
-        // id: userId,
-        first_name: '',
-        last_name: '',
-        dob: '',
-        address: '',
-        city: '',
-        state: '',
-        zip: '', 
-    
-    }
-    
+      address: "",
+      city: "",
+      dob: "",
+      email: "",
+      first_name: "",
+      last_name: "",
+      state: "",
+      zip: "",
+    };
+
     const [userData, setUserData] = useState(initialFormState)
 
     const addHandleChange = e => {
@@ -31,12 +30,12 @@ const AddUser = props => {
     const handleSubmit = e => {
         e.preventDefault();
        addUserRequest(userData, userId)
-     
+        setUserData(userId)
     };
 
     useEffect(()=>{
         getUserData(userId)
-        setProfile("res.data");
+        //setProfile("res.data");
     }, [userId])
 
 
