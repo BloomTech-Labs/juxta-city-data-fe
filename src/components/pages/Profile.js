@@ -1,80 +1,88 @@
-import React, {useContext, useState} from "react";
+import React, {useState, useEffect} from "react";
 import NavBar from "../Navbar.js";
-import SignIn from "../auth/SignIn"
-import {UserContext} from "./UserContext"
-import axios from "axios"
+//import SignIn from "../auth/SignIn"
+import {axiosWithAuth} from "../../functions/axiosWithAuth.js"
+import UserTable from "./UserTable"
+import AddUser from "./AddUser.js";
+import Container from '@material-ui/core/Container';
+import EditUser from './EditUser'
+import jwt_decode from 'jwt-decode';
 
 
 export function Profile(props){
-    const {userData, setUserData} = useContext(UserContext);
-    const[user, setUser] = useState({});
+  const token = localStorage.getItem('token');
+  const userId = jwt_decode(token).userid;
+  console.log(token)
+  console.log(userId)
 
-    const token = localStorage.getItem('token');
-    const options = {
-    headers: { 'Authorization': token }
-    };
+  // const initialFormState = { id: null, email: '', first_name: '', last_name: '', dob: '', address: '', city: '', state: '', zip: '' }
+  // const [currentUser, setCurrentUser] = useState(initialFormState);
+  
+  
+  const [editing, setEditing] = useState(false);
+  // const editRow = id => {
+  //   setEditing(true)
 
-     const getUserInfo = () => {
-       axios
-            .get(`https://production-juxta-city-be.herokuapp.com/api/users/$%7Bid%7D`, options)
-            .then(res => {
-                console.log(res.data);
-                setUser(res.data);
-          })
-            .catch(err =>{
-                  console.error('Error:', err);
-          })
+  //   setCurrentUser({ ...currentUser, [id.target.name]: id.target.value })
+  // }
 
-     }
+    const [userData, setUserData] = useState([]);
+    const deleteUser = id => {
+      setUserData(userData.filter(i => i.id !== id))
+    }
 
-      getUserInfo();
+  const updateUser = (id, updatedUser) => {
+    setEditing(false)
 
-    // if(!profile){
-    //   create profile
-    // }else{
-    //   update Profile
-    // }
-    // const {username, email, password, first_name, last_name, dob, address, city, state, zip} = user;
+    setUserData(userData.map(user => (user.id === id ? updatedUser : user)))
+  }
+ 
+   
+    useEffect(()=>{
+      // axiosWithAuth()
+      //   .get(`https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/user`)
+      //   .then(res =>{
+      //       console.log("Other Users!", res.data)
+      //       setUserData(res.data);
+      //   })
+      //   .catch(err => {
+      //       console.log("Somethings Up!", err);
+      //   })
+    }, [])
+
+   
+    console.log(userData)
   return (
-    <div>
-
-
-
+<section>
       <NavBar {...props} />
-      <h3>Welcome</h3>
 
-      <section>
-          {/* 
-            Image Field to be placed here
-          <img/>
-          
+     
+    <Container maxWidth="lg">
+        <h1>WELCOME</h1>
+
+        {editing ? (
+          <div>
+            <h2>Edit user</h2>
+            <EditUser
+              setEditing={setEditing}
+              // currentUser={currentUser}
+              updateUser={updateUser}
+            />
+          </div>
+        ) : (
+          <div>
+            <h2>Add Your Info</h2>
+            <AddUser {...props} setUserData={setUserData} />
+          </div>
+          )}
+         
+            <h2>View & Edit</h2>
+            <UserTable {...props} userData={userData} deleteUser={deleteUser}/>
+    </Container>
+  
         
-          */}
-
-
-
-        Username: {user.username}
-        <br />
-        Email: {user.email} <br />
-        Password: {user.password}
-        <br />
-        First Name: {user.first_name}
-        <br />
-        Last Name: {user.last_name}
-        <br />
-        DOB: {user.dob}
-        <br />
-        Address: {user.address}
-        <br />
-        City: {user.city}
-        <br />
-        State: {user.state}
-        <br />
-        Zip: {user.zip}
-
-        {/* Button for Image upload */}
-      </section>
-    </div>
+</section>
+    
   );
 };
 

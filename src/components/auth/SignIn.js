@@ -3,17 +3,17 @@ import axios from "axios";
 import { styles } from "./authStlyes";
 
 export default function SignIn(props) {
-  const [form, setForm] = useState({});
+  const [signInForm, setSignInForm] = useState({});
   const classes = styles();
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const signInChange = (e) => {
+    setSignInForm({ ...signInForm, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post(
         "https://production-juxta-city-be.herokuapp.com/api/auth/signin",
-        form
+        signInForm
       )
       .then((res) => {
         localStorage.setItem("token", res.data.token);
@@ -39,8 +39,8 @@ export default function SignIn(props) {
           id="username2"
           name="username"
           placeholder="Username"
-          value={form.username}
-          onChange={handleChange}
+          value={signInForm.username}
+          onChange={signInChange}
           required
         />
         <input
@@ -49,8 +49,8 @@ export default function SignIn(props) {
           id="password2"
           name="password"
           placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
+          value={signInForm.password}
+          onChange={signInChange}
           required
         />
         <button className={classes.submit} style={{ background: "#2196F3" }}>

@@ -3,11 +3,13 @@ import { buildQueryString } from './buildQueryString';
 import jwt_decode from 'jwt-decode';
 import {axiosWithAuth} from './axiosWithAuth';
 
+ const url = "https://cors-anywhere.herokuapp.com/"
+
 const addFavorite = (userId, cityId) => {
   const object = { user_id: userId, city_id: cityId };
   axiosWithAuth()
     .post(
-      `https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites`,
+    `https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites`,
       object,
     )
     .then((res) => {
@@ -17,6 +19,36 @@ const addFavorite = (userId, cityId) => {
       console.log(err);
     });
 };
+
+const addUserRequest = (userData, userId) => {
+    
+  console.log("user data ======>",  userData)
+  axiosWithAuth()
+    .post(
+    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`,
+      userData
+    )
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log("error", err);
+    });
+}
+
+const getUserData = (userId) => {
+  console.log(userId, "<========get user data Id")
+  axiosWithAuth()
+    .get(
+      `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`
+    )
+    .then((res) => {
+      console.log("SENT USER RETURNS!", res);
+    })
+    .catch((err) => {
+      console.log("Somethings Up!", err);
+    });
+}
 
 const removeFavorite = (userId, cityId) => {
   axiosWithAuth()
@@ -79,4 +111,6 @@ export {
   getBestCities,
   getRecomendedCities,
   getCityArray,
+  addUserRequest,
+  getUserData
 };
