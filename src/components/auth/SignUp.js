@@ -83,7 +83,7 @@ export default function SignUp(props) {
     e.preventDefault();
     axios
       .post(
-        "https://production-juxta-city-be.herokuapp.com/api/auth/signup",
+        "https://cors-test-app.herokuapp.com/api/auth/signup",
         form
       )
       .then((res) => {
