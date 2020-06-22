@@ -1,8 +1,7 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-import SearchBar from '../subComponents/SearchBar';
-import styled from 'styled-components';
-
+import React from "react";
+import { useHistory } from "react-router-dom";
+import SearchBar from "../subComponents/SearchBar";
+import styled from "styled-components";
 
 const Div = styled.div`
   width: 100%;
@@ -74,13 +73,13 @@ const Header = () => {
   const history = useHistory();
 
   function handleClick() {
-    history.push('/survey');
+    history.push("/survey");
   }
 
   return (
     <Div>
       <Heading>
-        FIND THE PERFECT <LargeText> CITY </LargeText> TO CALL{' '}
+        FIND THE PERFECT <LargeText> CITY </LargeText> TO CALL{" "}
         <LargeText> HOME </LargeText>
       </Heading>
       <SearchBar />

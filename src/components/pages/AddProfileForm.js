@@ -20,8 +20,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function EditForm({ handleSubmit, handleInputChange, user, setEditing }) {
+function AddProfileForm({ handleSubmit, addHandleChange }) {
   const classes = useStyles();
+
   return (
     <Grid item xs={12}>
       <Paper className={classes.paper}>
@@ -36,7 +37,7 @@ function EditForm({ handleSubmit, handleInputChange, user, setEditing }) {
             variant="outlined"
             type="text"
             name="first_name"
-            onChange={handleInputChange}
+            onChange={addHandleChange}
           />
 
           <TextField
@@ -44,7 +45,7 @@ function EditForm({ handleSubmit, handleInputChange, user, setEditing }) {
             variant="outlined"
             type="text"
             name="last_name"
-            onChange={handleInputChange}
+            onChange={addHandleChange}
           />
 
           <TextField
@@ -56,7 +57,7 @@ function EditForm({ handleSubmit, handleInputChange, user, setEditing }) {
             InputLabelProps={{
               shrink: true,
             }}
-            onChange={handleInputChange}
+            onChange={addHandleChange}
           />
 
           <TextField
@@ -64,7 +65,7 @@ function EditForm({ handleSubmit, handleInputChange, user, setEditing }) {
             variant="outlined"
             type="text"
             name="address"
-            onChange={handleInputChange}
+            onChange={addHandleChange}
           />
 
           <TextField
@@ -72,7 +73,7 @@ function EditForm({ handleSubmit, handleInputChange, user, setEditing }) {
             variant="outlined"
             type="text"
             name="city"
-            onChange={handleInputChange}
+            onChange={addHandleChange}
           />
 
           <TextField
@@ -80,7 +81,7 @@ function EditForm({ handleSubmit, handleInputChange, user, setEditing }) {
             variant="outlined"
             type="text"
             name="state"
-            onChange={handleInputChange}
+            onChange={addHandleChange}
           />
 
           <TextField
@@ -88,7 +89,7 @@ function EditForm({ handleSubmit, handleInputChange, user, setEditing }) {
             variant="outlined"
             type="number"
             name="zip"
-            onChange={handleInputChange}
+            onChange={addHandleChange}
           />
           <Button type="submit" variant="outlined" color="primary" size="large">
             Add profile
@@ -99,4 +100,4 @@ function EditForm({ handleSubmit, handleInputChange, user, setEditing }) {
   );
 }
 
-export default EditForm;
+export default AddProfileForm;
