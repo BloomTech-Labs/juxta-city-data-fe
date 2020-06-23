@@ -1,7 +1,7 @@
 import React from "react";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import formStyles from "./formStyles";
+import formStyles from "./profileStyles/formStyles";
 import ProfileInputs from "./ProfileInputs";
 
 function AddProfileForm({ handleSubmit, addHandleChange }) {
