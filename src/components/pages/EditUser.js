@@ -4,7 +4,7 @@ import EditForm from "./EditForm";
 const EditUser = (props) => {
   const [user, setUser] = useState(props.currentUser);
 
-  const handleInputChange = (event) => {
+  const handleEditChange = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   };
@@ -13,15 +13,15 @@ const EditUser = (props) => {
     setUser(props.currentUser);
   }, [props]);
 
-  const handleSubmit = (event) => {
+  const handleEditSubmit = (event) => {
     event.preventDefault();
     props.updateUser(user.id, user);
   };
 
   return (
     <EditForm
-      handleInputChange={handleInputChange}
-      handleSubmit={handleSubmit}
+      handleEditChange={handleEditChange}
+      handleEditSubmit={handleEditSubmit}
       user={user}
       setEditing={props.setEditing}
     />
