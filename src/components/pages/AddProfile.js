@@ -31,6 +31,7 @@ const AddProfile = (props) => {
 
   return (
     <AddProfileForm
+    profileBody={profileBody}
       handleSubmit={handleSubmit}
       addHandleChange={addHandleChange}
     />

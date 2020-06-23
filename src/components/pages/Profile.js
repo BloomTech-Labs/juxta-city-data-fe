@@ -11,6 +11,7 @@ import ProfileContext from "../../contexts/ProfileContext";
 import { createProfileContext } from "../../functions";
 
 export default function Profile(props) {
+  
   const { setProfileData } = useContext(ProfileContext);
   useEffect(() => {
     createProfileContext().then((res) => setProfileData(res));
