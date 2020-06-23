@@ -5,27 +5,28 @@ import { Container } from '@material-ui/core';
 
 import NavBar from '../Navbar.js';
 import SurveyQuestion from './SurveyQuestion';
-
 import { getRecomendedCities } from '../../functions/index';
-//import surveyData from './data/surveyData';
 import { Heading, SubmitButton, Form } from './styles/surveyQuestionsStyles';
-import axios from 'axios';
+import {getSurveyData} from './SurveyFunctions';
+
+const initialState ={
+  state: 'None',
+  population: '0',
+  population_change: '0',
+  median_age: '0',
+  house_cost: '0',
+  rental_cost: '0',
+  population_density: '0',
+  cost_of_living: '0',
+  average_commute: '0',
+  air_quality: '0',
+}
 
 const SurveyQuestions = props => {
-  const [surveyData, setSurveyData] = useState([]);
 
-  const [formState, setFormState] = useState({
-    state: 'None',
-    population: '0',
-    population_change: '0',
-    median_age: '0',
-    house_cost: '0',
-    rental_cost: '0',
-    population_density: '0',
-    cost_of_living: '0',
-    average_commute: '0',
-    air_quality: '0',
-  });
+  const [surveyData, setSurveyData] = useState([]);
+  const [formState, setFormState] = useState(initialState);
+
   const { setRecomendedCity } = useContext(RecomendedContext);
   const history = useHistory();
 
@@ -41,14 +42,7 @@ const SurveyQuestions = props => {
   }
 
   useEffect(() => {
-    axios
-      .get(
-        'https://production-juxta-city-be.herokuapp.com/api/questions/surveyobj'
-      )
-      .then(response => {
-        setSurveyData(response.data);
-      })
-      .catch(err => err);
+    getSurveyData().then(response => setSurveyData(response))
   }, []);
 
   return (
