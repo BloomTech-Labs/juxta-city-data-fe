@@ -10,7 +10,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
   const classes = formStyles();
 
   return (
-    <Grid item xs={12}>
+    <Grid item xs={6}>
       <Paper className={classes.paper}>
         <form onSubmit={handleSubmit} className={classes.root}
           noValidate autoComplete="off">
