@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import ProfileContext from "../../contexts/ProfileContext";
+import ProfileContext from "../../../contexts/ProfileContext";
 import InfoList from "./InfoList";
 
 

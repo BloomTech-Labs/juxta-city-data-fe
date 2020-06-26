@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import "./index.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import UserContext from "./contexts/UserContext";
@@ -10,7 +10,7 @@ import styled from "styled-components";
 import LandingPage from "./components/LandingPage.js";
 import Dashboard from "./components/Dashboard.js";
 import Authentication from "./components/auth/Authentication.js";
-import Profile from "./components/pages/Profile.js";
+import Profile from "./components/pages/profile/Profile.js";
 import SingleCityView from "./components/SingleCityView.js";
 import SurveyQuestions from "./components/surveyQuestions/SurveyQuestions.js";
 import RecomendedDashboard from "./components/recomended/RecomendedDashboard";
@@ -35,7 +35,7 @@ const Darken = styled.div`
 const handleClick = (e) => {
   let background = document.getElementById("darken");
   background.style.display = "none";
-  let arrow = document.getElementById("dropdown");
+  // let arrow = document.getElementById("dropdown");
   // console.log(arrow);
 };
 const App = () => {
