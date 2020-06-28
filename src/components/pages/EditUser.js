@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EditForm from "./EditForm";
+import { editProfile } from "../../functions";
 
 const EditUser = (props) => {
   const [user, setUser] = useState(props.currentUser);
@@ -15,16 +16,24 @@ const EditUser = (props) => {
 
   const handleEditSubmit = (event) => {
     event.preventDefault();
-    props.updateUser(user.id, user);
+    editProfile(user)
+    console.log("editted!!", user)
+   window.location.reload()
   };
 
+  console.log("===> current user", props.currentUser)
+
   return (
+    <div>
+    Edit User
+  
     <EditForm
       handleEditChange={handleEditChange}
       handleEditSubmit={handleEditSubmit}
       user={user}
       setEditing={props.setEditing}
     />
+    </div>
   );
 };
 

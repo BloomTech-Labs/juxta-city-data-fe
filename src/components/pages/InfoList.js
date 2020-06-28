@@ -4,9 +4,18 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
+import {deleteProfile} from '../../functions'
 
-const InfoList = ({info})=>{
+const InfoList = ({info, toggleEditing})=>{
     const classes = profileInfoStyle();
+
+    const deleteUserProfile = () => {
+      deleteProfile()
+      window.location.reload()
+    }
+
+ 
     return (
         <Paper className={classes.paper} key={info.id}>
         <h2> {info.username}'s profile </h2>
@@ -35,6 +44,8 @@ const InfoList = ({info})=>{
             <ListItemText secondary={info.zip} />
           </ListItem>
         </List>
+        <Button type="submit" variant="outlined" color="primary" className={classes.button} onClick={() => toggleEditing()}>Go to Edit profile</Button>
+        <Button type="submit" variant="outlined" color="primary" className={classes.button} onClick={() => deleteUserProfile()}>Delete User</Button>
       </Paper>
     )
 }

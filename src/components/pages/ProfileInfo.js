@@ -3,13 +3,13 @@ import ProfileContext from "../../contexts/ProfileContext";
 import InfoList from "./InfoList";
 
 
-const ProfileInfo = () => {
+const ProfileInfo = ({toggleEditing}) => {
 
   const { profileData } = useContext(ProfileContext);
 
   if (profileData.length > 0) {
     return profileData.map((info) => (
-      <InfoList info={info}/>
+      <InfoList info={info} toggleEditing={toggleEditing}/>
     ));
   } else {
     return (
