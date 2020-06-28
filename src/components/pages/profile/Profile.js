@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import NavBar from "../../Navbar.js";
 import ProfileInfo from "./ProfileInfo";
-import AddUser from "./AddProfile.js";
+import AddProfile from "./AddProfile.js";
 //import EditUser from "./EditUser";
 
 import Container from "@material-ui/core/Container";
@@ -25,7 +25,7 @@ export default function Profile(props) {
             <ProfileInfo />
           </Grid>
           <Grid item xs={8}>
-            <AddUser {...props} />
+            <AddProfile {...props} />
           </Grid>
         </Grid>
       </Container>

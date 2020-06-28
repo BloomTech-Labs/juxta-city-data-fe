@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import ProfileContext from "../../../contexts/ProfileContext";
 import InfoList from "./InfoList";
+import SurveyAnswersBox from "./surveyAnswers/surveyAnswersBox";
 
 
 const ProfileInfo = () => {
@@ -8,8 +9,11 @@ const ProfileInfo = () => {
   const { profileData } = useContext(ProfileContext);
 
   if (profileData.length > 0) {
-    return profileData.map((info) => (
-      <InfoList info={info}/>
+    return profileData.map((info, index) => (
+      <div key ={info.id}>
+      <InfoList  index={index} info={info}/>
+      <SurveyAnswersBox index={index}  />
+    </div>
     ));
   } else {
     return (

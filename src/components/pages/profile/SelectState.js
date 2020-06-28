@@ -18,9 +18,9 @@ function SelectState({addHandleChange}) {
         onChange={addHandleChange}
         label="State"
       >
-          {states.map((item)=>{
+          {states.map((item, index)=>{
               return (
-               <MenuItem value={item.value}>{item.state}</MenuItem>)
+               <MenuItem key ={index} value={item.value}>{item.state}</MenuItem>)
           })}
       </Select>
     </FormControl>
