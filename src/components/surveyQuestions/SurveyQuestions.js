@@ -4,10 +4,9 @@ import { useHistory } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import { Heading } from "./styles/surveyQuestionsStyles";
 import { getRecomendedCities } from "../../functions/index";
-import { getSurveyData } from "./SurveyFunctions";
+import { getSurveyData, putSurveyAnswers } from "./SurveyFunctions";
 import NavBar from "../Navbar.js";
 import SurveyQuestionForm from "./SurveyQuestionForm";
-import {putSurveyAnswers } from '../pages/profile/surveyAnswers/surveyFunctions'
 import jwt_decode from "jwt-decode";
 
 const initialState = {
