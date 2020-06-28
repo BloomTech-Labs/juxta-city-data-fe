@@ -8,7 +8,7 @@ import EditProfileInputs from "./profileStyles/EditProfileInputs";
 function EditForm({ handleEditSubmit, handleEditChange, user }) {
   
 
-const [userData, setUserData] = useState()
+const [userData, setUserData] = useState(user)
   
   const { setProfileData } = useContext(ProfileContext);
   useEffect(() => {
