@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import jwt_decode from "jwt-decode";
 import AddProfileForm from "./AddProfileForm";
 import { postProfileRequest } from "../../../functions";
+//import {handleInput} from './handleInput';
 
 const initialFormState = {
   first_name: null,
@@ -22,20 +23,22 @@ const AddProfile = (props) => {
   const addHandleChange = (e) => {
     setprofileBody({ ...profileBody, [e.target.name]: e.target.value });
   };
+  // handleInput( profileBody,setprofileBody);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     postProfileRequest(profileBody, userId);
     setprofileBody(userId);
   };
-
   return (
     <AddProfileForm
     profileBody={profileBody}
       handleSubmit={handleSubmit}
       addHandleChange={addHandleChange}
     />
-  );
+  )
+
+  
 };
 
 export default AddProfile;

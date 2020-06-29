@@ -9,6 +9,7 @@ const formStyles = makeStyles((theme) => ({
       },
       paper: {
         padding: theme.spacing(3),
+        margin: theme.spacing(1),
         textAlign: "center",
         color: theme.palette.text.secondary,
       },

@@ -7,8 +7,9 @@ const profileInfoStyle = makeStyles((theme) => ({
       },
       paper: {
         padding: theme.spacing(1),
-        textAlign: "center",
+        textAlign: "left",
         width: "100%",
+        margin: theme.spacing(1),
       },
 }));
 export default profileInfoStyle;

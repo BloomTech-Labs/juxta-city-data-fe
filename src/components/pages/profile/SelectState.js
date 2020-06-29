@@ -17,6 +17,7 @@ function SelectState({addHandleChange}) {
         id="demo-simple-select-outlined"
         onChange={addHandleChange}
         label="State"
+        defaultValue={{value:null, state:"Select State"}}
       >
           {states.map((item, index)=>{
               return (
