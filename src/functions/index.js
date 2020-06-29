@@ -34,7 +34,8 @@ const postProfileRequest = (userData, userId) => {
 
 const getProfileRequest = async () => {
   const token = localStorage.getItem("token");
-  const userId = jwt_decode(token).userid;
+  //const userId = jwt_decode(token).userid;
+  const userId = localStorage.getItem("userId");
 
   let response = await axiosWithAuth().get(
     `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`
@@ -46,7 +47,8 @@ const getProfileRequest = async () => {
 
 const deleteProfile = async () => {
   const token = localStorage.getItem("token");
-  const userId = jwt_decode(token).userid;
+  //const userId = jwt_decode(token).userid;
+  const userId = localStorage.getItem("userId");
 
   let response = await axiosWithAuth().delete(
     `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`
@@ -59,7 +61,8 @@ const deleteProfile = async () => {
 
 const editProfile = async (userData) => {
   const token = localStorage.getItem("token");
-  const userId = jwt_decode(token).userid;
+  //const userId = jwt_decode(token).userid;
+  const userId = localStorage.getItem("userId");
 
   let response = await axiosWithAuth().put(
     `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`, userData
@@ -89,6 +92,8 @@ const getCityData = async (cityName) => {
 const createUserContext = async () => {
   const token = localStorage.getItem("token");
   const userId = jwt_decode(token).userid;
+  //const userId = localStorage.getItem("userId")
+
 
   let context = {
     favorites: [],
@@ -113,10 +118,11 @@ const createUserContext = async () => {
 
 const createProfileContext = async () => {
   const token = localStorage.getItem("token");
-  const userId = jwt_decode(token).userid;
+  // const userId = jwt_decode(token).userid;
+  const userId = localStorage.getItem("userId")
 
   let response = await axiosWithAuth().get(
-    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/all`
+    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/user`
   );
   let responseProfileData = await response.data;
 

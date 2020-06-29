@@ -12,36 +12,35 @@ import { createProfileContext } from "../../functions";
 import EditProfileInputs from "./profileStyles/EditProfileInputs.js";
 
 
+
 export default function Profile(props) {
 
+  // const initialFormState = {
+  //   first_name: "",
+  //   last_name: "",
+  //   address: "",
+  //   city: "",
+  //   dob: null,
+  //   state: "",
+  //   zip: null,
+  // };
 
-  console.log("props users ====>", props.users)
+  console.log("props users ====>", props)
 
   const [editing, setEditing] = useState(false)
-  
   const { setProfileData } = useContext(ProfileContext);
   useEffect(() => {
     createProfileContext().then((res) => setProfileData(res));
 
   }, [setEditing]);
 
- 
 
-  const initialFormState = {
-    first_name: null,
-    last_name: null,
-    address: null,
-    city: null,
-    dob: null,
-    state: null,
-    zip: null,
-  };
- 
-  const [currentUser, setCurrentUser] = useState(initialFormState)
+  const [currentUser, setCurrentUser] = useState({})
+  console.log("props users ====>", currentUser)
 
-const toggleEditing = () => {
-  setEditing(true)
-}
+  const toggleEditing = () => {
+    setEditing(true)
+  }
 
   const editRow = user => {
     setEditing(true)
@@ -60,7 +59,7 @@ const toggleEditing = () => {
             {editing ? (
               <div>
                 <h2>Edit User</h2>
-                <EditUser users={props.users} editRow={editRow} />
+                <EditUser users={currentUser} editRow={editRow} />
               </div>
             ) : (
                 <div>
