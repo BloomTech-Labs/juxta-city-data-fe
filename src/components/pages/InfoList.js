@@ -12,7 +12,7 @@ const InfoList = ({info, toggleEditing})=>{
 
     const deleteUserProfile = () => {
       deleteProfile()
-      window.location.reload()
+      .then(() => window.location.reload() )
     }
 
  

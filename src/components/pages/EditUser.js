@@ -3,7 +3,7 @@ import EditForm from "./EditForm";
 import { editProfile } from "../../functions";
 
 const EditUser = (props) => {
-  const [user, setUser] = useState(props.users);//removed .currentUser
+  const [user, setUser] = useState(props.currentUser);
 
   const handleEditChange = (event) => {
     const { name, value } = event.target;
@@ -11,17 +11,18 @@ const EditUser = (props) => {
   };
 
   useEffect(() => {
-    setUser(props.users);//removed .currentUser
-  }, [props.users]);
+    setUser(props.currentUser);
+  }, [props]);
 
   const handleEditSubmit = (event) => {
     event.preventDefault();
     editProfile(user)
+    .then(() => window.location.reload())
     console.log("editted!!", user)
-   window.location.reload()
+  
   };
 
-  console.log("===> current user", user)
+  console.log("===> current user", props.currentUser)
 
   return (
     <div>
