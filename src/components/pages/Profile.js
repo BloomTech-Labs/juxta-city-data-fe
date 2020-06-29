@@ -18,15 +18,14 @@ export default function Profile(props) {
   console.log("props users ====>", props.users)
 
   const [editing, setEditing] = useState(false)
-  
   const { setProfileData } = useContext(ProfileContext);
+  //UseEffect that calls the profile creation request and sets it to Create Context.
   useEffect(() => {
     createProfileContext().then((res) => setProfileData(res));
-
   }, [setEditing]);
 
  
-
+//Local initial State for the signed in user upon edit****************
   const initialFormState = {
     first_name: null,
     last_name: null,
@@ -37,17 +36,19 @@ export default function Profile(props) {
     zip: null,
   };
  
-  const [currentUser, setCurrentUser] = useState(initialFormState)
+  const [currentUser, setCurrentUser] = useState(initialFormState)//function used to pass values to edit functionality
 
+  //Toggle used to switch from Add page to Edit page.
 const toggleEditing = () => {
   setEditing(true)
 }
 
+//Function that sets Editing from False to True.
   const editRow = user => {
     setEditing(true)
-
     setCurrentUser({ first_name: user.first_name, last_name: user.last_name, address: user.address, city: user.city, dob: user.dob, state: user.state, zip: user.zip })
   }
+
   return (
     <section>
       <NavBar {...props} />
