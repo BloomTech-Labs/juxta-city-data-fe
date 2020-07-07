@@ -25,13 +25,14 @@ const AddProfile = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postProfileRequest(profileBody, userId);
-    setprofileBody(userId);
+    setprofileBody(userId)
+    postProfileRequest(profileBody, userId)
+    .then(() => window.location.reload())
   };
 
   return (
     <AddProfileForm
-    profileBody={profileBody}
+      profileBody={profileBody}
       handleSubmit={handleSubmit}
       addHandleChange={addHandleChange}
     />
