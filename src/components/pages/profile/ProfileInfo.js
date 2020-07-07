@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import ProfileContext from "../../contexts/ProfileContext";
+import ProfileContext from "../../../contexts/ProfileContext";
 import InfoList from "./InfoList";
 
 
@@ -8,8 +8,8 @@ const ProfileInfo = ({toggleEditing}) => {
   const { profileData } = useContext(ProfileContext);
 
   if (profileData.length > 0) {
-    return profileData.map((info) => (
-      <InfoList info={info} toggleEditing={toggleEditing}/>
+    return profileData.map((info,index) => (
+      <InfoList key={index} info={info} toggleEditing={toggleEditing}/>
     ));
   } else {
     return (

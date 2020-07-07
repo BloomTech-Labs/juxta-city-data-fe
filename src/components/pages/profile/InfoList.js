@@ -1,11 +1,11 @@
 import React from "react";
-import profileInfoStyle from "./profileStyles/profileInfoStyle";
+import profileInfoStyle from "../profileStyles/profileInfoStyle";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import {deleteProfile} from '../../functions'
+import {deleteProfile} from '../../../functions'
 
 const InfoList = ({info, toggleEditing})=>{
     const classes = profileInfoStyle();

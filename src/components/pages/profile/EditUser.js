@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EditForm from "./EditForm";
-import { editProfile } from "../../functions";
+import { editProfile } from "../../../functions";
 
 const EditUser = (props) => {
   const [user, setUser] = useState(props.currentUser);

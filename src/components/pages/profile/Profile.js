@@ -1,5 +1,5 @@
 import React, { useEffect, useState,useContext } from "react";
-import NavBar from "../Navbar.js";
+import NavBar from "../../Navbar.js";
 import ProfileInfo from "./ProfileInfo";
 import AddUser from "./AddProfile.js";
 import EditUser from "./EditUser";
@@ -7,9 +7,9 @@ import EditUser from "./EditUser";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 
-import ProfileContext from "../../contexts/ProfileContext";
-import { createProfileContext } from "../../functions";
-import EditProfileInputs from "./profileStyles/EditProfileInputs.js";
+import ProfileContext from "../../../contexts/ProfileContext";
+import { createProfileContext } from "../../../functions";
+//import EditProfileInputs from "./profileStyles/EditProfileInputs.js";
 
 
 export default function Profile(props) {

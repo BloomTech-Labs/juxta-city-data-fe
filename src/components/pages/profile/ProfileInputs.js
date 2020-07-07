@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import SelectState from "./SelectState";
 import TextField from "@material-ui/core/TextField";
-import formStyles from "./profileStyles/formStyles";
+import formStyles from "../profileStyles/formStyles";
 
 function ProfileInputs({ handleSubmit, addHandleChange }) {
   const classes = formStyles();

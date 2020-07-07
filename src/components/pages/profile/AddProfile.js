@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import jwt_decode from "jwt-decode";
 import AddProfileForm from "./AddProfileForm";
-import { postProfileRequest } from "../../functions";
+import { postProfileRequest } from "../../../functions";
 
 const initialFormState = {
   first_name: null,
