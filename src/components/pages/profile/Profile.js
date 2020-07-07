@@ -9,6 +9,8 @@ import ProfileContext from "../../../contexts/ProfileContext";
 import { createProfileContext } from "../../../functions";
 import RecommendedComponent from "../../recomended/RecommendedComponent";
 import Favorites from "../../Favorites/Favorites.js";
+import { createUserContext } from "../../../functions";
+import UserContext from "../../../contexts/UserContext";
 
 export default function Profile(props) {
   const [editing, setEditing] = useState(false);
@@ -18,26 +20,32 @@ export default function Profile(props) {
     createProfileContext().then((res) => setProfileData(res));
   }, [setEditing]);
 
+  const { setUserData } = useContext(UserContext);
+  useEffect(() => {
+    createUserContext().then((res) => setUserData(res));
+  }, [ setUserData]);
+
   const toggleEditing = () => {
     setEditing(true);
   };
-
+console.log(profileData, "profile data here")
   return (
     <section>
       <NavBar {...props} />
+    
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           <Grid item xs={4}>
             <ProfileInfo toggleEditing={toggleEditing} />
           </Grid>
+          <AddProfile profileData={profileData} />
           {editing ? (
             <Grid item xs={8}>
               <EditUser users={props.users} editing={editing} />
-              <AddProfile profileData={profileData} />
             </Grid>
           ) : (
             <Grid item xs={8}>
-              <Favorites />
+              <Favorites {...props} />
               <RecommendedComponent {...props} />
             </Grid>
           )}

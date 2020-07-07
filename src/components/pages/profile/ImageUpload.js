@@ -54,6 +54,10 @@ const ImageUpload = ({ info }) => {
       )
       .then(() => {
         setUploadedFile(initialFormState);
+      })
+      .then(() => window.location.reload())
+      .catch((err) => {
+        console.log('error', err);
       });
   };
 

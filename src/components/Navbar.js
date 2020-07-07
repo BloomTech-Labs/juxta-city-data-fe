@@ -242,11 +242,11 @@ const NavBar = ({ auth, history, location }) => {
                     : location.pathname === "/recommended"
                     ? polyWhite
                     : location.pathname === "/profile"
-                    ? UserContext
+                    ? polyWhite
                     : poly
                 }
                 
-                alt="navigation arrow"
+                alt="navigation arrow here"
               />
             </button>
 
