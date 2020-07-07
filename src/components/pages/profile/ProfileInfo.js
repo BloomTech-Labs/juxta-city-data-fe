@@ -4,16 +4,16 @@ import InfoList from "./InfoList";
 import SurveyAnswersBox from "./surveyAnswers/surveyAnswersBox";
 
 
-const ProfileInfo = () => {
+const ProfileInfo = ({toggleEditing}) => {
 
   const { profileData } = useContext(ProfileContext);
 
   if (profileData.length > 0) {
-    return profileData.map((info, index) => (
-      <div key ={info.id}>
-      <InfoList  index={index} info={info}/>
+    return profileData.map((info,index) => (
+     <div>
+      <InfoList key={index} info={info} toggleEditing={toggleEditing}/>
       <SurveyAnswersBox index={index}  />
-    </div>
+     </div>
     ));
   } else {
     return (

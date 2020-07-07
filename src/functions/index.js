@@ -18,18 +18,58 @@ const addFavorite = (userId, cityId) => {
     });
 };
 
-const postProfileRequest = (userData, userId) => {
-  axiosWithAuth()
+const postProfileRequest = async (userData, userId) => {
+ let response = await axiosWithAuth()
     .post(
        `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`,
       userData
-    )
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log("error", err);
-    });
+    );
+    let responseProfileData = await response.data;
+
+    console.log(responseProfileData)
+    // .then((res) => {
+    //   console.log(res);
+    // })
+    // .catch((err) => {
+    //   console.log("error", err);
+    // });
+};
+
+const getProfileRequest = async () => {
+  const token = localStorage.getItem("token");
+  const userId = jwt_decode(token).userid;
+
+  let response = await axiosWithAuth().get(
+    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`
+  );
+  let responseProfileData = await response.data;
+
+  return responseProfileData;
+};
+
+const deleteProfile = async () => {
+  const token = localStorage.getItem("token");
+  const userId = jwt_decode(token).userid;
+
+  let response = await axiosWithAuth().delete(
+    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`
+  );
+  let responseProfileData = await response.data;
+
+  return responseProfileData;
+};
+
+
+const editProfile = async (userData) => {
+  const token = localStorage.getItem("token");
+  const userId = jwt_decode(token).userid;
+
+  let response = await axiosWithAuth().put(
+    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`, userData
+  );
+  let responseProfileData = await response.data;
+
+  return responseProfileData;
 };
 
 const removeFavorite = (userId, cityId) => {
@@ -115,4 +155,7 @@ export {
   getCityArray,
   postProfileRequest,
   createProfileContext,
+  getProfileRequest,
+  editProfile,
+  deleteProfile
 };

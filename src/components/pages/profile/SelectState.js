@@ -8,6 +8,7 @@ import states from '../data/states';
 
 function SelectState({addHandleChange}) {
     const classes = formStyles();
+
   return (
     <FormControl className={classes.formControl}>
       <InputLabel id="demo-simple-select-outlined-label">State</InputLabel>
