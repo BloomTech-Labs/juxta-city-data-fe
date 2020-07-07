@@ -15,6 +15,7 @@ const profileInfoStyle = makeStyles((theme) => ({
     width: theme.spacing(20),
     height: theme.spacing(20),
     margin: 'auto'
-  }
+  },
+ 
 }));
 export default profileInfoStyle;

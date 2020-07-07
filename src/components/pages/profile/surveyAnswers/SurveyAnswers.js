@@ -5,7 +5,7 @@ const SurveyAnswers = ({ surveyData, profileData }) => {
 
   return profileData.map((info, index) => {
     if (info.surveyinfo !== null) {
-      return <AnswerSurvey info={info} index={index}  surveyData={surveyData}/>;
+      return <AnswerSurvey info={info} key={index}  surveyData={surveyData}/>;
     } else {
       return (
         <div key={index}>

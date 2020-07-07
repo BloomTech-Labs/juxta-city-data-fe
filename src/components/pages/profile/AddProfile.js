@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import jwt_decode from "jwt-decode";
 import AddProfileForm from "./AddProfileForm";
 import { postProfileRequest } from "../../../functions";
-//import {handleInput} from './handleInput';
 
 const initialFormState = {
   first_name: null,
@@ -14,7 +13,7 @@ const initialFormState = {
   zip: null,
 };
 
-const AddProfile = (props) => {
+const AddProfile = ({ profileData }) => {
   const token = localStorage.getItem("token");
   const userId = jwt_decode(token).userid;
 
@@ -23,23 +22,21 @@ const AddProfile = (props) => {
   const addHandleChange = (e) => {
     setprofileBody({ ...profileBody, [e.target.name]: e.target.value });
   };
-  // handleInput( profileBody,setprofileBody);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setprofileBody(userId)
-    postProfileRequest(profileBody, userId)
-    .then(() => window.location.reload())
+    setprofileBody(userId);
+    postProfileRequest(profileBody, userId).then(() =>
+      window.location.reload()
+    );
   };
-  return (
+  return profileData.length === 1 ? null : (
     <AddProfileForm
       profileBody={profileBody}
       handleSubmit={handleSubmit}
       addHandleChange={addHandleChange}
     />
-  )
-
-  
+  );
 };
 
 export default AddProfile;

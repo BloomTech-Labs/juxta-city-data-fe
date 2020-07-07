@@ -10,8 +10,8 @@ const ProfileInfo = ({toggleEditing}) => {
 
   if (profileData.length > 0) {
     return profileData.map((info,index) => (
-     <div>
-      <InfoList key={index} info={info} toggleEditing={toggleEditing}/>
+     <div key={index} >
+      <InfoList  info={info} toggleEditing={toggleEditing}/>
       <SurveyAnswersBox index={index}  />
      </div>
     ));
