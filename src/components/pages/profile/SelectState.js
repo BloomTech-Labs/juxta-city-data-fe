@@ -8,6 +8,7 @@ import states from '../data/states';
 
 function SelectState({addHandleChange}) {
     const classes = formStyles();
+
   return (
     <FormControl className={classes.formControl}>
       <InputLabel id="demo-simple-select-outlined-label">State</InputLabel>
@@ -17,10 +18,11 @@ function SelectState({addHandleChange}) {
         id="demo-simple-select-outlined"
         onChange={addHandleChange}
         label="State"
+        defaultValue={{value:null, state:"Select State"}}
       >
-          {states.map((item)=>{
+          {states.map((item, index)=>{
               return (
-               <MenuItem value={item.value}>{item.state}</MenuItem>)
+               <MenuItem key ={index} value={item.value}>{item.state}</MenuItem>)
           })}
       </Select>
     </FormControl>

@@ -8,8 +8,8 @@ const ProfileInfo = () => {
   const { profileData } = useContext(ProfileContext);
 
   if (profileData.length > 0) {
-    return profileData.map((info) => (
-      <InfoList info={info}/>
+    return profileData.map((info, index) => (
+      <InfoList key= {index} info={info}/>
     ));
   } else {
     return (
