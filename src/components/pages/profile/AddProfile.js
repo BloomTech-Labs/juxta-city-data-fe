@@ -13,7 +13,7 @@ const initialFormState = {
   zip: null,
 };
 
-const AddProfile = (props) => {
+const AddProfile = ({ profileData }) => {
   const token = localStorage.getItem("token");
   const userId = jwt_decode(token).userid;
 
@@ -25,12 +25,12 @@ const AddProfile = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setprofileBody(userId)
-    postProfileRequest(profileBody, userId)
-    .then(() => window.location.reload())
+    setprofileBody(userId);
+    postProfileRequest(profileBody, userId).then(() =>
+      window.location.reload()
+    );
   };
-
-  return (
+  return profileData.length === 1 ? null : (
     <AddProfileForm
       profileBody={profileBody}
       handleSubmit={handleSubmit}

@@ -1,78 +1,56 @@
-import React, { useEffect, useState,useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import NavBar from "../../Navbar.js";
 import ProfileInfo from "./ProfileInfo";
-import AddUser from "./AddProfile.js";
+import AddProfile from "./AddProfile.js";
 import EditUser from "./EditUser";
-
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-
 import ProfileContext from "../../../contexts/ProfileContext";
 import { createProfileContext } from "../../../functions";
-//import EditProfileInputs from "./profileStyles/EditProfileInputs.js";
-
+import RecommendedComponent from "../../recomended/RecommendedComponent";
+import Favorites from "../../Favorites/Favorites.js";
+import { createUserContext } from "../../../functions";
+import UserContext from "../../../contexts/UserContext";
 
 export default function Profile(props) {
+  const [editing, setEditing] = useState(false);
+  const { profileData, setProfileData } = useContext(ProfileContext);
+  console.log(props, "props in profile");
 
-
-  console.log("props users ====>", props.users)
-
-  const [editing, setEditing] = useState(false)
-  const { setProfileData } = useContext(ProfileContext);
-  //UseEffect that calls the profile creation request and sets it to Create Context.
   useEffect(() => {
     createProfileContext().then((res) => setProfileData(res));
   }, [setEditing]);
 
- 
-//Local initial State for the signed in user upon edit****************
-  const initialFormState = {
-    first_name: null,
-    last_name: null,
-    address: null,
-    city: null,
-    dob: null,
-    state: null,
-    zip: null,
+  // this is for favorites
+  const { setUserData } = useContext(UserContext);
+  useEffect(() => {
+    createUserContext().then((res) => setUserData(res));
+  }, [ setUserData]);
+
+  const toggleEditing = () => {
+    setEditing(true);
   };
- 
-  const [currentUser, setCurrentUser] = useState(initialFormState)//function used to pass values to edit functionality
-
-  //Toggle used to switch from Add page to Edit page.
-const toggleEditing = () => {
-  setEditing(true)
-}
-
-//Function that sets Editing from False to True.
-  const editRow = user => {
-    setEditing(true)
-    setCurrentUser({ first_name: user.first_name, last_name: user.last_name, address: user.address, city: user.city, dob: user.dob, state: user.state, zip: user.zip })
-  }
-
+console.log(profileData, "profile data here")
   return (
     <section>
       <NavBar {...props} />
+    
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           <Grid item xs={4}>
             <ProfileInfo toggleEditing={toggleEditing} />
           </Grid>
-          <Grid item xs={8}>
-            {editing ? (
-              <div>
-                <h2>Edit User</h2>
-                <EditUser users={props.users} editRow={editRow} />
-              </div>
-            ) : (
-                <div>
-                  <AddUser {...props} />
-                </div>
-
-              )}
-          </Grid>
-          {/*<Grid item xs={8}>
-            <AddUser {...props} />
-            </Grid>*/}
+          <AddProfile profileData={profileData} />
+          {editing ? (
+            <Grid item xs={8}>
+              <EditUser users={props.users} editing={editing} />
+            </Grid>
+          ) : (
+            <Grid item xs={8}>
+              <Favorites {...props} />
+              <RecommendedComponent {...props} />
+            </Grid>
+          )}
         </Grid>
       </Container>
     </section>

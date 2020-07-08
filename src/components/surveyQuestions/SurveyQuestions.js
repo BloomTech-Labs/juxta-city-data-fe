@@ -4,9 +4,10 @@ import { useHistory } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import { Heading } from "./styles/surveyQuestionsStyles";
 import { getRecomendedCities } from "../../functions/index";
-import { getSurveyData } from "./SurveyFunctions";
+import { getSurveyData, putSurveyAnswers } from "./SurveyFunctions";
 import NavBar from "../Navbar.js";
 import SurveyQuestionForm from "./SurveyQuestionForm";
+import jwt_decode from "jwt-decode";
 
 const initialState = {
   state: "None",
@@ -27,6 +28,9 @@ const SurveyQuestions = (props) => {
   const [surveyData, setSurveyData] = useState([]);
   const [formState, setFormState] = useState(initialState);
 
+  const token = localStorage.getItem("token");
+  const userId = jwt_decode(token).userid;
+
   const { setRecomendedCity } = useContext(RecomendedContext);
   const history = useHistory();
 
@@ -36,6 +40,7 @@ const SurveyQuestions = (props) => {
 
   function handleSubmit(event) {
     event.preventDefault();
+    putSurveyAnswers(formState, userId)
     getRecomendedCities(formState)
       .then((cities) => setRecomendedCity(cities))
       .then(() => history.push("/recommended"));

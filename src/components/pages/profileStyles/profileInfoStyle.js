@@ -7,13 +7,15 @@ const profileInfoStyle = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(1),
-    textAlign: 'center',
-    width: '100%'
+    textAlign: 'left',
+    width: '100%',
+    margin: theme.spacing(1),
   },
   large: {
     width: theme.spacing(20),
     height: theme.spacing(20),
     margin: 'auto'
-  }
+  },
+ 
 }));
 export default profileInfoStyle;

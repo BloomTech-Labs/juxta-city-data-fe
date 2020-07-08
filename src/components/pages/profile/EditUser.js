@@ -16,26 +16,18 @@ const EditUser = (props) => {
 
   const handleEditSubmit = (event) => {
     event.preventDefault();
-    editProfile(user)
-    .then(() => window.location.reload())
-    console.log("editted!!", user)
-  
+    editProfile(user).then(() => window.location.reload());
   };
 
-  console.log("===> current user", props.currentUser)
-
-  return (
+  return props.editing ? (
     <div>
-    Edit User
-  
-    <EditForm
-      handleEditChange={handleEditChange}
-      handleEditSubmit={handleEditSubmit}
-      user={user}
-      setEditing={props.setEditing}
-    />
+      <h2> Edit User</h2>
+      <EditForm
+        handleEditChange={handleEditChange}
+        handleEditSubmit={handleEditSubmit}
+      />
     </div>
-  );
+  ) : null;
 };
 
 export default EditUser;
