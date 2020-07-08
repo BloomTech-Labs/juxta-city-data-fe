@@ -89,6 +89,7 @@ const getCityData = async (cityName) => {
   return res.data;
 };
 
+
 const createUserContext = async () => {
   const token = localStorage.getItem("token");
   const userId = jwt_decode(token).userid;

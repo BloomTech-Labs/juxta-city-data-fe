@@ -16,10 +16,12 @@ export default function Profile(props) {
   const [editing, setEditing] = useState(false);
   const { profileData, setProfileData } = useContext(ProfileContext);
   console.log(props, "props in profile");
+
   useEffect(() => {
     createProfileContext().then((res) => setProfileData(res));
   }, [setEditing]);
 
+  // this is for favorites
   const { setUserData } = useContext(UserContext);
   useEffect(() => {
     createUserContext().then((res) => setUserData(res));
