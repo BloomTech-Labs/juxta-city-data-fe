@@ -4,13 +4,17 @@ import { MemoryRouter as Router } from "react-router-dom";
 import { render } from "@testing-library/react";
 import Navbar from "../Navbar.js";
 import UserContext from "../../contexts/UserContext.js";
+import ProfileContext from "../../contexts/ProfileContext.js";
 
 it("renders without crashing", () => {
   let userData = {};
   const setUserData = (data) => (userData = data);
+  let profileData = {};
+  const setProfileData = (data) => (profileData = data);
 
   render(
     <UserContext.Provider value={{ userData, setUserData }}>
+      <ProfileContext.Provider value={{ profileData, setProfileData }}>
       <Router>
         <Route
           path="/"
@@ -19,6 +23,7 @@ it("renders without crashing", () => {
           )}
         />
       </Router>
+      </ProfileContext.Provider>
     </UserContext.Provider>
   );
 });
@@ -26,9 +31,12 @@ it("renders without crashing", () => {
 it("renders logo link", () => {
   let userData = {};
   const setUserData = (data) => (userData = data);
+  let profileData = {};
+  const setProfileData = (data) => (profileData = data);
 
   const { getByAltText } = render(
     <UserContext.Provider value={{ userData, setUserData }}>
+      <ProfileContext.Provider value={{ profileData, setProfileData }}>
       <Router>
         <Route
           path="/"
@@ -37,6 +45,7 @@ it("renders logo link", () => {
           )}
         />
       </Router>
+      </ProfileContext.Provider>
     </UserContext.Provider>
   );
 
@@ -47,9 +56,12 @@ it("renders logo link", () => {
 it("renders sign in / sign up link", () => {
   let userData = {};
   const setUserData = (data) => (userData = data);
+  let profileData = {};
+  const setProfileData = (data) => (profileData = data);
 
   const { getByText } = render(
     <UserContext.Provider value={{ userData, setUserData }}>
+      <ProfileContext.Provider value={{ profileData, setProfileData }}>
       <Router>
         <Route
           path="/"
@@ -58,6 +70,7 @@ it("renders sign in / sign up link", () => {
           )}
         />
       </Router>
+      </ProfileContext.Provider>
     </UserContext.Provider>
   );
   const linkElement = getByText(/sign in/i);
