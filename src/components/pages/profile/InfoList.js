@@ -15,6 +15,13 @@ const InfoList = ({ info, toggleEditing }) => {
   const deleteUserProfile = () => {
     deleteProfile().then(() => window.location.reload());
   };
+  const dateOfBirthOld = new Date(info.dob)
+  
+  
+  const dateNew = dateOfBirthOld.getDate()
+  const monthNew = dateOfBirthOld.getMonth()
+  const yearNew = dateOfBirthOld.getFullYear()
+  const dateOfBirthNew = (monthNew+1) + "/" + dateNew + "/" +yearNew;
 
   return (
     <Paper className={classes.paper} key={info.id}>
@@ -47,7 +54,7 @@ const InfoList = ({ info, toggleEditing }) => {
 
         {info.dob ? (
           <ListItem>
-            <ListItemText primary="Date of Birth" secondary={info.dob} />
+            <ListItemText primary="Date of Birth" secondary={dateOfBirthNew} />
           </ListItem>
         ) : null}
 
