@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import ProfileContext from "../../../contexts/ProfileContext";
 import { createProfileContext } from "../../../functions";
-import EditProfileInputs from "../profileStyles/EditProfileInputs";
+import EditProfileInputs from "./EditProfileInputs";
 
 function EditForm({ handleEditSubmit, handleEditChange }) {
   const [userData, setUserData] = useState();
