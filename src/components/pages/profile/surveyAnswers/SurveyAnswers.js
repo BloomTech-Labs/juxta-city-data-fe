@@ -9,12 +9,13 @@ const SurveyAnswers = ({ surveyData, profileData }) => {
   function handleClick() {
     history.push("/survey");
   }
-  return profileData.map((info, index) => {
+
+  return  profileData && profileData.map((info, index) => {
     if (info.surveyinfo !== null) {
       return (
         <div key={index}>
           <AnswerSurvey info={info} surveyData={surveyData} />
-          <Button onClick={handleClick} variant="outlined" color="primary">
+          <Button onClick={handleClick} variant="outlined" color="primary" alt="Retake the survey button">
             Retake the survey
           </Button>
         </div>
@@ -23,7 +24,7 @@ const SurveyAnswers = ({ surveyData, profileData }) => {
       return (
         <div key={index}>
           Please complete survey!
-          <Button onClick={handleClick} variant="outlined" color="primary">
+          <Button onClick={handleClick} variant="outlined" color="primary" alt="Take the survey button">
             Take the survey
           </Button>
         </div>
