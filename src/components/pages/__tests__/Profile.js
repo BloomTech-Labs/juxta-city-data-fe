@@ -6,7 +6,7 @@ import { MemoryRouter as Router } from "react-router-dom";
 import UserContext from "../../../contexts/UserContext.js";
 import ProfileContext from "../../../contexts/ProfileContext";
 
-jest.mock("../../Navbar");
+jest.mock("../profile/Profile");
 
 it("renders without crashing", () => {
   let userData = {};

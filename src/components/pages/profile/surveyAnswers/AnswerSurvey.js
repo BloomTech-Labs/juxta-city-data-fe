@@ -11,7 +11,7 @@ const AnswerSurvey = ({ info, index, surveyData }) => {
     <div key={index}>
       {surveyData.map((item) => {
         return (
-          <List className={classes.root} key={item.id}>
+          <List className={classes.root} key={item.id} alt="List of answers">
             <ListItem>
               <ListItemText primary={item.question} />
             </ListItem>
