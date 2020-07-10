@@ -12,14 +12,14 @@ import {
 const SurveyQuestion = ({item, formState, updateState}) => {
   return (
     <Container>
-      <Question>
+      <Question data-testid="question">
         {item.question}{' '}
         {item.question ===
           `What is an acceptable cost of living index for your new city?` && (
           <SimpleModal />
         )}
       </Question>
-      <SurveyOptionsSection>
+      <SurveyOptionsSection data-testid="options-list">
         {item.options.map((option, index) => (
           <SurveyOptions
             key={index}
