@@ -9,13 +9,12 @@ const profileInfoStyle = makeStyles((theme) => ({
     padding: theme.spacing(1),
     textAlign: 'left',
     width: '100%',
-    margin: theme.spacing(1),
+    margin: theme.spacing(1)
   },
   large: {
-    width: theme.spacing(20),
-    height: theme.spacing(20),
+    width: '200px',
+    height: '200px',
     margin: 'auto'
-  },
- 
+  }
 }));
 export default profileInfoStyle;
