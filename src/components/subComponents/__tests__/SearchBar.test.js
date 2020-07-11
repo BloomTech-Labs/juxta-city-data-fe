@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { render, fireEvent, wait } from '@testing-library/react';
+import { render, fireEvent, wait, waitFor } from '@testing-library/react';
 import CityContext from '../../../contexts/CityContext';
 import SearchBar from '../SearchBar';
 
@@ -18,7 +18,7 @@ jest.mock('react-router-dom', () => ({
 
 it('renders the search form', () => {
   let cityData = '';
-  const setCityData = data => cityData = data;
+  let setCityData = data => cityData = data;
 
   const { getByPlaceholderText } = render(
     <CityContext.Provider value={{setCityData}}>
@@ -67,8 +67,8 @@ it('displays a list of matching cities when characters are input', async () => {
   expect(searchBar.value).toBe('se');
 
   fireEvent.change(searchBar, { target: { value: 'sea' } });
-
-  await wait(expect(axios.get).toHaveBeenCalledTimes(1));
+// needs to be waitFor() but still failing
+  await waitFor(expect(axios.get).toHaveBeenCalledTimes(1));
 
   let dropdownCities = await findAllByText(/sea/i);
 
