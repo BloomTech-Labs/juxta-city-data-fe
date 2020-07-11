@@ -27,12 +27,6 @@ const postProfileRequest = async (userData, userId) => {
     let responseProfileData = await response.data;
 
     console.log(responseProfileData)
-    // .then((res) => {
-    //   console.log(res);
-    // })
-    // .catch((err) => {
-    //   console.log("error", err);
-    // });
 };
 
 const getProfileRequest = async () => {
