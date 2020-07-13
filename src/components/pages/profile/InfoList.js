@@ -13,7 +13,7 @@ const InfoList = ({ info, toggleEditing }) => {
   const classes = profileInfoStyle();
 
   const deleteUserProfile = () => {
-    deleteProfile().then(() => window.location.reload());
+    deleteProfile(info.id).then(() => window.location.reload());
   };
   const dateOfBirthOld = new Date(info.dob)
   
