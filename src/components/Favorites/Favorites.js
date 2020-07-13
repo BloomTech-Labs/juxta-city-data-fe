@@ -36,7 +36,6 @@ export default function Favoirtes(props) {
   const classes = styles();
   const [cities, setCities] = useState([]);
   const {userData} = useContext(UserContext);
-  console.log(userData, "Console.log worked");
   
   const history = useHistory();
   useEffect(() => {

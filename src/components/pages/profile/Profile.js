@@ -15,7 +15,6 @@ import UserContext from "../../../contexts/UserContext";
 export default function Profile(props) {
   const [editing, setEditing] = useState(false);
   const { profileData, setProfileData } = useContext(ProfileContext);
-  console.log(props, "props in profile");
 
   useEffect(() => {
     createProfileContext().then((res) => setProfileData(res));
@@ -30,7 +29,7 @@ export default function Profile(props) {
   const toggleEditing = () => {
     setEditing(true);
   };
-console.log(profileData, "profile data here")
+  
   return (
     <section>
       <NavBar {...props} />
