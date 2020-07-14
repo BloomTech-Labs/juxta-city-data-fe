@@ -1,13 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import RecomendedContext from "../../contexts/RecomendedContext";
+import ProfileContext from "../../contexts/ProfileContext";
 import { useHistory } from "react-router-dom";
-import { Container } from "@material-ui/core";
-import { Heading } from "./styles/surveyQuestionsStyles";
 import { getRecomendedCities } from "../../functions/index";
 import { getSurveyData, putSurveyAnswers } from "./SurveyFunctions";
-import NavBar from "../Navbar.js";
-import SurveyQuestionForm from "./SurveyQuestionForm";
-import jwt_decode from "jwt-decode";
+import SurveyQuestionsBox from "./SurveyQuestionsBox";
 
 const initialState = {
   state: "None",
@@ -22,41 +19,38 @@ const initialState = {
   air_quality: "0",
 };
 
-
 const SurveyQuestions = (props) => {
-
   const [surveyData, setSurveyData] = useState([]);
   const [formState, setFormState] = useState(initialState);
 
-  const token = localStorage.getItem("token");
-  const userId = jwt_decode(token).userid;
-
   const { setRecomendedCity } = useContext(RecomendedContext);
+  const { profileData } = useContext(ProfileContext);
+
   const history = useHistory();
 
-  function updateState(name, val) {
-    setFormState({ ...formState, [name]: val });
-  }
+  function updateState(name, val) {setFormState({ ...formState, [name]: val })};
 
-  function handleSubmit(event) {
+   function getRecomended (){
+    getRecomendedCities(formState).then((cities) => setRecomendedCity(cities))
+    .then(() => history.push("/recommended")).catch((err) => console.log(err))};
+
+  function handleNoAuthSubmit(event) {
     event.preventDefault();
-    putSurveyAnswers(formState, userId)
-    getRecomendedCities(formState)
-      .then((cities) => setRecomendedCity(cities))
-      .then(() => history.push("/recommended"));
-  }
+    getRecomended()};
+
+  function handleSurveySubmit(event) {
+    const profileId = profileData[0].id;
+    event.preventDefault();
+    putSurveyAnswers(formState, profileId);
+    getRecomended()};
 
   useEffect(() => {
-    getSurveyData().then((response) => setSurveyData(response));
-  }, []);
-  
+    getSurveyData().then((response) => setSurveyData(response))}, []);
+
   return (
-    <Container>
-      <NavBar {...props} />
-      <Heading>Answer a few questions to get a city recomendation</Heading>
-      <SurveyQuestionForm  handleSubmit={handleSubmit}  surveyData={surveyData} 
-        updateState={updateState} formState={formState} />
-    </Container>
+    <SurveyQuestionsBox props={props} profileData={profileData } handleNoAuthSubmit={handleNoAuthSubmit} 
+      handleSurveySubmit={handleSurveySubmit}  surveyData={surveyData}
+      updateState={updateState} formState={formState}/>
   );
 };
 

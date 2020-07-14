@@ -29,21 +29,7 @@ const postProfileRequest = async (userData, userId) => {
     console.log(responseProfileData)
 };
 
-const getProfileRequest = async () => {
-  const token = localStorage.getItem("token");
-  const userId = jwt_decode(token).userid;
-
-  let response = await axiosWithAuth().get(
-    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`
-  );
-  let responseProfileData = await response.data;
-
-  return responseProfileData;
-};
-
-const deleteProfile = async () => {
-  const token = localStorage.getItem("token");
-  const userId = jwt_decode(token).userid;
+const deleteProfile = async (userId) => {
 
   let response = await axiosWithAuth().delete(
     `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`
@@ -54,9 +40,7 @@ const deleteProfile = async () => {
 };
 
 
-const editProfile = async (userData) => {
-  const token = localStorage.getItem("token");
-  const userId = jwt_decode(token).userid;
+const editProfile = async (userId, userData) => {
 
   let response = await axiosWithAuth().put(
     `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`, userData
@@ -150,7 +134,6 @@ export {
   getCityArray,
   postProfileRequest,
   createProfileContext,
-  getProfileRequest,
   editProfile,
   deleteProfile
 };
