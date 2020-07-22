@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EditForm from "./EditForm";
 import { editProfile } from "../../../functions";
+import "../../css/neumorphism.css";
 
 const EditUser = (props) => {
   const [user, setUser] = useState(props.currentUser);

@@ -14,6 +14,7 @@ import Profile from "./components/pages/profile/Profile.js";
 import SingleCityView from "./components/SingleCityView.js";
 import SurveyQuestions from "./components/surveyQuestions/SurveyQuestions.js";
 import RecomendedDashboard from "./components/recomended/RecomendedDashboard";
+import Neo from "./components/Neo";
 
 const AppDiv = styled.div`
   max-width: 1280px;
@@ -55,6 +56,7 @@ const App = () => {
               <ProfileContext.Provider value={{ profileData, setProfileData }}>
                 <AppDiv className="App">
                   <Route path="/"  exact component={LandingPage} />
+                  <Route path="/neo" component={Neo} />
                   <Route path="/dashboard" exact component={Dashboard} />
                   <Route path="/cityview" exact component={SingleCityView} />
                   <Route path="/survey" exact component={SurveyQuestions} />
