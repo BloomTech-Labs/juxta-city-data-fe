@@ -3,11 +3,12 @@ import profileInfoStyle from "../profileStyles/profileInfoStyle";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import Paper from "@material-ui/core/Paper";
+//import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import { deleteProfile } from "../../../functions";
 import Avatar from "@material-ui/core/Avatar";
 import ImageUpload from "./ImageUpload";
+import "../../../components/css/neumorphism.css"
 
 const InfoList = ({ info, toggleEditing }) => {
   const classes = profileInfoStyle();
@@ -24,15 +25,16 @@ const InfoList = ({ info, toggleEditing }) => {
   const dateOfBirthNew = (monthNew+1) + "/" + dateNew + "/" +yearNew;
 
   return (
-    <Paper className={classes.paper} key={info.id}>
-      <h2> {info.username}'s profile </h2>
+    // <Paper className={classes.paper} key={info.id}>
+      <div className="card-body" key={info.id}>
+       <h2> {info.username}'s profile </h2>
       <List className={classes.root}>
-        <ListItem>
+         <ListItem>
           <Avatar src={info.image_url} alt="" className={classes.large} />
         </ListItem>
-        <ListItem>
+       <ListItem>
           <ImageUpload info={info} />
-        </ListItem>
+         </ListItem>
         {info.first_name ? (
           <ListItem>
             <ListItemText primary="First Name" secondary={info.first_name} />
@@ -85,7 +87,9 @@ const InfoList = ({ info, toggleEditing }) => {
       >
         Delete User
       </Button>
-    </Paper>
+      </div>
+      
+    // </Paper>
   );
 };
 export default InfoList;

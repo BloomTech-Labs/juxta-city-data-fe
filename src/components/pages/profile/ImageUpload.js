@@ -7,6 +7,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import {Link} from 'react-router-dom'
+import "../../../designs/New_UI.css"
 
 const ImageUpload = ({ info }) => {
   const initialFormState = {
@@ -71,30 +73,32 @@ const ImageUpload = ({ info }) => {
 
   return (
     <div>
-      <Button variant='outlined' color='primary' onClick={handleOpen}>
+      <Link to="#" className="btn btn-sm btn-primary upload-image" onClick={handleOpen}>
         Upload Image
-      </Button>
-      <Button variant='outlined' color='primary' onClick={handleRemove}>
+      </Link>
+
+      <Link to="#" className="btn btn-sm btn-primary" onClick={handleRemove}>
         Remove Image
-      </Button>
+      </Link>
       <Dialog
         open={openDialog}
         onClose={handleClose}
-        aria-labelledby='form-dialog-title'>
-        <DialogTitle id='form-dialog-title'>Upload Image</DialogTitle>
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">Upload Image</DialogTitle>
         <DialogContent>
           <DialogContentText>Choose an image to upload</DialogContentText>
           <input
-            type='file'
-            accept='image/x-png,image/jpeg'
+            type="file"
+            accept="image/x-png,image/jpeg"
             onChange={onChange}
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color='primary'>
+          <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={onSubmit} color='primary'>
+          <Button onClick={onSubmit} color="primary">
             Upload
           </Button>
         </DialogActions>

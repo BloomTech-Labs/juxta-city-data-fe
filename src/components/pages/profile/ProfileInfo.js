@@ -9,11 +9,14 @@ const ProfileInfo = ({toggleEditing}) => {
   const { profileData } = useContext(ProfileContext);
 
   if (profileData.length > 0) {
-    return profileData.map((info,index) => (
-     <div key={index} >
-      <InfoList  info={info} toggleEditing={toggleEditing}/>
-      <SurveyAnswersBox index={index}  />
-     </div>
+    return profileData.map((info, index) => (
+
+      <div class="profile-card mb-5" key={index}>
+        <div class="card bg-primary border-light shadow-soft text-center">
+          <InfoList info={info} toggleEditing={toggleEditing} />
+          <SurveyAnswersBox index={index} />
+        </div>
+      </div>
     ));
   } else {
     return (
