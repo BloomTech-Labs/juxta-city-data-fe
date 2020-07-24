@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import ProfileContext from "../../../contexts/ProfileContext";
 import InfoList from "./InfoList";
 import SurveyAnswersBox from "./surveyAnswers/surveyAnswersBox";
-
+import "../../css/neumorphism.css"
 
 const ProfileInfo = ({toggleEditing}) => {
 
