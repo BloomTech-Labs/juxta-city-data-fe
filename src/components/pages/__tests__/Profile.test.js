@@ -15,7 +15,7 @@ it("renders without crashing", () => {
   let profileData = {};
   const setProfileData = (data) => ( profileData= data);
   
-  render(
+  let profileComp = render(
     <UserContext.Provider value={{ userData, setUserData }}>
       <ProfileContext.Provider value={{ profileData, setProfileData }}>
         <Router>
@@ -29,7 +29,7 @@ it("renders without crashing", () => {
       </ProfileContext.Provider>
     </UserContext.Provider>
   );
-
+expect(profileComp).toBeDefined()
   // expect(getByText(/user profile goes here!/i)).toBeInTheDocument();
   // expect(getByText(/welcome user!/i)).toBeInTheDocument();
 });

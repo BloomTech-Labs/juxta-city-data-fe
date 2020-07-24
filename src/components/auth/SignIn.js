@@ -3,7 +3,8 @@ import axios from "axios";
 import SignInBox from "./SignInBox";
 
 export default function SignIn(props) {
-const [signInForm, setSignInForm] = useState({});
+const [signInForm, setSignInForm] = useState({ username:'',
+password:''});
 
   const signInChange = (e) => {
     setSignInForm({ ...signInForm, [e.target.name]: e.target.value })};
