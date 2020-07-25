@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "jwt-decode": "^2.2.0",
     "node-modules": "^1.0.1",
     "node-sass": "^4.14.1",
@@ -25,7 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test  --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "coverage": "CI=true react-scripts test --coverage --watchAll=false || true"
   },

@@ -5,6 +5,7 @@ import CityContext from '../../../contexts/CityContext';
 import SearchBar from '../SearchBar';
 
 
+
 jest.mock('axios', () => ({
   get: jest.fn()
 }));
@@ -28,7 +29,7 @@ it('renders the search form', () => {
   expect(getByPlaceholderText(/search for a city/i)).toBeInTheDocument();
 });
 
-it.skip('displays a list of matching cities when characters are input', async () => {
+it('displays a list of matching cities when characters are input', async () => {
   let cityData = '';
   const setCityData = data => cityData = data;
   const mockResponse =  [
@@ -67,8 +68,9 @@ it.skip('displays a list of matching cities when characters are input', async ()
   expect(searchBar.value).toBe('se');
 
   fireEvent.change(searchBar, { target: { value: 'sea' } });
-// needs to be waitFor() but still failing
-  await waitFor(expect(axios.get).toHaveBeenCalledTimes(1));
+  await waitFor(() =>{
+    expect(axios.get).toHaveBeenCalledTimes(1)
+  });
 
   let dropdownCities = await findAllByText(/sea/i);
 
