@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 //import SelectState from "./SelectState";
 //import TextField from "@material-ui/core/TextField";
 import formStyles from "../profileStyles/formStyles";
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "../../../components/css/neumorphism.css";
 
 function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
@@ -103,7 +103,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
               <label for="Zip Code">Zip Code</label>
              <input type="number" class="form-control" defaultValue={userData.zip} name="zip" onChange={addHandleChange} />
             </div>
-            <Button type="submit" className="btn btn-sm btn-primary">Edit Profile</Button>
+            <Link type="submit" className="btn btn-sm btn-primary">Edit Profile</Link>
           </form>
          </div>
   

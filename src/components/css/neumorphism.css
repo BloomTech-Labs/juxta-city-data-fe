@@ -26645,21 +26645,21 @@ a.badge-slack:hover, a.badge-slack:focus {
 }
 
 .btn-primary {
-    color: #31344b;
-    background-color: #e6e7ee;
+    color: #484d73; /*#31344b;*/
+    background-color: #2C2E51; /*#e6e7ee;*/
 }
 
 .btn-primary:hover {
-    color: #31344b;
-    background-color: #e6e7ee;
-    border-color: #e6e7ee;
+    color: #484d73; /*#31344b;*/
+    background-color: #2C2E51; /*#e6e7ee;*/
+    border-color: #2C2E51; /*#e6e7ee;*/
     box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
-    color: #31344b;
-    background-color: #e6e7ee;
-    border-color: #e6e7ee;
+    color: #484d73; /*#31344b;*/
+    background-color: #2C2E51; /*#e6e7ee;*/
+    border-color: #2C2E51; /*#e6e7ee;*/
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -26668,9 +26668,9 @@ a.badge-slack:hover, a.badge-slack:focus {
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
   .show > .btn-primary.dropdown-toggle {
-    color: #31344b;
-    background-color: #e6e7ee;
-    border-color: #e6e7ee;
+    color: #484d73; /*#31344b;*/
+    background-color: #2C2E51; /*#e6e7ee;*/
+    border-color: #2C2E51; /*#e6e7ee;*/
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,

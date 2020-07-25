@@ -4,7 +4,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 //import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
+//import Button from "@material-ui/core/Button";
 import { deleteProfile } from "../../../functions";
 import Avatar from "@material-ui/core/Avatar";
 import ImageUpload from "./ImageUpload";
@@ -17,8 +17,6 @@ const InfoList = ({ info, toggleEditing }) => {
     deleteProfile(info.id).then(() => window.location.reload());
   };
   const dateOfBirthOld = new Date(info.dob)
-  
-  
   const dateNew = dateOfBirthOld.getDate()
   const monthNew = dateOfBirthOld.getMonth()
   const yearNew = dateOfBirthOld.getFullYear()
@@ -69,24 +67,22 @@ const InfoList = ({ info, toggleEditing }) => {
           <ListItemText secondary={info.zip} />
         </ListItem>
       </List>
-      <Button
+      <button
         type="submit"
         variant="outlined"
-        color="primary"
-        className={classes.button}
+        className="btn btn-sm btn-primary"
         onClick={() => toggleEditing()}
       >
         Go to Edit profile
-      </Button>
-      <Button
+      </button>
+      <button
         type="submit"
         variant="outlined"
-        color="primary"
-        className={classes.button}
+        className="btn btn-sm btn-primary"
         onClick={() => deleteUserProfile()}
       >
         Delete User
-      </Button>
+      </button>
       </div>
       
     // </Paper>

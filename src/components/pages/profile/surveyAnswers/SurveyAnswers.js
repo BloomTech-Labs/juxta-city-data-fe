@@ -2,6 +2,7 @@ import React from "react";
 import AnswerSurvey from "./AnswerSurvey";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import "../../../css/neumorphism.css"
 
 const SurveyAnswers = ({ surveyData, profileData }) => {
   const history = useHistory();
@@ -15,7 +16,7 @@ const SurveyAnswers = ({ surveyData, profileData }) => {
       return (
         <div key={index}>
           <AnswerSurvey info={info} surveyData={surveyData} />
-          <Button onClick={handleClick} variant="outlined" color="primary" alt="Retake the survey button">
+          <Button onClick={handleClick} className="btn btn-sm btn-primary" alt="Retake the survey button">
             Retake the survey
           </Button>
         </div>
@@ -24,7 +25,7 @@ const SurveyAnswers = ({ surveyData, profileData }) => {
       return (
         <div key={index}>
           Please complete survey!
-          <Button onClick={handleClick} variant="outlined" color="primary" alt="Take the survey button">
+          <Button onClick={handleClick} className="btn btn-sm btn-primary" alt="Take the survey button">
             Take the survey
           </Button>
         </div>

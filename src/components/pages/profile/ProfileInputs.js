@@ -1,12 +1,11 @@
 import React from "react";
-import Paper from "@material-ui/core/Paper";
+//import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import SelectState from "./SelectState";
-import TextField from "@material-ui/core/TextField";
+//import Button from "@material-ui/core/Button";
+//import SelectState from "./SelectState";
+//import TextField from "@material-ui/core/TextField";
 import formStyles from "../profileStyles/formStyles";
 import "../../css/neumorphism.css";
-import { Link } from 'react-router-dom'
 
 function ProfileInputs({ handleSubmit, addHandleChange}) {
   const classes = formStyles();
@@ -107,7 +106,7 @@ function ProfileInputs({ handleSubmit, addHandleChange}) {
             <label for="Zip Code">Zip Code</label>
             <input type="number" class="form-control"  name="zip" onChange={addHandleChange} />
           </div>
-          <Button type="submit" className="btn btn-sm btn-primary">Add Profile</Button>
+          <button type="submit" className="btn btn-sm btn-primary">Add Profile</button>
           {/*<Button
             type="submit"
             variant="outlined"

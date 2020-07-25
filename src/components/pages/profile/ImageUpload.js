@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../../../functions/axiosWithAuth';
 import jwt_decode from 'jwt-decode';
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import {Link} from 'react-router-dom'
 import "../../../designs/New_UI.css"
 
 const ImageUpload = ({ info }) => {
@@ -73,13 +72,13 @@ const ImageUpload = ({ info }) => {
 
   return (
     <div>
-      <Link to="#" className="btn btn-sm btn-primary upload-image" onClick={handleOpen}>
+      <button to="#" className="btn btn-sm btn-primary upload-image" onClick={handleOpen}>
         Upload Image
-      </Link>
+      </button>
 
-      <Link to="#" className="btn btn-sm btn-primary" onClick={handleRemove}>
+      <button to="#" className="btn btn-sm btn-primary" onClick={handleRemove}>
         Remove Image
-      </Link>
+      </button>
       <Dialog
         open={openDialog}
         onClose={handleClose}
@@ -95,12 +94,12 @@ const ImageUpload = ({ info }) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <button onClick={handleClose} className="btn btn-sm btn-primary">
             Cancel
-          </Button>
-          <Button onClick={onSubmit} color="primary">
+          </button>
+          <button onClick={onSubmit} className="btn btn-sm btn-primary">
             Upload
-          </Button>
+          </button>
         </DialogActions>
       </Dialog>
     </div>
