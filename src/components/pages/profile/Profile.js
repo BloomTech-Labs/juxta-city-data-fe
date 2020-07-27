@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import NavBar from "../../Navbar.js";
+import '../../../../src/index.scss'
 import ProfileInfo from "./ProfileInfo";
 import AddProfile from "./AddProfile.js";
 import EditUser from "./EditUser";

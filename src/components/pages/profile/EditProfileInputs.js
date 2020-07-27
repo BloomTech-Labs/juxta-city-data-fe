@@ -1,7 +1,7 @@
 import React from "react";
 //import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
+//import Button from "@material-ui/core/Button";
 //import SelectState from "./SelectState";
 //import TextField from "@material-ui/core/TextField";
 import formStyles from "../profileStyles/formStyles";
@@ -15,7 +15,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
     return (
       <Grid item xs={6}>
       
-          <div class="card bg-primary shadow-soft border-light mb-5 text-center">
+          <div class="cardLook">
           <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
            <div class="form-group mb-3">
               <label for="first_name">First Name</label>
@@ -103,7 +103,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
               <label for="Zip Code">Zip Code</label>
              <input type="number" class="form-control" defaultValue={userData.zip} name="zip" onChange={addHandleChange} />
             </div>
-            <Link type="submit" className="btn btn-sm btn-primary">Edit Profile</Link>
+            <button type="submit" className="btn btn-sm btn-primary">Edit Profile</button>
           </form>
          </div>
   

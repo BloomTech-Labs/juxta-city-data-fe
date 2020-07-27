@@ -26653,7 +26653,7 @@ a.badge-slack:hover, a.badge-slack:focus {
     color: #484d73; /*#31344b;*/
     background-color: #2C2E51; /*#e6e7ee;*/
     border-color: #2C2E51; /*#e6e7ee;*/
-    box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF;
+    box-shadow: inset 2px 2px 5px #0E1024,  inset -3px -3px 7px #8F96BF; /*#b8b9be, #FFFFFF*/
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
@@ -26663,7 +26663,7 @@ a.badge-slack:hover, a.badge-slack:focus {
 }
 
 .btn-primary:focus, .btn-primary.focus {
-    box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF;
+    box-shadow: inset 2px 2px 5px #0E1024, inset -3px -3px 7px #8F96BF;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
@@ -26675,7 +26675,7 @@ a.badge-slack:hover, a.badge-slack:focus {
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
     .show > .btn-primary.dropdown-toggle:focus {
-    box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF;
+    box-shadow: inset 2px 2px 5px #0E1024, inset -3px -3px 7px #8F96BF;
 }
 
 .btn-secondary {
@@ -28804,6 +28804,10 @@ a.badge-slack:hover, a.badge-slack:focus {
 .card {
     position: relative;
 }
+.cardLook{
+    background: #d8dee8;
+    box-shadow:  -20px -20px 50px #9cc0ca,  30px 30px 70px #d2ffff;
+}
 
 .card .card-header {
     background: transparent;
@@ -29189,6 +29193,39 @@ a.badge-slack:hover, a.badge-slack:focus {
     min-width: 450px;
     border-radius: 0.3rem;
 }
+/* 
+* = Input
+*/
+
+.input{
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 10px;
+  width: 100%;
+  max-width: 320px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.55rem;
+  display: block;
+  margin: 0 auto 16px;
+  box-shadow: 
+  inset -4px -4px 10px 4px #9cc0ca, 
+  inset 4px 4px 10px 4px #d2ffff;
+  color: #fb0044;
+  transition: 0.2s ease-out;
+}
+.input:placeholder{
+  color: #FFF;
+}
+.input:focus{
+  box-shadow: 
+    inset -1px -1px 5px 1px #9cc0ca, 
+    inset 1px 1px 5px 1px #d2ffff;
+  
+}
+
 
 /**
  * = Forms
@@ -29202,9 +29239,12 @@ label {
 }
 
 .form-control {
+    color: #03a9f4;
+    background: #b7e2ee;
     font-size: 1rem;
+    font-weight: 600;
     border-radius: 0.55rem;
-    box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #FFFFFF;
+    box-shadow: inset -2px -2px 5px #9cc0ca, inset 3px 3px 7px #d2ffff;
 }
 
 .form-control:focus:placeholder {
@@ -29640,7 +29680,7 @@ textarea[resize="horizontal"] {
 
 .focused .input-group-text {
     color: #44476A;
-    background-color: #e6e7ee;
+    background-color: #e6e7ee; 
 }
 
 /**
@@ -31925,11 +31965,11 @@ article a:hover {
 }
 
 .text-primary, .text-primary:hover {
-    color: #e6e7ee !important;
+    color: #03a9f4 !important; /*#e6e7ee*/
 }
 
 .text-primary a:not(.btn), .text-primary h1, .text-primary h2, .text-primary h3, .text-primary h4, .text-primary h5, .text-primary h6, .text-primary .h1, .text-primary .h2, .text-primary .h3, .text-primary .h4, .text-primary .h5, .text-primary .h6, .text-primary .display-1, .text-primary .display-2, .text-primary .display-3, .text-primary .display-4 {
-    color: #e6e7ee;
+    color: #e6e7ee; /*#e6e7ee;*/
 }
 
 .text-primary .text-muted {

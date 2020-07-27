@@ -16,10 +16,15 @@ import SurveyQuestions from "./components/surveyQuestions/SurveyQuestions.js";
 import RecomendedDashboard from "./components/recomended/RecomendedDashboard";
 import Neo from "./components/Neo";
 
+// const BgDiv = styled.div `
+// background-color: #d8dee;
+
+// `
 const AppDiv = styled.div`
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
+  height: 200vh;
 `;
 const Darken = styled.div`
   position: absolute;
@@ -48,13 +53,13 @@ const App = () => {
 
   return (
     <Router>
-      <div>
+      <div className="bgDiv">
         <Darken id="darken" onClick={handleClick} style={{ display: "none" }} />
         <CityContext.Provider value={{ cityData, setCityData }}>
           <UserContext.Provider value={{ userData, setUserData }}>
             <RecomendedContext.Provider value={{ recomendedCity, setRecomendedCity }} >
               <ProfileContext.Provider value={{ profileData, setProfileData }}>
-                <AppDiv className="App">
+                <AppDiv  className="App">
                   <Route path="/"  exact component={LandingPage} />
                   <Route path="/neo" component={Neo} />
                   <Route path="/dashboard" exact component={Dashboard} />
