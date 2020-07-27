@@ -8,6 +8,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import "../../../designs/New_UI.css"
+import "../../css/neumorphism.css"
 
 const ImageUpload = ({ info }) => {
   const initialFormState = {
@@ -72,13 +73,15 @@ const ImageUpload = ({ info }) => {
 
   return (
     <div>
-      <button to="#" className="btn btn-sm btn-primary upload-image" onClick={handleOpen}>
+    <section className="center">
+      <button to="#" className="btn upload-image" onClick={handleOpen}>
         Upload Image
       </button>
 
-      <button to="#" className="btn btn-sm btn-primary" onClick={handleRemove}>
+      <button to="#" className="btn" onClick={handleRemove}>
         Remove Image
       </button>
+    </section>
       <Dialog
         open={openDialog}
         onClose={handleClose}
@@ -94,10 +97,10 @@ const ImageUpload = ({ info }) => {
           />
         </DialogContent>
         <DialogActions>
-          <button onClick={handleClose} className="btn btn-sm btn-primary">
+          <button onClick={handleClose} className="btn ">
             Cancel
           </button>
-          <button onClick={onSubmit} className="btn btn-sm btn-primary">
+          <button onClick={onSubmit} className="btn">
             Upload
           </button>
         </DialogActions>

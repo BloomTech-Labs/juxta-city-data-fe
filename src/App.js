@@ -16,10 +16,7 @@ import SurveyQuestions from "./components/surveyQuestions/SurveyQuestions.js";
 import RecomendedDashboard from "./components/recomended/RecomendedDashboard";
 import Neo from "./components/Neo";
 
-// const BgDiv = styled.div `
-// background-color: #d8dee;
 
-// `
 const AppDiv = styled.div`
   max-width: 1280px;
   width: 100%;

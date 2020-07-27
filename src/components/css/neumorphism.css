@@ -26457,24 +26457,58 @@ a.badge-slack:hover, a.badge-slack:focus {
 /**
  * = Buttons
  */
+
+
 .btn {
-    position: relative;
-    transition: all 0.2s ease;
-    letter-spacing: 0.025em;
-    font-size: 1rem;
-    border-color: #D1D9E6;
-    box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #ffffff;
+  color: #15E7EB;
+  cursor: pointer;
+  border: 3px solid transparent;
+  padding: 13px;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(145deg, #e7eef8, #c2c8d1);
+  box-shadow:
+   4px 4px 13px 4px #b8bdc5,
+    -4px -4px 13px 4px #f8ffff;
 }
 
-.btn.btn-pill {
+.btn:focus{
+  box-shadow:
+   4px 4px 13px 4px #b8bdc5,
+    -4px -4px 13px 4px #f8ffff;
+}
+
+.btn:hover{
+  box-shadow:
+  3px 3px 8px 3px #b8bdc5,
+  -3px -3px 8px 3px #f8ffff;
+}
+.btn.active{
+  color: #FF5858;
+   box-shadow: 
+        inset 2px 2px 8px 2px #b8bdc5, 
+        inset -2px -2px 68px 2px #f8ffff;
+  border-color: #98b7c4;
+}
+
+.btn:active{
+  color: #FF5858;
+  box-shadow: 
+        inset 4px 4px 13px 4px #b8bdc5, 
+        inset -4px -4px 13px 4px #f8ffff;
+  border-color: #cef7ff;
+}
+
+/* ////////////////////////////////// */
+/* .btn.btn-pill {
     border-radius: 2rem;
 }
 
 .btn.btn-circle {
     border-radius: 50%;
-}
+} 
 
-.btn-group .btn, .input-group .btn {
+ .btn-group .btn, .input-group .btn {
     margin-right: 0;
     transform: translateY(0);
 }
@@ -26540,7 +26574,7 @@ a.badge-slack:hover, a.badge-slack:focus {
     background-color: transparent;
     box-shadow: none;
     transform: none;
-}
+} */
 
 .btn-icon {
     display: inline-block;

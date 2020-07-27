@@ -24,7 +24,7 @@ const InfoList = ({ info, toggleEditing }) => {
 
   return (
     // <Paper className={classes.paper} key={info.id}>
-      <div className="card-body" key={info.id}>
+      <div className="cardLook" key={info.id}>
        <h2> {info.username}'s profile </h2>
       <List className={classes.root}>
          <ListItem>
@@ -67,22 +67,24 @@ const InfoList = ({ info, toggleEditing }) => {
           <ListItemText secondary={info.zip} />
         </ListItem>
       </List>
+      <section className="center">
       <button
         type="submit"
         variant="outlined"
-        className="btn btn-sm btn-primary"
+        className="btn upload-image"
         onClick={() => toggleEditing()}
       >
-        Go to Edit profile
+        Edit profile
       </button>
       <button
         type="submit"
         variant="outlined"
-        className="btn btn-sm btn-primary"
+        className="btn"
         onClick={() => deleteUserProfile()}
       >
         Delete User
       </button>
+      </section>
       </div>
       
     // </Paper>

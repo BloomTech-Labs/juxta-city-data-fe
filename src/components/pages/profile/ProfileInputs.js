@@ -101,7 +101,7 @@ function ProfileInputs({ handleSubmit, addHandleChange}) {
             <label for="Zip Code">Zip Code</label>
             <input type="number" class="input"  name="zip" onChange={addHandleChange} />
           </div>
-          <button type="submit" class="btn btn-sm btn-primary">Add Profile</button>
+          <button type="submit" class="btn">Add Profile</button>
           {/*<Button
             type="submit"
             variant="outlined"

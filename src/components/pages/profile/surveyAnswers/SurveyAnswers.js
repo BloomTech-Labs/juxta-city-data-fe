@@ -1,7 +1,7 @@
 import React from "react";
 import AnswerSurvey from "./AnswerSurvey";
 import { useHistory } from "react-router-dom";
-import Button from "@material-ui/core/Button";
+//import Button from "@material-ui/core/Button";
 import "../../../css/neumorphism.css"
 
 const SurveyAnswers = ({ surveyData, profileData }) => {
@@ -16,18 +16,18 @@ const SurveyAnswers = ({ surveyData, profileData }) => {
       return (
         <div key={index}>
           <AnswerSurvey info={info} surveyData={surveyData} />
-          <Button onClick={handleClick} className="btn btn-sm btn-primary" alt="Retake the survey button">
+          <button onClick={handleClick} className="btn btn-sm btn-primary" alt="Retake the survey button">
             Retake the survey
-          </Button>
+          </button>
         </div>
       );
     } else {
       return (
         <div key={index}>
           Please complete survey!
-          <Button onClick={handleClick} className="btn btn-sm btn-primary" alt="Take the survey button">
+          <button onClick={handleClick} className="btn" alt="Take the survey button">
             Take the survey
-          </Button>
+          </button>
         </div>
       );
     }

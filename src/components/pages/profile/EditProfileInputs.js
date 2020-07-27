@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 //import SelectState from "./SelectState";
 //import TextField from "@material-ui/core/TextField";
 import formStyles from "../profileStyles/formStyles";
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import "../../../components/css/neumorphism.css";
 
 function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
@@ -19,32 +19,27 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
           <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
            <div class="form-group mb-3">
               <label for="first_name">First Name</label>
-              <input type="text" class="form-control" defaultValue={userData.first_name} name="first_name" onChange={addHandleChange} aria-describedby="first_name" />
+              <input type="text" class="input" defaultValue={userData.first_name} name="first_name" onChange={addHandleChange} aria-describedby="first_name" />
            </div>
             <div class="form-group mb-3">
               <label for="last_name">Last Name</label>
-              <input type="text"  class="form-control" defaultValue={userData.last_name} name="last_name" onChange={addHandleChange} aria-describedby="last_name"/>
+              <input type="text"  class="input" defaultValue={userData.last_name} name="last_name" onChange={addHandleChange} aria-describedby="last_name"/>
             </div>
             <div class="form-group mb-3">
               <label for="dob">Date of birth</label>
-              <div class="input-group mb-4">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
-                  </div>
-                  <input class="form-control datepicker" id="dob" placeholder="Your B-DAY!" type="date" name="dob" defaultValue={userData.dob} onChange={addHandleChange} aria-label="date of birth"/>
-              </div>
+                  <input class="input datepicker" id="dob" placeholder="Your B-DAY!" type="date" name="dob" defaultValue={userData.dob} onChange={addHandleChange} aria-label="date of birth"/>
             </div>
           <div class="form-group mb-3">
               <label for="address">Address</label>
-             <input type="text" class="form-control" defaultValue={userData.address} name="address" onChange={addHandleChange} aria-describedby="address"/>
+             <input type="text" class="input" defaultValue={userData.address} name="address" onChange={addHandleChange} aria-describedby="address"/>
           </div>
           <div class="form-group mb-3">
             <label for="city">City</label>
-            <input type="text"  class="form-control" defaultValue={userData.city} name="city" onChange={addHandleChange} aria-describedby="city"/>
+            <input type="text"  class="input" defaultValue={userData.city} name="city" onChange={addHandleChange} aria-describedby="city"/>
           </div>
             <div class="form-group">
               <label class="my-1 mr-2" for="inlineFormCustomSelectPref">State</label>
-              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+              <select class="input custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                 <option selected>Choose...</option>
                 <option value="1">Alabama</option>
                 <option value="2">Alaska</option>
@@ -101,9 +96,9 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
 
             <div class="form-group mb-3">
               <label for="Zip Code">Zip Code</label>
-             <input type="number" class="form-control" defaultValue={userData.zip} name="zip" onChange={addHandleChange} />
+             <input type="number" class="input" defaultValue={userData.zip} name="zip" onChange={addHandleChange} />
             </div>
-            <button type="submit" className="btn btn-sm btn-primary">Edit Profile</button>
+            <button type="submit" className="btn">Edit Profile</button>
           </form>
          </div>
   

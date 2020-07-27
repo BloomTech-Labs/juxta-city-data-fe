@@ -1,3 +1,8 @@
+.center{
+    display:flex;
+    justify-content:center;
+}
+
 .upload-image{
-    margin-right: 5rem;
+    margin-right: 2rem; 
 }
