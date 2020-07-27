@@ -30,9 +30,9 @@ $ease: cubic-bezier(.33,.45,.3,1);
 
 .bgStyle{
   background:
-			radial-gradient(160% 160% at 57.5% 60%, rgba(lighten($baseColor, 10), 0) 30%, lighten($baseColor, 10) 45%), // light top left
-			radial-gradient(180% 200% at 40% 17.5%, rgba(darken($baseColor, 40), 0) 35%, darken($baseColor,40) 50%), // dark bottom right
-			radial-gradient(120% 120% at 45% 45%, rgba(darken($baseColor, 40), 0) 52%, rgba(darken($baseColor, 40),.75) 70%), // darker small bottom right
+      radial-gradient(160% 160% at 57.5% 60%, rgba(lighten($baseColor, 6), 0) 30%, lighten($baseColor, 6) 45%), // light top left
+			radial-gradient(180% 200% at 40% 17.5%, rgba(darken($baseColor, 20), 0) 35%, darken($baseColor,20) 50%), // dark bottom right
+			radial-gradient(120% 120% at 45% 45%, rgba(darken($baseColor, 10), 0) 42%, rgba(darken($baseColor,20),.75) 50%), // darker small bottom right
 			;
 }
 
@@ -62,7 +62,7 @@ $baseColor:
 	);
 
 .finderNav {
-	 position: absolute;
+	position: absolute;
 	height: 100%;
 	width: 100%;
 	display: flex;

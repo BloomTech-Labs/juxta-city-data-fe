@@ -53,7 +53,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="bgDiv">
+      <div className="bgStyle">
         <Darken id="darken" onClick={handleClick} style={{ display: "none" }} />
         <CityContext.Provider value={{ cityData, setCityData }}>
           <UserContext.Provider value={{ userData, setUserData }}>

@@ -214,7 +214,7 @@ const NavBar = ({ auth, history, location }) => {
 
   let token = localStorage.getItem("token");
   return (
-    <NavDiv className="finderNav" pathname={location.pathname}>
+    <NavDiv  pathname={location.pathname}>
       <H2>
         <Link className="link" to="/">
           <img
@@ -230,7 +230,8 @@ const NavBar = ({ auth, history, location }) => {
         </Link>
       </H2>
       {token ? (
-        <UL>
+        <div className="finderNav">
+        <UL >
           <Li className={classes.avatarBox}>
           <div>
             <img src={avatar} alt="avatar" />
@@ -280,21 +281,23 @@ const NavBar = ({ auth, history, location }) => {
             {open ? body : <span></span>}
           </Li>
         </UL>
+        </div>
       ) : (
-        <UL>
-          <Li>
+          <UL>
+            <Li>
             <button
               className={
                 location.pathname === "/cityview"
                   ? classes.SignInBlue
                   : location.pathname === "/recommended"
                   ? classes.SignInBlue
-                  : classes.SignInWhite === "/profile"
+                  : classes.SignInWhite
               }
               onClick={login}
             >
               Sign In
             </button>
+           
           </Li>
         </UL>
       )}
