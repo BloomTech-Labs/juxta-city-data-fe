@@ -34,14 +34,14 @@ export default function CityContent(props) {
         title={"Cost of Living"}
         data={props.cityData.living_cost_desc}
       />
-      <p>
+      <div>
       <DescriptionBox {...props}
       title={"Health Data"}
        />
        <p style = {{width: 400, marginLeft: '7.5rem'}}>
        <a target ="blank" href ="https://findyourcity.herokuapp.com">Click here </a> for an interactive map on heart disease
       </p>
-      </p>
+      </div>
     </div>
   );
 }
