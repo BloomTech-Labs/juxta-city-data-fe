@@ -35,9 +35,7 @@ export default function FavoiriteCityCard(props) {
 
   const handleClick = (e) => {
     getCityData(props.cityData.city).then((res) => {
-      console.log(res,"response res favorite")
       setCityData(res);
-      console.log(props.cityData.city,"response .city favorite")
       localStorage.setItem("cityName", props.cityData.city);
       history.push("/cityview");
     });

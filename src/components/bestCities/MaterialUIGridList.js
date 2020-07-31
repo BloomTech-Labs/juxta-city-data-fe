@@ -17,7 +17,6 @@ const MaterialUiGridList = (props) => {
 
   function handleClick(city) {
     getCityData(city).then((city) => {
-      console.log(city,"response .city best")
       setCityData(city);
       localStorage.setItem("cityName", city.city);
       history.push("/cityview");

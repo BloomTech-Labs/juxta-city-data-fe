@@ -13,7 +13,6 @@ export default function RecommendedCard(props) {
     e.preventDefault();
     getCityData(props.cityData.name_and_state).then((res) => {
       setCityData(res);
-      console.log(res.city,"response .city recommended")
       localStorage.setItem("cityName", res.city);
       props.history.push("/cityview");
     });
