@@ -16,15 +16,17 @@ const MaterialUiGridList = (props) => {
   const history = useHistory();
 
   function handleClick(city) {
-    getCityData(city)
-      .then((city) => setCityData(city))
-      .then(() => history.push("./cityview"));
+    getCityData(city).then((city) => {
+      console.log(city,"response .city best")
+      setCityData(city);
+      localStorage.setItem("cityName", city.city);
+      history.push("/cityview");
+    })
   }
-
   return (
     <div className={classes.root}>
       <GridList cols={props.mobile ? 1.5 : 4} className={classes.gridList}>
-        {gridList.map((tile) => (
+        {props.gridList.map((tile) => (
           <GridListTile
             key={tile.city}
             onClick={() => handleClick(tile.city)}

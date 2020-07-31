@@ -8,17 +8,20 @@ import { getCityData } from "../../functions";
 export default function RecommendedCard(props) {
   const { setCityData } = useContext(CityContext);
   const classes = useStyles();
-  const handleClick = () => {
+
+  const handleClick = (e) => {
+    e.preventDefault();
     getCityData(props.cityData.name_and_state).then((res) => {
       setCityData(res);
-      localStorage.setItem("cityName", props.cityData.city);
+      console.log(res.city,"response .city recommended")
+      localStorage.setItem("cityName", res.city);
       props.history.push("/cityview");
     });
-  };
+  };;
   return (
     <Paper className={classes.cardRoot}>
       <div className={classes.cardHeader}>
-        <FavoriteIcon class={classes.heart} {...props} />
+        <FavoriteIcon class={classes.heart} cityData={props.cityData} {...props} />
         <h4 className={classes.cardHeading}>{props.cityData.name_and_state}</h4>
         <p className={classes.livability}>{props.cityData.livability_score}</p>
       </div>

@@ -9,7 +9,8 @@ export default function FavoriteIcon(props){
     const {userData} = useContext(UserContext)
     useEffect(()=>{
         if(userData.favorites){
-            userData.favorites.some(city => city.id === props.cityData.id)? setFavorited(true): setFavorited(false)
+            // city.id is type number and props.cityData.id is type string and we can't use === 
+            userData.favorites.some(city => city.id == props.cityData.id)? setFavorited(true): setFavorited(false)
         }
     }, [userData.favorites, props.cityData.id])
 

@@ -1,7 +1,10 @@
-import React from "react";
+import React , { useContext }  from "react";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import FavoriteIcon from "../subComponents/FavoriteIcon";
+import { getCityData } from "../../functions";
+import CityContext from "../../contexts/CityContext";
+
 const styles = makeStyles((theme) => ({
   root: {
     width: "50%",
@@ -28,9 +31,16 @@ export default function FavoiriteCityCard(props) {
   const classes = styles();
   const history = useHistory();
 
+  const { setCityData } = useContext(CityContext);
+
   const handleClick = (e) => {
-    localStorage.setItem("cityName", props.cityData.city);
-    history.push("/cityview");
+    getCityData(props.cityData.city).then((res) => {
+      console.log(res,"response res favorite")
+      setCityData(res);
+      console.log(props.cityData.city,"response .city favorite")
+      localStorage.setItem("cityName", props.cityData.city);
+      history.push("/cityview");
+    });
   };
   return (
     <div className={classes.root}>

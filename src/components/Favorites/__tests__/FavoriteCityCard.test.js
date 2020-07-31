@@ -1,21 +1,29 @@
-import React from 'react';
-import {render, fireEvent} from '@testing-library/react';
-import FavoriteCityCard from '../FavoriteCityCard';
-import UserContext from '../../../contexts/UserContext';
+import React from "react";
+import { render, fireEvent } from "@testing-library/react";
+import FavoriteCityCard from "../FavoriteCityCard";
+import UserContext from "../../../contexts/UserContext";
+import CityContext from "../../../contexts/CityContext";
 
-jest.mock('react-router-dom', () => ({
-    useHistory: () => ({
-      push: jest.fn(),
-    }),
-  }));
+jest.mock("react-router-dom", () => ({
+  useHistory: () => ({
+    push: jest.fn(),
+  }),
+}));
 
-it('renders the CityCard', ()=> {
-    let userData = {id: 2, username: 'Jake', favorites:[{id:235, city: 'Seattle, Washington'}]}
-    let cityData = {id: 2, city: 'Seattle, Washington'}
-    let comp = render(
-        <UserContext.Provider value={{userData}}>
-            <FavoriteCityCard cityData={cityData}/>
-        </UserContext.Provider>
-    )
-    expect(comp.getByText(`${cityData.city}`)).toBeInTheDocument();
-})
+it("renders the CityCard", () => {
+  let userData = {
+    id: 2,
+    username: "Jake",
+    favorites: [{ id: 235, city: "Seattle, Washington" }],
+  };
+  let cityData = { id: 2, city: "Seattle, Washington" };
+  const setCityData = (data) => (cityData = data);
+  let comp = render(
+    <CityContext.Provider value={{ setCityData }}>
+      <UserContext.Provider value={{ userData }}>
+        <FavoriteCityCard cityData={cityData} />
+      </UserContext.Provider>
+    </CityContext.Provider>
+  );
+  expect(comp.getByText(`${cityData.city}`)).toBeInTheDocument();
+});
