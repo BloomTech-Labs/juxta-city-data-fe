@@ -11,7 +11,8 @@ import { useStyles } from "./styles/MarialUIGridListStyles";
 
 const MaterialUiGridList = (props) => {
   const classes = useStyles();
-  const gridList = props.gridList.slice(0, 4);
+  const gridList = props.gridList.splice(Math.floor(Math.random()*props.gridList.length),4)
+  
   const { setCityData } = useContext(CityContext);
   const history = useHistory();
 
@@ -25,7 +26,7 @@ const MaterialUiGridList = (props) => {
   return (
     <div className={classes.root}>
       <GridList cols={props.mobile ? 1.5 : 4} className={classes.gridList}>
-        {props.gridList.map((tile) => (
+        {gridList.map((tile) => (
           <GridListTile
             key={tile.city}
             onClick={() => handleClick(tile.city)}
