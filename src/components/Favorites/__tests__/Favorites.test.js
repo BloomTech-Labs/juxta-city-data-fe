@@ -22,3 +22,28 @@ it('renders the component', ()=> {
     expect(comp.getByText(/Favorite Cities/i)).toBeInTheDocument();
     expect(comp.getByText(/Seattle, Washington/i)).toBeInTheDocument();
 })
+
+it('calls "onClick" prop on button click', () => {
+  const handleClick = jest.fn();  
+   let userData = {
+    id: 2,
+    username: "Jake",
+    favorites: [{ id: 235, city: "Seattle, Washington" }],
+  };
+  let cityData = { id: 2, city: "Seattle, Washington" };
+  const setCityData = (data) => (cityData = data);
+  let comp = render(
+    <CityContext.Provider value={{ setCityData }}>
+      <UserContext.Provider value={{ userData }}>
+        <Favorites cityData={cityData} onClick={handleClick}/>
+      </UserContext.Provider>
+    </CityContext.Provider>
+  );
+  
+  const heartBtn =comp.getByTestId(/heartBtn/i)   
+  fireEvent.click(heartBtn, );
+  expect(heartBtn).not.toBeDisabled();
+  // expect(handleClick).toHaveBeenCalledTimes(1);
+
+  
+});

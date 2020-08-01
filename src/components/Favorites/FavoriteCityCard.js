@@ -47,7 +47,7 @@ export default function FavoiriteCityCard(props) {
         {...props}
         cityData={props.cityData}
       />
-      <p className={classes.cityName} onClick={handleClick}>
+      <p data-testid="heartBtn" className={classes.cityName} onClick={handleClick}>
         {props.cityData.city}
       </p>
     </div>
