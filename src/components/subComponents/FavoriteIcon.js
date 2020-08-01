@@ -13,18 +13,13 @@ export default function FavoriteIcon(props) {
   const { setUserData, userData } = useContext(UserContext);
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      createUserContext().then((res) => setUserData(res));
-    }
+    if (localStorage.getItem("token")) {createUserContext().then((res) => setUserData(res))}
   }, [setUserData]);
 
   useEffect(() => {
     if (userData.favorites) {
       // city.id is type number and props.cityData.id is type string and we can't use ===
-      userData.favorites.some((city) => city.id == props.cityData.id)
-        ? setFavorited(true)
-        : setFavorited(false);
-    }
+      userData.favorites.some((city) => city.id == props.cityData.id) ? setFavorited(true) : setFavorited(false)}
   }, [userData.favorites, props.cityData.id]);
 
   const handleClick = (e) => {
@@ -35,16 +30,10 @@ export default function FavoriteIcon(props) {
     } else if (!favorited && userData.id) {
       addFavorite(userData.id, props.cityData.id);
       setFavorited(true);
-    } else {
-      props.history.push("/signin");
-    }
+    } else {props.history.push("/signin")}
   };
+  
   return (
-    <img
-      className={props.class}
-      src={favorited ? fullheart : emptyheart}
-      onClick={handleClick}
-      alt="heart icon"
-    />
+    <img className={props.class}src={favorited ? fullheart : emptyheart}onClick={handleClick}alt="heart icon"/>
   );
-}
+};
