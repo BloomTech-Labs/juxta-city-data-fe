@@ -17,15 +17,14 @@ jest.mock('react-router-dom', () => ({
 
 it('renders heading and search bar', () => {
   let cityData = '';
-  const setCityData = data => cityData = data;
+  const setCityData = (data) => (cityData = data);
 
   const { getByPlaceholderText, getByText } = render(
-    <CityContext.Provider value={{setCityData}}>
+    <CityContext.Provider value={{ setCityData }}>
       <Header />
     </CityContext.Provider>
   );
 
-  expect(getByText(/find the perfect/i)).toBeInTheDocument();
+  expect(getByText(/find your way/i)).toBeInTheDocument();
   expect(getByPlaceholderText(/search for a city/i)).toBeInTheDocument();
-
 });
