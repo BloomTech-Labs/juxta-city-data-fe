@@ -9,7 +9,7 @@ const LandingPage = (props) => {
     <div>
       <NavBar {...props} />
       <Header />
-      <BestCities />
+      <BestCities {...props} />
       <MarketingBox />
     </div>
   );

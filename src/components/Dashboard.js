@@ -21,8 +21,8 @@ function Dashboard(props) {
         <NavBar {...props}/>
         <Header />
         <RecommendedComponent {...props} />
-        <Favorites/>
-        <BestCities />
+        <Favorites {...props}/>
+        <BestCities {...props}/>
     </div>
     
   );
