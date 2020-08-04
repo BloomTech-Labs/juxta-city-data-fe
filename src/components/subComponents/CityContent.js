@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import EconomyGraph from "./industryGraph/EconomyGraph.js";
 import Population from "./descriptions/Population";
 import Climate from "./descriptions/Climate";
+import Economy from "./descriptions/Economy";
 const styles = makeStyles((theme) => ({
   root: {
     width: "50%",
@@ -16,7 +17,6 @@ export default function CityContent(props) {
   const classes = styles();
   return (
     <div className={classes.root}>
-      <EconomyGraph {...props} />
       <Population {...props} title={"Population"} data={props.cityData} />
       <Climate {...props} title={"Climate"} data={props.cityData} />
       {/* <DescriptionBox
@@ -29,11 +29,17 @@ export default function CityContent(props) {
         title={"Climate"}
         data={props.cityData.climate_desc}
       /> */}
-      <DescriptionBox
+        <Economy
+        {...props}
+        title={"Economy"}
+        data={props.cityData}
+      />
+       <EconomyGraph {...props} />
+      {/* <DescriptionBox
         {...props}
         title={"Economy"}
         data={props.cityData.economy_desc}
-      />
+      /> */}
       <DescriptionBox
         {...props}
         title={"Cost of Living"}

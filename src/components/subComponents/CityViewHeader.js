@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import TabBar from "./TabBar";
+// import TabBar from "./TabBar";
 import FavoriteIcon from "./FavoriteIcon";
 
 const styles = makeStyles((theme) => ({
@@ -40,7 +40,7 @@ export default function CityViewHeader(props) {
   const classes = styles();
     return (
       <>
-        <TabBar />
+        {/* <TabBar /> */}
         <div className={classes.root}>
           <div className={classes.HeadingBox}>
             <FavoriteIcon class={classes.Heart} cityData={props.cityData} {...props} />

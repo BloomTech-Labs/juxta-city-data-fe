@@ -4,6 +4,7 @@ import NavBar from "./Navbar.js";
 import CityViewHeader from "./subComponents/CityViewHeader.js";
 import CityBody from "./subComponents/CityBody.js";
 import { getCityData } from "../functions";
+import TabBar from "./subComponents/TabBar";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -32,8 +33,11 @@ function SingleCityView(props) {
   ) : (
     <div className={classes.root}>
       <NavBar {...props} />
+      < TabBar />
+    <div className="city-content">
       <CityViewHeader {...props} cityData={cityData} />
       <CityBody {...props} cityData={cityData} />
+    </div>
     </div>
   );
 }
