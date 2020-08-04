@@ -16,6 +16,7 @@ const styles = makeStyles((theme) => ({
 }));
 export default function CityContent(props) {
   const classes = styles();
+ 
   return (
     <div className={classes.root}>
       <Population {...props} title={"Population"} data={props.cityData} />
@@ -35,7 +36,9 @@ export default function CityContent(props) {
         title={"Economy"}
         data={props.cityData}
       />
-       <EconomyGraph {...props} />
+      {((props.cityData.Most_Common_Industries) ==="No Data Available")? (null):( 
+        <EconomyGraph {...props} />
+    )}
       {/* <DescriptionBox
         {...props}
         title={"Economy"}
