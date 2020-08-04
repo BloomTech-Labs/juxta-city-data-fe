@@ -2,8 +2,8 @@ import React from "react";
 import DescriptionBox from "./DescriptionBox.js";
 import { makeStyles } from "@material-ui/core/styles";
 import EconomyGraph from "./industryGraph/EconomyGraph.js";
-import Population from "./descriptions/Population"
-
+import Population from "./descriptions/Population";
+import Climate from "./descriptions/Climate";
 const styles = makeStyles((theme) => ({
   root: {
     width: "50%",
@@ -17,11 +17,9 @@ export default function CityContent(props) {
   return (
     <div className={classes.root}>
       <EconomyGraph {...props} />
-      <Population 
-      {...props}
-        title={"Population"}
-        data={props.cityData}/>
-      <DescriptionBox
+      <Population {...props} title={"Population"} data={props.cityData} />
+      <Climate {...props} title={"Climate"} data={props.cityData} />
+      {/* <DescriptionBox
         {...props}
         title={"Population"}
         data={props.cityData.population_desc}
@@ -30,7 +28,7 @@ export default function CityContent(props) {
         {...props}
         title={"Climate"}
         data={props.cityData.climate_desc}
-      />
+      /> */}
       <DescriptionBox
         {...props}
         title={"Economy"}
@@ -42,12 +40,13 @@ export default function CityContent(props) {
         data={props.cityData.living_cost_desc}
       />
       <div>
-      <DescriptionBox {...props}
-      title={"Health Data"}
-       />
-       <p style = {{width: 400, marginLeft: '7.5rem'}}>
-       <a target ="blank" href ="https://findyourcity.herokuapp.com">Click here </a> for an interactive map on heart disease
-      </p>
+        <DescriptionBox {...props} title={"Health Data"} />
+        <p style={{ width: 400, marginLeft: "7.5rem" }}>
+          <a target="blank" href="https://findyourcity.herokuapp.com">
+            Click here{" "}
+          </a>{" "}
+          for an interactive map on heart disease
+        </p>
       </div>
     </div>
   );
