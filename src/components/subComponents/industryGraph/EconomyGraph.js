@@ -63,7 +63,8 @@ function EconomyGraph() {
         translation["Data processing, libraries, other information services "] =
           "Information";
           translation["Arts, entertainment, recreation "] = "Art";
-
+          translation["Real estate & rental & leasing "] = "Estate";
+          
         xlabel = translation[keyName];
       }
      
