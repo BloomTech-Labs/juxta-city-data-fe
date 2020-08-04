@@ -54,15 +54,15 @@
 
 import React, { useState } from 'react';
 import { Input, Menu, Icon } from 'semantic-ui-react';
-
+import SearchBar from "./SearchBar";
 const TabBar = () => {
   const [activeItem, setValue] = useState({});
-  console.log(activeItem, 'activeItem');
+  // console.log(activeItem, 'activeItem');
 
   const handleItemClick = (e, { name }) => {
     setValue({ activeItem: name });
     const ele = document.getElementById(name);
-    console.log(ele, 'ele');
+    // console.log(ele, 'ele');
     if (ele) {
       const offset = ele.offsetTop;
       window.scrollTo(0, offset - 200);
@@ -127,7 +127,8 @@ const TabBar = () => {
 
         <Menu.Menu position='right'>
           <Menu.Item>
-            <Input icon='search' placeholder='Search...' />
+            <SearchBar/>
+            {/* <Input icon='search' placeholder='Search...' /> */}
           </Menu.Item>
         </Menu.Menu>
       </Menu>

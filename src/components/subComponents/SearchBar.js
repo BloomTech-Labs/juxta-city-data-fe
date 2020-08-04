@@ -90,7 +90,7 @@ const SearchBar = (props) => {
         type="text"
         name="city"
         value={search}
-        placeholder="Search for a City"
+        placeholder="Search..."
         onChange={handleChange}
       />
       <Button type="submit">
