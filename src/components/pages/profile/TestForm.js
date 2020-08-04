@@ -57,6 +57,7 @@ function TestForm() {
   }
 
   return (
+      <form className="demensions">
     <div class="right">
       <svg viewBox="0 0 320 300">
         <defs>
@@ -84,6 +85,7 @@ function TestForm() {
         
       </div>
     </div>
+    </form>
   );
 }
 
