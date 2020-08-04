@@ -3,41 +3,33 @@ import { useHistory } from "react-router-dom";
 import { GridList } from "@material-ui/core";
 import { GridListTile } from "@material-ui/core";
 import { GridListTileBar } from "@material-ui/core";
-
 import CityContext from "../../contexts/CityContext";
-
 import { getCityData } from "../../functions";
 import { useStyles } from "./styles/MarialUIGridListStyles";
 
 const MaterialUiGridList = (props) => {
   const classes = useStyles();
-  const gridList = props.gridList.slice(0, 4);
+  const gridList = props.gridList.splice(Math.floor(Math.random()*props.gridList.length),4)
+  
   const { setCityData } = useContext(CityContext);
   const history = useHistory();
 
   function handleClick(city) {
-    getCityData(city)
-      .then((city) => setCityData(city))
-      .then(() => history.push("./cityview"));
-  }
+    getCityData(city).then((city) => { setCityData(city);
+      localStorage.setItem("cityName", city.city);
+      history.push("/cityview");
+    })}
 
   return (
     <div className={classes.root}>
       <GridList cols={props.mobile ? 1.5 : 4} className={classes.gridList}>
         {gridList.map((tile) => (
-          <GridListTile
-            key={tile.city}
+          <GridListTile  key={tile.city} data-testid="grid-tile"
             onClick={() => handleClick(tile.city)}
-            data-testid="grid-tile"
-            className={classes.gridTile}
-          >
+            className={classes.gridTile}>
             <img src={tile.photo_url} alt={tile.city} className={props.hover} />
-            <GridListTileBar
-              key={tile.city}
-              title={`${tile.city}`}
-              titlePosition="top"
-              className={props.titleBar}
-            />
+            <GridListTileBar key={tile.city} title={`${tile.city}`}
+              titlePosition="top" className={props.titleBar} />
           </GridListTile>
         ))}
       </GridList>
