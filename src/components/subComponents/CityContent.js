@@ -5,6 +5,7 @@ import EconomyGraph from "./industryGraph/EconomyGraph.js";
 import Population from "./descriptions/Population";
 import Climate from "./descriptions/Climate";
 import Economy from "./descriptions/Economy";
+import CostOfLiving from "./descriptions/CostOfLiving";
 const styles = makeStyles((theme) => ({
   root: {
     width: "50%",
@@ -40,11 +41,16 @@ export default function CityContent(props) {
         title={"Economy"}
         data={props.cityData.economy_desc}
       /> */}
-      <DescriptionBox
+           <CostOfLiving
+         {...props}
+         title={"Cost of Living"}
+         data={props.cityData}
+      />
+      {/* <DescriptionBox
         {...props}
         title={"Cost of Living"}
         data={props.cityData.living_cost_desc}
-      />
+      /> */}
       <div>
         <DescriptionBox {...props} title={"Health Data"} />
         <p style={{ width: 400, marginLeft: "7.5rem" }}>
