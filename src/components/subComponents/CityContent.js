@@ -2,6 +2,7 @@ import React from "react";
 import DescriptionBox from "./DescriptionBox.js";
 import { makeStyles } from "@material-ui/core/styles";
 import EconomyGraph from "./industryGraph/EconomyGraph.js";
+import Population from "./descriptions/Population"
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -16,6 +17,10 @@ export default function CityContent(props) {
   return (
     <div className={classes.root}>
       <EconomyGraph {...props} />
+      <Population 
+      {...props}
+        title={"Population"}
+        data={props.cityData}/>
       <DescriptionBox
         {...props}
         title={"Population"}
