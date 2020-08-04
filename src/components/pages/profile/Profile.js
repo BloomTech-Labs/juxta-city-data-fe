@@ -11,6 +11,7 @@ import RecommendedComponent from "../../recomended/RecommendedComponent";
 import Favorites from "../../Favorites/Favorites.js";
 import { createUserContext } from "../../../functions";
 import UserContext from "../../../contexts/UserContext";
+import TestForm from "../../../components/pages/profile/TestForm"
 
 export default function Profile(props) {
   const [editing, setEditing] = useState(false);
@@ -37,7 +38,8 @@ export default function Profile(props) {
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           <Grid item xs={4}>
-            <ProfileInfo toggleEditing={toggleEditing} />
+            {/*<ProfileInfo toggleEditing={toggleEditing} />*/}
+            <TestForm/>
           </Grid>
           <AddProfile profileData={profileData} />
           {editing ? (

@@ -1,31 +1,106 @@
-import React from "react";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import SelectState from "./SelectState";
-import TextField from "@material-ui/core/TextField";
-import formStyles from "../profileStyles/formStyles";
+// import React from "react";
+// import ReactAnime from 'react-animejs'
+// //import Paper from "@material-ui/core/Paper";
+// //import Grid from "@material-ui/core/Grid";
+// import "./Profile.css";
+// import Button from "@material-ui/core/Button";
+// import SelectState from "./SelectState";
+// import TextField from "@material-ui/core/TextField";
+// import formStyles from "../profileStyles/formStyles";
 
-function ProfileInputs({ handleSubmit, addHandleChange}) {
-  const classes = formStyles();
+// function ProfileInputs({ handleSubmit, addHandleChange}) {
+//   const classes = formStyles();
 
-  return (
-    <Grid item xs={6}>
-      <Paper className={classes.paper}>
-        <form onSubmit={handleSubmit} className={classes.root}
-          noValidate autoComplete="off">
-          <TextField label="First Name" type="text" name="first_name" onChange={addHandleChange} />
-          <TextField label="Last Name" type="text" name="last_name" onChange={addHandleChange} />
-          <TextField label="Birthdate"type="date"name="dob" onChange={addHandleChange}
-            InputLabelProps={{shrink: true}} />
-          <TextField label="Address"type="text"name="address" onChange={addHandleChange} />
-          <TextField label="City" type="text" name="city" onChange={addHandleChange} />
-          <SelectState addHandleChange={addHandleChange} />
-          <TextField label="Zip code" type="number" name="zip" onChange={addHandleChange} />
-          <Button type="submit" variant="outlined" color="primary" className={classes.button}>Add profile</Button>
-        </form>
-      </Paper>
-    </Grid>
-  );
-}
-export default ProfileInputs;
+//   const {anime, stagger} = ReactAnime;
+
+// var current = null;
+// document.querySelector('#email').addEventListener('focus', function(e){
+//   if (current) current.pause();
+//   current = anime({
+//     targets: 'path',
+//     strokeDashoffset: {
+//       value: 0,
+//       duration: 700,
+//       easing: 'easeOutQuart'
+//     },
+//     strokeDasharray: {
+//       value: '240 1386',
+//       duration: 700,
+//       easing: 'easeOutQuart'
+//     }
+//   });
+// });
+// document.querySelector('#password').addEventListener('focus', function(e) {
+//   if (current) current.pause();
+//   current = anime({
+//     targets: 'path',
+//     strokeDashoffset: {
+//       value: -336,
+//       duration: 700,
+//       easing: 'easeOutQuart'
+//     },
+//     strokeDasharray: {
+//       value: '240 1386',
+//       duration: 700,
+//       easing: 'easeOutQuart'
+//     }
+//   });
+// });
+// document.querySelector('#submit').addEventListener('focus', function(e) {
+//   if (current) current.pause();
+//   current = anime({
+//     targets: 'path',
+//     strokeDashoffset: {
+//       value: -730,
+//       duration: 700,
+//       easing: 'easeOutQuart'
+//     },
+//     strokeDasharray: {
+//       value: '530 1386',
+//       duration: 700,
+//       easing: 'easeOutQuart'
+//     }
+//   });
+// });
+
+//   return (
+//     <div class="page">
+//       <div class="container">
+//         <div class="left">
+//           <div class="login">Login</div>
+//           <div class="eula">
+//             By logging in you agree to the ridiculously long terms that you
+//             didn't bother to read
+//           </div>
+//         </div>
+//         <div class="right">
+//           <svg viewBox="0 0 320 300">
+//             <defs>
+//               <linearGradient
+//                 inkscapeCollect="always"
+//                 id="linearGradient"
+//                 x1="13"
+//                 y1="193.49992"
+//                 x2="307"
+//                 y2="193.49992"
+//                 gradientUnits="userSpaceOnUse"
+//               >
+//                 <stop style="stop-color:#ff00ff;" offset="0" id="stop876" />
+//                 <stop style="stop-color:#ff0000;" offset="1" id="stop878" />
+//               </linearGradient>
+//             </defs>
+//             <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
+//           </svg>
+//           <div class="form">
+//             <label for="email">Email</label>
+//             <input type="email" id="email" />
+//             <label for="password">Password</label>
+//             <input type="password" id="password" />
+//             <input type="submit" id="submit" value="Submit" />
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+// export default ProfileInputs;
