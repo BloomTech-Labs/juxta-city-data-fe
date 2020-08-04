@@ -22,7 +22,7 @@ function SingleCityView(props) {
     } else if (!cityData.city && localStorage.getItem("cityName")) {
       const city = localStorage.getItem("cityName");
       getCityData(city).then((newCity) => {
-        console.log(newCity);
+        // console.log(newCity);
         setCityData(newCity);
       });
     }

@@ -13,10 +13,9 @@ const styles = makeStyles((theme) => ({
 }));
 export default function CityContent(props) {
   const classes = styles();
-  console.log(props.cityData, "city context here")
   return (
     <div className={classes.root}>
-      {/* <EconomyGraph {...props} cityData={props.cityData}/> */}
+      <EconomyGraph {...props} />
       <DescriptionBox
         {...props}
         title={"Population"}
