@@ -36,6 +36,7 @@ function SingleCityView(props) {
       < TabBar />
     <div className="city-content">
       <CityViewHeader {...props} cityData={cityData} />
+      <br/>
       <CityBody {...props} cityData={cityData} />
     </div>
     </div>

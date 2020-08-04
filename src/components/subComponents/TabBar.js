@@ -52,55 +52,82 @@
 //   );
 // }
 
-import React, { useState } from "react";
-import { Input, Menu } from "semantic-ui-react";
+import React, { useState } from 'react';
+import { Input, Menu, Icon } from 'semantic-ui-react';
 
 const TabBar = () => {
-
   const [activeItem, setValue] = useState({});
-  console.log(activeItem, "activeItem");
- 
+  console.log(activeItem, 'activeItem');
+
   const handleItemClick = (e, { name }) => {
     setValue({ activeItem: name });
     const ele = document.getElementById(name);
-    console.log(ele, "ele");
+    console.log(ele, 'ele');
     if (ele) {
       const offset = ele.offsetTop;
-      window.scrollTo(0, offset - 190);
+      window.scrollTo(0, offset - 200);
     }
   };
 
   return (
-    <div>
-      <Menu pointing className="container-menu-city">
-        <Menu.Item
-          name="Population"
-          onClick={handleItemClick}
-          active={activeItem === "Population"}
-        />
-        <Menu.Item
-          name="Climate"
-          onClick={handleItemClick}
-          active={activeItem === "Climate"}
-        />
-        <Menu.Item
-          name="Economy"
-          onClick={handleItemClick}
-          active={activeItem === "Economy"}
-        />
-        <Menu.Item
-          name="Cost of Living"
-          onClick={handleItemClick}
-          active={activeItem === "Cost of Living"}
-        />
-        <Menu.Item
-          name="Health Data"
-          onClick={handleItemClick}
-          active={activeItem === "Health Data"}
-        />
-        <Menu.Menu position="right">
+    <div className="tabbar">
+      <Menu
+        className='container-menu-city'
+        style={{ backgroundColor: '#2196F3' }}
+      >
+        <Menu
+        className='menu-city'
+          // pointing
+          // inverted
+          compact
+          icon='labeled'
+          style={{ backgroundColor: '#2196F3'}}
+        >
+          <Menu.Item
+            name='Population'
+            onClick={handleItemClick}
+            active={activeItem === 'Population'}
+          >
+            <Icon name='users' />
+            Population
+          </Menu.Item>
+          <Menu.Item
+            name='Climate'
+            onClick={handleItemClick}
+            active={activeItem === 'Climate'}
+          >
+            <Icon name='thermometer quarter' />
+            Climate
+          </Menu.Item>
+          <Menu.Item
+            name='Economy'
+            onClick={handleItemClick}
+            active={activeItem === 'Economy'}
+          >
+            <Icon name='line graph' />
+            Economy
+          </Menu.Item>
+          <Menu.Item
+            name='Cost of Living'
+            onClick={handleItemClick}
+            active={activeItem === 'Cost of Living'}
+          >
+            <Icon name='dollar sign' />
+            Cost of Living
+          </Menu.Item>
+          <Menu.Item
+            name='Health Data'
+            onClick={handleItemClick}
+            active={activeItem === 'Health Data'}
+          >
+            <Icon name='heart' />
+            Health Data
+          </Menu.Item>
+        </Menu>
+
+        <Menu.Menu position='right'>
           <Menu.Item>
-            <Input icon="search" placeholder="Search..." />
+            <Input icon='search' placeholder='Search...' />
           </Menu.Item>
         </Menu.Menu>
       </Menu>

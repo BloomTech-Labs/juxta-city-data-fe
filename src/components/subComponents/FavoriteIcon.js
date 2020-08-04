@@ -34,6 +34,6 @@ export default function FavoriteIcon(props) {
   };
   
   return (
-    <img className={props.class}src={favorited ? fullheart : emptyheart}onClick={handleClick}alt="heart icon"/>
+    <img className="heart-icon" src={favorited ? fullheart : emptyheart}onClick={handleClick}alt="heart icon"/>
   );
 };

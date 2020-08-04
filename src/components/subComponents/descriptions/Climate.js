@@ -1,5 +1,4 @@
 import React from "react";
-// import "../../city.css";
 import { Grid } from "semantic-ui-react";
 
 export default function Climate(props) {

@@ -52,6 +52,7 @@ h3 {
   text-align: center;
 }
 .city-content {
+  // margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,7 +65,25 @@ h3 {
 .container-menu-city {
   width: 100%;
   position: fixed;
-  top: 80;
-  color: red;
+  margin-bottom: 20px;
+  // top: 80;
   z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+.menu-city{
+  display: flex;
+  flex-wrap: wrap;
+}
+.tabbar{
+  padding-bottom: 90px;
+}
+.header-city{
+  display: flex;
+  flex-direction: row;
+  
+}
+.heart-icon{
+  width: 20px;
+  height:17px
 }

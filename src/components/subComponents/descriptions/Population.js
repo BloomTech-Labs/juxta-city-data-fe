@@ -1,5 +1,4 @@
 import React from "react";
-// import "../../city.css";
 import { Grid, Statistic } from "semantic-ui-react";
 
 export default function Population(props) {
