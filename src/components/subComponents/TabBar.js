@@ -120,7 +120,7 @@ const TabBar = () => {
             onClick={handleItemClick}
             active={activeItem === 'Health Data'}
           >
-            <Icon name='heart' />
+            <Icon name='heartbeat' />
             Health Data
           </Menu.Item>
         </Menu>
