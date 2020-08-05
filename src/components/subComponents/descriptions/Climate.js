@@ -1,39 +1,27 @@
 import React from 'react';
-import { Grid, Statistic } from 'semantic-ui-react';
+import { Statistic } from 'semantic-ui-react';
 
 export default function Climate(props) {
+  const climateData = [{ title: 'Cold Days', value: props.cityData.Coldday_Count },
+    { title: 'Rain Days ', value: props.cityData.Rainday_Count },
+    { title: 'Hot Days', value: props.cityData.Hotday_Count }];
+
   return (
-    <Grid columns='equal' id='box-container'>
-      <h2>Climate </h2>
-      <Grid.Row id={props.title.trim()}>
-        <Grid.Column>
-          <Statistic size='tiny'>
-            <h3>Air Quality </h3>
-            <Statistic.Value id='value'>{props.cityData.AQI}</Statistic.Value>
-          </Statistic>
-        </Grid.Column>
-        <Grid.Column>
-          <Statistic size='tiny'>
-            <h3>Cold Days </h3>
-            <Statistic.Value>{props.cityData.Coldday_Count}</Statistic.Value>
+    <div id='box-container'>
+      <h2>Climate</h2>
+      <Statistic.Group size='small' id={props.title.trim()}>
+        <Statistic>
+          <h3>Air Quality </h3>
+          <Statistic.Value id='value'>{props.cityData.AQI}</Statistic.Value>
+        </Statistic>
+        {climateData.map(item => (
+          <Statistic>
+            <h3>{item.title} </h3>
+            <Statistic.Value>{item.value}</Statistic.Value>
             <Statistic.Label>days</Statistic.Label>
           </Statistic>
-        </Grid.Column>
-        <Grid.Column>
-          <Statistic size='tiny'>
-            <h3>Rain Days </h3>
-            <Statistic.Value>{props.cityData.Rainday_Count}</Statistic.Value>
-            <Statistic.Label>days</Statistic.Label>
-          </Statistic>
-        </Grid.Column>
-        <Grid.Column>
-          <Statistic size='tiny'>
-            <h3>Hot Days </h3>
-            <Statistic.Value>{props.cityData.Hotday_Count}</Statistic.Value>
-            <Statistic.Label>days</Statistic.Label>
-          </Statistic>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+        ))}
+      </Statistic.Group>
+    </div>
   );
 }
