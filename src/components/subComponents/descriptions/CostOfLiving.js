@@ -5,7 +5,7 @@ import { Grid, Statistic } from 'semantic-ui-react';
 export default function CostOfLiving(props) {
   let hdti = Math.floor(props.cityData.HDTI * 100) / 100;
   return (
-    <Grid columns='equal' className='box-container'>
+    <Grid columns='equal' id='box-container'>
       <h2>Cost of living </h2>
       <Grid.Row id={props.title.trim()}>
         <Grid.Column>

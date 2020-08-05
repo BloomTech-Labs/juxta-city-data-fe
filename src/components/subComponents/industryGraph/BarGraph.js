@@ -13,8 +13,9 @@ import { renderCustomBarLabel, CustomTooltip } from './graphFunctions';
 
 const BarGraph = ({ arrOfIndustries }) => {
   return (
-    <ResponsiveContainer width={'99%'} height={400}>
-      <BarChart
+    <ResponsiveContainer id='box-container' width={'100%'} height={400}>
+      <BarChart 
+      style={{ fontSize: '20px' }}
         data={arrOfIndustries}
         margin={{
           top: 30,
@@ -24,8 +25,8 @@ const BarGraph = ({ arrOfIndustries }) => {
         }}
       >
         <CartesianGrid strokeDasharray='3 3' />
-        <XAxis dataKey='xlabel' angle={-35} textAnchor='end' />
-        <YAxis label={{ value: '%', angle: -90, position: 'insideLeft' }} />
+        <XAxis dataKey='xlabel' angle={-35} textAnchor='end' tick={{ fill: '#000' }}/>
+        <YAxis label={{ value: '%', angle: -90, position: 'insideLeft' }} tick={{ fill: '#000' }} />
         <Tooltip
           wrapperStyle={{
             width: 120,
@@ -40,7 +41,7 @@ const BarGraph = ({ arrOfIndustries }) => {
           }}
           content={<CustomTooltip />}
         />
-        <Legend verticalAlign='top' height={36} />
+        <Legend verticalAlign='top' height={36}/>
         <Bar dataKey='Industry' fill='#00CED1' label={renderCustomBarLabel} />
       </BarChart>
     </ResponsiveContainer>

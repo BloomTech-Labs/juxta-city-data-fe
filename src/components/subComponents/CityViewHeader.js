@@ -44,7 +44,7 @@ export default function CityViewHeader(props) {
       //   <div className={classes.root}>
           <div  className="header-city">
             <FavoriteIcon  cityData={props.cityData} {...props} />
-            <Header >{props.cityData.city}</Header>
+            <Header as='h1'>{props.cityData.city}</Header>
           </div>
       //   </div>
       // </>

@@ -20,7 +20,7 @@ export default function CityContent(props) {
   const classes = styles();
  
   return (
-    <div className={classes.root}>
+    <div className="desctiption-container">
       <Population {...props} title={"Population"} data={props.cityData} />
       <Climate {...props} title={"Climate"} data={props.cityData} />
       {/* <DescriptionBox

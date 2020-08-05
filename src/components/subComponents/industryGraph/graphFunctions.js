@@ -47,7 +47,7 @@ function CustomTooltip({ payload, label, active }) {
 }
 
 const renderCustomBarLabel = ({ x, y, width, value }) => {
-  return <text x={x + width / 2} y={y} fill='#666' dy={-6}>{`${value}%`}</text>;
+  return <text x={x + width / 2} y={y} fill='#000' dy={-6} >{`${value}%`}</text>;
 };
 
 export { convertStringToObject, renderCustomBarLabel, CustomTooltip };

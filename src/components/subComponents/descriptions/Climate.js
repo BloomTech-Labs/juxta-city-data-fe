@@ -3,7 +3,7 @@ import { Grid, Statistic } from 'semantic-ui-react';
 
 export default function Climate(props) {
   return (
-    <Grid columns='equal' className='box-container'>
+    <Grid columns='equal' id='box-container'>
       <h2>Climate </h2>
       <Grid.Row id={props.title.trim()}>
         <Grid.Column>
