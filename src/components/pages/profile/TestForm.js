@@ -101,22 +101,42 @@ function TestForm() {
           />
           {/*<path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />*/}
         </svg>
-        <form 
-          noValidate autoComplete="off">
-          <input label="First Name" type="text" name="first_name"  />
-          <input label="Last Name" type="text" name="last_name"  />
-          <input label="Birthdate"type="date"name="dob"
-            InputLabelProps={{shrink: true}} />
-          <input label="Address"type="text"name="address"  />
-          <input label="City" type="text" name="city"  />
+        <form noValidate autoComplete="off">
+          <label for="first_name">First Name</label>
+          <input
+            type="text"
+            class="input"
+            name="first_name"
+            onChange={addHandleChange}
+            aria-describedby="first_name"
+          />
+          <label for="last_name">Last Name</label>
+          <input
+            type="text"
+            class="input"
+            name="last_name"
+            onChange={addHandleChange}
+            aria-describedby="first_name"
+          />
+          <label for="dob">Date of Birth</label>
+          <input
+            type="date"
+            class="input"
+            name="dob"
+            InputLabelProps={{ shrink: true }}
+          />
+          <input label="Address" type="text" name="address" />
+          <input label="City" type="text" name="city" />
           <select>
-          <option value=""></option>
+            <option value=""></option>
           </select>
-          <input label="Zip code" type="number" name="zip"  />
-          <Button type="submit" variant="outlined" color="primary" >Add profile</Button>
+          <input label="Zip code" type="number" name="zip" />
+          <Button type="submit" variant="outlined" color="primary">
+            Add profile
+          </Button>
         </form>
-        </div>
-        </div>
+      </div>
+    </div>
   );
 }
 
