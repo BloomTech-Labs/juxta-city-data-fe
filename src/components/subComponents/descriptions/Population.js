@@ -5,7 +5,7 @@ export default function Population(props) {
   return ( 
   <div id='box-container'>
      <h2 >Population </h2>
-      <Statistic.Group size='small' id={props.title.trim()}> 
+      <Statistic.Group size='tiny' id={props.title.trim()}> 
      <Statistic className="card-stats"><h3 >Population </h3>
        <Statistic.Value>{props.data.population}</Statistic.Value>
        <Statistic.Label>People</Statistic.Label> <p>as of 2017</p>

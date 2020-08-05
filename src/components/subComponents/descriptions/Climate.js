@@ -9,13 +9,13 @@ export default function Climate(props) {
   return (
     <div id='box-container'>
       <h2>Climate</h2>
-      <Statistic.Group size='small' id={props.title.trim()}>
-        <Statistic>
+      <Statistic.Group size='tiny' id={props.title.trim()}>
+        <Statistic className="card-stats">
           <h3>Air Quality </h3>
           <Statistic.Value id='value'>{props.cityData.AQI}</Statistic.Value>
         </Statistic>
         {climateData.map(item => (
-          <Statistic>
+          <Statistic className="card-stats">
             <h3>{item.title} </h3>
             <Statistic.Value>{item.value}</Statistic.Value>
             <Statistic.Label>days</Statistic.Label>
