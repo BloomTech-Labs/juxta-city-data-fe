@@ -71,8 +71,8 @@ body {
 }
 .demensions{
   margin: auto;
-  width: 300px;
-  height: 534px;
+  width: 320px;
+  height: 603px;
   overflow: hidden;
   position: relative;
   background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
@@ -97,27 +97,29 @@ body {
 svg {
   position: absolute;
   width: 320px;
+  top: 54px;
 }
 path {
   fill: none;
   stroke: url(#linearGradient);;
   stroke-width: 4;
-  stroke-dasharray: 240 1386;
+  /* stroke-dasharray: 240 1386;*/
 }
 .form {
   margin: 40px;
   position: absolute;
 }
 
-label {
+.label {
   color:  #c2c2c5;
   display: block;
   font-size: 14px;
   height: 16px;
   margin-top: 20px;
+  text-align: center;
   margin-bottom: 5px;
 }
-input {
+.input {
   background: transparent;
   border: 0;
   color: #f2f2f2;
@@ -127,7 +129,7 @@ input {
   outline: none !important;
   width: 100%;
 }
-input::-moz-focus-inner { 
+.input::-moz-focus-inner { 
   border: 0; 
 }
 #submit {
@@ -140,4 +142,14 @@ input::-moz-focus-inner {
 }
 #submit:active {
   color: #d0d0d2;
+}
+.btn-transparent {
+    background: transparent;
+    border: 0;
+    color: #f2f2f2;
+    font-size: 20px;
+
+}
+.center{
+    text-align: center;
 }
