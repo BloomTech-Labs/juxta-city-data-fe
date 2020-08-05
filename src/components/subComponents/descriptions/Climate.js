@@ -14,8 +14,8 @@ export default function Climate(props) {
           <h3>Air Quality </h3>
           <Statistic.Value id='value'>{props.cityData.AQI}</Statistic.Value>
         </Statistic>
-        {climateData.map(item => (
-          <Statistic className="card-stats">
+        {climateData.map((item, index)=> (
+          <Statistic className="card-stats" key={index}>
             <h3>{item.title} </h3>
             <Statistic.Value>{item.value}</Statistic.Value>
             <Statistic.Label>days</Statistic.Label>

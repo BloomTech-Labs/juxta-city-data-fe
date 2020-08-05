@@ -3,7 +3,7 @@ import { Statistic } from 'semantic-ui-react';
 
 export default function CostOfLiving(props) {
 
-  let hdti = Math.floor(props.cityData.HDTI * 100) / 100
+  const hdti = Math.floor(props.cityData.HDTI * 100) / 100
 
   return (
     <div id='box-container'>

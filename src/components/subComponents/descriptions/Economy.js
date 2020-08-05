@@ -12,13 +12,13 @@ export default function EconomyBox(props) {
     <div id='box-container'>
       <h2>Economy </h2>
         <Statistic.Group size='tiny' id={props.title.trim()}> 
-          {incomeData.slice(0, 2).map((item)=>(
-            <Statistic className="card-stats"><h3>{item.title}</h3>
+          {incomeData.slice(0, 2).map((item, index)=>(
+            <Statistic className="card-stats" key={index}><h3>{item.title}</h3>
               <Statistic.Value> ${item.value}</Statistic.Value>
               <Statistic.Label>per year</Statistic.Label> </Statistic>))}
 
-          {incomeData.slice(2, 4).map((item)=>(
-            <Statistic className="card-stats"> <h3>{item.rate}</h3>
+          {incomeData.slice(2, 4).map((item, index)=>(
+            <Statistic className="card-stats" key={index}> <h3>{item.rate}</h3>
               <Statistic.Value>{item.percentage} % </Statistic.Value> </Statistic> ))}
           
           {props.data.Crime_rate === 'No Data Available' ? null : (

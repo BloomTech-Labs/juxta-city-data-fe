@@ -13,12 +13,12 @@ const TabItems =({activeItem, handleItemClick})=>{
 
     return (
         <Menu className='menu-city'compact icon='labeled'style={{ backgroundColor: '#2196F3' }}>
-        {tabData.map(item => (
+        {tabData.map((item, index) => (
           <Menu.Item
+            key={index}
             name={item.name}
             onClick={handleItemClick}
-            active={activeItem === item.name}
-          >
+            active={activeItem === item.name} >
             <Icon aria-hidden='false' name={item.icon} />
             {item.name}
           </Menu.Item>
