@@ -88,7 +88,7 @@ const TabBar = () => {
             onClick={handleItemClick}
             active={activeItem === 'Population'}
           >
-            <Icon name='users' />
+            <Icon aria-hidden="false" name='users' />
             Population
           </Menu.Item>
           <Menu.Item
@@ -96,7 +96,7 @@ const TabBar = () => {
             onClick={handleItemClick}
             active={activeItem === 'Climate'}
           >
-            <Icon name='thermometer quarter' />
+            <Icon aria-hidden="false" name='thermometer quarter' />
             Climate
           </Menu.Item>
           <Menu.Item
@@ -104,7 +104,7 @@ const TabBar = () => {
             onClick={handleItemClick}
             active={activeItem === 'Economy'}
           >
-            <Icon name='line graph' />
+            <Icon aria-hidden="false" name='line graph' />
             Economy
           </Menu.Item>
           <Menu.Item
@@ -112,7 +112,7 @@ const TabBar = () => {
             onClick={handleItemClick}
             active={activeItem === 'Cost of Living'}
           >
-            <Icon name='dollar sign' />
+            <Icon aria-hidden="false" name='dollar sign' />
             Cost of Living
           </Menu.Item>
           <Menu.Item
@@ -120,7 +120,7 @@ const TabBar = () => {
             onClick={handleItemClick}
             active={activeItem === 'Health Data'}
           >
-            <Icon name='heartbeat' />
+            <Icon aria-hidden="false" name='heartbeat' />
             Health Data
           </Menu.Item>
         </Menu>

@@ -11,7 +11,7 @@ const Health = props => (
       </Header.Subheader>
       <Button aria-hidden="false"
         style={{ backgroundColor: '#1890FF', color: 'black' }}
-        as='a'target='blank'
+        as='a' target='blank'
         href='https://findyourcity.herokuapp.com'> View Map
         <Icon
           name='long arrow alternate right'
