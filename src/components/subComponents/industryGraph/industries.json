@@ -1,0 +1,36 @@
+[
+  { "Health care ": "Health" },
+  { "Professional, scientific, technical services ": "Tech" },
+  { "Educational services ": "Education" },
+  { "Accommodation & food services ": "Food" },
+  { "Construction ": "Construction" },
+  { "Chemicals ": "Chemicals" },
+  { "Administrative & support & waste management services ": "Maintenance" },
+  { "Public administration ": "Public admin" },
+  { "Transportation equipment ": "Transportation" },
+  { "Publishing, motion picture & sound recording industries ": "Publishing" },
+  { "Food & beverage stores ": "Stores" },
+  { "Social assistance ": "Assistance" },
+  { "Finance & insurance ": "Finance" },
+  { "Metal & metal products ": "Metal" },
+  { "Utilities ": "Utilities" },
+  { "Computer & electronic products ": "Electronics" },
+  { "Truck transportation ": "Transportation" },
+  { "Mining, quarrying, oil & gas extraction ": "Extraction" },
+  { "Department & other general merchandise stores ": "Merchandise" },
+  { "Air transportation ": "Transportation" },
+  { "Textile mills & textile products ": "Textile" },
+  { "Agriculture, forestry, fishing & hunting ": "Agriculture" },
+  { "Apparel ": "Apparel" },
+  { "Repair & maintenance ": "Maintenance" },
+  { "Food ": "Food" },
+  { "Paper ": "Paper" },
+  { "Broadcasting & telecommunications ": "Broadcasting" },
+
+  {
+    "Used merchandise, gift, novelty, souvenir, other miscellaneous stores ": "Miscellaneous"
+  },
+  { "Data processing, libraries, other information services ": "Information" },
+  { "Arts, entertainment, recreation ": "Art" },
+  { "Real estate & rental & leasing ": "Estate" }
+]

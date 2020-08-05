@@ -1,4 +1,5 @@
 import React from 'react';
+import * as industryData from "./industries.json"
 
 const convertStringToObject = arr => {
   let keyValueArray = [];
@@ -57,45 +58,12 @@ const changeKeyNames = obj => {
     let xlabel;
     function shortenIndustryName(keyName) {
       let translation = [];
-
-      translation['Health care '] = 'Health';
-      translation['Professional, scientific, technical services '] = 'Tech';
-      translation['Educational services '] = 'Education';
-      translation['Accommodation & food services '] = 'Food';
-      translation['Construction '] = 'Construction';
-      translation['Chemicals '] = 'Chemicals';
-      translation['Administrative & support & waste management services '] =
-        'Maintenance';
-      translation['Public administration '] = 'Public admin';
-      translation['Transportation equipment '] = 'Transportation';
-      translation['Publishing, motion picture & sound recording industries '] =
-        'Publishing';
-      translation['Food & beverage stores '] = 'Stores';
-      translation['Social assistance '] = 'Assistance';
-      translation['Finance & insurance '] = 'Finance';
-      translation['Metal & metal products '] = 'Metal';
-      translation['Utilities '] = 'Utilities';
-      translation['Computer & electronic products '] = 'Electronics';
-      translation['Truck transportation '] = 'Transportation';
-      translation['Mining, quarrying, oil & gas extraction '] = 'Extraction';
-      translation['Department & other general merchandise stores '] =
-        'Merchandise';
-      translation['Air transportation '] = 'Transportation';
-      translation['Textile mills & textile products '] = 'Textile';
-      translation['Agriculture, forestry, fishing & hunting '] = 'Agriculture';
-      translation['Apparel '] = 'Apparel';
-      translation['Repair & maintenance '] = 'Maintenance';
-      translation['Food '] = 'Food';
-      translation['Paper '] = 'Paper';
-      translation['Broadcasting & telecommunications '] = 'Broadcasting';
-      translation[
-        'Used merchandise, gift, novelty, souvenir, other miscellaneous stores '
-      ] = 'Miscellaneous';
-      translation['Data processing, libraries, other information services '] =
-        'Information';
-      translation['Arts, entertainment, recreation '] = 'Art';
-      translation['Real estate & rental & leasing '] = 'Estate';
-
+     
+      industryData.default.map((item)=> {
+        let key =Object.keys(item)
+        translation[key] = Object.values(item);
+        })
+     
       xlabel = translation[keyName];
     }
 
