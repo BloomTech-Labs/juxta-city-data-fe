@@ -118,12 +118,15 @@ function TestForm() {
             onChange={addHandleChange}
             aria-describedby="first_name"
           />
-          <label for="dob">Date of Birth</label>
+          <label for="dob">Date of birth</label>
           <input
+            class=" input datepicker"
+            id="dob"
+            placeholder="Your B-DAY!"
             type="date"
-            class="input"
             name="dob"
-            InputLabelProps={{ shrink: true }}
+            onChange={addHandleChange}
+            aria-label="date of birth"
           />
           <input label="Address" type="text" name="address" />
           <input label="City" type="text" name="city" />
