@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import NavBar from "../../Navbar.js";
-import ProfileInfo from "./ProfileInfo";
+//import ProfileInfo from "./ProfileInfo";
 import AddProfile from "./AddProfile.js";
 import EditUser from "./EditUser";
 import Container from "@material-ui/core/Container";
