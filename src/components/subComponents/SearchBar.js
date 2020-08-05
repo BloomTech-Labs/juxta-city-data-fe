@@ -23,21 +23,6 @@ const Form = styled.form`
   justify-content: center;
 `;
 
-// const Button = styled.button`
-//   border: 0px;
-//   background: white;
-//   width: 45px;
-//   height: 30px;
-//   background: #8bc34a;
-//   color: white;
-//   display: flex;
-//   justify-content: center;
-//   :hover {
-//     border: 1px solid white;
-//     cursor: pointer;
-//   }
-// `;
-
 const CityDropDown = styled.div`
   z-index: 2;
   height: 0;
@@ -103,10 +88,6 @@ const SearchBar = () => {
         results='5'
         style={search ? searchBorderRadius : null}
       />
-
-      {/* <Button type='submit'>
-        <SearchIcon />
-      </Button> */}
       <CityDropDown>
         {cities.length === 0 && search !== '' && search.split('').length > 2 ? (
           <City>No Matches Found...</City>

@@ -1,39 +1,42 @@
-import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { GridList } from "@material-ui/core";
-import { GridListTile } from "@material-ui/core";
-import { GridListTileBar } from "@material-ui/core";
-import CityContext from "../../contexts/CityContext";
-import { getCityData } from "../../functions";
-import { useStyles } from "./styles/MarialUIGridListStyles";
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import CityContext from '../../contexts/CityContext';
+import { getCityData } from '../../functions';
+import BestCityCard from './BestCityCard';
+import { CityImageContainer } from './styles/BestCitiesStyles';
 
 const MaterialUiGridList = (props) => {
-  const classes = useStyles();
-  const gridList = props.gridList.splice(Math.floor(Math.random()*props.gridList.length),4)
-  
   const { setCityData } = useContext(CityContext);
   const history = useHistory();
 
+  function randomCity(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
+  const randomCities = randomCity(props.gridList).splice(0, 8);
+
+  console.log('test', props.gridList);
+
   function handleClick(city) {
-    getCityData(city).then((city) => { setCityData(city);
-      localStorage.setItem("cityName", city.city);
-      history.push("/cityview");
-    })}
+    getCityData(city).then((city) => {
+      setCityData(city);
+      localStorage.setItem('cityName', city.city);
+      history.push('/cityview');
+    });
+  }
 
   return (
-    <div className={classes.root}>
-      <GridList cols={props.mobile ? 1.5 : 4} className={classes.gridList}>
-        {gridList.map((tile) => (
-          <GridListTile  key={tile.city} data-testid="grid-tile"
-            onClick={() => handleClick(tile.city)}
-            className={classes.gridTile}>
-            <img src={tile.photo_url} alt={tile.city} className={props.hover} />
-            <GridListTileBar key={tile.city} title={`${tile.city}`}
-              titlePosition="top" className={props.titleBar} />
-          </GridListTile>
-        ))}
-      </GridList>
-    </div>
+    <CityImageContainer data-testid='grid-tile'>
+      {randomCities.map((tile) => (
+        <BestCityCard key={tile.city} cities={tile} handleClick={handleClick} />
+      ))}
+    </CityImageContainer>
   );
 };
 
