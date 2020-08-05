@@ -13,13 +13,13 @@ import { renderCustomBarLabel, CustomTooltip } from './graphFunctions';
 
 const BarGraph = ({ arrOfIndustries }) => {
   return (
-    <ResponsiveContainer id='box-container' width={'100%'} height={400}>
+    <ResponsiveContainer id="graph-container" width={'98%'} height={500}>
       <BarChart 
       style={{ fontSize: '20px' }}
         data={arrOfIndustries}
         margin={{
           top: 30,
-          right: 0,
+          right: 40,
           left: 0,
           bottom: 60,
         }}
@@ -41,7 +41,7 @@ const BarGraph = ({ arrOfIndustries }) => {
           }}
           content={<CustomTooltip />}
         />
-        <Legend verticalAlign='top' height={36}/>
+        <Legend  verticalAlign="top"  height={36}/>
         <Bar dataKey='Industry' fill='#00CED1' label={renderCustomBarLabel} />
       </BarChart>
     </ResponsiveContainer>
