@@ -23,13 +23,22 @@ p {
   color: rgba(33, 33, 33, 0.75);
 }
 #box-container {
-  border: 1px black solid;
+  // border: 1px black solid;
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 3%;
-  margin: 1% 0;
+  
+  
+  .card-stats{
+    border: 1% #e0e0e0 solid;
+    border-radius: 5%;
+    background-color:white;
+    box-shadow: 0px 3px 3px 0px rgba(211,211,211, 0.9);
+    padding: 3%;
+    margin: 1% 0;
+    width:250px;
+    height:250px;
+  }
 }
 // .box-properties {
 //   /* border:1px black solid; */
@@ -57,10 +66,11 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('./assets/sanfrancisco.jpeg');
+  // background-image: url('./assets/sanfrancisco.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: rgba(255, 255, 255, 0.0);
+  // background-color:rgb(214, 212, 212);
+  background-color:#f8f8f8;
   background-blend-mode: lighten;
 }
 .tabs {
