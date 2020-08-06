@@ -16,7 +16,7 @@ const TabBar = () => {
 
   return (
     <div className='tabbar'>
-      <Menu className='container-menu-city' style={{ backgroundColor: '#2196F3' }} >
+      <Menu className='container-menu-city'  >
         <TabItems handleItemClick={handleItemClick}  activeItem={activeItem} />
         <Menu.Menu position='right'>
           <Menu.Item>

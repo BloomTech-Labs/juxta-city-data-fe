@@ -26,9 +26,9 @@ const BarGraph = ({ arrOfIndustries }) => {
           wrapperStyle={{
             width: 120,
             backgroundColor: 'rgb(248,255,255,0.9)',
-            border: '1px solid #00CED1',
+            border: '1px solid #2196F3',
             borderRadius: 3,
-            fontSize: '15px',
+            fontSize: '17px',
             fontWeight: 'bold',
             overflow: 'hidden',
             lineHeight: '15px',
@@ -37,7 +37,7 @@ const BarGraph = ({ arrOfIndustries }) => {
           content={<CustomTooltip />}
         />
         <Legend  verticalAlign="top"  height={36}/>
-        <Bar dataKey='Industry' fill='#00CED1' label={renderCustomBarLabel} />
+        <Bar dataKey='Industry' fill='#2196F3' label={renderCustomBarLabel} />
       </BarChart>
     </ResponsiveContainer>
   );
