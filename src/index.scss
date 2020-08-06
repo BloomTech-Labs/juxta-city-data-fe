@@ -59,7 +59,7 @@ p {
         width: 100%;
         display: flex;
         flex-direction: row;
-        flex-wrap:wrap;
+        flex-wrap: wrap;
         justify-content: center;
       }
       .card-stats {
@@ -70,6 +70,12 @@ p {
         margin: 2% 3%;
         width: 250px;
         height: 210px;
+        padding: 2%;
+        img{
+          width:40%;
+          height:40%;
+          margin:0 auto;
+        }
         h3 {
           color: #767676;
           // text-decoration: underline;
@@ -104,6 +110,3 @@ p {
     }
   }
 }
-
-
-
