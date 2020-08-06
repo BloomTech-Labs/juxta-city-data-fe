@@ -48,12 +48,12 @@ function TestForm({ handleSubmit, addHandleChange }) {
     current = anime({
       targets: "path",
       strokeDashoffset: {
-        value: -730,
+        value: -2421,
         duration: 700,
         easing: "easeOutQuart",
       },
       strokeDasharray: {
-        value: "530 1386",
+        value: "522 3000",
         duration: 700,
         easing: "easeOutQuart",
       },
@@ -116,8 +116,8 @@ function TestForm({ handleSubmit, addHandleChange }) {
             type="text"
             class="input"
             name="first_name"
-            data-strokedashoffset="-730"
-            data-strokedasharray="530 1386"
+            data-strokedashoffset="0"
+            data-strokedasharray="240 3000"
             onFocus={handleTextFocus}
             aria-describedby="first_name"
           />
@@ -128,8 +128,8 @@ function TestForm({ handleSubmit, addHandleChange }) {
             type="text"
             class="input"
             name="last_name"
-            data-strokedashoffset="-1730"
-            data-strokedasharray="530 1386"
+            data-strokedashoffset="-331"
+            data-strokedasharray="240 3000"
             onFocus={handleTextFocus}
             aria-describedby="first_name"
           />
@@ -142,39 +142,50 @@ function TestForm({ handleSubmit, addHandleChange }) {
             placeholder="Your B-DAY!"
             type="date"
             name="dob"
+            data-strokedashoffset="-686"
+            data-strokedasharray="240 3000"
+            onFocus={handleTextFocus}
             onChange={addHandleChange}
             aria-label="date of birth"
           />
-          <div class="form-group mb-3">
-            <label className="label" for="address">
-              Address
-            </label>
-            <input
-              type="text"
-              class="input"
-              name="address"
-              onChange={addHandleChange}
-              aria-describedby="address"
-            />
-          </div>
-          <div>
-            <label className="label" for="city">
-              City
-            </label>
-            <input
-              type="text"
-              class="input"
-              name="city"
-              onChange={addHandleChange}
-              aria-describedby="city"
-            />
-          </div>
+
+          <label className="label" for="address">
+            Address
+          </label>
+          <input
+            type="text"
+            class="input"
+            name="address"
+            data-strokedashoffset="-1012"
+            data-strokedasharray="240 3000"
+            onFocus={handleTextFocus}
+            onChange={addHandleChange}
+            aria-describedby="address"
+          />
+
+          <label className="label" for="city">
+            City
+          </label>
+          <input
+            type="text"
+            class="input"
+            name="city"
+            data-strokedashoffset="-1367"
+            data-strokedasharray="240 3000"
+            onFocus={handleTextFocus}
+            onChange={addHandleChange}
+            aria-describedby="city"
+          />
+
           <div>
             <label className="label" for="inlineFormCustomSelectPref">
               State
             </label>
             <select
-              class="input custom-select my-1 mr-sm-2"
+              data-strokedashoffset="-1696"
+              data-strokedasharray="240 3000"
+              onFocus={handleTextFocus}
+              class="input"
               id="inlineFormCustomSelectPref"
             >
               <option selected>Choose...</option>
@@ -239,12 +250,19 @@ function TestForm({ handleSubmit, addHandleChange }) {
               type="number"
               class="input"
               name="zip"
+              data-strokedashoffset="-2040"
+              data-strokedasharray="240 3000"
+              onFocus={handleTextFocus}
               onChange={addHandleChange}
             />
           </div>
 
-          <div className="center" style={{marginTop: "40px"}}>
-            <button type="submit" className="btn-transparent ">
+          <div className="center" style={{ marginTop: "40px" }}>
+            <button
+              type="submit"
+              onFocus={handleSubmitFocus}
+              className="btn-transparent "
+            >
               Add Profile
             </button>
           </div>
