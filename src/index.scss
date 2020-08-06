@@ -1,17 +1,17 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-@import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 
 h1,
 h2,
@@ -22,57 +22,8 @@ h4 {
 p {
   color: rgba(33, 33, 33, 0.75);
 }
-#box-container {
-  // border: 1px black solid;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin: 1% 0;
-  
-  .card-stats{
-    border: 1% #e0e0e0 solid;
-    border-radius: 5%;
-    background-color:white;
-    box-shadow: 0px 3px 3px 0px rgba(211,211,211, 0.9);
-    padding: 3%;
-    margin: 1% 0;
-    width:250px;
-    height:210px;
-    h3 {
-      color: #767676;
-      // text-decoration: underline;
-    }
-  }
-}
-#graph-container{
-  width:100%;
-  // height:800px;
-  border: 1% #e0e0e0 solid;
-  border-radius: 2%;
-  background-color:white;
-  box-shadow: 0px 3px 3px 0px rgba(211,211,211, 0.9);
-  padding-bottom: 3%;
-  margin: 2% 0;
-}
-// .box-properties {
-//   /* border:1px black solid; */
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-between;
-//    background-color: bisque; 
-// }
-// .box {
-//   border: 1px rgb(85, 163, 115) solid;
-//   width: 100%;
-//   text-align: center;
-//   background-color: cadetblue; 
-//   margin: 10px;
-//   line-height: normal;
-// }
 
-.h5 {
-  text-align: center;
-}
+// city view page extra style
 .city-content {
   display: flex;
   flex-direction: column;
@@ -81,45 +32,74 @@ p {
   background-size: cover;
   background-repeat: no-repeat;
   // background-color:rgb(214, 212, 212);
-  background-color:#f8f8f8;
+  background-color: #f8f8f8;
   background-blend-mode: lighten;
+  .header-city {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .heart-icon {
+      width: 30px;
+      height: 27px;
+    }
+  }
+  .desctiption-container {
+    margin-bottom: 6%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    #box-container {
+      // border: 1px black solid;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin: 1% 0;
+      .statistics {
+        justify-content: space-around;
+      }
+      .card-stats {
+        border: 1% #e0e0e0 solid;
+        border-radius: 5%;
+        background-color: white;
+        box-shadow: 0px 3px 3px 0px rgba(211, 211, 211, 0.9);
+        padding: 3%;
+        margin: 1% 0;
+        width: 250px;
+        height: 210px;
+        h3 {
+          color: #767676;
+          // text-decoration: underline;
+        }
+      }
+    }
+    #graph-container {
+      width: 100%;
+      border: 1% #e0e0e0 solid;
+      border-radius: 2%;
+      background-color: white;
+      box-shadow: 0px 3px 3px 0px rgba(211, 211, 211, 0.9);
+      padding-bottom: 3%;
+      margin: 2% 0;
+    }
+  }
 }
-.tabs {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.container-menu-city {
-  width: 100%;
-  position: fixed;
-  // margin-bottom: 20px;
-  // top: 80;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-}
-.menu-city{
-  display: flex;
-  flex-wrap: wrap;
-}
-.tabbar{
+
+.tabbar {
   padding-bottom: 5.3%;
+  .container-menu-city {
+    width: 100%;
+    position: fixed;
+    // margin-bottom: 20px;
+    // top: 80;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    .menu-city {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
 }
-.header-city{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.heart-icon{
-  width: 30px;
-  height:27px
-}
-.desctiption-container{
-  margin-bottom: 6%;
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-}
-.statistics {
-  justify-content: space-evenly;
-}
+
+
+
