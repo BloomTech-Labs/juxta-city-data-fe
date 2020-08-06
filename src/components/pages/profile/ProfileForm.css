@@ -71,7 +71,7 @@ body {
 }
 .demensions{
   margin: auto;
-  width: 320px;
+  width: 350px;
   height: 603px;
   overflow: hidden;
   position: relative;
@@ -103,7 +103,7 @@ path {
   fill: none;
   stroke: url(#linearGradient);;
   stroke-width: 4;
-  /* stroke-dasharray: 240 1386;*/
+  stroke-dasharray: 240 3000;
 }
 .form {
   margin: 40px;
@@ -111,9 +111,9 @@ path {
 }
 
 .label {
-  color:  #c2c2c5;
+  color:  #fefeff;
   display: block;
-  font-size: 14px;
+  font-size: 20px;
   height: 16px;
   margin-top: 20px;
   text-align: center;
@@ -122,11 +122,12 @@ path {
 .input {
   background: transparent;
   border: 0;
+  border-radius: 10%;
   color: #f2f2f2;
-  font-size: 20px;
+  font-size: 18px;
   height: 30px;
   line-height: 30px;
-  outline: none !important;
+  outline: white !important;
   width: 100%;
 }
 .input::-moz-focus-inner { 
@@ -134,7 +135,7 @@ path {
 }
 #submit {
   color: #707075;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   transition: color 300ms;
 }
 #submit:focus {
@@ -143,11 +144,13 @@ path {
 #submit:active {
   color: #d0d0d2;
 }
-.btn-transparent {
+.btn {
     background: transparent;
     border: 0;
     color: #f2f2f2;
+    transition: color 300ms;
     font-size: 20px;
+   
 
 }
 .center{
