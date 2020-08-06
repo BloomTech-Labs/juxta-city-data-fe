@@ -15,14 +15,9 @@ const BarGraph = ({ arrOfIndustries }) => {
   return (
     <ResponsiveContainer id="graph-container" width={'98%'} height={500}>
       <BarChart 
-      style={{ fontSize: '20px' }}
+        style={{ fontSize: '20px' }}
         data={arrOfIndustries}
-        margin={{
-          top: 30,
-          right: 40,
-          left: 0,
-          bottom: 60,
-        }}
+        margin={{ top: 30, right: 40, left: 0, bottom: 60, }}
       >
         <CartesianGrid strokeDasharray='3 3' />
         <XAxis dataKey='xlabel' angle={-35} textAnchor='end' tick={{ fill: '#000' }}/>

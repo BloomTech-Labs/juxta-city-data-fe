@@ -9,13 +9,15 @@ const Health = props => (
         Take a look at our interactive map on heart disease by United States
         county
       </Header.Subheader>
-      <Button aria-hidden="false"
+      <Button
+        aria-hidden='false'
         style={{ backgroundColor: '#1890FF', color: 'black' }}
-        as='a' target='blank'
-        href='https://findyourcity.herokuapp.com'> View Map
-        <Icon
-          name='long arrow alternate right'
-          aria-hidden="false"/>
+        as='a'
+        target='blank'
+        href='https://findyourcity.herokuapp.com'
+      >
+        View Map
+        <Icon name='long arrow alternate right' aria-hidden='false' />
       </Button>
     </Header>
   </div>

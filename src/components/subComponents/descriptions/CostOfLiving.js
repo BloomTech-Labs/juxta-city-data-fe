@@ -9,6 +9,7 @@ export default function CostOfLiving(props) {
     <div id='box-container'>
       <h2>Cost of living </h2>
       <Statistic.Group size='tiny' id={props.title.trim()}>
+        
         <Statistic className="card-stats"><h3>Cost of living score</h3>
           <Statistic.Value >{props.cityData.Cost_of_Living_Index}</Statistic.Value>
         </Statistic>

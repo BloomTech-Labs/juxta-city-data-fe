@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Menu, Icon } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 import SearchBar from './SearchBar';
 import TabItems from './TabItems';
 
@@ -20,8 +20,7 @@ const TabBar = () => {
         <TabItems handleItemClick={handleItemClick}  activeItem={activeItem} />
         <Menu.Menu position='right'>
           <Menu.Item>
-            {/* <SearchBar /> */}
-            {/* <Input icon='search' placeholder='Search...' /> */}
+            <SearchBar />
           </Menu.Item>
         </Menu.Menu>
       </Menu>

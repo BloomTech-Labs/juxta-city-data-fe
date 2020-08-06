@@ -14,11 +14,13 @@ export default function Climate(props) {
     <div id='box-container'>
       <h2>Climate</h2>
       <Statistic.Group size='tiny' id={props.title.trim()}>
+
         <Statistic className="card-stats">
           <h3>Air Quality </h3>
           <Statistic.Value id='value'>{props.cityData.AQI}</Statistic.Value>
           <img alt="Air Quality ilustration" style ={{width:"70%",height: "50%", margin: "0 auto" }}src={airindex} ></img>
         </Statistic>
+
         {climateData.map((item, index)=> (
           <Statistic className="card-stats" key={index}>
             <h3>{item.title} </h3>
@@ -26,6 +28,7 @@ export default function Climate(props) {
             <Statistic.Label>days</Statistic.Label> <img alt={item.title+" ilustration"} style ={{width:"60%",height: "60%", margin: "0 auto" }}src={item.img} ></img>
           </Statistic>
         ))}
+        
       </Statistic.Group>
     </div>
   );

@@ -12,6 +12,7 @@ export default function EconomyBox(props) {
     <div id='box-container'>
       <h2>Economy </h2>
         <Statistic.Group size='tiny' id={props.title.trim()}> 
+
           {incomeData.slice(0, 2).map((item, index)=>(
             <Statistic className="card-stats" key={index}><h3>{item.title}</h3>
               <Statistic.Value> ${item.value}</Statistic.Value>
@@ -25,6 +26,7 @@ export default function EconomyBox(props) {
               <Statistic className="card-stats"><h3>Crime Rate</h3>
                 <Statistic.Value>{props.data.Crime_rate} </Statistic.Value>
               </Statistic>)}
+              
       </Statistic.Group>
    </div>
   );

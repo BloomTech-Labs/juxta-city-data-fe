@@ -1,10 +1,9 @@
 import React from 'react';
-import * as industryData from "./industries.json"
+import * as industryData from './industries.json';
 
 const convertStringToObject = arr => {
   let keyValueArray = [];
   let arrOfKeyValueArrays = [];
-
 
   arr.map(element => {
     element.split("'").map(item => {
@@ -50,7 +49,7 @@ function CustomTooltip({ payload, label, active }) {
 const renderCustomBarLabel = ({ x, y, width, value }) => {
   return <text x={x + width / 2} y={y} fill='#000' dy={-6}>{`${value}%`}</text>;
 };
-
+// This function transforms a string into a object
 const changeKeyNames = obj => {
   let arrOfIndustries = [];
 
@@ -58,12 +57,12 @@ const changeKeyNames = obj => {
     let xlabel;
     function shortenIndustryName(keyName) {
       let translation = [];
-     
-      industryData.default.map((item)=> {
-        let key =Object.keys(item)
+
+      industryData.default.map(item => {
+        let key = Object.keys(item);
         translation[key] = Object.values(item);
-        })
-     
+      });
+
       xlabel = translation[keyName];
     }
 

@@ -1,7 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import CityContent from "../CityContent.js";
-import TabBar from "../TabBar.js";
+import { render} from "@testing-library/react";
 import CityBody from "../CityBody.js";
 
 it("should render four description boxes with data from props", () => {
