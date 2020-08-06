@@ -26,6 +26,6 @@ it('renders heading and search bar', () => {
   );
 
   expect(getByText(/find the perfect/i)).toBeInTheDocument();
-  expect(getByPlaceholderText(/search for a city/i)).toBeInTheDocument();
+  expect(getByPlaceholderText(/Search/i)).toBeInTheDocument();
 
 });

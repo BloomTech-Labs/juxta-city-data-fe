@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
-import CityContext from '../../../contexts/CityContext';
+import React from 'react';
 import { convertStringToObject, changeKeyNames } from './graphFunctions';
 import BarGraph from './BarGraph';
 
-function EconomyGraph() {
-  const { cityData } = useContext(CityContext);
+function EconomyGraph({cityData}) {
+  
 
   const economyDataString = cityData.Most_Common_Industries;
   // save the data to the local storage and then we get it from there and use

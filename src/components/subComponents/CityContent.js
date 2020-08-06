@@ -1,24 +1,24 @@
 import React from "react";
-import DescriptionBox from "./DescriptionBox.js";
-import { makeStyles } from "@material-ui/core/styles";
+// import DescriptionBox from "./DescriptionBox.js";
+// import { makeStyles } from "@material-ui/core/styles";
 import EconomyGraph from "./industryGraph/EconomyGraph.js";
 import Population from "./descriptions/Population";
 import Climate from "./descriptions/Climate";
 import Economy from "./descriptions/Economy";
 import CostOfLiving from "./descriptions/CostOfLiving";
 import Health from "./descriptions/Health";
-const styles = makeStyles((theme) => ({
-  root: {
-    width: "50%",
-    [theme.breakpoints.down("sm")]: {
-      width: "90%",
-    },
-    marginBottom:"10%"
-  },
-}));
+// const styles = makeStyles((theme) => ({
+//   root: {
+//     width: "50%",
+//     [theme.breakpoints.down("sm")]: {
+//       width: "90%",
+//     },
+//     marginBottom:"10%"
+//   },
+// }));
 export default function CityContent(props) {
-  const classes = styles();
- 
+  // const classes = styles();
+
   return (
     <div className="desctiption-container">
       <Population {...props} title={"Population"} data={props.cityData} />
@@ -39,7 +39,7 @@ export default function CityContent(props) {
         data={props.cityData}
       />
       {((props.cityData.Most_Common_Industries) ==="No Data Available")? (null):( 
-        <EconomyGraph {...props} />
+        <EconomyGraph {...props} cityData={props.cityData}/>
     )}
       {/* <DescriptionBox
         {...props}
