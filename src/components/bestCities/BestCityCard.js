@@ -2,12 +2,13 @@ import React from 'react';
 import { CityCard } from './styles/BestCitiesStyles';
 import '../../App.css';
 
-const BestCityCard = ({ cities, handleClick }) => {
-  const { city, photo_url } = cities;
+const BestCityCard = (props) => {
   return (
-    <CityCard onClick={() => handleClick(city)}>
-      <img src={photo_url} alt='' />
-      <h3>{city}</h3>
+    <CityCard
+      data-testid='city-card'
+      onClick={() => props.handleClick(props.cities.city)}>
+      <img src={props.cities.photo_url} alt='' />
+      <h3>{props.cities.city}</h3>
     </CityCard>
   );
 };
