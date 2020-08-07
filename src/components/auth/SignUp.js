@@ -8,7 +8,7 @@ const initialState = {
   password: "",
 };
 
-export default function SignUp({ history }) {
+export default function SignUp(props) {
   const [form, setForm] = useState(initialState);
 
   const signUpChange = (e) => {
@@ -19,7 +19,7 @@ export default function SignUp({ history }) {
     axios.post("https://production-juxta-city-be.herokuapp.com/api/auth/signup", form )
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        history.push("/dashboard");
+        props.history.push("/dashboard");
       })
       .catch((err) => {
         document.getElementById("error-message").style.display = "block"});

@@ -1,9 +1,15 @@
-import React from "react";
-import { Button, Form,  Icon } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import React,{useState} from "react";
+import { Button, Form, Modal, Icon } from "semantic-ui-react";
+import { Link, useHistory } from "react-router-dom";
+import SignUp from "./SignUp";
 
 const SignInInputs = ({ signInChange, handleSubmit, signInForm }) => {
+  const [modalOpen, setModalSatae] = useState(false);
 
+  const handleOpenModal = () => setModalSatae(true);
+
+  const handleCloseModal = () => setModalSatae(false);
+  const history =useHistory();
   return (
     <Form onSubmit={handleSubmit} >
         <p id="signin-error" style={{ display: "none", color: "red" }} >
@@ -18,7 +24,13 @@ const SignInInputs = ({ signInChange, handleSubmit, signInForm }) => {
         value={signInForm.password} onChange={(event)=>signInChange(event)} required
         />
         </Form.Field>
-        <p> New with us? <Link to="/">Register!</Link></p>
+        <p> New with us? <Link onClick={handleOpenModal}>Register!</Link></p>
+
+            <Modal open={modalOpen} onClose={handleCloseModal}>
+              <SignUp history={history}/>
+            </Modal>
+
+
       <Button
         style={{ backgroundColor: "#1890FF", color: "black", margin: "0 60px" }}>
         Sign In <Icon name="long arrow alternate right" />
