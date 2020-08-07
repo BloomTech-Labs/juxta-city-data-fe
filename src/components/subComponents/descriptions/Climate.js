@@ -7,8 +7,9 @@ import rainy from "../../../assets/rainy.png";
 
 export default function Climate(props) {
   const climateData = [{ title: 'Cold Days', value: props.cityData.Coldday_Count, img:snowflake },
+    { title: 'Hot Days', value: props.cityData.Hotday_Count, img:sun},
     { title: 'Rain Days ', value: props.cityData.Rainday_Count, img: rainy},
-    { title: 'Hot Days', value: props.cityData.Hotday_Count, img:sun}];
+    ];
 
   return (
     <div id='box-container'>
