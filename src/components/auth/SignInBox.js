@@ -1,20 +1,21 @@
 import React from "react";
-import { styles } from "./authStlyes";
+import { Card, Image, Header } from "semantic-ui-react";
+import newlogo from "../../assets/newlogo.png";
 import SignInInputs from "./SignInInputs";
 
 const SignInBox = ({ signInChange, handleSubmit, signInForm }) => {
-  const classes = styles();
   return (
-    <div className={classes.box} style={{ background: "#8BC34A" }}>
-      <h3 className={classes.h3} style={{ color: "white" }}>
+    <Card className="ui centered cards" style={{ padding: "20px" }}>
+       <Image src={newlogo} alt="findur newlogo" />
+       <Header className="ui icon header" as="h1">
         Sign In
-      </h3>
+      </Header>
       <SignInInputs
         signInChange={signInChange}
         handleSubmit={handleSubmit}
         signInForm={signInForm}
       />
-    </div>
+    </Card>
   );
 };
 

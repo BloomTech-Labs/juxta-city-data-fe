@@ -10,6 +10,8 @@ import poly from "../assets/polydown.png";
 import polyWhite from "../assets/polyWhite.png";
 import avatar from "../assets/avatar.png";
 import ProfileContext from "../contexts/ProfileContext";
+import { Button,  Modal } from "semantic-ui-react";
+import SignIn from "./auth/SignIn";
 
 const UL = styled.ul`
   width: 65%;
@@ -148,15 +150,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NavBar = ({ auth, history, location }) => {
+
+
+const NavBar = ({ auth, history, location, props }) => {
   const classes = useStyles();
   const { setUserData } = useContext(UserContext);
   const { setProfileData } = useContext(ProfileContext);
   const [open, setOpen] = useState(false);
+  const [modalOpen, setModalSatae] = useState(false);
+    
+  const handleOpen2 = () => setModalSatae( true );
 
-  const login = () => {
-    history.push("/signin");
-  };
+ const  handleClose = () => setModalSatae( false );
+
+  // const login = () => {
+  //   history.push("/signin");
+  // };
   const handleDash = () => {
     handleOpen();
     history.push("/dashboard");
@@ -256,7 +265,7 @@ const NavBar = ({ auth, history, location }) => {
       ) : (
         <UL>
           <Li>
-            <button
+            {/* <button
               className={
                 location.pathname === "/cityview"
                   ? classes.SignInBlue
@@ -267,7 +276,15 @@ const NavBar = ({ auth, history, location }) => {
               onClick={login}
             >
               Sign In
-            </button>
+            </button> */}
+
+            <Button onClick={handleOpen2}>
+            Sign In
+       </Button>
+      <Modal open={modalOpen}
+       onClose={handleClose}>
+      <SignIn history = { history }/>
+      </Modal>
           </Li>
         </UL>
       )}
