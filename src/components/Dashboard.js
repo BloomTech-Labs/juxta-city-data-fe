@@ -9,7 +9,6 @@ import UserContext from "../contexts/UserContext";
 
 
 function Dashboard(props) {
-  console.log(props);
   const { setUserData } = useContext(UserContext);
   useEffect(() => {
     createUserContext().then((res) => setUserData(res));

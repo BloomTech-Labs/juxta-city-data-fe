@@ -15,11 +15,11 @@ import SingleCityView from "./components/SingleCityView.js";
 import SurveyQuestions from "./components/surveyQuestions/SurveyQuestions.js";
 import RecomendedDashboard from "./components/recomended/RecomendedDashboard";
 
-const AppDiv = styled.div`
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-`;
+// const AppDiv = styled.div`
+//   max-width: 1280px;
+//   width: 100%;
+//   margin: 0 auto;
+// `;
 const Darken = styled.div`
   position: absolute;
   zindex: 1;
@@ -47,13 +47,13 @@ const App = () => {
 
   return (
     <Router>
-      <div>
+      <div className="App">
         <Darken id="darken" onClick={handleClick} style={{ display: "none" }} />
         <CityContext.Provider value={{ cityData, setCityData }}>
           <UserContext.Provider value={{ userData, setUserData }}>
             <RecomendedContext.Provider value={{ recomendedCity, setRecomendedCity }} >
               <ProfileContext.Provider value={{ profileData, setProfileData }}>
-                <AppDiv className="App">
+                {/* <AppDiv className="App"> */}
                   <Route path="/"  exact component={LandingPage} />
                   <Route path="/dashboard" exact component={Dashboard} />
                   <Route path="/cityview" exact component={SingleCityView} />
@@ -61,7 +61,7 @@ const App = () => {
                   <Route path="/signin" exact component={Authentication} />
                   <Route path="/recommended" exact component={RecomendedDashboard} />
                   <Route path="/profile" exact component={Profile} />
-                </AppDiv>
+                {/* </AppDiv> */}
               </ProfileContext.Provider>
             </RecomendedContext.Provider>
           </UserContext.Provider>

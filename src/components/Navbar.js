@@ -43,7 +43,7 @@ const NavDiv = styled.div`
   display: flex;
   height: 80px;
   max-height: 80px;
-  z-index: 1;
+  z-index: 2;
   position: ${({ pathname }) =>
     !pathname.includes("/cityview") ? "relative" : "sticky; top: 0"};
   max-width: 1280px;
