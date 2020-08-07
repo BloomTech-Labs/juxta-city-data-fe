@@ -13,7 +13,7 @@ it('should render CityCard', () => {
   const card = render(
     <CityContext.Provider value={{ cityData, setCityData }}>
       <Router>
-        <BestCityCard cityData={cityData} />
+        <BestCityCard cities={cityData} />
       </Router>
     </CityContext.Provider>
   );

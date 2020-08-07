@@ -24,19 +24,15 @@ export const CityCard = styled.div`
     cursor: pointer;
   }
 
+  h3 {
+    font-size: 2rem;
+    margin: 1rem;
+  }
+
   img {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     width: 30rem;
     height: 20rem;
-  }
-
-  p {
-    background-color: #c6e7ff;
-    font-size: 2rem;
-    margin: auto;
-    width: 60%;
-    padding: 1rem;
-    margin-bottom: 2rem;
   }
 `;
