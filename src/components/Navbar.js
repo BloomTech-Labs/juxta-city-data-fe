@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -45,17 +45,12 @@ const NavDiv = styled.div`
   max-height: 80px;
   z-index: 1;
   position: ${({ pathname }) =>
-    !pathname.includes("/cityview") ? "relative" : "sticky; top: 0"};
-  max-width: 1280px;
-  background: ${({ pathname }) =>
-    pathname.includes("/cityview")
-      ? "#2196F3"
-      : pathname.includes("/recommended")
-      ? "#2196F3"
-      : pathname.includes("/profile")
-      ? "#3BE1CD"
-      : null};
-`;
+    !pathname.includes("/cityview") ? "fixed" : "sticky; top: 0"};
+  width: 100%;
+  top: 0;
+  background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
+  `
+  
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
@@ -153,6 +148,17 @@ const NavBar = ({ auth, history, location }) => {
   const { setUserData } = useContext(UserContext);
   const { setProfileData } = useContext(ProfileContext);
   const [open, setOpen] = useState(false);
+  const [profileImage, setProfileImage] = useState("")
+
+  const { profileData } = useContext(ProfileContext);
+
+  
+
+  useEffect(() => {
+    profileData[0] && setProfileImage(profileData[0].image_url)
+  })
+
+  console.log(profileImage)
 
   const login = () => {
     history.push("/signin");
@@ -225,13 +231,15 @@ const NavBar = ({ auth, history, location }) => {
                 : Logo
             }
             alt="Find Ur City Logo"
+            
+            
           />
         </Link>
       </H2>
       {token ? (
         <UL>
           <Li className={classes.avatarBox}>
-            <img src={avatar} alt="avatar" />
+            <img src={profileImage} alt="avatar" style={{ height: '60px', width: '60px', borderRadius: '50%', border: '3px solid #2ec7bf ' }} />
             <button className="link" onClick={handleOpen}>
               <img
                 id="dropdown"

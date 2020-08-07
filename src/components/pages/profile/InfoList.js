@@ -3,14 +3,16 @@ import profileInfoStyle from "../profileStyles/profileInfoStyle";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import Card from "@material-ui/core/Card";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import { deleteProfile } from "../../../functions";
-import Avatar from "@material-ui/core/Avatar";
+//import Avatar from "@material-ui/core/Avatar";
 import ImageUpload from "./ImageUpload";
 
 const InfoList = ({ info, toggleEditing }) => {
   const classes = profileInfoStyle();
+  
 
   const deleteUserProfile = () => {
     deleteProfile(info.id).then(() => window.location.reload());
@@ -24,68 +26,68 @@ const InfoList = ({ info, toggleEditing }) => {
   const dateOfBirthNew = (monthNew+1) + "/" + dateNew + "/" +yearNew;
 
   return (
-    <Paper className={classes.paper} key={info.id}>
+    <Card className="" key={info.id}>
       <h2> {info.username}'s profile </h2>
-      <List className={classes.root}>
-        <ListItem>
-          <Avatar src={info.image_url} alt="" className={classes.large} />
-        </ListItem>
-        <ListItem>
+      <ul className={classes.root}>
+        <li style={{ listStyle: 'none' }}>
+          <img src={info.image_url} alt="" className={classes.large} />
+        </li>
+        <li style={{listStyle: 'none'}}>
           <ImageUpload info={info} />
-        </ListItem>
+        </li>
         {info.first_name ? (
-          <ListItem>
+          <li style= {{listStyle: 'none'}}>
             <ListItemText primary="First Name" secondary={info.first_name} />
-          </ListItem>
+          </li>
         ) : null}
 
         {info.last_name ? (
-          <ListItem>
+          <li style={{ listStyle: 'none' }}>
             <ListItemText primary="Last Name" secondary={info.last_name} />
-          </ListItem>
+          </li>
         ) : null}
 
-        <ListItem>
+        <li style={{ listStyle: 'none' }}>
           <ListItemText primary="Email" secondary={info.email} />
-        </ListItem>
-        <ListItem>
+        </li>
+        <li style={{ listStyle: 'none' }}>
           <ListItemText primary="Username" secondary={info.username} />
-        </ListItem>
+        </li>
 
         {info.dob ? (
-          <ListItem>
+          <li style= {{ listStyle: 'none' }}>
             <ListItemText primary="Date of Birth" secondary={dateOfBirthNew} />
-          </ListItem>
+          </li>
         ) : null}
 
-        <ListItem>
+        <li style={{ listStyle: 'none' }}>
           <ListItemText primary="Address" secondary={info.address} />
-        </ListItem>
-        <ListItem>
+        </li>
+        <li style={{ listStyle: 'none' }}>
           <ListItemText secondary={info.city} />
           <ListItemText secondary={info.state} />
           <ListItemText secondary={info.zip} />
-        </ListItem>
-      </List>
+        </li>
+      </ul>
       <Button
         type="submit"
         variant="outlined"
         color="primary"
-        className={classes.button}
+        className=""
         onClick={() => toggleEditing()}
       >
-        Go to Edit profile
+         Edit profile
       </Button>
       <Button
         type="submit"
         variant="outlined"
         color="primary"
-        className={classes.button}
+        className=""
         onClick={() => deleteUserProfile()}
       >
         Delete User
       </Button>
-    </Paper>
+    </Card>
   );
 };
 export default InfoList;

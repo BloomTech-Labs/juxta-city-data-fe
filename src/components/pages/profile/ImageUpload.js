@@ -23,6 +23,10 @@ const ImageUpload = ({ info }) => {
   const userId = jwt_decode(token).userid;
   const cloudinary_id = info.cloudinary_id;
 
+  
+
+
+  
   const onChange = (e) => {
     setFile(e.target.files[0]);
     setFileName(e.target.files[0].name);
@@ -33,6 +37,7 @@ const ImageUpload = ({ info }) => {
     const formData = new FormData();
     formData.append('image', file);
 
+
     axiosWithAuth()
       .put(
         `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image`,
@@ -40,12 +45,14 @@ const ImageUpload = ({ info }) => {
       )
       .then((res) => {
         setUploadedFile(res.data);
+        console.log(res.data, "res.data")
       })
       .then(() => window.location.reload())
       .catch((err) => {
         console.log('error', err);
       });
   };
+  
 
   const handleRemove = () => {
     axiosWithAuth()

@@ -4,7 +4,7 @@ import "./ProfileForm.css";
 
 function ProfileInputs({ handleSubmit, addHandleChange }) {
   var current = null;
-//   const classes = formStyles();
+
 
   
   const handleSubmitFocus = (e) => {
@@ -43,7 +43,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
 
   return (
     <div className="demensions">
-      <div class="right">
+      <div className="right">
         <svg viewBox="0 0 320 550.8">
           <defs>
             <linearGradient
