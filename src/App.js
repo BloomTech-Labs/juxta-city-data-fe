@@ -42,8 +42,8 @@ const App = () => {
 
   return (
     <Router>
-      <div>
-        <Darken id='darken' onClick={handleClick} style={{ display: 'none' }} />
+      <div className="App">
+        <Darken id="darken" onClick={handleClick} style={{ display: "none" }} />
         <CityContext.Provider value={{ cityData, setCityData }}>
           <UserContext.Provider value={{ userData, setUserData }}>
             <RecomendedContext.Provider

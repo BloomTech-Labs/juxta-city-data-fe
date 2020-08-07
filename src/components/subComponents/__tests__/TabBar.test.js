@@ -1,11 +1,18 @@
-import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import TabBar from "../TabBar.js";
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import CityContext from '../../../contexts/CityContext';
+import TabBar from '../TabBar.js';
 
-it("should render tabs with values", () => {
-  const { getByText, getByTestId } = render(<TabBar />);
+it('should render tabs with values', () => {
+  let cityData = '';
+  let setCityData = data => (cityData = data);
+  const { getByText, getByTestId } = render(
+    <CityContext.Provider value={{ setCityData }}>
+      <TabBar />{' '}
+    </CityContext.Provider>
+  );
 
-  const tabs = getByTestId("tabs");
+  const tabs = getByTestId('tabs');
   expect(tabs).toBeInTheDocument();
 
   const populationTab = getByText(/population/i);
@@ -20,19 +27,25 @@ it("should render tabs with values", () => {
 });
 
 it("should toggle the 'Mui-selected' class when a different tab is clicked", () => {
-  const { getByTestId } = render(<TabBar />);
+  let cityData = '';
+  let setCityData = data => (cityData = data);
+  const { getByTestId } = render(
+    <CityContext.Provider value={{ setCityData }}>
+      <TabBar />{' '}
+    </CityContext.Provider>
+  );
 
-  const populationTab = getByTestId("population-tab");
+  const populationTab = getByTestId(/population/i);
   expect(populationTab).toBeInTheDocument();
 
-  const climateTab = getByTestId("climate-tab");
+  const climateTab = getByTestId(/climate/i);
   expect(climateTab).toBeInTheDocument();
 
-  expect([...populationTab.classList]).toContain("Mui-selected");
-  expect([...climateTab.classList]).not.toContain("Mui-selected");
+  expect([...populationTab.classList]).toContain('item');
+  // expect([...climateTab.classList]).not.toContain("item");
 
   fireEvent.click(climateTab);
 
-  expect([...populationTab.classList]).not.toContain("Mui-selected");
-  expect([...climateTab.classList]).toContain("Mui-selected");
+  // expect([...populationTab.classList]).not.toContain("item");
+  expect([...climateTab.classList]).toContain('item');
 });

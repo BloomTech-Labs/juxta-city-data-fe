@@ -1,23 +1,21 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import CityContent from "../CityContent.js";
-import TabBar from "../TabBar.js";
+import { render} from "@testing-library/react";
 import CityBody from "../CityBody.js";
 
 it("should render four description boxes with data from props", () => {
   const cityData = {
-    population_desc: "Test description",
-    climate_desc: "Test climate",
-    economy_desc: "Test economy",
-    living_cost_desc: "Test living cost",
+    Population_Density: "Test Population_Density",
+    Median_Age: "Test Median_Age",
+    Rainday_Count: "Test Rainday_Count",
+    Median_Rent: "Test Median_Rent",
   };
 
   const { getByText } = render(<CityBody cityData={cityData} />);
 
-  const populationBox = getByText(/test description/i);
-  const climateBox = getByText(/test climate/i);
-  const economyBox = getByText(/test economy/i);
-  const livingCostBox = getByText(/test living cost/i);
+  const populationBox = getByText(/Test Population_Density/i);
+  const climateBox = getByText(/Test Median_Age/i);
+  const economyBox = getByText(/Test Rainday_Count/i);
+  const livingCostBox = getByText(/Test Median_Rent/i);
 
   expect(populationBox).toBeInTheDocument();
   expect(climateBox).toBeInTheDocument();

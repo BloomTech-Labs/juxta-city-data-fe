@@ -61,7 +61,18 @@ const getCityData = async (cityName) => {
   let res = await axios.get(
     `https://junta-test.herokuapp.com/data?city=${cityName}`
   );
-  return res.data;
+  let newCityObj = res.data;
+  // this for loop removes the decimal endings that are longer than 2 and adds a comma in the big numbers
+  // 0.2321231 => 0.23 and 1293465 => 1,293,465
+  // it also makes the values as strings exept the id value 
+  for (let x in newCityObj) {
+    if (!isNaN(newCityObj[x]) && newCityObj[x] !== newCityObj.id) {
+      let numberValue = Math.floor(newCityObj[x] * 100) / 100;
+      newCityObj[x] = numberValue.toLocaleString();
+    }
+  }
+//  console.log(newCityObj,"newCityObj")
+  return newCityObj;
 };
 
 const createUserContext = async () => {
