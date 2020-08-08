@@ -32,11 +32,9 @@ $visual-height: 68%;
 
 
 .demensions{
-  margin: auto;
+  margin-top: 10rem;
   width: 350px;
   height: 603px;
-  overflow: hidden;
-  position: relative;
   background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19)
 
@@ -45,6 +43,7 @@ svg {
   position: absolute;
   width: 320px;
   top: 54px;
+
 }
 path {
   fill: none;
@@ -102,10 +101,11 @@ path {
 // }
 
 .container {
+  display: block;
   max-width: 350px;
   width: 100%;
   height: 100%;
-  position: relative;
+  position: absolute;
   margin: auto;
 }
 .card-profile{
@@ -121,7 +121,7 @@ path {
 
   background: #fff;
   border-radius: $radius;
-  z-index: 1;
+  z-index: 0;
   box-shadow: 0 0 5px rgba(black, 0.1);
 
   &_img{
@@ -148,9 +148,9 @@ path {
   .btn-info {
       width: 64px;
       height: 64px;
-      position: absolute;
-      left: 0;
-      right: 0;
+      // position: absolute;
+      //left: 0;
+      //right: 0;
       margin: auto;
 
       background: {
@@ -158,8 +158,8 @@ path {
         image: linear-gradient($gradient);
      }
 
-     display: block;
-      clear: both;
+    //  display: block;
+      //clear: both;
       margin: auto;
       border-radius: 100%;
       top: calc(500% + 66px);
@@ -185,6 +185,27 @@ path {
       top: 8px;
       font-weight: 800;
     }
+
+ .btn-twins{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 60px;
+ }
+ .btn2-twins{
+  display: flex;
+  justify-content: space-evenly;
+ }
+
+ .section-ul{
+   padding-top: 10px;
+   padding-bottom:10px
+ }
+
+
+ .user-list-section{
+   background-color: white;
+ }
+ 
 
 }
 

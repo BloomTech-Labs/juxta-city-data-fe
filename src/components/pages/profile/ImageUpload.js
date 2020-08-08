@@ -78,12 +78,18 @@ const ImageUpload = ({ info }) => {
 
   return (
     <div>
+    <div className="btn-twins">
+    <div>
       <button className="btn-info"  onClick={handleOpen}>
         Upload Image
       </button>
+    </div>
+    <div>
       <button  className="btn-info" onClick={handleRemove}>
         Remove Image
       </button>
+    </div>
+    </div>
       <Dialog
         open={openDialog}
         onClose={handleClose}
@@ -98,12 +104,18 @@ const ImageUpload = ({ info }) => {
           />
         </DialogContent>
         <DialogActions>
+        <div className="btn-twins">
+        <div >
           <button onClick={handleClose} className="btn-info" >
             Cancel
           </button>
+        </div>
+        <div >
           <button onClick={onSubmit} className="btn-info">
             Upload
           </button>
+        </div>
+        </div>
         </DialogActions>
       </Dialog>
     </div>

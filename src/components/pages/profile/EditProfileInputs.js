@@ -1,6 +1,7 @@
 import React from "react";
 import { anime } from "react-anime";
-import "../../../index.scss";
+//import "../../../index.scss";
+import '../../../index.scss'
 
 function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
    var current = null;
@@ -44,7 +45,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
   if(userData){
     return (
       <div className="dimensions">
-        <div className="right">
+        <div>
           <svg viewBox="0 0 320 550.8">
             <defs>
               <linearGradient
