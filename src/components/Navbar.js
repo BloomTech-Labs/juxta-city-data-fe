@@ -8,7 +8,7 @@ import UserContext from "../contexts/UserContext";
 import { makeStyles } from "@material-ui/core/styles";
 import poly from "../assets/polydown.png";
 import polyWhite from "../assets/polyWhite.png";
-import avatar from "../assets/avatar.png";
+//import avatar from "../assets/avatar.png";
 import ProfileContext from "../contexts/ProfileContext";
 
 const UL = styled.ul`

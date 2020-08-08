@@ -36,7 +36,8 @@ $visual-height: 68%;
   width: 350px;
   height: 603px;
   background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
-  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19)
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+  position: relative;
 
 }
 svg {
@@ -86,27 +87,23 @@ path {
 .center{
     text-align: center;
 }
+
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-// html, body {
-//   width: 100%;
-//   height: 100%;
-//   margin: 0;
-//   padding: 0;
-//   float: left;
-// }
 
 .container {
   display: block;
   max-width: 350px;
   width: 100%;
-  height: 100%;
+  height: 695px;
   position: absolute;
   margin: auto;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19)
+  
 }
 .card-profile{
   float: left;
@@ -148,18 +145,15 @@ path {
   .btn-info {
       width: 64px;
       height: 64px;
-      // position: absolute;
-      //left: 0;
-      //right: 0;
       margin: auto;
+      outline: none;
 
       background: {
         color: #F96B4C;
         image: linear-gradient($gradient);
      }
 
-    //  display: block;
-      //clear: both;
+  
       margin: auto;
       border-radius: 100%;
       top: calc(500% + 66px);

@@ -1,18 +1,11 @@
 import React from "react";
-import profileInfoStyle from "../profileStyles/profileInfoStyle";
-//import List from "@material-ui/core/List";
-//import ListItem from "@material-ui/core/ListItem";
-//import ListItemText from "@material-ui/core/ListItemText";
-import Card from "@material-ui/core/Card";
-import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
+//import profileInfoStyle from "../profileStyles/profileInfoStyle";
 import { deleteProfile } from "../../../functions";
-//import Avatar from "@material-ui/core/Avatar";
 import ImageUpload from "./ImageUpload";
 import "../../../index.scss"
 
 const InfoList = ({ info, toggleEditing }) => {
-  const classes = profileInfoStyle();
+  // const classes = profileInfoStyle();
   
 
   const deleteUserProfile = () => {
@@ -73,7 +66,7 @@ const InfoList = ({ info, toggleEditing }) => {
               {" "}
               <button
                 type="submit"
-                variant="outlined"
+    
                 className="btn-info"
                 onClick={() => toggleEditing()}
               >
@@ -84,7 +77,7 @@ const InfoList = ({ info, toggleEditing }) => {
               {" "}
               <button
                 type="submit"
-                variant="outlined"
+            
                 className="btn-info"
                 onClick={() => deleteUserProfile()}
               >
