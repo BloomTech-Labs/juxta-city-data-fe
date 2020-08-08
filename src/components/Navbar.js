@@ -156,11 +156,7 @@ const NavBar = ({ auth, history, location, props }) => {
   const { setProfileData } = useContext(ProfileContext);
   const [open, setOpen] = useState(false);
   const [modalOpen, setModalSatae] = useState(false);
-
-  const handleOpenModal = () => setModalSatae(true);
-
-  const handleCloseModal = () => setModalSatae(false);
-
+  
   // const login = () => {
   //   history.push("/signin");
   // };
@@ -275,10 +271,17 @@ const NavBar = ({ auth, history, location, props }) => {
               Sign In
             </button> */}
 
-            <Button onClick={handleOpenModal}>Sign In</Button>
-            <Modal open={modalOpen} onClose={handleCloseModal}>
-              <SignIn history={history} />
-            </Modal>
+            <Button onClick={()=>setModalSatae(true)}>Sign In</Button>
+            <Modal 
+            style ={{ backgroundColor:"#f8f8f8", width:"400px", border:"1px solid balck"}}
+             open={modalOpen} 
+             onClose={() => setModalSatae(false)}
+             onOpen={() => setModalSatae(true)}>
+
+             <div style ={{ margin:"30px 0",border:"1px solid balck"}} >
+             <SignIn  history={history}/> 
+             </div>
+            </Modal>  
           </Li>
         </UL>
       )}

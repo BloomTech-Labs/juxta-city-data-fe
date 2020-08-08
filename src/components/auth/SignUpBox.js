@@ -3,12 +3,13 @@ import SignUpInputs from "./SignUpInputs";
 
 import { Card, Image, Header } from "semantic-ui-react";
 import newlogo from "../../assets/newlogo.png";
+import { useHistory} from "react-router-dom";
 
 const SignUpBox = ({ signUpChange, handleSubmit, form }) => {
-  console.log(form, "form here in box")
+  const history =useHistory();
   return (
     <Card className="ui centered cards" style={{ padding: "20px" }}>
-      <Image src={newlogo} alt="findur newlogo" />
+      <Image onClick={()=>{ history.push("/")}}  src={newlogo} alt="findur newlogo" />
       <Header className="ui icon header" as="h1">
         Registration
       </Header>
