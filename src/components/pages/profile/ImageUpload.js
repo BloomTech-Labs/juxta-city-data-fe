@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../../../functions/axiosWithAuth';
 import jwt_decode from 'jwt-decode';
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
+import "../../../index.scss"
 const ImageUpload = ({ info }) => {
   const initialFormState = {
     image_url: null,
@@ -78,12 +78,12 @@ const ImageUpload = ({ info }) => {
 
   return (
     <div>
-      <Button variant='outlined' color='primary' onClick={handleOpen}>
+      <button className="btn-info"  onClick={handleOpen}>
         Upload Image
-      </Button>
-      <Button variant='outlined' color='primary' onClick={handleRemove}>
+      </button>
+      <button  className="btn-info" onClick={handleRemove}>
         Remove Image
-      </Button>
+      </button>
       <Dialog
         open={openDialog}
         onClose={handleClose}
@@ -98,12 +98,12 @@ const ImageUpload = ({ info }) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color='primary'>
+          <button onClick={handleClose} className="btn-info" >
             Cancel
-          </Button>
-          <Button onClick={onSubmit} color='primary'>
+          </button>
+          <button onClick={onSubmit} className="btn-info">
             Upload
-          </Button>
+          </button>
         </DialogActions>
       </Dialog>
     </div>

@@ -32,14 +32,12 @@ export default function Profile(props) {
   };
   
   return (
-    <section>
+    <>
       <NavBar {...props} />
-    
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           <Grid item xs={4}>
             <ProfileInfo toggleEditing={toggleEditing} />
-            
           </Grid>
           <AddProfile profileData={profileData} />
           {editing ? (
@@ -54,6 +52,6 @@ export default function Profile(props) {
           )}
         </Grid>
       </Container>
-    </section>
+    </>
   );
 }

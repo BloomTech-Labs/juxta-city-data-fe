@@ -150,14 +150,13 @@ const NavBar = ({ auth, history, location }) => {
   const [open, setOpen] = useState(false);
   const [profileImage, setProfileImage] = useState("")
 
-  const { profileData } = useContext(ProfileContext);
+  const { profileData } = useContext(ProfileContext);//Context for avatar
 
   
-
+//Use Effect created to index the profile image  and set it as state
   useEffect(() => {
     profileData[0] && setProfileImage(profileData[0].image_url)
   })
-
   console.log(profileImage)
 
   const login = () => {

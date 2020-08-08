@@ -1,6 +1,6 @@
 import React from "react";
 import { anime } from "react-anime";
-import "./ProfileForm.css";
+import "../../../index.scss";
 
 function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
    var current = null;

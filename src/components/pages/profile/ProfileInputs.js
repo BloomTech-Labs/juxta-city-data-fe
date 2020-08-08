@@ -1,6 +1,6 @@
 import React from "react";
 import  { anime } from "react-anime";
-import "./ProfileForm.css";
+import "../../../index.scss";
 
 function ProfileInputs({ handleSubmit, addHandleChange }) {
   var current = null;
@@ -43,7 +43,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
 
   return (
     <div className="demensions">
-      <div className="right">
+      <div>
         <svg viewBox="0 0 320 550.8">
           <defs>
             <linearGradient
