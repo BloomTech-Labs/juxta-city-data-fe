@@ -97,6 +97,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
               data-strokedasharray="240 3000"
               defaultValue={userData.first_name}
               onFocus={handleTextFocus}
+              onChange={addHandleChange}
             />
 
             <label
@@ -113,6 +114,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
               data-strokedasharray="240 3000"
               defaultValue={userData.last_name}
               onFocus={handleTextFocus}
+              onChange={addHandleChange}
             />
             <label className="label" for="dob" aria-label="birth date"></label>
             <input
@@ -166,6 +168,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
                 onFocus={handleTextFocus}
                 class="input"
                 id="inlineFormCustomSelectPref"
+                onChange={addHandleChange}
               >
                 <option selected>Choose...</option>
                 <option value="1">Alabama</option>
@@ -241,7 +244,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
             </div>
 
             <div className="center" style={{ marginTop: "40px" }}>
-              <button 
+              <button
                 type="submit"
                 onFocus={handleSubmitFocus}
                 className="btn "

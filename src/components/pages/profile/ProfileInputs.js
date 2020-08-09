@@ -73,19 +73,27 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
           noValidate
           autoComplete="off"
         >
-          <label  className="label" for="first_name" aria-label="first name"></label>
-            <input
-              type="text"
-              placeholder="First Name"
-              class="input"
-              name="first_name"
-              data-strokedashoffset="0"
-              data-strokedasharray="240 3000"
-              onFocus={handleTextFocus}
-            />
-          
+          <label
+            className="label"
+            htmlFor="first_name"
+            aria-label="first name"
+          ></label>
+          <input
+            type="text"
+            placeholder="First Name"
+            class="input"
+            name="first_name"
+            data-strokedashoffset="0"
+            data-strokedasharray="240 3000"
+            onFocus={handleTextFocus}
+            onChange={addHandleChange}
+          />
 
-          <label className="label" for="last_name" aria-label="last name"></label>
+          <label
+            className="label"
+            htmlFor="last_name"
+            aria-label="last name"
+          ></label>
           <input
             type="text"
             placeholder="Last Name"
@@ -94,8 +102,13 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             data-strokedashoffset="-331"
             data-strokedasharray="240 3000"
             onFocus={handleTextFocus}
+            onChange={addHandleChange}
           />
-          <label className="label" for="dob" aria-label="birth date"></label>
+          <label
+            className="label"
+            htmlFor="dob"
+            aria-label="birth date"
+          ></label>
           <input
             class="input datepicker"
             id="dob"
@@ -104,10 +117,14 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             data-strokedashoffset="-686"
             data-strokedasharray="240 3000"
             onFocus={handleTextFocus}
-            onChange={addHandleChange}aria-label="date of birth"
+            onChange={addHandleChange}
           />
 
-          <label className="label" for="address" aria-label="address"></label>
+          <label
+            className="label"
+            htmlFor="address"
+            aria-label="address"
+          ></label>
           <input
             type="text"
             placeholder="Address"
@@ -119,7 +136,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             onChange={addHandleChange}
           />
 
-          <label className="label" for="city" aria-label="city"></label>
+          <label className="label" htmlFor="city" aria-label="city"></label>
           <input
             type="text"
             placeholder="City"
@@ -132,14 +149,21 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
           />
 
           <div>
-            <label className="label" for="inlineFormCustomSelectPref" aria-label="state"></label>
+            <label
+              className="label"
+              htmlFor="inlineFormCustomSelectPref"
+              aria-label="state"
+            ></label>
             <select
               data-strokedashoffset="-1696"
               data-strokedasharray="240 3000"
               onFocus={handleTextFocus}
+              onChange={addHandleChange}
+              
               class="input"
               id="inlineFormCustomSelectPref"
             >
+      
               <option selected>Choose...</option>
               <option value="1">Alabama</option>
               <option value="2">Alaska</option>
@@ -195,7 +219,11 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
           </div>
 
           <div>
-            <label className="label" for="Zip Code" aria-label="zip code"></label>
+            <label
+              className="label"
+              for="Zip Code"
+              aria-label="zip code"
+            ></label>
             <input
               type="number"
               placeholder="Zip Code"
@@ -209,11 +237,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
           </div>
 
           <div className="center" style={{ marginTop: "40px" }}>
-            <button style={{ outline: "none"}}
-              type="submit"
-              onFocus={handleSubmitFocus}
-              className="btn "
-            >
+            <button type="submit" onFocus={handleSubmitFocus} className="btn ">
               Add Profile
             </button>
           </div>
