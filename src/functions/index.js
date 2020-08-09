@@ -1,7 +1,7 @@
-import axios from "axios";
-import { buildQueryString } from "./buildQueryString";
-import jwt_decode from "jwt-decode";
-import { axiosWithAuth } from "./axiosWithAuth";
+import axios from 'axios';
+import { buildQueryString } from './buildQueryString';
+import jwt_decode from 'jwt-decode';
+import { axiosWithAuth } from './axiosWithAuth';
 
 const addFavorite = (userId, cityId) => {
   const object = { user_id: userId, city_id: cityId };
@@ -11,7 +11,7 @@ const addFavorite = (userId, cityId) => {
       object
     )
     .then((res) => {
-      console.log(res, "favorite completed!");
+      console.log(res, 'favorite completed!');
     })
     .catch((err) => {
       console.log(err);
@@ -19,18 +19,16 @@ const addFavorite = (userId, cityId) => {
 };
 
 const postProfileRequest = async (userData, userId) => {
- let response = await axiosWithAuth()
-    .post(
-       `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`,
-      userData
-    );
-    let responseProfileData = await response.data;
+  let response = await axiosWithAuth().post(
+    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`,
+    userData
+  );
+  let responseProfileData = await response.data;
 
-    console.log(responseProfileData)
+  console.log(responseProfileData);
 };
 
 const deleteProfile = async (userId) => {
-
   let response = await axiosWithAuth().delete(
     `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`
   );
@@ -39,11 +37,10 @@ const deleteProfile = async (userId) => {
   return responseProfileData;
 };
 
-
 const editProfile = async (userId, userData) => {
-
   let response = await axiosWithAuth().put(
-    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`, userData
+    `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}`,
+    userData
   );
   let responseProfileData = await response.data;
 
@@ -56,7 +53,7 @@ const removeFavorite = (userId, cityId) => {
       `https://production-juxta-city-be.herokuapp.com/api/users/${userId}/favorites/${cityId}`
     )
     .then((res) => {
-      console.log(res, "unfavorite completed!");
+      console.log(res, 'unfavorite completed!');
     });
 };
 
@@ -64,16 +61,26 @@ const getCityData = async (cityName) => {
   let res = await axios.get(
     `https://junta-test.herokuapp.com/data?city=${cityName}`
   );
-  return res.data;
+  let newCityObj = res.data;
+  // this for loop removes the decimal endings that are longer than 2 and adds a comma in the big numbers
+  // 0.2321231 => 0.23 and 1293465 => 1,293,465
+  // it also makes the values as strings exept the id value 
+  for (let x in newCityObj) {
+    if (!isNaN(newCityObj[x]) && newCityObj[x] !== newCityObj.id) {
+      let numberValue = Math.floor(newCityObj[x] * 100) / 100;
+      newCityObj[x] = numberValue.toLocaleString();
+    }
+  }
+//  console.log(newCityObj,"newCityObj")
+  return newCityObj;
 };
 
-
 const createUserContext = async () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   const userId = jwt_decode(token).userid;
 
   let context = {
-    favorites: [],
+    favorites: []
   };
 
   let user = await axiosWithAuth().get(
@@ -94,7 +101,7 @@ const createUserContext = async () => {
 };
 
 const createProfileContext = async () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   const userId = jwt_decode(token).userid;
 
   let response = await axiosWithAuth().get(
@@ -106,12 +113,12 @@ const createProfileContext = async () => {
 };
 
 const getBestCities = async () => {
-  const res = await axios.get("https://junta-test.herokuapp.com/top25");
+  const res = await axios.get('https://junta-test.herokuapp.com/top25');
   return res.data;
 };
 
 const getRecomendedCities = async (queryParameters) => {
-  let url = "https://junta-test.herokuapp.com/recommend";
+  let url = 'https://junta-test.herokuapp.com/recommend';
   url = buildQueryString(url, queryParameters);
   const res = await axios.get(url);
   return res.data;
@@ -124,6 +131,16 @@ const getCityArray = async (chars) => {
   return res.data;
 };
 
+function randomCity(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
 export {
   addFavorite,
   removeFavorite,
@@ -135,5 +152,6 @@ export {
   postProfileRequest,
   createProfileContext,
   editProfile,
-  deleteProfile
+  deleteProfile,
+  randomCity
 };

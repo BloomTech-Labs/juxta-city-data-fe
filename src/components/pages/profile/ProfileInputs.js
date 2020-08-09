@@ -93,9 +93,10 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             className="label"
             htmlFor="last_name"
             aria-label="last name"
-          ></label>
+          >Last Name</label>
           <input
             type="text"
+            aria-label="last name"
             placeholder="Last Name"
             class="input"
             name="last_name"

@@ -26,7 +26,7 @@ it('renders the search form', () => {
       <SearchBar />
     </CityContext.Provider>
   );
-  expect(getByPlaceholderText(/search for a city/i)).toBeInTheDocument();
+  expect(getByPlaceholderText(/search/i)).toBeInTheDocument();
 });
 
 it('displays a list of matching cities when characters are input', async () => {
@@ -58,7 +58,7 @@ it('displays a list of matching cities when characters are input', async () => {
     </CityContext.Provider>
   );
 
-  let searchBar = getByPlaceholderText(/search for a city/i);
+  let searchBar = getByPlaceholderText(/search/i);
 
   fireEvent.change(searchBar, { target: { value: 's' } });
   expect(axios.get).toHaveBeenCalledTimes(0);

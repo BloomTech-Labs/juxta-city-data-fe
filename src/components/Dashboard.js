@@ -9,7 +9,6 @@ import UserContext from "../contexts/UserContext";
 
 
 function Dashboard(props) {
-  console.log(props);
   const { setUserData } = useContext(UserContext);
   useEffect(() => {
     createUserContext().then((res) => setUserData(res));
@@ -21,8 +20,8 @@ function Dashboard(props) {
         <NavBar {...props}/>
         <Header />
         <RecommendedComponent {...props} />
-        <Favorites/>
-        <BestCities />
+        <Favorites {...props}/>
+        <BestCities {...props}/>
     </div>
     
   );
