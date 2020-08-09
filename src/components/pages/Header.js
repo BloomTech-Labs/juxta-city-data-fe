@@ -1,91 +1,70 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import SearchBar from "../subComponents/SearchBar";
-import styled from "styled-components";
+import React from 'react';
+// import { useHistory } from 'react-router-dom';
+import SearchBar from '../subComponents/SearchBar';
+import styled from 'styled-components';
+import { keyframes } from 'styled-components';
+import dashboardBanner from '../../assets/dashboard-banner.jpg';
 
-const Div = styled.div`
-  width: 100%;
-  background: #2196f3;
+const HomeBanner = styled.header`
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1)),
+    url(${dashboardBanner});
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
-  height: 370px;
-  margin: 0 0 10px 0;
   align-items: center;
-  @media screen and (max-width: 600px) {
-    margin: 0;
-    height: 326px;
+  justify-content: center;
+  height: 62.5rem;
+
+  @media (max-width: 500px) {
+    height: 30rem;
   }
 `;
 
-const Heading = styled.p`
-  display: flex;
-  align-items: baseline;
-  height: 98px;
-  font-size: 24px;
-  font-weight: 400;
-  color: white;
-  font-family: Oswald;
-  @media screen and (max-width: 600px) {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-  }
+const moveInBottom = keyframes`
+0% {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+100% {
+  opacity: 1;
+  transform: translate(0);
+}
 `;
 
-const LargeText = styled.span`
-  font-size: 44px;
-  font-weight: 400;
+const Heading = styled.h1`
+  font-size: 4.8rem;
   color: white;
-  font-family: Oswald;
-  padding: 0 10px;
-  @media screen and (max-width: 600px) {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 35px;
+  animation: ${moveInBottom} 1s ease-out;
+  margin: 0 auto;
+
+  @media (max-width: 500px) {
+    font-size: 4rem;
+    animation: none;
   }
 `;
 
 const Paragraph = styled.p`
-  position: absolute;
-  margin: 230px 0 20px 0;
-  font-size: 18px;
-  color: #f4f4f4;
-  @media (max-width: 600px) {
-    font-size: 14px;
-    margin-bottom: 26px;
-  }
-`;
-
-const Button = styled.button`
-  position: absolute;
-  margin: 280px 0 20px 0;
-  background: #8bc34a;
-  padding: 9px 16px;
-  border-radius: 4px;
-  color: #ffffff;
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-  outline: none;
+  font-size: 2rem;
+  color: #fff;
 `;
 
 const Header = () => {
-  const history = useHistory();
+  // Need to move these
 
-  function handleClick() {
-    history.push("/survey");
-  }
+  // const history = useHistory();
+
+  // function handleClick() {
+  //   history.push('/survey');
+  // }
 
   return (
-    <Div>
-      <Heading>
-        FIND THE PERFECT <LargeText> CITY </LargeText> TO CALL{" "}
-        <LargeText> HOME </LargeText>
-      </Heading>
+    <HomeBanner>
+      <Heading>Find your way home</Heading>
+      <Paragraph>Discover a place you'll live and love</Paragraph>
       <SearchBar />
-      <Paragraph>Get recomendations by answering a few questions</Paragraph>
-      <Button onClick={handleClick}>Discover a Match</Button>
-    </Div>
+    </HomeBanner>
   );
 };
 export default Header;

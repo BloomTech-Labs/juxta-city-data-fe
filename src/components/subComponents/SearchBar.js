@@ -1,65 +1,57 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
-import CityContext from "../../contexts/CityContext.js";
-import styled from "styled-components";
-import SearchIcon from "@material-ui/icons/Search";
-import { getCityData, getCityArray } from "../../functions";
+import React, { useState, useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import CityContext from '../../contexts/CityContext.js';
+import styled from 'styled-components';
+import { getCityData, getCityArray } from '../../functions';
 
 const Search = styled.input`
-  position: relative;
-  width: 58%;
-  height: 30px;
-  border: 0px;
-  font-size: 19px;
-  @media screen and (max-width: 600px) {
-    width: 84%;
+  width: 73.2rem;
+  border: none;
+  border-radius: 7px;
+  padding: 2rem;
+  font-size: 1.9rem;
+
+  &:focus {
+    outline: 0;
   }
 `;
+
 const Form = styled.form`
-  width: 90%;
-  margin: 0 auto;
+  width: 85%;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-`;
-const Button = styled.button`
-  border: 0px;
-  background: white;
-  width: 45px;
-  height: 30px;
-  background: #8bc34a;
-  color: white;
-  display: flex;
-  justify-content: center;
-  :hover {
-    border: 1px solid white;
-    cursor: pointer;
-  }
 `;
 
 const CityDropDown = styled.div`
   z-index: 2;
-  width: 58%;
-  margin-right: 45px;
-  @media screen and (max-width: 600px) {
-    width: 84%;
-  }
-`;
-const City = styled.p`
-  line-height: 1.5;
-  font-size: 19px;
-  margin: 0px;
-
-  background: white;
-  background: whitesmoke;
-  :hover {
-    background: #bbdefb;
-  }
+  height: 0;
+  width: 73.2rem;
 `;
 
-const SearchBar = (props) => {
-  const [search, setSearch] = useState("");
+const City = styled.option`
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.9rem;
+  background: #fff;
+  &:hover {
+    background: #bbd3fc;
+    cursor: pointer;
+  }
+
+  &:last-child {
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+  }
+`;
+
+const searchBorderRadius = {
+  borderBottomLeftRadius: '0px',
+  borderBottomRightRadius: '0px'
+};
+
+const SearchBar = () => {
+  const [search, setSearch] = useState('');
   const [cities, setCities] = useState([]);
   const { setCityData } = useContext(CityContext);
   let history = useHistory();
@@ -74,8 +66,8 @@ const SearchBar = (props) => {
     e.preventDefault();
     getCityData(search).then((res) => {
       setCityData(res);
-      localStorage.setItem("cityName", res.city);
-      history.push("/cityview");
+      localStorage.setItem('cityName', res.city);
+      history.push('/cityview');
     });
   };
   const handleChange = (e) => {
@@ -85,19 +77,19 @@ const SearchBar = (props) => {
     setSearch(city);
   };
   return (
-    <Form autoComplete="off" onSubmit={handleSubmit}>
+    <Form autoComplete='off' onSubmit={handleSubmit}>
       <Search
-        type="text"
-        name="city"
+        type='search'
+        name='city'
         value={search}
-        placeholder="Search..."
+        placeholder='Search for a city'
         onChange={handleChange}
+        aria-label='Search for a city'
+        results='5'
+        style={search ? searchBorderRadius : null}
       />
-      <Button type="submit">
-        <SearchIcon />
-      </Button>
       <CityDropDown>
-        {cities.length === 0 && search !== "" && search.split("").length > 2 ? (
+        {cities.length === 0 && search !== '' && search.split('').length > 2 ? (
           <City>No Matches Found...</City>
         ) : (
           cities.splice(0, 4).map((city, idx) => (
