@@ -225,7 +225,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
               aria-label="zip code"
             ></label>
             <input
-              type="number"
+              type="number" 
               placeholder="Zip Code"
               class="input"
               name="zip"
