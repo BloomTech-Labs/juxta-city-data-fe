@@ -166,9 +166,9 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
                 data-strokedashoffset="-1696"
                 data-strokedasharray="240 3000"
                 onFocus={handleTextFocus}
+                onChange={addHandleChange}
                 class="input"
                 id="inlineFormCustomSelectPref"
-                onChange={addHandleChange}
               >
                 <option selected>Choose...</option>
                 <option value="1">Alabama</option>

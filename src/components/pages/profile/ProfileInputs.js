@@ -128,7 +128,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
           <input
             type="text"
             placeholder="Address"
-            class="input"
+            className="input"
             name="address"
             data-strokedashoffset="-1012"
             data-strokedasharray="240 3000"
@@ -140,7 +140,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
           <input
             type="text"
             placeholder="City"
-            class="input"
+            className="input"
             name="city"
             data-strokedashoffset="-1367"
             data-strokedasharray="240 3000"
@@ -151,7 +151,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
           <div>
             <label
               className="label"
-              htmlFor="inlineFormCustomSelectPref"
+              // htmlFor="inlineFormCustomSelectPref"
               aria-label="state"
             ></label>
             <select
@@ -159,8 +159,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
               data-strokedasharray="240 3000"
               onFocus={handleTextFocus}
               onChange={addHandleChange}
-              
-              class="input"
+              className="input"
               id="inlineFormCustomSelectPref"
             >
       
@@ -227,7 +226,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             <input
               type="number" 
               placeholder="Zip Code"
-              class="input"
+              className="input"
               name="zip"
               data-strokedashoffset="-2040"
               data-strokedasharray="240 3000"
@@ -237,7 +236,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
           </div>
 
           <div className="center" style={{ marginTop: "40px" }}>
-            <button type="submit" onFocus={handleSubmitFocus} className="btn ">
+            <button type="submit" onFocus={handleSubmitFocus} className="btn">
               Add Profile
             </button>
           </div>
