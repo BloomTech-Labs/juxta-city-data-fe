@@ -241,12 +241,12 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
             </div>
 
             <div className="center" style={{ marginTop: "40px" }}>
-              <button
+              <button 
                 type="submit"
                 onFocus={handleSubmitFocus}
                 className="btn "
               >
-                Add Profile
+                Edit Profile
               </button>
             </div>
           </form>

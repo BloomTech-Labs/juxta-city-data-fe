@@ -209,7 +209,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
           </div>
 
           <div className="center" style={{ marginTop: "40px" }}>
-            <button
+            <button style={{ outline: "none"}}
               type="submit"
               onFocus={handleSubmitFocus}
               className="btn "
