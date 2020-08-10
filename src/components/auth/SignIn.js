@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import SignInBox from "./SignInBox";
+import Box from "./Box";
 
 export default function SignIn(props) {
 const [signInForm, setSignInForm] = useState({ username:'',
@@ -21,6 +21,6 @@ password:''});
   };
 
   return (
-    <SignInBox signInChange={signInChange} handleSubmit={handleSubmit} signInForm={signInForm} />
+    <Box name="register" signInChange={signInChange} handleSubmit={handleSubmit} signInForm={signInForm} />
   );
 };

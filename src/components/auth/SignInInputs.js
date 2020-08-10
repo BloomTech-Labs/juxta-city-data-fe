@@ -21,8 +21,8 @@ const SignInInputs = ({ signInChange, handleSubmit, signInForm, history }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <p id="signin-error" style={{ display: "none", color: "red" }}> Sorry User Not Found </p>
-      {signUpData.map((inputField) => (
-        <Form.Field> <input type={inputField.type} name={inputField.name} placeholder={inputField.name} aria-label={inputField.name}
+      {signUpData.map((inputField, index) => (
+        <Form.Field key={index}> <input  type={inputField.type} name={inputField.name} placeholder={inputField.name} aria-label={inputField.name}
             value={inputField.value} onChange={(event) => signInChange(event)} required />
         </Form.Field>
       ))}

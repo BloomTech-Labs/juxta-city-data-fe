@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import SignUpBox from "./SignUpBox";
+import Box from "./Box";
 import { useHistory } from "react-router-dom";
 
 const initialState = {
@@ -27,6 +27,6 @@ export default function SignUp(props) {
   };
 
   return (
-    <SignUpBox signUpChange={signUpChange} handleSubmit={handleSubmit} form={form} />
+    <Box name="signup" signUpChange={signUpChange} handleSubmit={handleSubmit} form={form} />
   );
 };
