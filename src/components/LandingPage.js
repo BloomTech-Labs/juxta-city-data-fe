@@ -1,8 +1,7 @@
-import React from "react";
-import Header from "./pages/Header.js";
-import BestCities from "./bestCities/BestCities";
-import MarketingBox from "./MarketingBox.js";
-import NavBar from "./Navbar";
+import React from 'react';
+import Header from './pages/Header.js';
+import BestCities from './bestCities/BestCities';
+import NavBar from './Navbar';
 
 const LandingPage = (props) => {
   return (
@@ -10,7 +9,6 @@ const LandingPage = (props) => {
       <NavBar {...props} />
       <Header />
       <BestCities {...props} />
-      <MarketingBox />
     </div>
   );
 };

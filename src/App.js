@@ -8,19 +8,14 @@ import ProfileContext from "./contexts/ProfileContext.js";
 import ModalContext from "./contexts/ModalContext.js";
 import styled from "styled-components";
 
-import LandingPage from "./components/LandingPage.js";
-import Dashboard from "./components/Dashboard.js";
-import Authentication from "./components/auth/Authentication.js";
-import Profile from "./components/pages/profile/Profile.js";
-import SingleCityView from "./components/SingleCityView.js";
-import SurveyQuestions from "./components/surveyQuestions/SurveyQuestions.js";
-import RecomendedDashboard from "./components/recomended/RecomendedDashboard";
+import LandingPage from './components/LandingPage.js';
+import Dashboard from './components/Dashboard.js';
+import Authentication from './components/auth/Authentication.js';
+import Profile from './components/pages/profile/Profile.js';
+import SingleCityView from './components/SingleCityView.js';
+import SurveyQuestions from './components/surveyQuestions/SurveyQuestions.js';
+import RecomendedDashboard from './components/recomended/RecomendedDashboard';
 
-// const AppDiv = styled.div`
-//   max-width: 1280px;
-//   width: 100%;
-//   margin: 0 auto;
-// `;
 const Darken = styled.div`
   position: absolute;
   zindex: 1;
@@ -34,8 +29,8 @@ const Darken = styled.div`
   }
 `;
 const handleClick = (e) => {
-  let background = document.getElementById("darken");
-  background.style.display = "none";
+  let background = document.getElementById('darken');
+  background.style.display = 'none';
   // let arrow = document.getElementById("dropdown");
   // console.log(arrow);
 };
@@ -56,17 +51,22 @@ const App = () => {
         <ModalContext.Provider value={{modal, setModal}}>
         <CityContext.Provider value={{ cityData, setCityData }}>
           <UserContext.Provider value={{ userData, setUserData }}>
-            <RecomendedContext.Provider value={{ recomendedCity, setRecomendedCity }} >
+            <RecomendedContext.Provider
+              value={{ recomendedCity, setRecomendedCity }}>
               <ProfileContext.Provider value={{ profileData, setProfileData }}>
-                {/* <AppDiv className="App"> */}
-                  <Route path="/"  exact component={LandingPage} />
-                  <Route path="/dashboard" exact component={Dashboard} />
-                  <Route path="/cityview" exact component={SingleCityView} />
-                  <Route path="/survey" exact component={SurveyQuestions} />
-                  <Route path="/signin" exact component={Authentication} />
-                  <Route path="/recommended" exact component={RecomendedDashboard} />
-                  <Route path="/profile" exact component={Profile} />
-                {/* </AppDiv> */}
+                <div className='App'>
+                  <Route path='/' exact component={LandingPage} />
+                  <Route path='/dashboard' exact component={Dashboard} />
+                  <Route path='/cityview' exact component={SingleCityView} />
+                  <Route path='/survey' exact component={SurveyQuestions} />
+                  <Route path='/signin' exact component={Authentication} />
+                  <Route
+                    path='/recommended'
+                    exact
+                    component={RecomendedDashboard}
+                  />
+                  <Route path='/profile' exact component={Profile} />
+                </div>
               </ProfileContext.Provider>
             </RecomendedContext.Provider>
           </UserContext.Provider>
