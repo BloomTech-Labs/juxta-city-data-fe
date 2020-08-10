@@ -1,17 +1,12 @@
 import React from "react";
-import { Card, Image, Header } from "semantic-ui-react";
-import newlogo from "../../assets/newlogo.png";
+import { Card } from "semantic-ui-react";
 import SignInInputs from "./SignInInputs";
-import { useHistory} from "react-router-dom";
+import LogoHeader from "./LogoHeader";
 
-const SignInBox = ({ signInChange, handleSubmit, signInForm}) => {
-   const history =useHistory();
+const SignInBox = ({ signInChange, handleSubmit, signInForm }) => {
   return (
     <Card className="ui centered cards" style={{ padding: "20px" }}>
-       <Image onClick={()=>{ history.push("/")}} src={newlogo} alt="findur newlogo" />
-       <Header className="ui icon header" as="h1">
-        Sign In
-      </Header>
+      <LogoHeader title="Sign In" />
       <SignInInputs
         signInChange={signInChange}
         handleSubmit={handleSubmit}
