@@ -1,5 +1,6 @@
 import React  from "react";
-import { Button, Form, Icon } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
+import SubmitButton from "./SubmitBotton";
 
 
 const SignUpInputs = ({ signUpChange, handleSubmit, form }) => {
@@ -20,9 +21,7 @@ const signInData =[
             value={item.value}  onChange={(event) => signUpChange(event)}required variant="outlined"/>
         </Form.Field>
         ))}
-      <Button style={{ backgroundColor: "#191969", color: "white", margin: "0 60px" }} >
-        Register <Icon name="long arrow alternate right" />
-      </Button>
+        <SubmitButton title= "Register"/>
     </Form>
   );
 };

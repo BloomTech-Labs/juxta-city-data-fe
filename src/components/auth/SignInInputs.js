@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
-import { Button, Form, Icon } from "semantic-ui-react";
+import { Form} from "semantic-ui-react";
 import ModalSignUp from "./ModalSignUp";
+import SubmitButton from "./SubmitBotton";
 import ModalContext from "../../contexts/ModalContext";
-
 
 const SignInInputs = ({ signInChange, handleSubmit, signInForm, history }) => {
   const { modal, setModal } = useContext(ModalContext);
@@ -27,10 +27,10 @@ const SignInInputs = ({ signInChange, handleSubmit, signInForm, history }) => {
         </Form.Field>
       ))}
 
-      <p> New with us?<a id="register" onClick={handleModal}> Register!</a></p>
+      <p style={{textAlign:"center"}}> New with us?<a id="register" onClick={handleModal}> Register!</a></p>
+      
       <ModalSignUp modal={secondmodal} setModal={setModal} history={history} />
-      <Button style={{ backgroundColor: "#191969", color: "white", margin: "0 60px" }} >
-        Sign In <Icon name="long arrow alternate right" /> </Button>
+      <SubmitButton title = "Sign In"/>
     </Form>
   );
 };
