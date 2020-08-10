@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import SignUpBox from "./SignUpBox";
+import { useHistory } from "react-router-dom";
 
 const initialState = {
   username: "",
@@ -10,7 +11,7 @@ const initialState = {
 
 export default function SignUp(props) {
   const [form, setForm] = useState(initialState);
-
+  const history = useHistory();
   const signUpChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })};
 
@@ -19,7 +20,7 @@ export default function SignUp(props) {
     axios.post("https://production-juxta-city-be.herokuapp.com/api/auth/signup", form )
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        props.history.push("/dashboard");
+        history.push("/dashboard");
       })
       .catch((err) => {
         document.getElementById("error-message").style.display = "block"});

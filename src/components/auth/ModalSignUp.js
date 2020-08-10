@@ -19,7 +19,7 @@ const ModalSignUp = ({ modal, setModal, history }) => {
       }}
     >
       <div style={{ margin: "30px 0", border: "1px solid balck" }}>
-        <SignUp history={history} />
+        <SignUp history={history}  onClose={() => setModal(false)}/>
       </div>
     </Modal>
   );
