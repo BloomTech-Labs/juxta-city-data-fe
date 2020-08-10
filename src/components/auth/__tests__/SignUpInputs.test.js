@@ -14,15 +14,15 @@ describe("<SignUpInputs />", () => {
 
   it("renders the error and button", () => {
     const { getByText } = render(<SignUpInputs form={form} />);
-    expect(getByText(/The username and email must be unique/i)).toBeInTheDocument();
-    expect(getByText(/Submit/i)).toBeInTheDocument();
+    expect(getByText(/Please add a unique username and password/i)).toBeInTheDocument();
+    expect(getByText(/Register/i)).toBeInTheDocument();
   });
 
   it("renders the username", () => {
     const { queryByPlaceholderText } = render(
       <SignUpInputs signUpChange={signUpChange} form={form} />
     );
-    const input = queryByPlaceholderText("Username (required)");
+    const input = queryByPlaceholderText("username");
     fireEvent.change(input, { target: { value: "Antonio123" } });
 
     expect(input.value).toBe("Antonio123");
@@ -34,7 +34,7 @@ describe("<SignUpInputs />", () => {
     const { queryByPlaceholderText } = render(
       <SignUpInputs signUpChange={signUpChange} form={form} />
     );
-    const input = queryByPlaceholderText("Email (required)");
+    const input = queryByPlaceholderText("email");
     fireEvent.change(input, { target: { value: "antonio@gmail.com" } });
 
     expect(input.value).toBe("antonio@gmail.com");
@@ -46,7 +46,7 @@ describe("<SignUpInputs />", () => {
     const { queryByPlaceholderText } = render(
       <SignUpInputs signUpChange={signUpChange} form={form} />
     );
-    const input = queryByPlaceholderText("Password (required)");
+    const input = queryByPlaceholderText("password");
     fireEvent.change(input, { target: { value: "Antonio312" } });
 
     expect(input.value).toBe("Antonio312");
@@ -62,7 +62,7 @@ describe("<SignUpInputs />", () => {
         form={form}
       />
     );
-    const submitButton = getByText(/submit/i);
+    const submitButton = getByText(/Register/i);
     fireEvent.submit(submitButton);
 
     expect(submitButton).not.toBeDisabled();
