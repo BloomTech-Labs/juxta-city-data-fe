@@ -107,9 +107,8 @@ path {
 }
 .card-profile{
   float: left;
-  position: absolute;
-
-  top: 50%;
+  top: 50%; margin-left: 40%;
+  margin-top: 40rem;
   left: 50%;
   transform: translate(-50%, -50%);
 
@@ -130,6 +129,7 @@ path {
     border-top-right-radius: $radius;
   }
 
+
   &_user-info{
     position: absolute;
     z-index: 3;
@@ -143,8 +143,8 @@ path {
   }
 
   .btn-info {
-      width: 64px;
-      height: 64px;
+      width: 90px;
+      height: 50px;
       margin: auto;
       outline: none;
 
@@ -155,7 +155,7 @@ path {
 
   
       margin: auto;
-      border-radius: 100%;
+      border-radius: 10%;
       top: calc(500% + 66px);
       box-shadow: 0 2px 0 #D42D78,
                   0 3px 10px rgba(#F33180, 0.15),

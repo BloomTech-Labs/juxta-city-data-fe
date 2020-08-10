@@ -159,7 +159,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
               data-strokedashoffset="-1696"
               data-strokedasharray="240 3000"
               onFocus={handleTextFocus}
-              onChange={addHandleChange}
+              // onChange={addHandleChange}
               className="input"
               id="inlineFormCustomSelectPref"
             >

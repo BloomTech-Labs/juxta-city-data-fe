@@ -13,7 +13,7 @@ const SurveyAnswersBox = ({index}) => {
  
   
    return (
-    <div style={{position: 'absolute', bottom: 0, marginBottom: 20, marginTop: 20}}>
+    <div>
       <h3>Your Survey Answers</h3>
      <SurveyAnswers  index={index} profileData={profileData}  surveyData={surveyData} />
      

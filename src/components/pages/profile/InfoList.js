@@ -20,7 +20,7 @@ const InfoList = ({ info, toggleEditing }) => {
   const dateOfBirthNew = (monthNew+1) + "/" + dateNew + "/" +yearNew;
 
   return (
-    <div className="container">
+    <div >
       <div className="card-profile" key={info.id}>
         <div className="card-profile_img">
           <img src={info.image_url} alt="User profile" />
