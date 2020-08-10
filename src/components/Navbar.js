@@ -230,8 +230,6 @@ const NavBar = ({ auth, history, location }) => {
                 : Logo
             }
             alt="Find Ur City Logo"
-            
-            
           />
         </Link>
       </H2>
@@ -256,7 +254,6 @@ const NavBar = ({ auth, history, location }) => {
                 alt="navigation arrow here"
               />
             </button>
-
             {open ? body : <span></span>}
           </Li>
         </UL>

@@ -11,9 +11,8 @@ const InfoList = ({ info, toggleEditing }) => {
   const deleteUserProfile = () => {
     deleteProfile(info.id).then(() => window.location.reload());
   };
+  
   const dateOfBirthOld = new Date(info.dob)
-  
-  
   const dateNew = dateOfBirthOld.getDate()
   const monthNew = dateOfBirthOld.getMonth()
   const yearNew = dateOfBirthOld.getFullYear()
@@ -37,24 +36,19 @@ const InfoList = ({ info, toggleEditing }) => {
                 <p>{info.first_name}</p>
               </li>
             ) : null}
-
             {info.last_name ? (
               <li style={{ listStyle: "none" }}>
                 <p>{info.last_name}</p>
               </li>
             ) : null}
             <p>{info.email}</p>
-
             <p>{info.username}</p>
-
             {info.dob ? (
               <li style={{ listStyle: "none" }}>
                 <p>{dateOfBirthNew}</p>
               </li>
             ) : null}
-
             <p>{info.address}</p>
-
             <li style={{ listStyle: "none" }}>
               <p>{info.city}</p>
               <p>{info.state} </p>
