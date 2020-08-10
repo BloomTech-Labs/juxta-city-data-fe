@@ -10,8 +10,8 @@ import poly from "../assets/polydown.png";
 import polyWhite from "../assets/polyWhite.png";
 import avatar from "../assets/avatar.png";
 import ProfileContext from "../contexts/ProfileContext";
-import { Button, Modal } from "semantic-ui-react";
-import SignIn from "./auth/SignIn";
+import { Button } from "semantic-ui-react";
+import ModalSignIn from "./auth/ModalSignIn";
 
 const UL = styled.ul`
   width: 65%;
@@ -155,7 +155,11 @@ const NavBar = ({ auth, history, location, props }) => {
   const { setUserData } = useContext(UserContext);
   const { setProfileData } = useContext(ProfileContext);
   const [open, setOpen] = useState(false);
+  
   const [modalOpen, setModalSatae] = useState(false);
+
+  const handleOpenModal = () => setModalSatae(true);
+  const handleCloseModal = () => setModalSatae(false);
   
   // const login = () => {
   //   history.push("/signin");
@@ -271,17 +275,8 @@ const NavBar = ({ auth, history, location, props }) => {
               Sign In
             </button> */}
 
-            <Button onClick={()=>setModalSatae(true)}>Sign In</Button>
-            <Modal 
-            style ={{ backgroundColor:"#f8f8f8", width:"400px", border:"1px solid balck"}}
-             open={modalOpen} 
-             onClose={() => setModalSatae(false)}
-             onOpen={() => setModalSatae(true)}>
-
-             <div style ={{ margin:"30px 0",border:"1px solid balck"}} >
-             <SignIn  history={history}/> 
-             </div>
-            </Modal>  
+            <Button onClick={handleOpenModal}>Sign In</Button>
+            <ModalSignIn modalOpen={modalOpen} handleOpenModal={handleOpenModal} handleCloseModal={handleCloseModal} history={history}/> 
           </Li>
         </UL>
       )}

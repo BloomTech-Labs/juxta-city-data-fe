@@ -4,7 +4,7 @@ import newlogo from "../../assets/newlogo.png";
 import SignInInputs from "./SignInInputs";
 import { useHistory} from "react-router-dom";
 
-const SignInBox = ({ signInChange, handleSubmit, signInForm }) => {
+const SignInBox = ({ signInChange, handleSubmit, signInForm}) => {
    const history =useHistory();
   return (
     <Card className="ui centered cards" style={{ padding: "20px" }}>
