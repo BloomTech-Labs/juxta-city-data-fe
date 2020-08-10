@@ -3,23 +3,24 @@ import { Button, Form, Icon } from "semantic-ui-react";
 
 
 const SignUpInputs = ({ signUpChange, handleSubmit, form }) => {
+const signInData =[
+  {type:"text", name:"username",value: form.username },
+  {type:"email", name:"email", value: form.email },
+  {type:"password", name:"password", value: form.password }
+]
+
   return (
     <Form onSubmit={handleSubmit}>
       <p id="error-message" style={{ display: "none", color: "red" }}>
-        **The username and email must be unique** </p>
-      <Form.Field>
-        <input type="text" name="username" placeholder="Username"
-          value={form.username} onChange={(event) => signUpChange(event)}required variant="outlined"/>
-      </Form.Field>
-      <Form.Field>
-        <input type="email"  name="email" placeholder="E-mail address"
-          value={form.email} onChange={(event) => signUpChange(event)}required variant="outlined" />
-      </Form.Field>
-      <Form.Field>
-        <input type="password"  name="password" placeholder="Password"
-          value={form.password} onChange={(event) => signUpChange(event)}required variant="outlined"/>
-      </Form.Field>
-      <Button style={{ backgroundColor: "#1890FF", color: "black", margin: "0 60px" }} >
+       Please add a unique username and password</p>
+
+        {signInData.map((item)=>(
+          <Form.Field>
+          <input type={item.type} name={item.name} placeholder={item.name}  aria-label={item.name} 
+            value={item.value}  onChange={(event) => signUpChange(event)}required variant="outlined"/>
+        </Form.Field>
+        ))}
+      <Button style={{ backgroundColor: "#191969", color: "white", margin: "0 60px" }} >
         Register <Icon name="long arrow alternate right" />
       </Button>
     </Form>

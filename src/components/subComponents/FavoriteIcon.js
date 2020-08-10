@@ -14,7 +14,8 @@ import {
 export default function FavoriteIcon(props) {
   const [favorited, setFavorited] = useState(false);
   const { setUserData, userData } = useContext(UserContext);
-  const { modal, setModal } = useContext(ModalContext);
+  //Adding modal is createing some unwanted side Effects that need more time to be fixed
+  // const { modal, setModal } = useContext(ModalContext);
   // const history = useHistory();
 
   useEffect(() => {
@@ -37,14 +38,11 @@ export default function FavoriteIcon(props) {
       setFavorited(true);
     } else {
       // setModal(true)
-      props.history.push("/signin")
-    }
+      props.history.push("/signin")}
   };
   
   return (
-    <>
     <img className="heart-icon" src={favorited ? fullheart : emptyheart}onClick={handleClick}alt="heart icon"/>
-    {/* <ModalSignIn modal={modal} setModal={setModal} history={history}/> */}
-    </> 
+    //<ModalSignIn modal={modal} setModal={setModal} history={history}/> 
   );
 };

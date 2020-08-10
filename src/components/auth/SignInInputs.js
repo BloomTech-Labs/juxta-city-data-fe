@@ -29,8 +29,9 @@ const SignInInputs = ({ signInChange, handleSubmit, signInForm, history }) => {
         </Form.Field>
         <p> New with us? <a  id="register" onClick={handleModal}>Register!</a></p>
          <ModalSignUp modal={secondmodal} setModal={setModal} history={history}/>
-           <Button
-        style={{ backgroundColor: "#1890FF", color: "black", margin: "0 60px" }}>
+           <Button id="sign-in-up-btn"
+        style={{ backgroundColor: "#191969", color: "white",  margin: "0 60px" }}
+        >
         Sign In <Icon name="long arrow alternate right" />
       </Button>
     </Form>
