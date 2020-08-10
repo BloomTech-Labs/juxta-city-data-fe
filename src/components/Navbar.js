@@ -12,7 +12,7 @@ import avatar from "../assets/avatar.png";
 import ProfileContext from "../contexts/ProfileContext";
 import { Button } from "semantic-ui-react";
 import ModalSignIn from "./auth/ModalSignIn";
-
+import ModalContext from "../contexts/ModalContext";
 const UL = styled.ul`
   width: 65%;
   list-style-type: none;
@@ -156,10 +156,12 @@ const NavBar = ({ auth, history, location, props }) => {
   const { setProfileData } = useContext(ProfileContext);
   const [open, setOpen] = useState(false);
   
-  const [modalOpen, setModalSatae] = useState(false);
+  const { modal, setModal } = useContext(ModalContext);
+  
+  // const [modalOpen, setModalSatae] = useState(false);
 
-  const handleOpenModal = () => setModalSatae(true);
-  const handleCloseModal = () => setModalSatae(false);
+  // const handleOpenModal = () => setModalSatae(true);
+  // const handleCloseModal = () => setModalSatae(false);
   
   // const login = () => {
   //   history.push("/signin");
@@ -275,8 +277,8 @@ const NavBar = ({ auth, history, location, props }) => {
               Sign In
             </button> */}
 
-            <Button onClick={handleOpenModal}>Sign In</Button>
-            <ModalSignIn modalOpen={modalOpen} handleOpenModal={handleOpenModal} handleCloseModal={handleCloseModal} history={history}/> 
+            <Button onClick={()=> setModal(true)}>Sign In</Button>
+            <ModalSignIn modal={modal} setModal={setModal} history={history}/> 
           </Li>
         </UL>
       )}
