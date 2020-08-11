@@ -32,7 +32,7 @@ export default function Profile(props) {
   
   return (
     <section>
-      <NavBar {...props} />
+      <NavBar {...props}/>
     
       <Container maxWidth="lg">
         <Grid container spacing={3}>

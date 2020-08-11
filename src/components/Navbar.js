@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -20,15 +20,15 @@ const UL = styled.ul`
   justify-content: flex-end;
 `;
 
-const H2 = styled.h2`
-  width: 25%;
-  margin-left: 50px;
-  justify-content: flex-start;
-  padding-right: 30px;
-  @media (max-width: 500px) {
-    margin: auto 0;
-  }
-`;
+// const H2 = styled.h2`
+//   width: 25%;
+//   margin-left: 50px;
+//   justify-content: flex-start;
+//   padding-right: 30px;
+//   @media (max-width: 500px) {
+//     margin: auto 0;
+//   }
+// `;
 
 const Li = styled.li`
   width: 18%;
@@ -41,20 +41,15 @@ const Li = styled.li`
 
 const NavDiv = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   height: 80px;
   max-height: 80px;
   z-index: 2;
   position: ${({ pathname }) =>
     !pathname.includes("/cityview") ? "relative" : "sticky; top: 0"};
-  max-width: 1280px;
-  background: ${({ pathname }) =>
-    pathname.includes("/cityview")
-      ? "#2196F3"
-      : pathname.includes("/recommended")
-      ? "#2196F3"
-      : pathname.includes("/profile")
-      ? "#3BE1CD"
-      : null};
+  width: 100%;
+  background: #f2f2f2;
 `;
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -153,7 +148,7 @@ const NavBar = ({ auth, history, location }) => {
   const { setUserData } = useContext(UserContext);
   const { setProfileData } = useContext(ProfileContext);
   const [open, setOpen] = useState(false);
-
+  const { profileData } = useContext(ProfileContext)
   const login = () => {
     history.push("/signin");
   };
@@ -212,40 +207,55 @@ const NavBar = ({ auth, history, location }) => {
   );
 
   let token = localStorage.getItem("token");
+  let profileImage = localStorage.getItem("profilePicture")
+  // const [profileImage, setProfileImage] = useState("");
+
+  // useEffect(() => {
+  //   setProfileImage(localStorage.getItem("profilePicture"))
+    
+  // });
+
   return (
     <NavDiv pathname={location.pathname}>
-      <H2>
-        <Link className="link" to="/">
-          <img
-            src={
-              location.pathname === "/cityview"
-                ? LogoWhite
-                : location.pathname === "/recommended"
-                ? LogoWhite
-                : Logo
-            }
-            alt="Find Ur City Logo"
-          />
-        </Link>
-      </H2>
+      <Link className="link" to="/">
+        <img
+          style={{ width: "180px", height: "70px" }}
+          src={Logo}
+          alt="Find Ur City Logo"
+        />
+      </Link>
       {token ? (
         <UL>
           <Li className={classes.avatarBox}>
-            <img src={avatar} alt="avatar" />
+            {profileImage===null ? (
+              <img
+                src={profileImage}
+                alt="avatar"
+                style={{
+                  height: "60px",
+                  width: "60px",
+                  borderRadius: "50%",
+                  border: "3px solid #191969 ",
+                }}
+              />
+            ) : (
+              <img
+                src={avatar}
+                alt="avatar"
+                style={{
+                  height: "60px",
+                  width: "60px",
+                  borderRadius: "50%",
+                  border: "3px solid #191969 ",
+                }}
+              />
+            )}
+
             <button className="link" onClick={handleOpen}>
               <img
                 id="dropdown"
                 className={!open ? classes.animation : classes.animation2}
-                src={
-                  location.pathname === "/cityview"
-                    ? polyWhite
-                    : location.pathname === "/recommended"
-                    ? polyWhite
-                    : location.pathname === "/profile"
-                    ? polyWhite
-                    : poly
-                }
-                
+                src={poly}
                 alt="navigation arrow here"
               />
             </button>
