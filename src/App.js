@@ -40,10 +40,8 @@ const App = () => {
   const [recomendedCity, setRecomendedCity] = useState([]);
   const [profileData, setProfileData] = useState({});
   const [modal, setModal]= useState(false)
-  console.log(modal, "modal in appJSS");
+  // console.log(modal, "modal in appJSS");
 
-
- 
   return (
     <Router>
       <div className="App">
