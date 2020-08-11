@@ -171,12 +171,12 @@ const NavBar = ({ auth, history, location, props }) => {
     history.push("/dashboard");
   };
   const handleOpen = () => {
-    let background = document.getElementById("darken");
-    if (open) {
-      background.style.display = "none";
-    } else {
-      background.style.display = "block";
-    }
+    // let background = document.getElementById("darken");
+    // if (open) {
+    //   background.style.display = "none";
+    // } else {
+    //   background.style.display = "block";
+    // }
     setOpen(!open);
   };
 
