@@ -17,12 +17,14 @@ export default function RecommendedCard(props) {
       props.history.push("/cityview");
     });
   };;
+const livabilityScore = Math.floor(props.cityData.livability_score * 10) / 10 
+
   return (
     <Paper className={classes.cardRoot}>
       <div className={classes.cardHeader}>
         <FavoriteIcon class={classes.heart} cityData={props.cityData} {...props} />
         <h4 className={classes.cardHeading}>{props.cityData.name_and_state}</h4>
-        <p className={classes.livability}>{props.cityData.livability_score}</p>
+        <p className={classes.livability}>{livabilityScore}</p>
       </div>
       <p className={classes.description}>{props.cityData.population_desc}</p>
       <button
