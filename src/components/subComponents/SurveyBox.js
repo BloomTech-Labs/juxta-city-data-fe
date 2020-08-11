@@ -24,7 +24,7 @@ const SurveyCard = styled.div`
   }
 
   button {
-    background: #0091ff;
+    background: #191969;
     border: none;
     color: #fff;
     font-size: 1rem;
