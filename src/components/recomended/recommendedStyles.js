@@ -3,7 +3,8 @@ import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
 root : {
-    margin: '0 auto'
+    margin: '0 auto',
+    
 },
 cardBox : {
     margin: '0 auto',
@@ -17,11 +18,13 @@ cardRoot : {
     width: 355,
     maxWidth: '95%',
     height: 270,
+    
 },
 cardHeader : {
     display: 'flex',
     alignItems: 'baseline',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingLeft:'15px'
 },
 cardHeading : {
     width: '75%',
@@ -41,16 +44,17 @@ livability: {
     backgroundSize: '36px 54px'
 },
 heart: {
-    paddingLeft: 10
+    padding:'15px'
 },
 description: {
     background: 'linear-gradient(black 100px, white)',
     '-webkit-background-clip': 'text',
     '-webkit-text-fill-color': 'transparent',
     height: 130,
-    padding: 5,
+    // padding: 5,
     whiteSpace: 'wrap',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    padding:'15px'
 },
 learn : {
     fontSize: 14,

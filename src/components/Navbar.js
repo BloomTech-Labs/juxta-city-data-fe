@@ -40,7 +40,7 @@ const NavDiv = styled.div`
   background: #f2f2f2;
 `;
 
-const NavBar = ({ auth, history, location }) => {
+const NavBar = ({ history, location }) => {
   const { setUserData } = useContext(UserContext);
   const { setProfileData } = useContext(ProfileContext);
   const [open, setOpen] = useState(false);
@@ -57,7 +57,7 @@ const NavBar = ({ auth, history, location }) => {
     handleOpen();
     history.push("/dashboard");
   };
-  
+
   const handleAbout = () => {
     history.push("/");
     handleOpen();
@@ -102,7 +102,7 @@ const NavBar = ({ auth, history, location }) => {
     <NavDiv pathname={location.pathname}>
       <Link className="link" to="/">
         <img
-          style={{ width: "180px", height: "70px" }}
+          style={{ width: "170px", height: "65px", paddingTop:"10px", paddingLeft:"20px" }}
           src={Logo}
           alt="Find Ur City Logo"
         />
@@ -119,8 +119,8 @@ const NavBar = ({ auth, history, location }) => {
               alt="profile avatar"
               onClick={handleOpen}
               style={{
-                height: "60px",
-                width: "60px",
+                height: "50px",
+                width: "50px",
                 borderRadius: "50%",
                 border: "3px solid #191969 ",
               }}
