@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import { getCityData, getCityArray } from '../../functions';
 
 const Search = styled.input`
-  width: 73.2rem;
+  width: 60rem;
   border: none;
   border-radius: 7px;
-  padding: 2rem;
-  font-size: 1.9rem;
+  padding: 1.5rem;
+  font-size: 1.5rem;
 
   &:focus {
     outline: 0;
@@ -17,7 +17,7 @@ const Search = styled.input`
 `;
 
 const Form = styled.form`
-  width: 85%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -26,13 +26,15 @@ const Form = styled.form`
 const CityDropDown = styled.div`
   z-index: 2;
   height: 0;
-  width: 73.2rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 const City = styled.option`
   margin: 0;
-  padding: 1rem;
-  font-size: 1.9rem;
+  width: 60rem;
+  padding: 2rem;
+  font-size: 1.5rem;
   background: #fff;
   &:hover {
     background: #bbd3fc;

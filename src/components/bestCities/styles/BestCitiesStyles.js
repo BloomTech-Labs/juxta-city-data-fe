@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Heading = styled.h2`
-  font-size: 3.8rem;
+  font-size: 3rem;
 `;
 
 export const CityImageContainer = styled.div`
@@ -11,8 +11,8 @@ export const CityImageContainer = styled.div`
 `;
 
 export const CityCard = styled.div`
-  margin: 2rem;
-  width: 30rem;
+  margin: 1.2rem;
+  width: 20rem;
   font-size: 1.6rem;
   border-radius: 5px;
   text-align: center;
@@ -25,14 +25,14 @@ export const CityCard = styled.div`
   }
 
   h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 1rem;
   }
 
   img {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    width: 30rem;
-    height: 20rem;
+    width: 20rem;
+    height: 12.5rem;
   }
 `;
