@@ -1,5 +1,5 @@
 import React from "react";
-// import SelectState from "./SelectState";
+ import SelectState from "./SelectState";
 import { Form, Button} from "semantic-ui-react";
 
 function ExtraProfileInputs({ handleSubmit, addHandleChange}) {
