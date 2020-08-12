@@ -36,6 +36,10 @@ const SurveyCard = styled.div`
     cursor: pointer;
     padding: 1rem 3rem;
   }
+
+  @media (max-width: 500px) {
+    width: 30rem;
+  }
 `;
 
 const SurveyBox = () => {

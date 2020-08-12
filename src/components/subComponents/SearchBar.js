@@ -17,6 +17,10 @@ const Search = styled.input`
   &:focus {
     outline: solid #000;
   }
+
+  @media (max-width: 500px) {
+    width: 60vw;
+  }
 `;
 
 const Button = styled.button`
@@ -61,6 +65,10 @@ const City = styled.p`
   &:last-child {
     border-bottom-right-radius: 7px;
     border-bottom-left-radius: 7px;
+  }
+
+  @media (max-width: 500px) {
+    width: 60vw;
   }
 `;
 

@@ -13,11 +13,7 @@ const HomeBanner = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 78vh;
-
-  @media (max-width: 500px) {
-    height: 30vh;
-  }
+  min-height: 90vh;
 `;
 
 const moveInBottom = keyframes`
