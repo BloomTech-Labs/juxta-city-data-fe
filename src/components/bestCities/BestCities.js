@@ -13,10 +13,11 @@ const BestCities = () => {
 
   return (
     <Container
-      maxWidth='xl'
+      maxWidth='lg'
       style={{
         backgroundColor: '#fff',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: '3rem'
       }}>
       '<Heading>Best Cities</Heading>
       <MaterialUiGridList gridList={gridList} />
