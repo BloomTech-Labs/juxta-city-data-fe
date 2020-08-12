@@ -31,11 +31,13 @@ const AddProfile = ({ profileData }) => {
     );
   };
   return profileData.length === 1 ? null : (
+    
     <AddProfileForm
       profileBody={profileBody}
       handleSubmit={handleSubmit}
       addHandleChange={addHandleChange}
     />
+  
   );
 };
 

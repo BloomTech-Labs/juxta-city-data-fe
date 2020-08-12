@@ -1,9 +1,10 @@
 import React from "react";
 import ProfileInputs from "./ProfileInputs";
+import ExtraProfileInputs from "./ExtraProfileInputs";
 
 function AddProfileForm({ handleSubmit, addHandleChange }) {
   return (
-        <ProfileInputs
+        <ExtraProfileInputs
           handleSubmit={handleSubmit}
           addHandleChange={addHandleChange}
         />

@@ -146,20 +146,20 @@ p {
   width: "100%";
   flex-wrap: wrap;
   justify-content: space-around;
-  .dash-cityscape{
+  .dash-cityscape {
     width: 355px;
-     height: 220px;
-     max-width: 95%;
-     margin: 30px 5px;
-     padding: 0
+    height: 220px;
+    max-width: 95%;
+    margin: 30px 5px;
+    padding: 0;
   }
-  .comp-cityscape{
-      width: 280px;
-      height: 197px;
-      max-width: 95%;
-      margin: 30px 5px;
-      padding: 0
-    }
+  .comp-cityscape {
+    width: 280px;
+    height: 197px;
+    max-width: 95%;
+    margin: 30px 5px;
+    padding: 0;
+  }
 }
 
 .card-header {
@@ -167,17 +167,25 @@ p {
   flex-direction: row;
   padding-left: 15px;
   align-items: baseline;
-    .livability-score {
-      width: 50px;
-      height: 60px;
-      color: black;
-      font-weight: bold;
-      padding-right: 5px;
-      padding-left: 2px;
-      margin: 0 auto;
-      line-height: 50px;
-      background-image: url("./assets/livabilityIcon.png");
-      background-repeat: no-repeat;
-      background-size: 36px 54px;
-    }
+  .livability-score {
+    width: 50px;
+    height: 60px;
+    color: black;
+    font-weight: bold;
+    padding-right: 5px;
+    padding-left: 2px;
+    margin: 0 auto;
+    line-height: 50px;
+    background-image: url("./assets/livabilityIcon.png");
+    background-repeat: no-repeat;
+    background-size: 36px 54px;
+  }
+}
+
+.extra-profile {
+  margin-top: 60px;
+  padding: 60px;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  box-shadow: 0px 3px 3px 0px rgba(211, 211, 211, 0.9);
 }

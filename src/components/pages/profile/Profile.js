@@ -41,7 +41,7 @@ export default function Profile(props) {
           </Grid>
           <AddProfile profileData={profileData} />
           {editing ? (
-            <Grid item xs={8}>
+            <Grid item xs={4}>
               <EditUser profileData={profileData} editing={editing} />
             </Grid>
           ) : (
