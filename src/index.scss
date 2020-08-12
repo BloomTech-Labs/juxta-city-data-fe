@@ -136,6 +136,34 @@ p {
     display: none;
   } /* hide it elsewhere */
 }
-#register{
+#register {
   color: black;
+}
+.cardBox {
+  display: flex;
+  flex-direction: row;
+  margin: 1% 0;
+  width: "100%";
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: row;
+  padding-left: 15px;
+  align-items: baseline;
+    .livability-score {
+      width: 50px;
+      height: 60px;
+      color: black;
+      font-weight: bold;
+      padding-right: 5px;
+      padding-left: 2px;
+      margin: 0 auto;
+      line-height: 50px;
+      background-image: url("./assets/livabilityIcon.png");
+      background-repeat: no-repeat;
+      background-size: 36px 54px;
+    }
 }

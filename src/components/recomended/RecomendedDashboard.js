@@ -1,16 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import NavBar from "../Navbar";
 import RecommendedCard from "./RecommendedCard";
-import { useStyles } from "./recommendedStyles";
 import cityscape from "../../assets/cityscape.png";
 import RecommendedContext from "../../contexts/RecomendedContext";
-import { Link } from "react-router-dom";
 import UserContext from "../../contexts/UserContext";
-// import { Button } from "@material-ui/core";
-import { Card, Header, Button } from "semantic-ui-react";
+import {  Header, Button } from "semantic-ui-react";
 
 export default function RecommendedDashboard({ auth, history, location }) {
-  const classes = useStyles();
 
   const { recomendedCity } = useContext(RecommendedContext);
   const { userData } = useContext(UserContext);
@@ -29,29 +25,22 @@ export default function RecommendedDashboard({ auth, history, location }) {
   const props = { auth, history, location };
 
   return (
-    <div className={classes.root}>
+    <div >
       <NavBar {...props} />
-      <div className={classes.header}>
-        <h1 className={classes.heading}>Your Recommended Cities</h1>
-      </div>
-      <div className={classes.cardBox}>
+      <Header as="h1" style={{textAlign:"center"}} >Your Recommended Cities</Header>
+      <div className="cardBox">
         {cities ? (
           cities.map((city) => (
             <RecommendedCard key={city.id} {...props} cityData={city} />
           ))
         ) : ( <></>)}
 
-        <img src={cityscape} className={classes.cityscape} alt="cityscape" />
+        <img src={cityscape}  alt="cityscape"
+          style={{ width: 355, height: 220, maxWidth: '95%', margin: '30px 5px', padding: '0' }} />
       </div>
-      {user > 0 ? (
-        <Button color='blue' style={{color:"black", marginLeft:"85%"}} onClick={()=>history.push("/dashboard")} >
+        <Button style={{color:"white", marginLeft:"85%",backgroundColor:'#191969'}} onClick={()=>{user > 0 ?(history.push("/dashboard")):( history.push("/")) } } >
           Go To Dashboard
         </Button>
-      ) : (
-        <Button color='blue' style={{color:"black", marginLeft:"85%" }} onClick={()=>history.push("/")} >
-        Go To Home Page
-      </Button>
-      )}
     </div>
   );
 }

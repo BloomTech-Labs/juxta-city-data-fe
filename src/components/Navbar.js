@@ -48,22 +48,14 @@ const NavBar = ({ history, location }) => {
   
   const { modal, setModal } = useContext(ModalContext);
   
-  // const [modalOpen, setModalSatae] = useState(false);
-
-  const login = () => {
-    history.push("/signin");
-  };
+  // const login = () => {
+  //   history.push("/signin");
+  // };
  
   const handleOpen = () => {
     setOpen(!open);
   };
 
-  // const handleOpenModal = () => setModalSatae(true);
-  // const handleCloseModal = () => setModalSatae(false);
-  
-  // const login = () => {
-  //   history.push("/signin");
-  // };
   const handleDash = () => {
     handleOpen();
     history.push("/dashboard");
@@ -151,20 +143,6 @@ const NavBar = ({ history, location }) => {
       ) : (
         <UL>
           <Li>
-            <Button onClick={login}>Sign In</Button>
-            {/* <button
-              className={
-                location.pathname === "/cityview"
-                  ? classes.SignInBlue
-                  : location.pathname === "/recommended"
-                  ? classes.SignInBlue
-                  : classes.SignInWhite
-              }
-              onClick={login}
-            >
-              Sign In
-            </button> */}
-
             <Button onClick={()=> setModal(true)}>Sign In</Button>
             <ModalSignIn modal={modal} setModal={setModal} history={history}/> 
           </Li>
