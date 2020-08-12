@@ -40,13 +40,13 @@ $visual-height: 68%;
   position: relative;
 
 }
-svg {
+.svg {
   position: absolute;
   width: 320px;
   top: 54px;
 
 }
-path {
+.path {
   fill: none;
   stroke: url(#linearGradient);;
   stroke-width: 4;

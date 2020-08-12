@@ -45,11 +45,16 @@ const NavDiv = styled.div`
   max-height: 80px;
   z-index: 2;
   position: ${({ pathname }) =>
-    !pathname.includes("/cityview") ? "relative" : "sticky; top: 0"};
+    !pathname.includes("/cityview") ? "fixed" : "sticky; top: 0"};
   width: 100%;
   top: 0;
-  background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
-  `
+  background-image: radial-gradient(
+    circle at 0% 0%,
+    #373b52,
+    #252736 51%,
+    #1d1e26
+  );
+`;
   
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -148,16 +153,16 @@ const NavBar = ({ auth, history, location }) => {
   const { setUserData } = useContext(UserContext);
   const { setProfileData } = useContext(ProfileContext);
   const [open, setOpen] = useState(false);
-  const [profileImage, setProfileImage] = useState("")
+   const [profileImage, setProfileImage] = useState("");
 
-  const { profileData } = useContext(ProfileContext);//Context for avatar
+   const { profileData } = useContext(ProfileContext);
 
-  
-//Use Effect created to index the profile image  and set it as state
-  useEffect(() => {
-    profileData[0] && setProfileImage(profileData[0].image_url)
-  })
-  console.log(profileImage)
+   useEffect(() => {
+     profileData[0] && setProfileImage(profileData[0].image_url);
+   });
+
+   console.log(profileImage);
+
 
   const login = () => {
     history.push("/signin");
@@ -168,11 +173,11 @@ const NavBar = ({ auth, history, location }) => {
   };
   const handleOpen = () => {
     let background = document.getElementById("darken");
-    if (open) {
-      background.style.display = "none";
-    } else {
-      background.style.display = "block";
-    }
+    // if (open) {
+    //   background.style.display = "none";
+    // } else {
+    //   background.style.display = "block";
+    // }
     setOpen(!open);
   };
 
@@ -222,6 +227,7 @@ const NavBar = ({ auth, history, location }) => {
       <H2>
         <Link className="link" to="/">
           <img
+          style={{width: "60%"}}
             src={
               location.pathname === "/cityview"
                 ? LogoWhite
