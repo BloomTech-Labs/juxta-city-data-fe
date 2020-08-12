@@ -7,7 +7,7 @@ import { Header} from "semantic-ui-react";
 export default function RecommendedComponent(props) {
   const [cities, setCities] = useState(null);
   const { recomendedCity } = useContext(RecomendedContext);
-  
+
   useEffect(() => {
     if (recomendedCity.length > 0) {
       setCities(recomendedCity);
@@ -22,8 +22,7 @@ export default function RecommendedComponent(props) {
         {cities.map((city) => (
           <RecommendedCard key={city.id} {...props} cityData={city} />
         ))}
-        <img src={cityscape} alt="cityscape"
-          style={{ width: 280, height: 197, margin: "30px 5px" ,padding: "0 ", maxWidth: "95%", }}/>
+        <img src={cityscape} alt="cityscape" className="comp-cityscape"/>
       </div>
     </div>
   );

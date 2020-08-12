@@ -146,6 +146,20 @@ p {
   width: "100%";
   flex-wrap: wrap;
   justify-content: space-around;
+  .dash-cityscape{
+    width: 355px;
+     height: 220px;
+     max-width: 95%;
+     margin: 30px 5px;
+     padding: 0
+  }
+  .comp-cityscape{
+      width: 280px;
+      height: 197px;
+      max-width: 95%;
+      margin: 30px 5px;
+      padding: 0
+    }
 }
 
 .card-header {

@@ -35,8 +35,7 @@ export default function RecommendedDashboard({ auth, history, location }) {
           ))
         ) : ( <></>)}
 
-        <img src={cityscape}  alt="cityscape"
-          style={{ width: 355, height: 220, maxWidth: '95%', margin: '30px 5px', padding: '0' }} />
+        <img src={cityscape}  alt="cityscape" className="dash-cityscape"/>
       </div>
         <Button style={{color:"white", marginLeft:"85%",backgroundColor:'#191969'}} onClick={()=>{user > 0 ?(history.push("/dashboard")):( history.push("/")) } } >
           Go To Dashboard
