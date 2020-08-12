@@ -25,6 +25,7 @@ const AddProfile = ({ profileData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(profileBody)
     setprofileBody(userId);
     postProfileRequest(profileBody, userId).then(() =>
       window.location.reload()

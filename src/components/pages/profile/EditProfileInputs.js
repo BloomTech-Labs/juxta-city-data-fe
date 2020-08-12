@@ -24,7 +24,6 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
    };
    const handleTextFocus = (e) => {
      if (current) current.pause();
-     //console.log(e);debugger;
      current = anime({
        targets: "path",
        strokeDashoffset: {
@@ -87,7 +86,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
               className="label"
               for="first_name"
               aria-label="first name"
-            ></label>
+            > First Name</label>
             <input
               type="text"
               placeholder="First Name"
@@ -104,7 +103,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
               className="label"
               for="last_name"
               aria-label="last name"
-            ></label>
+            > Last Name</label>
             <input
               type="text"
               placeholder="Last Name"
@@ -116,7 +115,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
               onFocus={handleTextFocus}
               onChange={addHandleChange}
             />
-            <label className="label" for="dob" aria-label="birth date"></label>
+            <label className="label" for="dob" aria-label="birth date">Dob</label>
             <input
               class="input datepicker"
               id="dob"
@@ -130,7 +129,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
               aria-label="date of birth"
             />
 
-            <label className="label" for="address" aria-label="address"></label>
+            <label className="label" for="address" aria-label="address">Address</label>
             <input
               type="text"
               placeholder="Address"
@@ -143,7 +142,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
               onChange={addHandleChange}
             />
 
-            <label className="label" for="city" aria-label="city"></label>
+            <label className="label" for="city" aria-label="city">City</label>
             <input
               type="text"
               placeholder="City"
@@ -159,68 +158,69 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
             <div>
               <label
                 className="label"
-                for="inlineFormCustomSelectPref"
+                // for="inlineFormCustomSelectPref"
                 aria-label="state"
-              ></label>
+              >State</label>
               <select
                 data-strokedashoffset="-1696"
                 data-strokedasharray="240 3000"
                 onFocus={handleTextFocus}
                 onChange={addHandleChange}
                 class="input"
-                id="inlineFormCustomSelectPref"
+                name="state"
+                // id="inlineFormCustomSelectPref"
               >
                 <option selected>Choose...</option>
-                <option value="1">Alabama</option>
-                <option value="2">Alaska</option>
-                <option value="3">Arizona</option>
-                <option value="4">Arkansas</option>
-                <option value="5">California</option>
-                <option value="6">Colorado</option>
-                <option value="7">Connecticut</option>
-                <option value="8">Delaware</option>
-                <option value="9">Florida</option>
-                <option value="10">Georgia</option>
-                <option value="11">Hawaii</option>
-                <option value="12">Idaho</option>
-                <option value="13">Illinois</option>
-                <option value="14">Indiana</option>
-                <option value="15">Iowa</option>
-                <option value="16">Kansas</option>
-                <option value="17">Kentucky</option>
-                <option value="18">Louisiana</option>
-                <option value="19">Maine</option>
-                <option value="20">Maryland</option>
-                <option value="21">Massachusetts</option>
-                <option value="22">Michigan</option>
-                <option value="23">Minnesota</option>
-                <option value="24">Mississippi</option>
-                <option value="25">Missouri</option>
-                <option value="26">Montana</option>
-                <option value="27">Nebraska</option>
-                <option value="28">Nevada</option>
-                <option value="29">New Hampshire</option>
-                <option value="30">New Jersey</option>
-                <option value="31">New Mexico</option>
-                <option value="32">New York</option>
-                <option value="33">North Carolina</option>
-                <option value="34">North Dakota</option>
-                <option value="35">Ohio</option>
-                <option value="36">Oklahoma</option>
-                <option value="37">Oregon</option>
-                <option value="38">Pennsylvania</option>
-                <option value="39">Rhode Island</option>
-                <option value="40">South Carolina</option>
-                <option value="41">South Dakota</option>
-                <option value="42">Tennessee</option>
-                <option value="43">Texas</option>
-                <option value="44">Utah</option>
-                <option value="45">Vermont</option>
-                <option value="46">Virginia</option>
-                <option value="47">Washington</option>
-                <option value="48">West Virginia</option>
-                <option value="49">Wisconsin</option>
-                <option value="50">Wyoming</option>
+                <option value="Alabama">Alabama</option>
+                <option value="Alaska">Alaska</option>
+                <option value="Arizona">Arizona</option>
+                <option value="Arkansas">Arkansas</option>
+                <option value="California">California</option>
+                <option value="Colorado">Colorado</option>
+                <option value="Connecticut">Connecticut</option>
+                <option value="Delaware">Delaware</option>
+                <option value="Florida">Florida</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Hawaii">Hawaii</option>
+                <option value="Idaho">Idaho</option>
+                <option value="Illinois">Illinois</option>
+                <option value="Indiana">Indiana</option>
+                <option value="Iowa">Iowa</option>
+                <option value="Kansas">Kansas</option>
+                <option value="Kentucky">Kentucky</option>
+                <option value="Louisiana">Louisiana</option>
+                <option value="Maine">Maine</option>
+                <option value="Maryland">Maryland</option>
+                <option value="Massachusetts">Massachusetts</option>
+                <option value="Michigan">Michigan</option>
+                <option value="Minnesota">Minnesota</option>
+                <option value="Mississippi">Mississippi</option>
+                <option value="Missouri">Missouri</option>
+                <option value="Montana">Montana</option>
+                <option value="Nebraska">Nebraska</option>
+                <option value="Nevada">Nevada</option>
+                <option value="New Hampshire">New Hampshire</option>
+                <option value="New Jersey">New Jersey</option>
+                <option value="New Mexico">New Mexico</option>
+                <option value="New York">New York</option>
+                <option value="North Carolina">North Carolina</option>
+                <option value="North Dakota">North Dakota</option>
+                <option value="Ohio">Ohio</option>
+                <option value="Oklahoma">Oklahoma</option>
+                <option value="Oregon">Oregon</option>
+                <option value="Pennsylvania">Pennsylvania</option>
+                <option value="Rhode Island">Rhode Island</option>
+                <option value="South Carolina">South Carolina</option>
+                <option value="South Dakota">South Dakota</option>
+                <option value="Tennessee">Tennessee</option>
+                <option value="Texas">Texas</option>
+                <option value="Utah">Utah</option>
+                <option value="Vermont">Vermont</option>
+                <option value="Virginia">Virginia</option>
+                <option value="Washingtion">Washington</option>
+                <option value="West Virginia">West Virginia</option>
+                <option value="Wisconsin">Wisconsin</option>
+                <option value="Wyoming">Wyoming</option>
               </select>
             </div>
 
@@ -229,7 +229,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
                 className="label"
                 for="Zip Code"
                 aria-label="zip code"
-              ></label>
+              >Zip</label>
               <input
                 type="number"
                 placeholder="Zip Code"
