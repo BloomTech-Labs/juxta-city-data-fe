@@ -8,7 +8,8 @@ import poly from "../assets/polydown.png";
 import avatar from "../assets/avatar.png";
 import UserContext from "../contexts/UserContext";
 import ProfileContext from "../contexts/ProfileContext";
-
+import ModalSignIn from "./auth/ModalSignIn";
+import ModalContext from "../contexts/ModalContext";
 const UL = styled.ul`
   width: 65%;
   list-style-type: none;
@@ -44,6 +45,10 @@ const NavBar = ({ history, location }) => {
   const { setUserData } = useContext(UserContext);
   const { setProfileData } = useContext(ProfileContext);
   const [open, setOpen] = useState(false);
+  
+  const { modal, setModal } = useContext(ModalContext);
+  
+  // const [modalOpen, setModalSatae] = useState(false);
 
   const login = () => {
     history.push("/signin");
@@ -53,11 +58,17 @@ const NavBar = ({ history, location }) => {
     setOpen(!open);
   };
 
+  // const handleOpenModal = () => setModalSatae(true);
+  // const handleCloseModal = () => setModalSatae(false);
+  
+  // const login = () => {
+  //   history.push("/signin");
+  // };
   const handleDash = () => {
     handleOpen();
     history.push("/dashboard");
   };
-
+ 
   const handleAbout = () => {
     history.push("/");
     handleOpen();
@@ -141,6 +152,21 @@ const NavBar = ({ history, location }) => {
         <UL>
           <Li>
             <Button onClick={login}>Sign In</Button>
+            {/* <button
+              className={
+                location.pathname === "/cityview"
+                  ? classes.SignInBlue
+                  : location.pathname === "/recommended"
+                  ? classes.SignInBlue
+                  : classes.SignInWhite
+              }
+              onClick={login}
+            >
+              Sign In
+            </button> */}
+
+            <Button onClick={()=> setModal(true)}>Sign In</Button>
+            <ModalSignIn modal={modal} setModal={setModal} history={history}/> 
           </Li>
         </UL>
       )}

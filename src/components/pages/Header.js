@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useHistory } from 'react-router-dom';
 import SearchBar from '../subComponents/SearchBar';
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
@@ -14,10 +13,10 @@ const HomeBanner = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 62.5rem;
+  min-height: 75vh;
 
   @media (max-width: 500px) {
-    height: 30rem;
+    height: 30vh;
   }
 `;
 
@@ -34,35 +33,29 @@ const moveInBottom = keyframes`
 `;
 
 const Heading = styled.h1`
-  font-size: 4.8rem;
+  font-size: 4rem;
   color: white;
   animation: ${moveInBottom} 1s ease-out;
   margin: 0 auto;
 
   @media (max-width: 500px) {
-    font-size: 4rem;
+    font-size: 3rem;
     animation: none;
   }
 `;
 
-const Paragraph = styled.p`
-  font-size: 2rem;
+const Discover = styled.h2`
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 300;
   color: #fff;
 `;
 
 const Header = () => {
-  // Need to move these
-
-  // const history = useHistory();
-
-  // function handleClick() {
-  //   history.push('/survey');
-  // }
-
   return (
     <HomeBanner>
       <Heading>Find your way home</Heading>
-      <Paragraph>Discover a place you'll live and love</Paragraph>
+      <Discover>Discover a place you'll live and love</Discover>
       <SearchBar />
     </HomeBanner>
   );

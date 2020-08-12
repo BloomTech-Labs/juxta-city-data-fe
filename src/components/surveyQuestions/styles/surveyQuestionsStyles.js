@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Heading = styled.h2`
+export const Heading = styled.h1`
   font-weight: bold;
   font-size: 36px;
   margin: 25px 0 90px 0;
@@ -14,7 +14,7 @@ export const Heading = styled.h2`
 
 export const SubmitButton = styled.button`
   padding: 10px 15px;
-  background: #2196f3;
+  background: #191969;
   color: white;
   font-size: 14px;
   border-radius: 4px;

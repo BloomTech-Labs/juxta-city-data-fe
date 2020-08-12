@@ -9,7 +9,7 @@ const MaterialUiGridList = (props) => {
   const { setCityData } = useContext(CityContext);
   const history = useHistory();
 
-  const randomCities = randomCity(props.gridList).splice(0, 8);
+  const randomCities = randomCity(props.gridList).splice(0, 6);
 
   function handleClick(city) {
     getCityData(city).then((city) => {

@@ -1,17 +1,17 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
 
 h1,
 h2,
@@ -71,10 +71,10 @@ p {
         width: 250px;
         height: 210px;
         padding: 2%;
-        img{
-          width:40%;
-          height:40%;
-          margin:5px auto;
+        img {
+          width: 40%;
+          height: 40%;
+          margin: 5px auto;
         }
         h3 {
           color: #767676;
@@ -99,7 +99,7 @@ p {
   .container-menu-city {
     width: 100%;
     position: fixed;
-    background-color: #2196F3;
+    background-color: #2196f3;
     // margin-bottom: 20px;
     // top: 80;
     z-index: 1;
@@ -130,3 +130,12 @@ p {
 //       cursor: pointer;
 //     };
 // }
+
+@media (max-width: 766px) {
+  #my-divider {
+    display: none;
+  } /* hide it elsewhere */
+}
+#register{
+  color: black;
+}
