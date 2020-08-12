@@ -1,85 +1,29 @@
 import React  from "react";
-import { styles } from "./authStlyes";
+import { Form } from "semantic-ui-react";
+import SubmitButton from "./SubmitBotton";
 
-const SignUpInputs =({signUpChange, handleSubmit, form}) => {
-    const classes = styles();
 
-    return (
-        <form onSubmit={handleSubmit} className={classes.form}>
-            <p id="error-message" style={{ display: "none", color: "red" }}>
-            **The username and email must be unique** </p>
-            <input type="text" name="username" placeholder="Username (required)"
-                value={form.username} className={classes.inputs}  onChange= {(event)=> signUpChange(event)} required
-            />
-            <input type="email" name="email" placeholder="Email (required)"
-                value={form.email} className={classes.inputs}  onChange= {(event)=> signUpChange(event)} required
-            />
-            <input type="password" name="password" placeholder="Password (required)"
-                value={form.password} className={classes.inputs}  onChange= {(event)=> signUpChange(event)} required
-            />
-            <button className={classes.submit} style={{ background: "#8BC34A" }}>
-                Submit </button>
-        </form>
-    )
-}
+const SignUpInputs = ({ signUpChange, handleSubmit, form }) => {
+const signInData =[
+  {type:"text", name:"username",value: form.username },
+  {type:"email", name:"email", value: form.email },
+  {type:"password", name:"password", value: form.password }
+]
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      <p id="error-message" style={{ display: "none", color: "red" }}>
+       Please add a unique username and password</p>
+
+        {signInData.map((item,index)=>(
+          <Form.Field key={index}>
+          <input type={item.type} name={item.name} placeholder={item.name}  aria-label={item.name} 
+            value={item.value}  onChange={(event) => signUpChange(event)}required variant="outlined"/>
+        </Form.Field>
+        ))}
+        <SubmitButton title= "Register"/>
+    </Form>
+  );
+};
+
 export default SignUpInputs;
-
-// import React from "react";
-// import { Button, Form,  Icon } from "semantic-ui-react";
-// import { Link } from "react-router-dom";
-
-// const SignUpInputs = ({ signUpChange, handleSubmit, form }) => {
-//   const commomProps = {
-//     onChange: signUpChange,
-//   };
-//   return (
-//     <Form onSubmit={handleSubmit}>
-//       <p id="error-message" style={{ display: "none", color: "red" }}>
-//         **The username and email must be unique**{" "}
-//       </p>
-//       <Form.Field fluid icon='user' iconPosition='left'>
-//         <input
-//           type="text"
-//           name="username"
-//           placeholder="Username"
-//           value={form.username}
-//           {...commomProps}
-//           required
-//           variant="outlined"
-//         />
-//       </Form.Field>
-//       <Form.Field>
-//         <input
-//           type="email"
-//           name="email"
-//           placeholder="E-mail address"
-//           value={form.email}
-//           {...commomProps}
-//           required
-//           variant="outlined"
-//         />
-//       </Form.Field>
-//       <Form.Field>
-//         <input
-//           type="password"
-//           name="password"
-//           placeholder="Password"
-//           value={form.password}
-//           {...commomProps}
-//           required
-//           variant="outlined"
-//         />
-//       </Form.Field>
-
-//       <p>
-//         Already have an account? <Link to="/">Sign in!</Link>
-//       </p>
-//       <Button
-//         style={{ backgroundColor: "#1890FF", color: "black", margin: "0 60px" }}
-//       >
-//         Submit <Icon name="long arrow alternate right" />
-//       </Button>
-//     </Form>
-//   );
-// };
-// export default SignUpInputs;

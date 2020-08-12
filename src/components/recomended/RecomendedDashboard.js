@@ -1,14 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import NavBar from "../Navbar";
 import RecommendedCard from "./RecommendedCard";
-import { useStyles } from "./recommendedStyles";
 import cityscape from "../../assets/cityscape.png";
 import RecommendedContext from "../../contexts/RecomendedContext";
-import { Link } from "react-router-dom";
 import UserContext from "../../contexts/UserContext";
+import {  Header, Button } from "semantic-ui-react";
 
 export default function RecommendedDashboard({ auth, history, location }) {
-  const classes = useStyles();
 
   const { recomendedCity } = useContext(RecommendedContext);
   const { userData } = useContext(UserContext);
@@ -27,30 +25,21 @@ export default function RecommendedDashboard({ auth, history, location }) {
   const props = { auth, history, location };
 
   return (
-    <div className={classes.root}>
+    <div >
       <NavBar {...props} />
-      <div className={classes.header}>
-        <h1 className={classes.heading}>Your Recommended Cities</h1>
-      </div>
-      <div className={classes.cardBox}>
+      <Header as="h1" style={{textAlign:"center"}} >Your Recommended Cities</Header>
+      <div className="cardBox">
         {cities ? (
           cities.map((city) => (
             <RecommendedCard key={city.id} {...props} cityData={city} />
           ))
-        ) : (
-          <></>
-        )}
-        <img src={cityscape} className={classes.cityscape} alt="cityscape" />
+        ) : ( <></>)}
+
+        <img src={cityscape}  alt="cityscape" className="dash-cityscape"/>
       </div>
-      {user > 0 ? (
-        <Link to="/dashboard" className={classes.dashboard}>
+        <Button style={{color:"white", marginLeft:"85%",backgroundColor:'#0074cc'}} onClick={()=>{user > 0 ?(history.push("/dashboard")):( history.push("/")) } } >
           Go To Dashboard
-        </Link>
-      ) : (
-        <Link to="/" className={classes.dashboard}>
-          Go To Home Page
-        </Link>
-      )}
+        </Button>
     </div>
   );
 }

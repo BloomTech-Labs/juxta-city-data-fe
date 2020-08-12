@@ -8,7 +8,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 @import url("https://fonts.googleapis.com/css?family=Oswald&display=swap"); 
@@ -289,10 +289,10 @@ color: white;
         width: 250px;
         height: 210px;
         padding: 2%;
-        img{
-          width:40%;
-          height:40%;
-          margin:5px auto;
+        img {
+          width: 40%;
+          height: 40%;
+          margin: 5px auto;
         }
         h3 {
           color: #767676;
@@ -317,7 +317,7 @@ color: white;
   .container-menu-city {
     width: 100%;
     position: fixed;
-    background-color: #2196F3;
+    background-color: #f2f2f2;
     // margin-bottom: 20px;
     // top: 80;
     z-index: 1;
@@ -328,4 +328,74 @@ color: white;
       flex-wrap: wrap;
     }
   }
+}
+//classes to rotate the arrow
+// .animation{
+//   transition: ease-in .2s;
+//   width: 15px;
+//   height: 10px;
+
+//   a:hover {
+//     cursor: pointer;
+//   }
+// }
+// .animation2{
+//    transition: ease-in .2s;
+//     transform: rotate(180deg);
+//     width: 15px;
+//     height: 10px;
+//     a:hover {
+//       cursor: pointer;
+//     };
+// }
+
+@media (max-width: 766px) {
+  #my-divider {
+    display: none;
+  } /* hide it elsewhere */
+}
+#register {
+  color: black;
+}
+.cardBox {
+  display: flex;
+  flex-direction: row;
+  margin: 1% 0;
+  width: "100%";
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .dash-cityscape{
+    width: 355px;
+     height: 220px;
+     max-width: 95%;
+     margin: 30px 5px;
+     padding: 0
+  }
+  .comp-cityscape{
+      width: 280px;
+      height: 197px;
+      max-width: 95%;
+      margin: 30px 5px;
+      padding: 0
+    }
+}
+
+.card-header {
+  display: flex;
+  flex-direction: row;
+  padding-left: 15px;
+  align-items: baseline;
+    .livability-score {
+      width: 50px;
+      height: 60px;
+      color: black;
+      font-weight: bold;
+      padding-right: 5px;
+      padding-left: 2px;
+      margin: 0 auto;
+      line-height: 50px;
+      background-image: url("./assets/livabilityIcon.png");
+      background-repeat: no-repeat;
+      background-size: 36px 54px;
+    }
 }

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import './index.scss';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import UserContext from './contexts/UserContext';
-import CityContext from './contexts/CityContext.js';
-import RecomendedContext from './contexts/RecomendedContext';
-import ProfileContext from './contexts/ProfileContext.js';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import "./index.scss";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import UserContext from "./contexts/UserContext";
+import CityContext from "./contexts/CityContext.js";
+import RecomendedContext from "./contexts/RecomendedContext";
+import ProfileContext from "./contexts/ProfileContext.js";
+import ModalContext from "./contexts/ModalContext.js";
+import styled from "styled-components";
 
 import LandingPage from './components/LandingPage.js';
 import Dashboard from './components/Dashboard.js';
@@ -42,12 +43,14 @@ const App = () => {
   const [cityData, setCityData] = useState({});
   const [recomendedCity, setRecomendedCity] = useState([]);
   const [profileData, setProfileData] = useState({});
-  // console.log(profileData, "profiledata in appJSS");
+  const [modal, setModal]= useState(false)
+  // console.log(modal, "modal in appJSS");
 
   return (
     <Router>
       <div className="App">
-        <Darken id="darken" onClick={handleClick} style={{ display: "none" }} />
+        {/* <Darken id="darken" onClick={handleClick} style={{ display: "none" }} /> */}
+        <ModalContext.Provider value={{modal, setModal}}>
         <CityContext.Provider value={{ cityData, setCityData }}>
           <UserContext.Provider value={{ userData, setUserData }}>
             <RecomendedContext.Provider
@@ -70,6 +73,7 @@ const App = () => {
             </RecomendedContext.Provider>
           </UserContext.Provider>
         </CityContext.Provider>
+        </ModalContext.Provider>
       </div>
     </Router>
   );

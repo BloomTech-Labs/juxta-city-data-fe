@@ -12,21 +12,21 @@ describe('<SignUp />', () => {
 describe("input values", () => {    
     it('Username updates on change', () => {
         const {queryByPlaceholderText} = render(<SignUp />)
-        const typeInput = queryByPlaceholderText('Username (required)')
+        const typeInput = queryByPlaceholderText('username')
         fireEvent.change(typeInput, {target : {value: "test"}})
         expect(typeInput.value).toBe("test")
     })
 
     it('Password updates on change', () => {
         const {queryByPlaceholderText} = render(<SignUp />)
-        const typeInput = queryByPlaceholderText('Password (required)')
+        const typeInput = queryByPlaceholderText('password')
         fireEvent.change(typeInput, {target : {value: "test"}})
         expect(typeInput.value).toBe("test")
     })
 
     it('Email updates on change', () => {
         const {queryByPlaceholderText} = render(<SignUp />)
-        const typeInput = queryByPlaceholderText('Email (required)')
+        const typeInput = queryByPlaceholderText('email')
         fireEvent.change(typeInput, {target : {value: "test@test.com"}})
         expect(typeInput.value).toBe("test@test.com")
     })
@@ -35,13 +35,13 @@ describe("input values", () => {
         
         const {queryByPlaceholderText} = render(<SignUp />)
         const handleSubmit = jest.fn();
-        const passwordInput = queryByPlaceholderText('Password (required)');
-        const usernameInput = queryByPlaceholderText('Username (required)');
-        const emailInput = queryByPlaceholderText('Email (required)')
+        const passwordInput = queryByPlaceholderText('password');
+        const usernameInput = queryByPlaceholderText('username');
+        const emailInput = queryByPlaceholderText('email')
 
         if(usernameInput && passwordInput && emailInput === TRUE){
         const { getByText } = render(<SignUp onClick={handleSubmit} />);      
-        fireEvent.click(getByText(/submit/i));
+        fireEvent.click(getByText(/register/i));
         expect(handleSubmit).toHaveBeenCalled();
         }
         
