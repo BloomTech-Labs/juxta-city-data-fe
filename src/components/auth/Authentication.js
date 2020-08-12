@@ -1,23 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
-//import ModalSignUp from "./ModalSignUp";
-import { styles } from "./authStlyes";
-import logo from "../../assets/logo.png";
+import { Divider, Grid, Segment } from "semantic-ui-react";
 
-export default function Authentication(props) {
-  const classes = styles();
-  return (
-    <div className={classes.root}>
-      <div className={classes.header}>
-        <Link to="/">
-          <img src={logo} alt="findur logo" />
-        </Link>
-      </div>
-      <SignUp {...props} />
-      <SignIn {...props} />
-      {/* <ModalSignUp/> */}
-    </div>
-  );
-}
+const Authentication = (props) => (
+  <Segment
+    style={{
+      display: "flex",
+      flexDirection: "row",
+      marginTop: "20px",
+    }}
+    placeholder
+  >
+    <Grid columns={2} relaxed="very" stackable>
+      <Grid.Column>
+        <SignUp {...props} />
+      </Grid.Column>
+
+      <Grid.Column verticalAlign="middle">
+        <SignIn {...props} />
+      </Grid.Column>
+    </Grid>
+    <Divider id="my-divider" vertical>Or </Divider>
+  </Segment>
+);
+
+export default Authentication;

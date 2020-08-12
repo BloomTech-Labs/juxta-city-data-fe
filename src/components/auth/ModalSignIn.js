@@ -1,8 +1,8 @@
 import React from "react";
-import SignUp from "./SignUp";
+import SignIn from "./SignIn";
 import { Modal } from "semantic-ui-react";
 
-const ModalSignUp = ({ modal, setModal, history }) => {
+const ModalSignIn = ({ modal, setModal, history }) => {
   return (
     <Modal
       dimmer="blurring"
@@ -13,16 +13,13 @@ const ModalSignUp = ({ modal, setModal, history }) => {
       }}
       open={modal}
       onClose={() => setModal(false)}
-      onOpen={() => {
-        console.log(modal, "modal in modal here");
-        setModal(true);
-      }}
+      onOpen={() => setModal(true)}
     >
       <div style={{ margin: "30px 0", border: "1px solid balck" }}>
-        <SignUp history={history}  onClose={() => setModal(false)}/>
+        <SignIn history={history} />
       </div>
     </Modal>
   );
 };
 
-export default ModalSignUp;
+export default ModalSignIn;

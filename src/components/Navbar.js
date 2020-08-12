@@ -10,7 +10,9 @@ import poly from "../assets/polydown.png";
 import polyWhite from "../assets/polyWhite.png";
 import avatar from "../assets/avatar.png";
 import ProfileContext from "../contexts/ProfileContext";
-
+import { Button } from "semantic-ui-react";
+import ModalSignIn from "./auth/ModalSignIn";
+import ModalContext from "../contexts/ModalContext";
 const UL = styled.ul`
   width: 65%;
   list-style-type: none;
@@ -148,26 +150,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NavBar = ({ auth, history, location }) => {
+const NavBar = ({ auth, history, location, props }) => {
   const classes = useStyles();
   const { setUserData } = useContext(UserContext);
   const { setProfileData } = useContext(ProfileContext);
   const [open, setOpen] = useState(false);
+  
+  const { modal, setModal } = useContext(ModalContext);
+  
+  // const [modalOpen, setModalSatae] = useState(false);
 
-  const login = () => {
-    history.push("/signin");
-  };
+  // const handleOpenModal = () => setModalSatae(true);
+  // const handleCloseModal = () => setModalSatae(false);
+  
+  // const login = () => {
+  //   history.push("/signin");
+  // };
   const handleDash = () => {
     handleOpen();
     history.push("/dashboard");
   };
   const handleOpen = () => {
-    let background = document.getElementById("darken");
-    if (open) {
-      background.style.display = "none";
-    } else {
-      background.style.display = "block";
-    }
+    // let background = document.getElementById("darken");
+    // if (open) {
+    //   background.style.display = "none";
+    // } else {
+    //   background.style.display = "block";
+    // }
     setOpen(!open);
   };
 
@@ -245,7 +254,6 @@ const NavBar = ({ auth, history, location }) => {
                     ? polyWhite
                     : poly
                 }
-                
                 alt="navigation arrow here"
               />
             </button>
@@ -256,7 +264,7 @@ const NavBar = ({ auth, history, location }) => {
       ) : (
         <UL>
           <Li>
-            <button
+            {/* <button
               className={
                 location.pathname === "/cityview"
                   ? classes.SignInBlue
@@ -267,7 +275,10 @@ const NavBar = ({ auth, history, location }) => {
               onClick={login}
             >
               Sign In
-            </button>
+            </button> */}
+
+            <Button onClick={()=> setModal(true)}>Sign In</Button>
+            <ModalSignIn modal={modal} setModal={setModal} history={history}/> 
           </Li>
         </UL>
       )}

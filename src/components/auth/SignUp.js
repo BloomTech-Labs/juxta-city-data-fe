@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import SignUpBox from "./SignUpBox";
+import Box from "./Box";
+import { useHistory } from "react-router-dom";
 
 const initialState = {
   username: "",
@@ -8,9 +9,9 @@ const initialState = {
   password: "",
 };
 
-export default function SignUp({ history }) {
+export default function SignUp(props) {
   const [form, setForm] = useState(initialState);
-
+  const history = useHistory();
   const signUpChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })};
 
@@ -26,6 +27,6 @@ export default function SignUp({ history }) {
   };
 
   return (
-    <SignUpBox signUpChange={signUpChange} handleSubmit={handleSubmit} form={form} />
+    <Box name="signup" signUpChange={signUpChange} handleSubmit={handleSubmit} form={form} />
   );
 };
