@@ -243,7 +243,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
               />
             </div>
 
-            <div className="center" style={{ marginTop: "40px" }}>
+            <div className="center" >
               <button
                 type="submit"
                 onFocus={handleSubmitFocus}

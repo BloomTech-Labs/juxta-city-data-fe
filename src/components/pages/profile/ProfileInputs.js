@@ -78,7 +78,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             htmlFor="first_name"
             aria-label="first_name"
             alt="first name"
-        >First Name </label>
+        >First Name</label>
           <input
             type="text"
             placeholder="First Name"
@@ -94,7 +94,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             className="label"
             htmlFor="last_name"
             aria-label="last name"
-          >Last Name </label>
+          >Last Name</label>
           <input
             type="text"
             aria-label="last name"
@@ -110,7 +110,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             className="label"
             htmlFor="dob"
             aria-label="birth date"
-          >Date </label>
+          >Date</label>
           <input
             class="input datepicker"
             id="dob"
@@ -126,7 +126,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             className="label"
             htmlFor="address"
             aria-label="address"
-          >Address </label>
+          >Address</label>
           <input
             type="text"
             placeholder="Address"
@@ -154,7 +154,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             <label
               className="label"
               aria-label="state"
-            >States </label>
+            >States</label>
             <select
               data-strokedashoffset="-1696"
               data-strokedasharray="240 3000"
@@ -236,7 +236,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             />
           </div>
 
-          <div className="center" style={{ marginTop: "40px" }}>
+          <div className="center" >
             <button type="submit" onFocus={handleSubmitFocus} className="btn">
               Add Profile
             </button>
