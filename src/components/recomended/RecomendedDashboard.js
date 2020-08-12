@@ -6,6 +6,8 @@ import cityscape from "../../assets/cityscape.png";
 import RecommendedContext from "../../contexts/RecomendedContext";
 import { Link } from "react-router-dom";
 import UserContext from "../../contexts/UserContext";
+// import { Button } from "@material-ui/core";
+import { Card, Header, Button } from "semantic-ui-react";
 
 export default function RecommendedDashboard({ auth, history, location }) {
   const classes = useStyles();
@@ -37,19 +39,18 @@ export default function RecommendedDashboard({ auth, history, location }) {
           cities.map((city) => (
             <RecommendedCard key={city.id} {...props} cityData={city} />
           ))
-        ) : (
-          <></>
-        )}
+        ) : ( <></>)}
+
         <img src={cityscape} className={classes.cityscape} alt="cityscape" />
       </div>
       {user > 0 ? (
-        <Link to="/dashboard" className={classes.dashboard}>
+        <Button color='blue' style={{color:"black", marginLeft:"85%"}} onClick={()=>history.push("/dashboard")} >
           Go To Dashboard
-        </Link>
+        </Button>
       ) : (
-        <Link to="/" className={classes.dashboard}>
-          Go To Home Page
-        </Link>
+        <Button color='blue' style={{color:"black", marginLeft:"85%" }} onClick={()=>history.push("/")} >
+        Go To Home Page
+      </Button>
       )}
     </div>
   );
