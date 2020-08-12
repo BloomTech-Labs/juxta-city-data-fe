@@ -164,7 +164,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
               name="state"
             >
       
-              <option selected>Choose...</option>
+              <option selected placeholder="Choose">Choose...</option>
               <option value="Alabama">Alabama</option>
               <option value="Alaska">Alaska</option>
               <option value="Arizona">Arizona</option>
