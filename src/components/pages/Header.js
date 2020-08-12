@@ -13,7 +13,7 @@ const HomeBanner = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 75vh;
+  min-height: 78vh;
 
   @media (max-width: 500px) {
     height: 30vh;
@@ -33,7 +33,7 @@ const moveInBottom = keyframes`
 `;
 
 const Heading = styled.h1`
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: white;
   animation: ${moveInBottom} 1s ease-out;
   margin: 0 auto;
@@ -44,10 +44,9 @@ const Heading = styled.h1`
   }
 `;
 
-const Discover = styled.h2`
+const Discover = styled.p`
   margin-bottom: 1rem;
-  font-size: 1.2rem;
-  font-weight: 300;
+  font-size: 1.4rem;
   color: #fff;
 `;
 

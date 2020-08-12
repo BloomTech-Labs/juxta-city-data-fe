@@ -1,12 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import Logo from '../../assets/newlogo.png';
 import { Container } from '@material-ui/core';
 
 const SurveyCard = styled.div`
-  width: 50rem;
-  height: 20rem;
-  padding: 2rem;
+  width: 65rem;
+  padding: 3rem;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -15,21 +15,26 @@ const SurveyCard = styled.div`
   text-align: center;
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.3);
 
+  img {
+    width: 20rem;
+  }
+
   h2 {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 
   p {
     font-size: 1.5rem;
+    font-weight: 500;
   }
 
   button {
-    background: #191969;
+    background: #0074cc;
     border: none;
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
-    padding: 0.6rem 1.3rem;
+    padding: 1rem 3rem;
   }
 `;
 
@@ -42,7 +47,7 @@ const SurveyBox = () => {
 
   return (
     <Container
-      maxWidth='xl'
+      maxWidth='lg'
       style={{
         minHeight: '69.2vh',
         display: 'flex',
@@ -50,9 +55,13 @@ const SurveyBox = () => {
         alignItems: 'center'
       }}>
       <SurveyCard>
-        <h2>Take Our Survey</h2>
-        <p>Instantly receive recommendations by taking our survey</p>
-        <button onClick={handleClick}>Survey</button>
+        <img src={Logo} alt='citylogo' />
+        <h2>Introducing City Match Maker!</h2>
+        <p>
+          Get recomendations by answering a few questions and find a new place
+          to call home!
+        </p>
+        <button onClick={handleClick}>Take the survey &rarr;</button>
       </SurveyCard>
     </Container>
   );
