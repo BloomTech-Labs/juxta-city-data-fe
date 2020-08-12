@@ -45,7 +45,7 @@ const NavDiv = styled.div`
   max-height: 80px;
   z-index: 2;
   position: ${({ pathname }) =>
-    !pathname.includes("/cityview") ? "fixed" : "sticky; top: 0"};
+    !pathname.includes("/cityview") ? "relative" : "sticky; top: 0"};
   width: 100%;
   top: 0;
   background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
