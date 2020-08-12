@@ -4,7 +4,7 @@ export const Container = styled.div`
   margin-bottom: 60px;
 `;
 
-export const Question = styled.h3`
+export const Question = styled.h2`
   color: #212121;
   margin-bottom: 17px;
 

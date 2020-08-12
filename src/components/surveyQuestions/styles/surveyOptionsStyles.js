@@ -27,3 +27,15 @@ export const RadioInput = styled.input`
     margin-right: 75px;
   }
 `;
+
+export const Legend = styled.legend`
+  
+  display:none;
+`
+;
+
+export const Fieldset = styled.fieldset`
+  
+  
+  border-style: none;
+`;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Label, RadioInput } from './styles/surveyOptionsStyles';
+import { Fieldset, Legend, Label, RadioInput } from './styles/surveyOptionsStyles';
 
 const SurveyOptions = (props) => {
   function handleUpdateState(event) {
@@ -8,7 +8,10 @@ const SurveyOptions = (props) => {
   }
 
   return (
+    
     <Label data-testid="option-label">
+      <Fieldset>
+        <Legend>{props.name}</Legend>
       <RadioInput
        data-testid="radio-input-option"
         type='radio'
@@ -16,9 +19,12 @@ const SurveyOptions = (props) => {
         value={props.value}
         checked={props.formState[`${props.name}`] === props.value}
         onChange={handleUpdateState}
+        // aria-label={props.name}
       />
       {props.description}
+      </Fieldset>
     </Label>
+    
   );
 };
 
