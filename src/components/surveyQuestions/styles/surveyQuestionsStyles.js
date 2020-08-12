@@ -14,7 +14,7 @@ export const Heading = styled.h1`
 
 export const SubmitButton = styled.button`
   padding: 10px 15px;
-  background: #191969;
+  background: #0074cc;
   color: white;
   font-size: 14px;
   border-radius: 4px;

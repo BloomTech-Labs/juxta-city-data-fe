@@ -9,9 +9,10 @@ const Health = props => (
         Take a look at our interactive map on heart disease by United States
         county
       </Header.Subheader>
+      <br/>
       <Button
         aria-hidden='false'
-        style={{ backgroundColor: '#1890FF', color: 'black' }}
+        style={{ backgroundColor: '#0074cc', color: 'white' }}
         as='a'
         target='blank'
         href='https://findyourcity.herokuapp.com'

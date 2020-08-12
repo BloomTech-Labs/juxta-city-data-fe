@@ -108,6 +108,8 @@ const createProfileContext = async () => {
     `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/all`
   );
   let responseProfileData = await response.data;
+  
+  localStorage.setItem("profilePicture", responseProfileData[0].image_url)
 
   return responseProfileData;
 };
