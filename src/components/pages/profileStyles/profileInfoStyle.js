@@ -12,9 +12,10 @@ const profileInfoStyle = makeStyles((theme) => ({
     margin: theme.spacing(1)
   },
   large: {
-    width: '200px',
-    height: '200px',
-    margin: 'auto'
+    width: '250px',
+    height: '250px',
+    margin: 'auto',
+    borderRadius:'140px'
   }
 }));
 export default profileInfoStyle;

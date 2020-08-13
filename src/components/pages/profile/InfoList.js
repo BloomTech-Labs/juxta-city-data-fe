@@ -28,7 +28,7 @@ const InfoList = ({ info, toggleEditing }) => {
       <h2> {info.username}'s profile </h2>
       <List className={classes.root}>
         <ListItem>
-          <Avatar src={info.image_url} alt="" className={classes.large} />
+          <img src={info.image_url} alt="" className={classes.large} />
         </ListItem>
         <ListItem>
           <ImageUpload info={info} />
