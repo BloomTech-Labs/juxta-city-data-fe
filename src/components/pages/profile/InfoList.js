@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import { deleteProfile } from "../../../functions";
 import Avatar from "@material-ui/core/Avatar";
 import ImageUpload from "./ImageUpload";
-
+import profiledefault from "../../../assets/default.png"
 const InfoList = ({ info, toggleEditing }) => {
   const classes = profileInfoStyle();
 
@@ -28,7 +28,11 @@ const InfoList = ({ info, toggleEditing }) => {
       <h2> {info.username}'s profile </h2>
       <List className={classes.root}>
         <ListItem>
-          <img src={info.image_url} alt="" className={classes.large} />
+          <img   src={
+                !((info.image_url === "null") | (info.image_url === null))
+                  ? info.image_url
+                  : profiledefault
+              } alt="" className={classes.large} />
         </ListItem>
         <ListItem>
           <ImageUpload info={info} />

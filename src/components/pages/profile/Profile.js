@@ -31,10 +31,10 @@ export default function Profile(props) {
   };
   
   return (
-    <section>
+    <section style={{backgroundColor: "#f8f8f8"}}>
       <NavBar {...props}/>
     
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" >
         <Grid container spacing={3}>
           <Grid item xs={4}>
             <ProfileInfo toggleEditing={toggleEditing} />
