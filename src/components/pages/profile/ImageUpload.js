@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../../../functions/axiosWithAuth';
 import jwt_decode from 'jwt-decode';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
+import "../../../index.scss"
 const ImageUpload = ({ info }) => {
   const initialFormState = {
     image_url: null,
@@ -23,6 +22,10 @@ const ImageUpload = ({ info }) => {
   const userId = jwt_decode(token).userid;
   const cloudinary_id = info.cloudinary_id;
 
+  
+
+
+  
   const onChange = (e) => {
     setFile(e.target.files[0]);
     setFileName(e.target.files[0].name);
@@ -33,6 +36,7 @@ const ImageUpload = ({ info }) => {
     const formData = new FormData();
     formData.append('image', file);
 
+
     axiosWithAuth()
       .put(
         `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image`,
@@ -40,12 +44,14 @@ const ImageUpload = ({ info }) => {
       )
       .then((res) => {
         setUploadedFile(res.data);
+        console.log(res.data, "res.data")
       })
       .then(() => window.location.reload())
       .catch((err) => {
         console.log('error', err);
       });
   };
+  
 
   const handleRemove = () => {
     axiosWithAuth()
@@ -71,12 +77,18 @@ const ImageUpload = ({ info }) => {
 
   return (
     <div>
-      <Button variant='outlined' color='primary' onClick={handleOpen}>
+    <div className="btn-twins">
+    <div>
+      <button className="btn-info"  onClick={handleOpen}>
         Upload Image
-      </Button>
-      <Button variant='outlined' color='primary' onClick={handleRemove}>
+      </button>
+    </div>
+    <div>
+      <button  className="btn-info" onClick={handleRemove}>
         Remove Image
-      </Button>
+      </button>
+    </div>
+    </div>
       <Dialog
         open={openDialog}
         onClose={handleClose}
@@ -91,12 +103,18 @@ const ImageUpload = ({ info }) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color='primary'>
+        <div className="btn-twins">
+        <div >
+          <button onClick={handleClose} className="btn-info" >
             Cancel
-          </Button>
-          <Button onClick={onSubmit} color='primary'>
+          </button>
+        </div>
+        <div >
+          <button onClick={onSubmit} className="btn-info">
             Upload
-          </Button>
+          </button>
+        </div>
+        </div>
         </DialogActions>
       </Dialog>
     </div>

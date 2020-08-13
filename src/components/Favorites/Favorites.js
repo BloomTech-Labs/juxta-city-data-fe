@@ -53,7 +53,7 @@ export default function Favoirtes(props) {
   return cities.length === 0 ? (
     <p></p>
   ) : (
-    <Container className={classes.root}>
+    <Container className={classes.root} style={{marginTop: '15rem'}}>
       <div className={classes.header}>Favorite Cities</div>
       <div className={classes.favoritesBox}>
         {cities.map((city) => (

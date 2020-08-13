@@ -12,7 +12,7 @@ const initialFormState = {
   state: null,
   zip: null,
 };
-
+///
 const AddProfile = ({ profileData }) => {
   const token = localStorage.getItem("token");
   const userId = jwt_decode(token).userid;
@@ -25,6 +25,7 @@ const AddProfile = ({ profileData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(profileBody)
     setprofileBody(userId);
     postProfileRequest(profileBody, userId).then(() =>
       window.location.reload()

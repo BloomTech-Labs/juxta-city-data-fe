@@ -20,7 +20,7 @@ const TabBar = () => {
         <TabItems handleItemClick={handleItemClick}  activeItem={activeItem} />
         <Menu.Menu position='right'>
           <Menu.Item>
-            <SearchBar />
+            <SearchBar /> 
           </Menu.Item>
         </Menu.Menu>
       </Menu>

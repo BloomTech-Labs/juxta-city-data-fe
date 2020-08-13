@@ -12,6 +12,7 @@ import Favorites from "../../Favorites/Favorites.js";
 import { createUserContext } from "../../../functions";
 import UserContext from "../../../contexts/UserContext";
 
+
 export default function Profile(props) {
   const [editing, setEditing] = useState(false);
   const { profileData, setProfileData } = useContext(ProfileContext);
@@ -31,9 +32,8 @@ export default function Profile(props) {
   };
   
   return (
-    <section>
-      <NavBar {...props}/>
-    
+    <>
+      <NavBar {...props} />
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           <Grid item xs={4}>
@@ -52,6 +52,6 @@ export default function Profile(props) {
           )}
         </Grid>
       </Container>
-    </section>
+    </>
   );
 }
