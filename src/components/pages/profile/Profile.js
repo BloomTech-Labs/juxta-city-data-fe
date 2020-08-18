@@ -12,6 +12,7 @@ import Favorites from "../../Favorites/Favorites.js";
 import { createUserContext } from "../../../functions";
 import UserContext from "../../../contexts/UserContext";
 
+
 export default function Profile(props) {
   const [editing, setEditing] = useState(false);
   const { profileData, setProfileData } = useContext(ProfileContext);
@@ -31,10 +32,13 @@ export default function Profile(props) {
   };
   
   return (
-    <section style={{backgroundColor: "#f8f8f8"}}>
-      <NavBar {...props}/>
+    // <section style={{backgroundColor: "#f8f8f8"}}>
+    //   <NavBar {...props}/>
     
-      <Container maxWidth="lg" >
+    //   <Container maxWidth="lg" >
+    <>
+      <NavBar {...props} />
+      <Container maxWidth="lg">
         <Grid container spacing={3}>
           <Grid item xs={4}>
             <ProfileInfo toggleEditing={toggleEditing} />
@@ -52,6 +56,6 @@ export default function Profile(props) {
           )}
         </Grid>
       </Container>
-    </section>
+    </>
   );
 }

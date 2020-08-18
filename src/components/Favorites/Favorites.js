@@ -64,7 +64,7 @@ export default function Favoirtes(props) {
           </Button>
    </div>
   ) : (
-    <Container className={classes.root}>
+    <Container className={classes.root} style={{marginTop: '15rem'}}>
       <div className={classes.header}>Favorite Cities</div>
       <div className={classes.favoritesBox}>
         {cities.map((city) => (

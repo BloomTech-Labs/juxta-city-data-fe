@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import ProfileContext from "../../../contexts/ProfileContext";
 import { createProfileContext } from "../../../functions";
-//import EditProfileInputs from "./EditProfileInputs";
+import EditProfileInputs from "./EditProfileInputs";
 import ExtraEditInputs from "./ExtraEditInputs";
 
 function EditForm({ handleEditSubmit, handleEditChange }) {
@@ -13,7 +13,8 @@ function EditForm({ handleEditSubmit, handleEditChange }) {
   }, [setProfileData]);
   console.log(userData,"userdata form")
   return (
-    <ExtraEditInputs
+    <EditProfileInputs 
+    // <ExtraEditInputs
       handleSubmit={handleEditSubmit}
       addHandleChange={handleEditChange}
       userData={userData}

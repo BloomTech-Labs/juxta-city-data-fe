@@ -16,24 +16,28 @@ import SingleCityView from './components/SingleCityView.js';
 import SurveyQuestions from './components/surveyQuestions/SurveyQuestions.js';
 import RecomendedDashboard from './components/recomended/RecomendedDashboard';
 
-// const Darken = styled.div`
-//   position: absolute;
-//   zindex: 1;
-//   width: 100%;
-//   height: 200vh;
-//   background: rgba(0, 0, 0, 0.5);
-//   top: 80px;
-//   transition: ease-in-out 2s;
-//   @media screen and(max-width: 600px) {
-//     top: 80px;
-//   }
-// `;
-// const handleClick = (e) => {
-//   let background = document.getElementById('darken');
-//   background.style.display = 'none';
-//   // let arrow = document.getElementById("dropdown");
-//   // console.log(arrow);
-// };
+const AppDiv = styled.div`
+  max-width: 100%;
+  margin: 0 auto;
+`;
+const Darken = styled.div`
+  position: absolute;
+  zindex: 1;
+  width: 100%;
+  height: 200vh;
+  background: rgba(0, 0, 0, 0.5);
+  top: 80px;
+  transition: ease-in-out 2s;
+  @media screen and(max-width: 600px) {
+    top: 80px;
+  }
+`;
+const handleClick = (e) => {
+  let background = document.getElementById('darken');
+  background.style.display = 'none';
+  // let arrow = document.getElementById("dropdown");
+  // console.log(arrow);
+};
 const App = () => {
   const [userData, setUserData] = useState({});
   const [cityData, setCityData] = useState({});
