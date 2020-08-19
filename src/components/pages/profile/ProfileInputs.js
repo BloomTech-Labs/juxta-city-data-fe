@@ -38,7 +38,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
                 name={item.name}
                 type={item.type}
                 placeholder={item.placeholder}
-                class="input"
+                className="input"
                 data-strokedashoffset="0"
                 data-strokedasharray="240 3000"
                 onFocus={handleTextFocus}

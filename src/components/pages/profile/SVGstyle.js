@@ -1,27 +1,17 @@
 import React from "react";
+
 const SVGstyle = () =>{
       return (
         <svg className="svg" viewBox="0 0 320 550.8">
         <defs>
           <linearGradient
-            inkscapeCollect="always"
-            id="linearGradient"
-            x1="13"
-            y1="193.49992"
-            x2="307"
-            y2="193.49992"
+            inkscapeCollect="always" id="linearGradient"
+            x1="13" y1="193.49992"
+            x2="307" y2="193.49992"
             gradientUnits="userSpaceOnUse"
           >
-            <stop
-              style={{ stopColor: "#ff00ff" }}
-              offset="0"
-              id="stop876"
-            />
-            <stop
-              style={{ stopColor: "#ff0000" }}
-              offset="1"
-              id="stop878"
-            />
+            <stop style={{ stopColor: "#ff00ff" }}  offset="0" id="stop876" />
+            <stop style={{ stopColor: "#ff0000" }} offset="1" id="stop878" />
           </linearGradient>
         </defs>
         <path
