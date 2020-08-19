@@ -5,8 +5,8 @@ function StateSelect({addHandleChange, handleTextFocus, defaultv }) {
 
   return (
     <div>
-      <label  className="label"
-              aria-label="state">State</label>
+      <label  className="label" htmlFor="State"
+              >State</label>
       <select
          data-strokedashoffset="-1696"
          data-strokedasharray="240 3000"
@@ -15,6 +15,7 @@ function StateSelect({addHandleChange, handleTextFocus, defaultv }) {
          className="input"
          name="state"
          defaultValue={defaultv}
+         aria-label="State"
       >
           {states.map((item, index)=>{
               return (

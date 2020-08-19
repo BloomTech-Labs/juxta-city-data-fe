@@ -31,8 +31,8 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
                 <label
                   className="label"
                   htmlFor={item.name}
-                  aria-label={item.name}
                 >
+                {item.placeholder}
                 </label>
                 <input
                   name={item.name}
@@ -41,9 +41,10 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
                   className="input"
                   data-strokedashoffset="0"
                   data-strokedasharray="240 3000"
-                  defaultValue={item.value}
                   onFocus={handleTextFocus}
                   onChange={addHandleChange}
+                  aria-label={item.placeholder}
+                  defaultValue={item.value}
                 />
               </div>
             ))}
@@ -52,8 +53,8 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
               handleTextFocus={handleTextFocus}
               defaultv={userData.state}
             />
-            <label className="label" htmlFor="Zip Code" aria-label="zip code">
-              Zip
+            <label className="label" htmlFor="Zip Code">
+              Zip Code
             </label>
             <ZipCode
               addHandleChange={addHandleChange}

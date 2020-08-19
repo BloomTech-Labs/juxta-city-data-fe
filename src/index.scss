@@ -34,15 +34,16 @@ $radius: 10px;
 $visual-height: 68%;
 
 .demensions {
-  margin-top: 1rem;
+  margin-top: 2rem;
   width: 350px;
   height: 603px;
-  background-image: radial-gradient(
-    circle at 0% 0%,
-    #373b52,
-    #252736 51%,
-    #1d1e26
-  );
+  // background-image: radial-gradient(
+  //   circle at 0% 0%,
+  //   #373b52,
+  //   #252736 51%,
+  //   #1d1e26
+  // );
+  background-color: #252736 ;
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
   position: relative;
@@ -70,15 +71,22 @@ $visual-height: 68%;
   opacity: 0;
 }
 .input {
-  background: transparent;
+  // background: transparent;
+  // background-image: radial-gradient(
+  //   circle at 0% 0%,
+  //   #373b52,
+  //   #252736 51%,
+  //   #1d1e26
+  // );
+  background-color: #252736 ;
   border: 0;
   border-radius: 10%;
-  color: #f2f2f2 !important;
+  color: white !important;
   font-size: 18px;
   font-weight: bold;
   height: 30px;
   line-height: 30px;
-  outline: white !important;
+  outline: green !important;
   width: 100%;
 }
 select {
@@ -113,8 +121,9 @@ select {
   margin-left: 3px;
   button.btn {
     background: transparent;
-    border: 2px solid grey;
-    color: #d42d78;
+    border: 2px solid  #f23182;
+    color:  #f23182;
+    font-weight: bolder;
     padding: 10px 65px;
     outline: none;
     font-size: 20px;

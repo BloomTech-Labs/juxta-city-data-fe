@@ -4,15 +4,16 @@ const ZipCode = ({ addHandleChange, handleTextFocus ,defaultv}) => {
 
   return (
     <input
+      name="zip"
+      type="number"
       placeholder="Zip Code"
       className="input"
-      name="zip"
       data-strokedashoffset="-2040"
       data-strokedasharray="240 3000"
-      type="number"
       defaultValue={defaultv}
       onFocus={handleTextFocus}
       onChange={addHandleChange}
+      aria-label="Zip Code"
     />
   );
 };

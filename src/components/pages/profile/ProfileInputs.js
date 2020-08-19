@@ -32,8 +32,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
               <label
                 className="label"
                 htmlFor={item.name}
-                aria-label={item.name}
-              ></label>
+              >{item.placeholder}</label>
               <input
                 name={item.name}
                 type={item.type}
@@ -43,6 +42,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
                 data-strokedasharray="240 3000"
                 onFocus={handleTextFocus}
                 onChange={addHandleChange}
+                aria-label={item.placeholder}
               />
             </div>
           ))}
@@ -51,8 +51,8 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             addHandleChange={addHandleChange}
             handleTextFocus={handleTextFocus}
           />
-          <label className="label" htmlFor="Zip Code" aria-label="zip code">
-            
+          <label className="label" htmlFor="Zip Code" >
+            Zip Code
           </label>
           <ZipCode
             addHandleChange={addHandleChange}
