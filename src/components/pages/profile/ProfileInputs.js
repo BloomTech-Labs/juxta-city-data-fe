@@ -27,8 +27,8 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
           noValidate
           autoComplete="off"
         >
-          {inputData.map((item) => (
-            <>
+          {inputData.map((item, index) => (
+            <div key={index}>
               <label
                 className="label"
                 htmlFor={item.name}
@@ -44,7 +44,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
                 onFocus={handleTextFocus}
                 onChange={addHandleChange}
               />
-            </>
+            </div>
           ))}
          
           <StateSelect

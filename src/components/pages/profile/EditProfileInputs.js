@@ -26,8 +26,8 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
             noValidate
             autoComplete="off"
           >
-            {inputData.map((item) => (
-              <>
+            {inputData.map((item, index) => (
+              <div key={index}>
                 <label
                   className="label"
                   htmlFor={item.name}
@@ -38,14 +38,14 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
                   name={item.name}
                   type={item.type}
                   placeholder={item.placeholder}
-                  class="input"
+                  className="input"
                   data-strokedashoffset="0"
                   data-strokedasharray="240 3000"
                   defaultValue={item.value}
                   onFocus={handleTextFocus}
                   onChange={addHandleChange}
                 />
-              </>
+              </div>
             ))}
             <StateSelect
               addHandleChange={addHandleChange}
