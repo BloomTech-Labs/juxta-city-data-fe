@@ -1,13 +1,18 @@
 import React from "react";
-import  { anime } from "react-anime";
+import { anime } from "react-anime";
 import "../../../index.scss";
 import StateSelect from "./StateSelect";
+import ZipCode from "./ZipCode";
 
 function ProfileInputs({ handleSubmit, addHandleChange }) {
   var current = null;
 
+  const inputData = [ {name: "first_name", placeholder: "First Name", type: "text"},
+  { name: "last_name", placeholder: "Last Name", type: "text"},
+  { name: "dob", placeholder: "Date of birth", type: "date"},
+  { name: "address", placeholder: "Address", type: "text"},
+  { name: "city", placeholder: "City", type: "text"}];
 
-  
   const handleSubmitFocus = (e) => {
     if (current) current.pause();
     current = anime({
@@ -26,7 +31,6 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
   };
   const handleTextFocus = (e) => {
     if (current) current.pause();
-    //console.log(e);debugger;
     current = anime({
       targets: "path",
       strokeDashoffset: {
@@ -45,7 +49,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
   return (
     <div className="demensions">
       <div>
-       <svg className="svg" viewBox="0 0 320 550.8">
+        <svg className="svg" viewBox="0 0 320 550.8">
           <defs>
             <linearGradient
               inkscapeCollect="always"
@@ -60,116 +64,52 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
               <stop style={{ stopColor: "#ff0000" }} offset="1" id="stop878" />
             </linearGradient>
           </defs>
-          <path className="path"
+          <path
+            className="path"
             d="M282.8,23l-240,0c0,0-25,0.8-25,35c0,34.2,25,35,25,35l-5.5,0l240,0c0,0,25,0.8,25,35c0,34.2-25,35-25,35l5.5,0l-240,0
 	c0,0-25,0.8-25,35c0,34.2,25,35,25,35l-5.5,0l240,0c0,0,25,0.8,25,35c0,34.2-25,35-25,35l8.3,0l-240,0c0,0-25,0.8-25,35
 	c0,34.2,25,35,25,35l-5.5,0l240,0c0,0,25,0.8,25,35c0,34.2-25,35-25,35H40c0,0-25,4-25,38.5S40,520,40,520h215c0,0,20-1,20-25
 	s-20-25-20-25H65c0,0-20,1.7-20,25c0,24,20,25,20,25h168.6"
           />
-  </svg>
+        </svg>
         <form
           style={{ position: "absolute", zIndex: 10, margin: "0 40px" }}
           onSubmit={handleSubmit}
           noValidate
           autoComplete="off"
         >
-          <label
-            className="label"
-            htmlFor="first_name"
-            aria-label="first_name"
-            alt="first name"
-        >First Name</label>
-          <input
-            type="text"
-            placeholder="First Name"
-            class="input"
-            name="first_name"
-            data-strokedashoffset="0"
-            data-strokedasharray="240 3000"
-            onFocus={handleTextFocus}
-            onChange={addHandleChange}
+          {inputData.map((item) => (
+            <>
+              <label
+                className="label"
+                htmlFor={item.name}
+                aria-label={item.name}
+              ></label>
+              <input
+                name={item.name}
+                type={item.type}
+                placeholder={item.placeholder}
+                class="input"
+                data-strokedashoffset="0"
+                data-strokedasharray="240 3000"
+                onFocus={handleTextFocus}
+                onChange={addHandleChange}
+              />
+            </>
+          ))}
+         
+          <StateSelect
+            addHandleChange={addHandleChange}
+            handleTextFocus={handleTextFocus}
           />
-
-          <label
-            className="label"
-            htmlFor="last_name"
-            aria-label="last name"
-          >Last Name</label>
-          <input
-            type="text"
-            aria-label="last name"
-            placeholder="Last Name"
-            class="input"
-            name="last_name"
-            data-strokedashoffset="-331"
-            data-strokedasharray="240 3000"
-            onFocus={handleTextFocus}
-            onChange={addHandleChange}
+          <label className="label" htmlFor="Zip Code" aria-label="zip code">
+            
+          </label>
+          <ZipCode
+            addHandleChange={addHandleChange}
+            handleTextFocus={handleTextFocus}
           />
-          <label
-            className="label"
-            htmlFor="dob"
-            aria-label="birth date"
-          >Date</label>
-          <input
-            class="input datepicker"
-            id="dob"
-            type="date"
-            name="dob"
-            data-strokedashoffset="-686"
-            data-strokedasharray="240 3000"
-            onFocus={handleTextFocus}
-            onChange={addHandleChange}
-          />
-
-          <label
-            className="label"
-            htmlFor="address"
-            aria-label="address"
-          >Address</label>
-          <input
-            type="text"
-            placeholder="Address"
-            className="input"
-            name="address"
-            data-strokedashoffset="-1012"
-            data-strokedasharray="240 3000"
-            onFocus={handleTextFocus}
-            onChange={addHandleChange}
-          />
-
-          <label className="label" htmlFor="city" aria-label="city">City </label>
-          <input
-            type="text"
-            placeholder="City"
-            className="input"
-            name="city"
-            data-strokedashoffset="-1367"
-            data-strokedasharray="240 3000"
-            onFocus={handleTextFocus}
-            onChange={addHandleChange}
-          />
-     <StateSelect addHandleChange={addHandleChange} handleTextFocus={handleTextFocus}/>
-
-          <div>
-            <label
-              className="label"
-              for="Zip Code"
-              aria-label="zip code"
-            >Zip</label>
-            <input
-              type="number" 
-              placeholder="Zip Code"
-              className="input"
-              name="zip"
-              data-strokedashoffset="-2040"
-              data-strokedasharray="240 3000"
-              onFocus={handleTextFocus}
-              onChange={addHandleChange}
-            />
-          </div>
-
-          <div className="center" >
+          <div className="center">
             <button type="submit" onFocus={handleSubmitFocus} className="btn">
               Add Profile
             </button>

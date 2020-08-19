@@ -1,7 +1,7 @@
 import React from "react";
 import states from '../data/states';
 
-function StateSelect({addHandleChange, handleTextFocus}) {
+function StateSelect({addHandleChange, handleTextFocus, defaultv }) {
 
   return (
     <div>
@@ -14,7 +14,7 @@ function StateSelect({addHandleChange, handleTextFocus}) {
          onChange={addHandleChange}
          className="input"
          name="state"
-         defaultValue={{value:null, state:"Select State"}}
+         defaultValue={defaultv}
       >
           {states.map((item, index)=>{
               return (
