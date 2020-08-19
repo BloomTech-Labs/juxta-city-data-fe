@@ -5,8 +5,9 @@ import UserContext from "../../contexts/UserContext";
 import { Container } from "@material-ui/core";
 
 import FavoriteCityCard from "./FavoriteCityCard";
-import SearchBar from "../subComponents/SearchBar"
-import { Button} from "semantic-ui-react";
+import ExploreCity from "./ExploreCity";
+// import SearchBar from "../subComponents/SearchBar"
+// import { Button} from "semantic-ui-react";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -38,6 +39,7 @@ export default function Favoirtes(props) {
   const classes = styles();
   const [cities, setCities] = useState([]);
   const {userData} = useContext(UserContext);
+  console.log(userData,"userdata in favorites")
   
   const history = useHistory();
   useEffect(() => {
@@ -53,18 +55,9 @@ export default function Favoirtes(props) {
   }, [userData, setCities, history]);
 
   return cities.length === 0 ? (
-    // <></>
-   <div style={{display:"flex", flexDirection:"column", paddingTop:"200px"}}>
-      <h1 style={{textAlign:"center"}}>Search for a city</h1>
-      <SearchBar/>
-      <br/>
-      <h1 style={{textAlign:"center"}}>Or take our Survey to get recommendations!</h1>
-      <Button onClick={()=>history.push("/survey")} alt="Take the survey button"   style={{ backgroundColor: '#0074cc', color: 'white', width:"200px", marginLeft:"37%" }}>
-            Take the survey
-          </Button>
-   </div>
+    <ExploreCity/>
   ) : (
-    <Container className={classes.root} style={{marginTop: '15rem'}}>
+    <Container className={classes.root} style={{marginTop: '20rem'}}>
       <div className={classes.header}>Favorite Cities</div>
       <div className={classes.favoritesBox}>
         {cities.map((city) => (

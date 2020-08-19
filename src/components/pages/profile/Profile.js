@@ -39,7 +39,7 @@ export default function Profile(props) {
     <>
       <NavBar {...props} />
       <Container maxWidth="lg">
-        <Grid container spacing={3}>
+        <Grid container >
           <Grid item xs={4}>
             <ProfileInfo toggleEditing={toggleEditing} />
           </Grid>

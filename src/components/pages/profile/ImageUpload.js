@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../../../functions/axiosWithAuth';
 import jwt_decode from 'jwt-decode';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import "../../../index.scss"
+import '../../../index.scss';
+import { Icon, Button, Modal } from 'semantic-ui-react';
+
 const ImageUpload = ({ info }) => {
   const initialFormState = {
     image_url: null,
-    cloudinary_id: null
+    cloudinary_id: null,
   };
 
   const [file, setFile] = useState('');
@@ -22,47 +19,41 @@ const ImageUpload = ({ info }) => {
   const userId = jwt_decode(token).userid;
   const cloudinary_id = info.cloudinary_id;
 
-  
-
-
-  
-  const onChange = (e) => {
+  const onChange = e => {
     setFile(e.target.files[0]);
     setFileName(e.target.files[0].name);
   };
 
-  const onSubmit = async (e) => {
+  const onSubmit = async e => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('image', file);
 
-
     axiosWithAuth()
       .put(
-        `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image`,
+        `https:production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image`,
         formData
       )
-      .then((res) => {
+      .then(res => {
         setUploadedFile(res.data);
-        console.log(res.data, "res.data")
+        console.log(res.data, 'res.data');
       })
       .then(() => window.location.reload())
-      .catch((err) => {
+      .catch(err => {
         console.log('error', err);
       });
   };
-  
 
   const handleRemove = () => {
     axiosWithAuth()
       .put(
-        `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image/${cloudinary_id}`
+        `https:production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image/${cloudinary_id}`
       )
       .then(() => {
         setUploadedFile(initialFormState);
       })
       .then(() => window.location.reload())
-      .catch((err) => {
+      .catch(err => {
         console.log('error', err);
       });
   };
@@ -77,46 +68,63 @@ const ImageUpload = ({ info }) => {
 
   return (
     <div>
-    <div className="btn-twins">
-    <div>
-      <button className="btn-info"  onClick={handleOpen}>
-        Upload Image
-      </button>
-    </div>
-    <div>
-      <button  className="btn-info" onClick={handleRemove}>
-        Remove Image
-      </button>
-    </div>
-    </div>
-      <Dialog
-        open={openDialog}
-        onClose={handleClose}
-        aria-labelledby='form-dialog-title'>
-        <DialogTitle id='form-dialog-title'>Upload Image</DialogTitle>
-        <DialogContent>
-          <DialogContentText>Choose an image to upload</DialogContentText>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          margin: '3px 0',
+          justifyContent: 'space-around',
+        }}
+      >
+        <div>
+          <Button
+            style={{
+              color: '#676767',
+              background: 'transparent',
+              border: '1px solid  #ddd',
+              borderRadius: '7%',
+            }}
+            onClick={handleOpen}
+          >
+            <Icon name='cloud upload' /> Upload
+          </Button>
+        </div>
+        <div>
+          <Button
+            style={{
+              color: '#676767',
+              background: 'transparent',
+              border: '1px solid  #ddd',
+              borderRadius: '7%',
+            }}
+            onClick={handleRemove}
+          >
+            <Icon name='trash' /> Delete
+          </Button>
+        </div>
+      </div>
+
+      <Modal size='mini' open={openDialog} onClose={handleClose}>
+        <Modal.Header>Select a Photo</Modal.Header>
+        <Modal.Content>
+          <Modal.Header>Choose an image to upload</Modal.Header>
           <input
             type='file'
             accept='image/x-png,image/jpeg'
             onChange={onChange}
           />
-        </DialogContent>
-        <DialogActions>
-        <div className="btn-twins">
-        <div >
-          <button onClick={handleClose} className="btn-info" >
-            Cancel
-          </button>
-        </div>
-        <div >
-          <button onClick={onSubmit} className="btn-info">
+        </Modal.Content>
+        <Modal.Actions>
+          <Button onClick={handleClose}>Cancel</Button>
+
+          <Button
+            onClick={onSubmit}
+            style={{ backgroundColor: '#0074cc', color: 'white' }}
+          >
             Upload
-          </button>
-        </div>
-        </div>
-        </DialogActions>
-      </Dialog>
+          </Button>
+        </Modal.Actions>
+      </Modal>
     </div>
   );
 };
