@@ -68,61 +68,29 @@ const ImageUpload = ({ info }) => {
 
   return (
     <div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          margin: '3px 0',
-          justifyContent: 'space-around',
-        }}
-      >
+      <div className='info-btn-wrapper' >
         <div>
-          <Button
-            style={{
-              color: '#676767',
-              background: 'transparent',
-              border: '1px solid  #ddd',
-              borderRadius: '7%',
-            }}
-            onClick={handleOpen}
-          >
+          <button className='info-btn'onClick={handleOpen} >
             <Icon name='cloud upload' /> Upload
-          </Button>
+          </button >
         </div>
         <div>
-          <Button
-            style={{
-              color: '#676767',
-              background: 'transparent',
-              border: '1px solid  #ddd',
-              borderRadius: '7%',
-            }}
-            onClick={handleRemove}
-          >
+          <button className='info-btn' onClick={handleRemove} >
             <Icon name='trash' /> Delete
-          </Button>
+          </button >
         </div>
       </div>
 
       <Modal size='mini' open={openDialog} onClose={handleClose}>
         <Modal.Header>Select a Photo</Modal.Header>
         <Modal.Content>
-          <Modal.Header>Choose an image to upload</Modal.Header>
-          <input
-            type='file'
-            accept='image/x-png,image/jpeg'
-            onChange={onChange}
-          />
+          <Modal.Header >Choose an image to upload</Modal.Header>
+          <input type='file' accept='image/x-png,image/jpeg' onChange={onChange} />
         </Modal.Content>
         <Modal.Actions>
           <Button onClick={handleClose}>Cancel</Button>
-
-          <Button
-            onClick={onSubmit}
-            style={{ backgroundColor: '#0074cc', color: 'white' }}
-          >
-            Upload
-          </Button>
+          <Button onClick={onSubmit} style={{ backgroundColor: '#0074cc', color: 'white' }} >
+            Upload </Button>
         </Modal.Actions>
       </Modal>
     </div>
