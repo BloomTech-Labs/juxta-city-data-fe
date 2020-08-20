@@ -20,7 +20,7 @@ function Dashboard(props) {
         <NavBar {...props}/>
         <Header />
         <RecommendedComponent {...props} />
-        {/* <Favorites {...props}/> */}
+        <Favorites {...props}/>
         <BestCities {...props}/>
     </div>
     

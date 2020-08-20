@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import Logo from "../assets/logo.png";
 import poly from "../assets/polydown.png";
-import avatar from "../assets/avatar.png";
+//import avatar from "../assets/avatar.png";
+import profiledefault from '../assets/default.png';
 import UserContext from "../contexts/UserContext";
 import ProfileContext from "../contexts/ProfileContext";
 import ModalSignIn from "./auth/ModalSignIn";
 import ModalContext from "../contexts/ModalContext";
+
 const UL = styled.ul`
   width: 65%;
   list-style-type: none;
@@ -108,12 +110,12 @@ const NavBar = ({ history, location }) => {
       </Link>
       {token ? (
         <UL>
-          <Li className="avatarBox">
+          <Li>
             <img
               src={
                 !((profileImage === "null") | (profileImage === null))
                   ? profileImage
-                  : avatar
+                  : profiledefault
               }
               alt="profile avatar"
               onClick={handleOpen}
@@ -121,7 +123,6 @@ const NavBar = ({ history, location }) => {
                 height: "50px",
                 width: "50px",
                 borderRadius: "50%",
-                border: "3px solid #191969 ",
               }}
             />
             <button className="link" onClick={handleOpen}>
