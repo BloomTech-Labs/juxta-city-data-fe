@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ExploreCity from '../ExploreCity';
 import CityContext from '../../../contexts/CityContext';
-import { MemoryRouter, Route, useHistory } from 'react-router-dom';
+import { MemoryRouter, Route} from 'react-router-dom';
 
 afterEach(cleanup);
 

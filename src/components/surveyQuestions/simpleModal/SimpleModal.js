@@ -13,10 +13,10 @@ export default function SimpleModal() {
   };
 
   return (
-    <React.Fragment>
-      <Button basic icon onClick={handleOpen}>
-        <Icon color='blue' size='large' name='info circle'/> learn more
-      </Button>
+    <div>
+      <div onClick={handleOpen}>
+        <Icon color='blue' size='small' name='info circle'/> 
+      </div>
       <Modal
         closeIcon
         open={open}
@@ -33,6 +33,6 @@ export default function SimpleModal() {
           </p>
         </Modal.Content>
       </Modal>
-    </React.Fragment>
+    </div>
   );
 }
