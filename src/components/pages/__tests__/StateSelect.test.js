@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent} from '@testing-library/react';
 import StateSelect from '../profile/StateSelect';
 
 it('renders without crashing', () => {
@@ -19,4 +19,15 @@ it('renders the options', () => {
 
     expect(comp.getByText(/Select a state/i)).toBeInTheDocument();
     expect(comp.getByText(/California/i)).toBeInTheDocument();
+});
+
+it('renders the options changes', () => {
+  const handleChange = jest.fn() 
+  const comp = render(<StateSelect onChange={handleChange} />);
+
+  const typeInput = comp.getByPlaceholderText("state");
+    expect(typeInput).toBeInTheDocument()
+
+    fireEvent.change(typeInput, { target: { value: "CA" } });
+    expect(typeInput.value).toBe("CA");
 });

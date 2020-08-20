@@ -15,6 +15,7 @@ function StateSelect({addHandleChange, handleTextFocus, defaultv }) {
          name="state"
          defaultValue={defaultv}
          aria-label="State"
+         placeholder="state"
       >
           {states.map((item, index)=>{
               return (
