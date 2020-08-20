@@ -44,6 +44,4 @@ it('calls "onClick" prop on button click', () => {
   fireEvent.click(heartBtn, );
   expect(heartBtn).not.toBeDisabled();
   // expect(handleClick).toHaveBeenCalledTimes(1);
-
-  
 });
