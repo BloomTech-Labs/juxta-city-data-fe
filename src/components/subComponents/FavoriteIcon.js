@@ -33,8 +33,8 @@ export default function FavoriteIcon(props) {
   };
   
   return (
-    <div onClick={handleClick} alt="star icon">
-     {favorited? (<Icon name='star'  size ='large' color ='yellow' /> ): (<Icon  size ='large' name='star outline' />)}   
+    <div onClick={handleClick} alt="star icon" data-testid ='star-btn'>
+     {favorited? (<Icon name='star'  size ='large' color ='yellow' data-testid="stared" /> ): (<Icon  size ='large' name='star outline' data-testid="unstared" />)}   
      {/* {favorited? (<Icon name='heart' color ='red' /> ): (<Icon name='heart outline' />)} // with heart icon */}
    </div>
   );

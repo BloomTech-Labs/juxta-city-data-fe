@@ -40,7 +40,7 @@ it('calls "onClick" prop on button click', () => {
     </CityContext.Provider>
   );
   
-  const heartBtn =comp.getByTestId(/heartBtn/i)   
+  const heartBtn =comp.getByTestId(/star-btn/i)   
   fireEvent.click(heartBtn, );
   expect(heartBtn).not.toBeDisabled();
   // expect(handleClick).toHaveBeenCalledTimes(1);
