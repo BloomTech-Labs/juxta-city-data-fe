@@ -1,8 +1,6 @@
 import React from 'react';
-
 import SurveyOptions from './SurveyOptions';
 import SimpleModal from './simpleModal/SimpleModal';
-
 import {
   Container,
   Question,
