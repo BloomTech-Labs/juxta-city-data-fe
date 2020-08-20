@@ -1,9 +1,12 @@
-import React from 'react';
-import { render, fireEvent, cleanup } from '@testing-library/react';
+import React, { useState } from 'react';
+import { render, screen, cleanup } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import ExploreCity from '../ExploreCity';
 import CityContext from '../../../contexts/CityContext';
+import { MemoryRouter, Route, useHistory } from 'react-router-dom';
 
 afterEach(cleanup);
+
 it('renders without crashing', () => {
   let cityData = '';
   let setCityData = data => (cityData = data);
@@ -13,7 +16,7 @@ it('renders without crashing', () => {
       <ExploreCity />
     </CityContext.Provider>
   );
-  
+
   expect(comp.getByText(/Search for a city/i)).toBeInTheDocument();
   expect(
     comp.getByText(/Or take our Survey to get recommendations!/i)
@@ -42,20 +45,32 @@ it('renders survey button ', () => {
   );
   expect(comp.getByText(/take the survey/i)).toBeInTheDocument();
 });
-it('on click the survey button ', () => {
+
+test('on click the survey button ', async function test() {
+  let location;
   let cityData = '';
   let setCityData = data => (cityData = data);
+
   const handleClick = jest.fn();
 
-  let comp = render(
-    <CityContext.Provider value={{ setCityData }}>
-      <ExploreCity onClick={handleClick} />
-    </CityContext.Provider>
+  render(
+    <MemoryRouter initialEntries={['/']}>
+      <CityContext.Provider value={{ setCityData }}>
+        <Route path='/'>
+          <ExploreCity onClick={handleClick} />
+        </Route>
+        <Route
+        path="/*"
+        render={({ location: loc }) => {
+          location = loc
+          return null
+        }}
+      />
+      </CityContext.Provider>
+    </MemoryRouter>
   );
+  await userEvent.type(screen.getByText(/take the survey/i), "react")
+  userEvent.click(screen.getByRole("button", { name: /take the survey/i }))
 
-  const takeSurveyBtn = comp.getByText(/take the survey/i);
-  expect(takeSurveyBtn).toBeInTheDocument();
-  expect(takeSurveyBtn).not.toBeDisabled();
-  //   fireEvent.click(takeSurveyBtn);
-  //   expect(handleClick).toHaveBeenCalled();
+  expect(location.pathname).toEqual("/survey")
 });
