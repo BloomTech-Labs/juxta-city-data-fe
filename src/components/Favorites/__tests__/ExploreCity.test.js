@@ -13,7 +13,7 @@ it('renders without crashing', () => {
       <ExploreCity />
     </CityContext.Provider>
   );
-
+  
   expect(comp.getByText(/Search for a city/i)).toBeInTheDocument();
   expect(
     comp.getByText(/Or take our Survey to get recommendations!/i)
@@ -56,6 +56,6 @@ it('on click the survey button ', () => {
   const takeSurveyBtn = comp.getByText(/take the survey/i);
   expect(takeSurveyBtn).toBeInTheDocument();
   expect(takeSurveyBtn).not.toBeDisabled();
-//   fireEvent.click(takeSurveyBtn);
-//   expect(handleClick).toHaveBeenCalled();
+  //   fireEvent.click(takeSurveyBtn);
+  //   expect(handleClick).toHaveBeenCalled();
 });
