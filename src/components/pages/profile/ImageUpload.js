@@ -86,7 +86,7 @@ const ImageUpload = ({ info }) => {
         <Modal.Content>
           <Modal.Header >Choose an image to upload</Modal.Header>
           <input type='file' accept='image/x-png,image/jpeg' onChange={onChange} />
-         <div style={{ marginTop:'10px'}}>
+          <div style={{ marginTop:'10px'}}>
          <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={onSubmit} style={{ backgroundColor: '#0074cc', color: 'white' }} >
             Upload </Button>
