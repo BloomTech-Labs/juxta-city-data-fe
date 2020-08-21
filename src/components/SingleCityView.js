@@ -22,7 +22,7 @@ function SingleCityView(props) {
   return !cityData ? (
     <NavBar {...props} />
   ) : (
-    <div className='singleCityViewBox'  style={{backgroundColor: '#f8f8f8'}}>
+    <div className='singleCityViewBox'>
       <NavBar {...props} />
       <TabBar />
     <div className="city-content">
