@@ -1,7 +1,9 @@
 import React from 'react';
 import ProfileInputs from '../ProfileInputs';
-import { configure, shallow } from 'enzyme';
-import renderer from 'react-test-renderer'
+import { configure, shallow, mount } from 'enzyme';
+import renderer from 'react-test-renderer';
+import { anime } from "react-anime";
+
 // import '@testing-libarary/jest-dom/extend-expect';
 import Adapter from 'enzyme-adapter-react-16';
 // import { render, fireEvent, cleanup } from '@testing-library/react';
@@ -25,5 +27,22 @@ describe('the profile input ', () => {
         expect(wrapper.find('svg')).toHaveLength(1)
     })
 
-    it('checks the ')
-})
+    // it('expects wrapper to check the handleChange', () => {
+    //     const onFocus = mount(<ProfileInputs />)
+    //     console.log(onFocus.instance());
+
+    //     //onFocus.instance().handleTextFocus = jest.fn()
+
+    //     //const focus =  jest.fn();
+        
+    //     //onFocus.find('input').simulate('dob')
+
+    //     //expect(focus).toHaveBeenCalled(1)
+        
+    //     })
+
+        
+        
+
+
+    })
