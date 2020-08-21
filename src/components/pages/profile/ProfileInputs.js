@@ -93,6 +93,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
             className="label"
             htmlFor="last_name"
             aria-label="last name"
+            data-testid="lname"
           >Last Name</label>
           <input
             type="text"
@@ -163,7 +164,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
               name="state"
             >
       
-              <option selected placeholder="Choose">Choose...</option>
+              <option  placeholder="Choose">Choose...</option>
               <option value="Alabama">Alabama</option>
               <option value="Alaska">Alaska</option>
               <option value="Arizona">Arizona</option>
