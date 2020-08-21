@@ -24,17 +24,17 @@ const ImageUpload = ({ info }) => {
     setFileName(e.target.files[0].name);
   };
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('image', file);
 
     axiosWithAuth()
       .put(
-        `https:production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image`,
+        `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image`,
         formData
       )
-      .then(res => {
+      .then((res) => {
         setUploadedFile(res.data);
         console.log(res.data, 'res.data');
       })
@@ -47,13 +47,13 @@ const ImageUpload = ({ info }) => {
   const handleRemove = () => {
     axiosWithAuth()
       .put(
-        `https:production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image/${cloudinary_id}`
+        `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image/${cloudinary_id}`
       )
       .then(() => {
         setUploadedFile(initialFormState);
       })
       .then(() => window.location.reload())
-      .catch(err => {
+      .catch((err) => {
         console.log('error', err);
       });
   };
