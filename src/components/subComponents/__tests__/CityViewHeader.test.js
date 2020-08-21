@@ -16,7 +16,9 @@ test("all data is rendered", () => {
       />
     </UserContext.Provider>
   );
-  const image = comp.getByTestId(/star-btn/i) 
+  const image = comp.getByAltText("heart icon");
   image.src = "test.png";
+  //expect(comp.textContent).toMatch(fakePopulation)
+  //expect(comp.textContent).toMatch(fakeCity)
   expect(image.src).toMatch("test.png");
 });

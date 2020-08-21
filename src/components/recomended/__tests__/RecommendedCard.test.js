@@ -43,7 +43,7 @@ it("renders the heart icon", () => {
       </CityContext.Provider>
     </UserContext.Provider>
   );
-  expect(comp.getByTestId(/star-btn/i)).toBeInTheDocument();
+  expect(comp.getByAltText(/heart icon/i)).toBeInTheDocument();
 });
 it("renders the poulation description", () => {
   const userData = {};

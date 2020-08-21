@@ -12,7 +12,7 @@ function EditForm({ handleEditSubmit, handleEditChange }) {
   }, [setProfileData]);
 
   return (
-    <EditProfileInputs 
+    <EditProfileInputs
       handleSubmit={handleEditSubmit}
       addHandleChange={handleEditChange}
       userData={userData}

@@ -12,7 +12,6 @@ const SurveyOptions = (props) => {
     <Label data-testid="option-label">
       <Fieldset>
         <Legend>{props.name}</Legend>
-        
       <RadioInput
        data-testid="radio-input-option"
         type='radio'
@@ -22,7 +21,6 @@ const SurveyOptions = (props) => {
         onChange={handleUpdateState}
         // aria-label={props.name}
       />
-      <br></br>
       {props.description}
       </Fieldset>
     </Label>

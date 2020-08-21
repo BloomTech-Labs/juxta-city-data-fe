@@ -22,6 +22,7 @@ const EditUser = (props) => {
 
   return props.editing ? (
     <div>
+      <h2> Edit User</h2>
       <EditForm
         handleEditChange={handleEditChange}
         handleEditSubmit={handleEditSubmit}

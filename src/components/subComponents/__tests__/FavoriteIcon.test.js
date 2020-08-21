@@ -13,11 +13,11 @@ it('renders the Icon', ()=> {
             <FavoriteIcon cityData={cityData}/>
         </UserContext.Provider>   
     )
-    const image = comp.getByTestId(/star-btn/i) 
+    const image = comp.getByAltText(/heart icon/i)
     expect(image).toBeInTheDocument();
-    // expect(image.src).toEqual('http://localhost/emptyheart.png')
-    // fireEvent.click(image);
-    // expect(image.src).toEqual('http://localhost/fullheart.png')
-    // fireEvent.click(image);
-    // expect(image.src).toEqual('http://localhost/emptyheart.png')
+    expect(image.src).toEqual('http://localhost/emptyheart.png')
+    fireEvent.click(image);
+    expect(image.src).toEqual('http://localhost/fullheart.png')
+    fireEvent.click(image);
+    expect(image.src).toEqual('http://localhost/emptyheart.png')
 })
