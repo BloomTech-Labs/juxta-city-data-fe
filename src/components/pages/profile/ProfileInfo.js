@@ -3,7 +3,6 @@ import ProfileContext from "../../../contexts/ProfileContext";
 import InfoList from "./InfoList";
 import SurveyAnswersBox from "./surveyAnswers/surveyAnswersBox";
 
-
 const ProfileInfo = ({toggleEditing}) => {
 
   const { profileData } = useContext(ProfileContext);
@@ -17,9 +16,9 @@ const ProfileInfo = ({toggleEditing}) => {
     ));
   } else {
     return (
-      <div>
+      <div style={{marginTop: "40px" }}>
         {" "}
-        <h4>Please fill in the form to create your profile!</h4>
+        <h2>Please fill in the form to create your profile!</h2>
       </div>
     );
   }

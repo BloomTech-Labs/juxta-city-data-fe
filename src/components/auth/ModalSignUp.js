@@ -5,6 +5,7 @@ import { Modal } from "semantic-ui-react";
 const ModalSignUp = ({ modal, setModal, history }) => {
   return (
     <Modal
+      closeIcon
       dimmer="blurring"
       style={{
         backgroundColor: "#f8f8f8",

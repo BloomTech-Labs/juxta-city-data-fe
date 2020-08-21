@@ -1,26 +1,22 @@
 import React from "react";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import profileInfoStyle from "../../profileStyles/profileInfoStyle";
+import { List } from 'semantic-ui-react'
 
 const AnswerSurvey = ({ info, index, surveyData }) => {
-  const classes = profileInfoStyle();
-
+  
   return (
     <div key={index}>
       {surveyData.map((item) => {
         return (
-          <List className={classes.root} key={item.id} data-testid="List-of-answers" >
-            <ListItem>
-              <ListItemText primary={item.question} />
-            </ListItem>
+          <List  key={item.id} data-testid="List-of-answers" >
+            <List.Item>
+              <List.Header>{item.question} </List.Header>
+            </List.Item>
             {item.options.map((opt) => {
               if (info.surveyinfo[item.name] === opt.value) {
                 return (
-                  <ListItem key={opt.id}>
-                    <ListItemText secondary={opt.description} />
-                  </ListItem>
+                  <List.Item key={opt.id}>
+                    <List.Description >{opt.description}</List.Description>
+                  </List.Item>
                 );
               } else {
                 return null;

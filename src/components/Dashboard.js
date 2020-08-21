@@ -7,15 +7,13 @@ import Favorites from "./Favorites/Favorites.js";
 import { createUserContext } from "../functions";
 import UserContext from "../contexts/UserContext";
 
-
 function Dashboard(props) {
   const { setUserData } = useContext(UserContext);
   useEffect(() => {
     createUserContext().then((res) => setUserData(res));
   }, [ setUserData]);
 
-  return (
-    
+  return (   
     <div>
         <NavBar {...props}/>
         <Header />

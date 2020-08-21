@@ -8,7 +8,6 @@ const SurveyOptions = (props) => {
   }
 
   return (
-    
     <Label data-testid="option-label">
       <Fieldset>
         <Legend>{props.name}</Legend>
@@ -21,6 +20,7 @@ const SurveyOptions = (props) => {
         onChange={handleUpdateState}
         // aria-label={props.name}
       />
+      <br></br>
       {props.description}
       </Fieldset>
     </Label>
