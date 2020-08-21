@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from '@material-ui/core';
 import MaterialUiGridList from './MaterialUIGridList';
 import { getBestCities } from '../../functions/index';
 import { Heading } from './styles/BestCitiesStyles';
+import { Container } from 'semantic-ui-react'
 
 const BestCities = () => {
   const [gridList, setGridList] = useState([]);
@@ -12,14 +12,10 @@ const BestCities = () => {
   }, []);
 
   return (
-    <Container
-      maxWidth='lg'
-      style={{
-        backgroundColor: '#fff',
-        textAlign: 'center',
-        marginBottom: '3rem'
-      }}>
-      '<Heading>Best Cities</Heading>
+    <Container fluid
+      style={{ textAlign: 'center',   margin: '30px', background:'transparent' }}
+      >
+      <Heading>Best Cities</Heading>
       <MaterialUiGridList gridList={gridList} />
     </Container>
   );

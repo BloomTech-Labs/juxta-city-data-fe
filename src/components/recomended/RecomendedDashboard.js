@@ -4,7 +4,7 @@ import RecommendedCard from "./RecommendedCard";
 import cityscape from "../../assets/cityscape.png";
 import RecommendedContext from "../../contexts/RecomendedContext";
 import UserContext from "../../contexts/UserContext";
-import {  Header, Button } from "semantic-ui-react";
+import { Header, Button } from "semantic-ui-react";
 
 export default function RecommendedDashboard({ auth, history, location }) {
 

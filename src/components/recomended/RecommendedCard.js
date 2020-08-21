@@ -25,7 +25,7 @@ return (
       <p className="livability-score">{livabilityScore}</p>
     </div>
     <Card.Content>{props.cityData.population_desc}</Card.Content>
-    <Button basic color='gray' onClick={handleClick}>
+    <Button basic onClick={handleClick}>
       Learn More
     </Button>
   </Card>

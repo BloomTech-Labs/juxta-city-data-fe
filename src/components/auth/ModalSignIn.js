@@ -5,6 +5,7 @@ import { Modal } from "semantic-ui-react";
 const ModalSignIn = ({ modal, setModal, history }) => {
   return (
     <Modal
+      closeIcon
       dimmer="blurring"
       style={{
         backgroundColor: "#f8f8f8",
@@ -15,7 +16,7 @@ const ModalSignIn = ({ modal, setModal, history }) => {
       onClose={() => setModal(false)}
       onOpen={() => setModal(true)}
     >
-      <div style={{ margin: "30px 0", border: "1px solid balck" }}>
+      <div className="sign-in-up-modal">
         <SignIn history={history} />
       </div>
     </Modal>
