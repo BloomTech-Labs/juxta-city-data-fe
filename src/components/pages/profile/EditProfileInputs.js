@@ -12,12 +12,12 @@ import SVGstyle from './SVGstyle'
 
 function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
   if (userData) {
-    const inputData = [ {name: "first_name", placeholder: "First Name", value: userData.first_name,type: "text"},
-      { name: "last_name", placeholder: "Last Name", value: userData.last_name,type: "text"},
-      { name: "dob", placeholder: "Date of birth", value: userData.dob,type: "date"},
-      { name: "address", placeholder: "Address", value: userData.address,type: "text"},
-      { name: "city", placeholder: "City", value: userData.city,type: "text"}];
-
+    const inputData = [ {name: "first_name", placeholder: "First Name", value: userData.first_name,type: "text", "dataStrokedashoffset":"0"  },
+      { name: "last_name", placeholder: "Last Name", value: userData.last_name,type: "text", "dataStrokedashoffset":"-331" },
+      { name: "dob", placeholder: "Date of birth", value: userData.dob,type: "date", "dataStrokedashoffset":"-686"  },
+      { name: "address", placeholder: "Address", value: userData.address,type: "text", "dataStrokedashoffset": "-1012"  },
+      { name: "city", placeholder: "City", value: userData.city,type: "text", "dataStrokedashoffset":"-1367" }];
+   
     return (
       <div className="demensions">
         <div>
@@ -30,7 +30,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
                 <label className="label" htmlFor={item.name} > {item.placeholder} </label>
                 <input
                   name={item.name} type={item.type}  placeholder={item.placeholder}
-                  className="input" data-strokedashoffset="0" data-strokedasharray="240 3000"
+                  className="input" data-strokedashoffset={item.dataStrokedashoffset} data-strokedasharray="240 3000"
                   onFocus={handleTextFocus} onChange={addHandleChange}  aria-label={item.placeholder} defaultValue={item.value}  />
               </div>
             ))}

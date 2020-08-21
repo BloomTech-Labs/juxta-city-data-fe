@@ -10,11 +10,11 @@ import SVGstyle from './SVGstyle'
 
 function ProfileInputs({ handleSubmit, addHandleChange }) {
 
-  const inputData = [ {name: "first_name", placeholder: "First Name", type: "text"},
-  { name: "last_name", placeholder: "Last Name", type: "text"},
-  { name: "dob", placeholder: "Date of birth", type: "date"},
-  { name: "address", placeholder: "Address", type: "text"},
-  { name: "city", placeholder: "City", type: "text"}];
+  const inputData = [ {name: "first_name", placeholder: "First Name", type: "text", "dataStrokedashoffset":"0"},
+  { name: "last_name", placeholder: "Last Name", type: "text", "dataStrokedashoffset":"-331" },
+  { name: "dob", placeholder: "Date of birth", type: "date",  "dataStrokedashoffset":"-686"},
+  { name: "address", placeholder: "Address", type: "text", "dataStrokedashoffset": "-1012"},
+  { name: "city", placeholder: "City", type: "text",  "dataStrokedashoffset":"-1367"}];
 
  
   return (
@@ -30,7 +30,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
               <label className="label"  htmlFor={item.name}>{item.placeholder}</label>
               <input
                 name={item.name} type={item.type}  placeholder={item.placeholder}
-                className="input" data-strokedashoffset="0" data-strokedasharray="240 3000"
+                className="input" data-strokedashoffset={item.dataStrokedashoffset} data-strokedasharray="240 3000"
                 onFocus={handleTextFocus} onChange={addHandleChange} aria-label={item.placeholder} />
             </div>
           ))}
