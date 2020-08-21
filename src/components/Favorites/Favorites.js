@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import UserContext from "../../contexts/UserContext";
 import FavoriteCityCard from "./FavoriteCityCard";
 import { Card } from 'semantic-ui-react';
-import Loading from '../pages/profile/Loading'
 
 export default function Favoirtes() {
   const [cities, setCities] = useState([]);
@@ -22,7 +21,7 @@ export default function Favoirtes() {
   }, [userData, setCities, history]);
 
   return cities.length === 0 ? (
-    <Loading/>
+    <></>
   ) : (
     <Card fluid style={{ marginTop:'20px'}}>
      <Card.Content>
