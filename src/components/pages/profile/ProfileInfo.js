@@ -17,9 +17,9 @@ const ProfileInfo = ({toggleEditing}) => {
     ));
   } else {
     return (
-      <div style={{marginTop: "40px" }}>
+      <div>
         {" "}
-        <h2>Please fill in the form to create your profile!</h2>
+        <h4>Please fill in the form to create your profile!</h4>
       </div>
     );
   }

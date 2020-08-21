@@ -58,7 +58,7 @@ it('displays a list of matching cities when characters are input', async () => {
     </CityContext.Provider>
   );
 
-  let searchBar = getByPlaceholderText(/Search for a city/i);
+  let searchBar = getByPlaceholderText(/search/i);
 
   fireEvent.change(searchBar, { target: { value: 's' } });
   expect(axios.get).toHaveBeenCalledTimes(0);
@@ -74,10 +74,10 @@ it('displays a list of matching cities when characters are input', async () => {
 
   let dropdownCities = await findAllByText(/sea/i);
 
-  expect(dropdownCities).toHaveLength(5);
-  expect(dropdownCities[1].innerHTML).toMatch(/seaford, new york/i);
-  expect(dropdownCities[2].innerHTML).toMatch(/seaside, oregon/i);
-  expect(dropdownCities[3].innerHTML).toMatch(/seabrook, texas/i);
-  expect(dropdownCities[4].innerHTML).toMatch(/seagoville, texas/i);
+  expect(dropdownCities).toHaveLength(4);
+  expect(dropdownCities[0].innerHTML).toMatch(/seaford, new york/i);
+  expect(dropdownCities[1].innerHTML).toMatch(/seaside, oregon/i);
+  expect(dropdownCities[2].innerHTML).toMatch(/seabrook, texas/i);
+  expect(dropdownCities[3].innerHTML).toMatch(/seagoville, texas/i);
 
 });

@@ -7,7 +7,7 @@ import { getCityData, getCityArray } from '../../functions';
 
 const Search = styled.input`
   width: 45vw;
-  border: 1px solid #ddd;
+  border: none;
   border-radius: 7px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;

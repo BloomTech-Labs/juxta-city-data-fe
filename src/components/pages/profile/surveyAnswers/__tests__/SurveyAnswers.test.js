@@ -30,7 +30,7 @@ const setProfileData = (data) => (profileData = data);
 
 it("renders 'Take the survey button' and asks to take survey when surveyinfo is null", () => {
   let profileData = [{
-    surveyinfo: '',
+    surveyinfo: null,
   }];
   const setProfileData = (data) => (profileData = data);
 
@@ -43,4 +43,5 @@ it("renders 'Take the survey button' and asks to take survey when surveyinfo is 
   );
   expect(comp.getByText(/Your Survey Answers/i)).toBeInTheDocument();
   expect(comp.getByText(/Take the survey/i)).toBeInTheDocument();
+  expect(comp.getByText(/Please complete survey!/i)).toBeInTheDocument();
 });
