@@ -16,7 +16,7 @@ const ModalSignIn = ({ modal, setModal, history }) => {
       onClose={() => setModal(false)}
       onOpen={() => setModal(true)}
     >
-      <div style={{ margin: "30px 0", border: "1px solid balck" }}>
+      <div className="sign-in-up-modal">
         <SignIn history={history} />
       </div>
     </Modal>
