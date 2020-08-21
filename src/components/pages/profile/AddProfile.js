@@ -12,7 +12,7 @@ const initialFormState = {
   state: null,
   zip: null,
 };
-///
+
 const AddProfile = ({ profileData }) => {
   const token = localStorage.getItem("token");
   const userId = jwt_decode(token).userid;
@@ -31,12 +31,14 @@ const AddProfile = ({ profileData }) => {
       window.location.reload()
     );
   };
-  return profileData.length === 1 ? null : (
+  return profileData.length === 1 ? (<span></span>) : (
+    
     <AddProfileForm
       profileBody={profileBody}
       handleSubmit={handleSubmit}
       addHandleChange={addHandleChange}
     />
+  
   );
 };
 
