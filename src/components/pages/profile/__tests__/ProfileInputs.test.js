@@ -2,9 +2,6 @@ import React from 'react';
 import ProfileInputs from '../ProfileInputs';
 import "@testing-library/jest-dom/extend-expect";
 import { render,  fireEvent } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
-import renderer from 'react-test-renderer';
-import { anime } from "react-anime";
 
 
 
