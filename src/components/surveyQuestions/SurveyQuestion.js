@@ -1,8 +1,6 @@
 import React from 'react';
-
 import SurveyOptions from './SurveyOptions';
 import SimpleModal from './simpleModal/SimpleModal';
-
 import {
   Container,
   Question,
@@ -12,7 +10,7 @@ import {
 const SurveyQuestion = ({item, formState, updateState}) => {
   return (
     <Container>
-      <Question data-testid="question">
+      <Question data-testid="question" style={{display:'flex', flexDirection:'row'}}>
         {item.question}{' '}
         {item.question ===
           `What is an acceptable cost of living index for your new city?` && (
