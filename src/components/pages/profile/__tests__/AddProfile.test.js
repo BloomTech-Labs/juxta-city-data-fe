@@ -35,9 +35,9 @@ describe("bang", () => {
     const bang = render(
       <AddProfile profileData={[]} />
     );
-    const firstNameInput = bang.getByTestId("fname");
+    const firstNameInput = bang.getByTestId("first_name");
     fireEvent.change(firstNameInput, { target: { value: "Conary" } });
-    const lastNameInput = bang.getByTestId("lname");
+    const lastNameInput = bang.getByTestId("last_name");
     fireEvent.change(lastNameInput, { target: { value: "Beckford" } });
     
     expect(bang.getByText("Add Profile")).toBeVisible();
