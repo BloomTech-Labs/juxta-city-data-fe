@@ -19,26 +19,46 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
  
   return (
     <div className="demensions">
-      <div>      
-        <SVGstyle/>
+      <div>
+        <SVGstyle />
         <form
           style={{ position: "absolute", zIndex: 10, margin: "0 40px" }}
-          noValidate autoComplete="off" onSubmit={handleSubmit}>
-
+          noValidate
+          autoComplete="off"
+          onSubmit={handleSubmit}
+        >
           {inputData.map((item, index) => (
             <div key={index}>
-              <label className="label"  htmlFor={item.name}>{item.placeholder}</label>
+              <label className="label" htmlFor={item.name}>
+                {item.placeholder}
+              </label>
               <input
-                name={item.name} type={item.type}  placeholder={item.placeholder}
-                className="input" data-strokedashoffset={item.dataStrokedashoffset} data-strokedasharray="240 3000"
-                onFocus={handleTextFocus} onChange={addHandleChange} aria-label={item.placeholder} />
+                data-testid={item.name}
+                name={item.name}
+                type={item.type}
+                placeholder={item.placeholder}
+                className="input"
+                data-strokedashoffset={item.dataStrokedashoffset}
+                data-strokedasharray="240 3000"
+                onFocus={handleTextFocus}
+                onChange={addHandleChange}
+                aria-label={item.placeholder}
+              />
             </div>
           ))}
-          <StateSelect  addHandleChange={addHandleChange} handleTextFocus={handleTextFocus} />
-          <ZipCode  addHandleChange={addHandleChange}  handleTextFocus={handleTextFocus} />
+          <StateSelect
+            addHandleChange={addHandleChange}
+            handleTextFocus={handleTextFocus}
+          />
+          <ZipCode
+            addHandleChange={addHandleChange}
+            handleTextFocus={handleTextFocus}
+          />
 
           <div className="center">
-            <button type="submit" onFocus={handleSubmitFocus} className="btn">Add Profile</button>
+            <button type="submit" onFocus={handleSubmitFocus} className="btn" data-testid="submit">
+              Add Profile
+            </button>
           </div>
         </form>
       </div>
