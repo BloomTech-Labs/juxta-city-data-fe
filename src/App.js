@@ -13,6 +13,7 @@ import Profile from './components/pages/profile/Profile.js';
 import SingleCityView from './components/SingleCityView.js';
 import SurveyQuestions from './components/surveyQuestions/SurveyQuestions.js';
 import RecomendedDashboard from './components/recomended/RecomendedDashboard';
+import Footer from "./components/Footer";
 
 const App = () => {
   const [userData, setUserData] = useState({});
@@ -30,18 +31,15 @@ const App = () => {
             <RecomendedContext.Provider
               value={{ recomendedCity, setRecomendedCity }}>
               <ProfileContext.Provider value={{ profileData, setProfileData }}>
-                <div className='App'>
+                <div>
                   <Route path='/' exact component={LandingPage} />
                   <Route path='/dashboard' exact component={Dashboard} />
                   <Route path='/cityview' exact component={SingleCityView} />
                   <Route path='/survey' exact component={SurveyQuestions} />
                   <Route path='/signin' exact component={Authentication} />
-                  <Route
-                    path='/recommended'
-                    exact
-                    component={RecomendedDashboard}
-                  />
+                  <Route path='/recommended' exact component={RecomendedDashboard} />
                   <Route path='/profile' exact component={Profile} />
+                  <Footer/>
                 </div>
               </ProfileContext.Provider>
             </RecomendedContext.Provider>

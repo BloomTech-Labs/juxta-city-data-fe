@@ -4,7 +4,7 @@ const ZipCode = ({ addHandleChange, handleTextFocus ,defaultv}) => {
 
   return (
     <div>
-      <label className="label" htmlFor="Zip Code" > Zip Code </label>
+      <label className="form-label" htmlFor="Zip Code" > Zip Code </label>
       <input
         name="zip"
         type="number"

@@ -2,22 +2,20 @@ import React, { useState, useEffect } from 'react';
 import MaterialUiGridList from './MaterialUIGridList';
 import { getBestCities } from '../../functions/index';
 import { Heading } from './styles/BestCitiesStyles';
-import { Container } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react';
 
 const BestCities = () => {
   const [gridList, setGridList] = useState([]);
-
+  console.log(gridList, 'grid list in bestcities');
   useEffect(() => {
-    getBestCities().then((cities) => setGridList(cities));
+    getBestCities().then(cities => setGridList(cities));
   }, []);
 
   return (
-    <Container fluid
-      style={{ textAlign: 'center',   margin: '30px', background:'transparent' }}
-      >
+    <Card  fluid style={{ textAlign: 'center' }} >
       <Heading>Best Cities</Heading>
       <MaterialUiGridList gridList={gridList} />
-    </Container>
+    </Card>
   );
 };
 

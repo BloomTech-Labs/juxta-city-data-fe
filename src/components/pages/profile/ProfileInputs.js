@@ -29,7 +29,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
         >
           {inputData.map((item, index) => (
             <div key={index}>
-              <label className="label" htmlFor={item.name}>
+              <label className="form-label" htmlFor={item.name}>
                 {item.placeholder}
               </label>
               <input
