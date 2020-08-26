@@ -27,7 +27,7 @@ function EditProfileInputs({ handleSubmit, addHandleChange, userData }) {
 
             {inputData.map((item, index) => (
               <div key={index}>
-                <label className="label" htmlFor={item.name} > {item.placeholder} </label>
+                <label className="form-label" htmlFor={item.name} > {item.placeholder} </label>
                 <input
                   name={item.name} type={item.type}  placeholder={item.placeholder}
                   className="input" data-strokedashoffset={item.dataStrokedashoffset} data-strokedasharray="240 3000"

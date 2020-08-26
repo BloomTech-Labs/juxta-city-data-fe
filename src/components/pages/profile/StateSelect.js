@@ -5,7 +5,7 @@ function StateSelect({addHandleChange, handleTextFocus, defaultv }) {
 
   return (
     <div>
-      <label className="label" htmlFor="State">State</label>
+      <label className="form-label" htmlFor="State">State</label>
       <select
          data-strokedashoffset="-1696"
          data-strokedasharray="240 3000"
