@@ -6,7 +6,7 @@ import { Card } from 'semantic-ui-react';
 
 const BestCities = () => {
   const [gridList, setGridList] = useState([]);
-  console.log(gridList, 'grid list in bestcities');
+ 
   useEffect(() => {
     getBestCities().then(cities => setGridList(cities));
   }, []);

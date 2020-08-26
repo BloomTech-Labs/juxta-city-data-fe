@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, fireEvent} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import FavoriteIcon from '../FavoriteIcon';
 import UserContext from '../../../contexts/UserContext';
 
@@ -15,9 +15,4 @@ it('renders the Icon', ()=> {
     )
     const image = comp.getByTestId(/star-btn/i) 
     expect(image).toBeInTheDocument();
-    // expect(image.src).toEqual('http://localhost/emptyheart.png')
-    // fireEvent.click(image);
-    // expect(image.src).toEqual('http://localhost/fullheart.png')
-    // fireEvent.click(image);
-    // expect(image.src).toEqual('http://localhost/emptyheart.png')
 })
