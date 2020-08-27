@@ -6,17 +6,9 @@ import CityBody from "./subComponents/CityBody.js";
 import { getCityData } from "../functions";
 import TabBar from "./subComponents/TabBar";
 
-import { makeStyles } from "@material-ui/core/styles";
-
-const styles = makeStyles((theme) => ({
-  root: {
-    margin: "0 auto",
-  },
-}));
-
 function SingleCityView(props) {
   const { cityData, setCityData } = useContext(CityContext);
-  const classes = styles();
+
   useEffect(() => {
     if (!cityData.city && !localStorage.getItem("cityName")) {
       return props.history.replace("/dashboard");
@@ -30,7 +22,7 @@ function SingleCityView(props) {
   return !cityData ? (
     <NavBar {...props} />
   ) : (
-    <div className={classes.root}>
+    <div className='singleCityViewBox'  style={{backgroundColor: '#f8f8f8'}}>
       <NavBar {...props} />
       <TabBar />
     <div className="city-content">

@@ -15,7 +15,7 @@ const Health = props => (
         style={{ backgroundColor: '#0074cc', color: 'white' }}
         as='a'
         target='blank'
-        href='https://findyourcity.herokuapp.com'
+        href='https://dash-heartandcovid.herokuapp.com/'
       >
         View Map
         <Icon name='long arrow alternate right' aria-hidden='false' />

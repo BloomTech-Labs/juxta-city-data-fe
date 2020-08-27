@@ -1,18 +1,18 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif, "ProximaNova-Regular", Helvetica neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif, 'ProximaNova-Regular', Helvetica neue, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-@import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
-@import url("https://rsms.me/inter/inter-ui.css");
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url('https://rsms.me/inter/inter-ui.css');
 h1,
 h2,
 h3,
@@ -29,23 +29,25 @@ p {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-$gradient: #f96b4c, #f23182;
+$gradient: #00ffff, #0074cc;
 $radius: 10px;
 $visual-height: 68%;
 
 .demensions {
-  margin-top: 10rem;
+  margin-top: 20px;
   width: 350px;
   height: 603px;
-  background-image: radial-gradient(
-    circle at 0% 0%,
-    #373b52,
-    #252736 51%,
-    #1d1e26
-  );
+  // background-image: radial-gradient(
+  //   circle at 0% 0%,
+  //   #373b52,
+  //   #252736 51%,
+  //   #1d1e26
+  // );
+  background-color: white;
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
   position: relative;
+  border-radius: 2%;
 }
 .svg {
   position: absolute;
@@ -58,8 +60,8 @@ $visual-height: 68%;
   stroke-width: 4;
   stroke-dasharray: 240 3000;
 }
-.label {
-  color: #fefeff;
+.form-label {
+  color: red;
   display: block;
   font-size: 20px;
   height: 16px;
@@ -69,21 +71,28 @@ $visual-height: 68%;
   opacity: 0;
 }
 .input {
-  background: transparent;
+  // background: transparent;
+  // background-image: radial-gradient(
+  //   circle at 0% 0%,
+  //   #373b52,
+  //   #252736 51%,
+  //   #1d1e26
+  // );
+  background-color: white;
   border: 0;
   border-radius: 10%;
-  color: #f2f2f2 !important;
+  color: #676767 !important;
   font-size: 18px;
   font-weight: bold;
   height: 30px;
   line-height: 30px;
-  outline: white !important;
+  outline: rgb(234, 238, 234) !important;
   width: 100%;
 }
 select {
   //background: white !important;
   option {
-    color: black !important;
+    color: #676767 !important;
   }
 }
 
@@ -101,7 +110,7 @@ select {
 }
 
 ::placeholder {
-  color: white;
+  color: #676767;
 }
 
 .center {
@@ -112,8 +121,9 @@ select {
   margin-left: 3px;
   button.btn {
     background: transparent;
-    border: 2px solid grey;
-    color: #d42d78;
+    border: 2px solid #f23182;
+    color: #f23182;
+    font-weight: bolder;
     padding: 10px 65px;
     outline: none;
     font-size: 20px;
@@ -140,9 +150,9 @@ select {
 }
 .card-profile {
   float: left;
-  top: 50%;
-  margin-left: 40%;
-  margin-top: 40rem;
+  top: 5%;
+  margin-left: 50%;
+  margin-top: 20rem;
   left: 50%;
   transform: translate(-50%, -50%);
 
@@ -178,28 +188,6 @@ select {
     color: #fff;
     text-align: center;
   }
-
-  .btn-info {
-    width: 90px;
-    height: 50px;
-    margin: auto;
-    outline: none;
-
-    background: {
-      color: #f96b4c;
-      image: linear-gradient($gradient);
-    }
-
-    margin: auto;
-    border-radius: 10%;
-    top: calc(500% + 66px);
-    box-shadow: 0 2px 0 #d42d78, 0 3px 10px rgba(#f33180, 0.15),
-      0 0px 10px rgba(#f33180, 0.15), 0 0px 4px rgba(darken(#f33180, 80%), 0.35),
-      0 5px 20px rgba(#f33180, 0.25), 0 15px 40px rgba(#f33180, 0.75),
-      inset 0 0 15px rgba(#ffffff, 0.05);
-
-    overflow: hidden;
-  }
   .infos_name {
     display: block;
     clear: both;
@@ -212,17 +200,6 @@ select {
     top: 8px;
     font-weight: 800;
   }
-
-  .btn-twins {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 60px;
-  }
-  .btn2-twins {
-    display: flex;
-    justify-content: space-evenly;
-  }
-
   .section-ul {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -234,76 +211,73 @@ select {
 }
 
 // city view page extra style
-.city-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  // background-image: url('./assets/sanfrancisco.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  // background-color:rgb(214, 212, 212);
-  background-color: #f8f8f8;
-  background-blend-mode: lighten;
-  .header-city {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    .heart-icon {
-      width: 30px;
-      height: 27px;
-    }
-  }
-  .desctiption-container {
-    margin-bottom: 6%;
+.singleCityViewBox {
+  background-color: #f8f8f8; 
+  .city-content {
     display: flex;
     flex-direction: column;
-    width: 80%;
-    #box-container {
-      // border: 1px black solid;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: lighten;
+    .header-city {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      align-self: flex-start;
+      margin-left: 15%;
+    }
+    .desctiption-container {
+      margin-bottom: 6%;
       display: flex;
       flex-direction: column;
-      text-align: center;
-      margin: 1% 0;
-
-      .statistics {
-        width: 100%;
+      width: 80%;
+      #box-container {
+        // border: 1px black solid;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        margin: 5px 0;
+
+        .statistics {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .card-stats {
+          border: 1% #e0e0e0 solid;
+          border-radius: 5%;
+          background-color: white;
+          box-shadow: 0px 3px 3px 0px rgba(211, 211, 211, 0.9);
+          margin: -1% 3% 3% 3%;
+          width: 250px;
+          height: 210px;
+          padding: 2%;
+          img {
+            width: 40%;
+            height: 40%;
+            margin: 5px auto;
+          }
+          h3 {
+            color: #767676;
+            // text-decoration: underline;
+          }
+        }
       }
-      .card-stats {
+      #graph-container {
+        width: 100%;
         border: 1% #e0e0e0 solid;
-        border-radius: 5%;
+        border-radius: 2%;
         background-color: white;
         box-shadow: 0px 3px 3px 0px rgba(211, 211, 211, 0.9);
-        margin: 2% 3%;
-        width: 250px;
-        height: 210px;
-        padding: 2%;
-        img {
-          width: 40%;
-          height: 40%;
-          margin: 5px auto;
-        }
-        h3 {
-          color: #767676;
-          // text-decoration: underline;
-        }
+        padding-bottom: 3%;
+        margin: 2% 0;
       }
-    }
-    #graph-container {
-      width: 100%;
-      border: 1% #e0e0e0 solid;
-      border-radius: 2%;
-      background-color: white;
-      box-shadow: 0px 3px 3px 0px rgba(211, 211, 211, 0.9);
-      padding-bottom: 3%;
-      margin: 2% 0;
     }
   }
 }
-
 .tabbar {
   padding-bottom: 5.3%;
   .container-menu-city {
@@ -321,25 +295,6 @@ select {
     }
   }
 }
-//classes to rotate the arrow
-// .animation{
-//   transition: ease-in .2s;
-//   width: 15px;
-//   height: 10px;
-
-//   a:hover {
-//     cursor: pointer;
-//   }
-// }
-// .animation2{
-//    transition: ease-in .2s;
-//     transform: rotate(180deg);
-//     width: 15px;
-//     height: 10px;
-//     a:hover {
-//       cursor: pointer;
-//     };
-// }
 
 @media (max-width: 766px) {
   #my-divider {
@@ -352,8 +307,8 @@ select {
 .cardBox {
   display: flex;
   flex-direction: row;
-  margin: 1% 0;
-  width: "100%";
+  margin: 2% 5%;
+  width: '100%';
   flex-wrap: wrap;
   justify-content: space-around;
   .dash-cityscape {
@@ -386,8 +341,37 @@ select {
     padding-left: 2px;
     margin: 0 auto;
     line-height: 50px;
-    background-image: url("./assets/livabilityIcon.png");
+    background-image: url('./assets/livabilityIcon.png');
     background-repeat: no-repeat;
     background-size: 36px 54px;
   }
+}
+
+.info-btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 3px 0;
+  justify-content: space-around;
+  .info-btn {
+    color: rgb(103, 103, 103);
+    font-size: 1rem;
+    font-weight: bold;
+    color: '#676767';
+    padding: 11px 21px;
+    background: transparent;
+    border: 1px solid #ddd;
+    border-radius: 7%;
+  }
+}
+.sign-in-up-modal{
+  margin: 30px 0;
+}
+.footer{
+  text-align: center;
+  height: 50px;
+  background: #f2f2f2;
+  position :relative;
+  bottom:0;
+  padding-top:20px;
+  width:100%;
 }

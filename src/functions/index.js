@@ -25,7 +25,7 @@ const postProfileRequest = async (userData, userId) => {
   );
   let responseProfileData = await response.data;
 
-  console.log(responseProfileData);
+ // console.log(responseProfileData);
 };
 
 const deleteProfile = async (userId) => {

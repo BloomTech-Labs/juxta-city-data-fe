@@ -1,5 +1,8 @@
  const states = [
     {
+        value:"", state:"Select a state"
+    },
+    {
         value:"AL", state:"Alabama"
     },
     {
