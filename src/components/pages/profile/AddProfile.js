@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import jwt_decode from "jwt-decode";
 import AddProfileForm from "./AddProfileForm";
 import { postProfileRequest } from "../../../functions";
+import Loading from "../../Loading";
 
 const initialFormState = {
   first_name: null,
@@ -18,6 +19,7 @@ const AddProfile = ({ profileData }) => {
   const userId = jwt_decode(token).userid;
 
   const [profileBody, setprofileBody] = useState(initialFormState);
+  const [loading, setLoading] = useState(false);
 
   const addHandleChange = (e) => {
     setprofileBody({ ...profileBody, [e.target.name]: e.target.value });
@@ -25,18 +27,25 @@ const AddProfile = ({ profileData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(profileBody)
+    console.log(profileBody);
     setprofileBody(userId);
     postProfileRequest(profileBody, userId).then(() =>
       window.location.reload()
     );
+    setLoading(true);
   };
   return profileData.length === 1 ? null : (
-    <AddProfileForm
-      profileBody={profileBody}
-      handleSubmit={handleSubmit}
-      addHandleChange={addHandleChange}
-    />
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <AddProfileForm
+          profileBody={profileBody}
+          handleSubmit={handleSubmit}
+          addHandleChange={addHandleChange}
+        />
+      )}
+    </>
   );
 };
 

@@ -12,25 +12,28 @@ import Favorites from "../../Favorites/Favorites.js";
 import { createUserContext } from "../../../functions";
 import UserContext from "../../../contexts/UserContext";
 
-
 export default function Profile(props) {
   const [editing, setEditing] = useState(false);
   const { profileData, setProfileData } = useContext(ProfileContext);
 
   useEffect(() => {
-    createProfileContext().then((res) => setProfileData(res));
+    createProfileContext().then((res) => {
+      // if (res) return <Loading />;
+      // setLoading(true);
+      setProfileData(res);
+    });
   }, [setEditing]);
 
   // this is for favorites
   const { setUserData } = useContext(UserContext);
   useEffect(() => {
     createUserContext().then((res) => setUserData(res));
-  }, [ setUserData]);
+  }, [setUserData]);
 
   const toggleEditing = () => {
     setEditing(true);
   };
-  
+
   return (
     <>
       <NavBar {...props} />
