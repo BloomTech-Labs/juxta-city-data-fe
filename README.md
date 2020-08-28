@@ -1,27 +1,48 @@
 # Find Ur City
 
+[Trello Board](https://trello.com/b/R2QOaAEe/labspt7-juxta-city-data)
+
+[Product Canvas](https://www.notion.so/Juxta-City-Data-06550a97dd9b41f1aea4b4b6de46ecb5)
+
+[UX Design files](https://www.figma.com/file/YS5Ykd25k90FbD7UkDq2fa/Juxta-City-Data-Ryan-and-Stephen?node-id=769%3A23)
+
 You can find the deployed project at [https://www.findur.city](https://www.findur.city)
 
 ## Contributors
 
-### WEBPT7 Team
+### Labs 11 - Second Product Cycle
 
-|                                       [Alfonso Ruiz](https://github.com/alfonsoruiz)                                       |                                          [Jack Kim](https://github.com/jackskim)                                          |                                        [Logan Karnes](https://github.com/lkarnes)                                         |                                         [Zac Smith](https://github.com/mrzacsmith)                                          |
-| :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: |
-|                  [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/alfonsoruiz)                  |                   [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/jackskim)                   |                   [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/lkarnes)                    |                   [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/mrzacsmith)                   |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/mralfonsoruiz) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/in/jackskim/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/logan-karnes) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/in/mrzacsmith/) |
+#### Team Lead:
+Kelly Moreira [Github](https://github.com/misskellymore) | [Linkedin](https://www.linkedin.com/in/kemore/)
+
+#### React Developers:
+Ana Tulea [Github](https://github.com/anatulea) | [Linkedin](https://www.linkedin.com/in/anatulea/)
+
+Benjamin Quackenbush [Github](https://github.com/Quack117)
+
+Brian Leonard [Github](https://github.com/Akaleonard) | [Linkedin](https://www.linkedin.com/in/brian-leonard-808065197/)
+
+Conary Beckford [Github](https://github.com/Conary36)
+
+Sean Birmingham [Github](https://github.com/sean-birmingham) | [Linkedin](https://www.linkedin.com/in/sean-birmingham/)
 
 
-### WEBPT11 Team
-|                                       [Ana Tulea](https://github.com/anatulea)                                             |                                          [Conary Beckford](https://github.com/Conary36)                                   |                                        [Sean Birmingham](https://github.com/sean-birmingham)                              |                                         [Kelly Moreira](https://github.com/misskellymore)                                   |
-| :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | 
-|                  [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/anatulea)                     |                   [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/Conary36)                   |                   [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/sean-birmingham)            |                   [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/misskellymore)                |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/in/anatulea/)  | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/)             | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/in/sean-birmingham/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/in/kemore/)| 
 
-|                                       [Brian Leonard](https://github.com/Akaleonard)                                       |                                          [Benjamin Quackenbush](https://github.com/Quack117)                                          |                                        [Shanda Woods](https://github.com/ShandaWoods)                         |    
-| :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
-|                  [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/Akaleonard)                   |                   [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/Quack117)                   |                   [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/ShandaWoods)                |                  
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/)              | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/)             | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/in/shanda-woods/)|
+
+
+### Labs 7 - First Product Cycle
+
+#### Team Lead:
+Haden Moore [Github](https://github.com/HadenMoore) | [Linkedin](https://www.linkedin.com/in/hadenmoore/)
+
+#### React Developers:
+Alfonso Ruiz [Github](https://github.com/alfonsoruiz)
+
+Jack Kim [Github](https://github.com/jackskim)
+
+Logan Karnes [Github](https://github.com/lkarnes)
+
+Zac Smith [Github](https://github.com/mrzacsmith)
 
 <br>
 <br>
@@ -33,12 +54,6 @@ You can find the deployed project at [https://www.findur.city](https://www.findu
 ![Test Coverage](https://api.codeclimate.com/v1/badges/981e0174c4f6059b773c/test_coverage)
 
 ## Project Overview
-
-[Trello Board](https://trello.com/b/R2QOaAEe/labspt7-juxta-city-data)
-
-[Product Canvas](https://www.notion.so/Juxta-City-Data-06550a97dd9b41f1aea4b4b6de46ecb5)
-
-[UX Design files](https://www.figma.com/file/YS5Ykd25k90FbD7UkDq2fa/Juxta-City-Data-Ryan-and-Stephen?node-id=769%3A23)
 
 Find Ur City provides city data about important factors in deciding where to live, such as:
 
@@ -72,11 +87,11 @@ Why?
 - Hooks for functional components
 - Popularity
 
-#### Material UI
+#### Semantic UI
 
 Why?
 
-- Most popular framework
+- Popular framework
 - Lots of resources and documentation
 
 #### Front end deployed to Heroku
@@ -100,6 +115,7 @@ Why?
 https://github.com/Lambda-School-Labs/juxta-city-data-ds
 
 API for city data, recommended filter queries, city search queries.
+
 
 # Content Licenses
 
