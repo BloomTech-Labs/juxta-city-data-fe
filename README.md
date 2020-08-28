@@ -1,5 +1,7 @@
 # Find Ur City
 
+<img src="https://github.com/Lambda-School-Labs/juxta-city-data-ds/blob/master/dash-app/Both_apps_IntoOne/assets/find%20your%20city%2018.png" width="700" />
+
 [Trello Board](https://trello.com/b/R2QOaAEe/labspt7-juxta-city-data)
 
 [Product Canvas](https://www.notion.so/Juxta-City-Data-06550a97dd9b41f1aea4b4b6de46ecb5)
