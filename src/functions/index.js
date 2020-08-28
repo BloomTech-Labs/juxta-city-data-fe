@@ -117,6 +117,7 @@ const createProfileContext = async () => {
 const getBestCities = async () => {
   const res = await axios.get('https://junta-test.herokuapp.com/top25');
   return res.data;
+  
 };
 
 const getRecomendedCities = async (queryParameters) => {
