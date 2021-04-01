@@ -17,7 +17,7 @@ export default function SignUp(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("https://production-juxta-city-be.herokuapp.com/api/auth/signup", form )
+    axios.post("https://blooming-fortress-91543.herokuapp.com/api/auth/signup", form )
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         history.push("/dashboard");

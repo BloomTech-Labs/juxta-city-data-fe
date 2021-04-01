@@ -31,7 +31,7 @@ const ImageUpload = ({ info }) => {
 
     axiosWithAuth()
       .put(
-        `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image`,
+        `https://blooming-fortress-91543.herokuapp.com/api/profile/${userId}/profile_image`,
         formData
       )
       .then((res) => {
@@ -47,7 +47,7 @@ const ImageUpload = ({ info }) => {
   const handleRemove = () => {
     axiosWithAuth()
       .put(
-        `https://production-juxta-city-be.herokuapp.com/api/profile/${userId}/profile_image/${cloudinary_id}`
+        `https://blooming-fortress-91543.herokuapp.com/api/profile/${userId}/profile_image/${cloudinary_id}`
       )
       .then(() => {
         setUploadedFile(initialFormState);

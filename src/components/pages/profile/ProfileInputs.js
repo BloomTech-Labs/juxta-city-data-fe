@@ -20,7 +20,7 @@ function ProfileInputs({ handleSubmit, addHandleChange }) {
   return (
     <div className="demensions">
       <div>
-        <SVGstyle />
+        {/* <SVGstyle /> */}
         <form
           style={{ position: "absolute", zIndex: 10, margin: "0 40px" }}
           noValidate

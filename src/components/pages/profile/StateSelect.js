@@ -1,15 +1,11 @@
 import React from "react";
 import states from '../data/states';
 
-function StateSelect({addHandleChange, handleTextFocus, defaultv }) {
+function StateSelect({addHandleChange, defaultv }) {
 
   return (
     <div>
-      <label className="form-label" htmlFor="State">State</label>
       <select
-         data-strokedashoffset="-1696"
-         data-strokedasharray="240 3000"
-         onFocus={handleTextFocus}
          onChange={addHandleChange}
          className="input"
          name="state"
