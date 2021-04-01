@@ -13,7 +13,7 @@ const SurveyAnswersBox = ({ index }) => {
 
   return (
     <SurveyAnswers
-      index={index}
+      key={index}
       profileData={profileData}
       surveyData={surveyData}
     />

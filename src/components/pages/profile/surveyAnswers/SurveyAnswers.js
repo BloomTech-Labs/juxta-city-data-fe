@@ -3,11 +3,11 @@ import AnswerSurvey from './AnswerSurvey';
 import { useHistory } from 'react-router-dom';
 import { Button, Card } from 'semantic-ui-react';
 
-const SurveyAnswers = ({ surveyData, profileData }) => {
+const SurveyAnswers = ({ surveyData, profileData}) => {
   const history = useHistory();
 //  console.log(surveyData,"survey surveyData")
   return (
-    profileData && profileData.map((info, index) => {
+    profileData && profileData.map((info,index) => {
       if (info.surveyinfo !== null) {
         // console.log(info.surveyinfo,"survey info")
         return (
