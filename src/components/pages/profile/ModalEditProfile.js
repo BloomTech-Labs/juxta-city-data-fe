@@ -1,8 +1,8 @@
 import React from "react";
-import SignIn from "./SignIn";
+import EditUser from "./EditUser";
 import { Modal } from "semantic-ui-react";
 
-const ModalSignIn = ({ modal, setModal, history }) => {
+const ModalEditProfile = ({ modal, setModal, history }) => {
   return (
     <Modal
       closeIcon
@@ -17,10 +17,10 @@ const ModalSignIn = ({ modal, setModal, history }) => {
       onOpen={() => setModal(true)}
     >
       <div className="sign-in-up-modal">
-        <SignIn history={history} setModal={setModal} onClose={() => setModal(false)}/>
+        <EditUser history={history} />
       </div>
     </Modal>
   );
 };
 
-export default ModalSignIn;
+export default ModalEditProfile;

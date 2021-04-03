@@ -14,6 +14,7 @@ password:''});
     axios.post("https://blooming-fortress-91543.herokuapp.com/api/auth/signin", signInForm )
       .then((res) => {
         localStorage.setItem("token", res.data.token);
+        props.setModal(false)
         props.history.push("/profile");
       })
       .catch((err) => { console.log(err);

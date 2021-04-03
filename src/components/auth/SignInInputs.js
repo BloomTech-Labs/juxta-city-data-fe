@@ -30,7 +30,7 @@ const SignInInputs = ({ signInChange, handleSubmit, signInForm, history }) => {
       <p style={{textAlign:"center"}}> New with us?<a id="register" onClick={handleModal}> Register!</a></p>
       
       <ModalSignUp modal={secondmodal} setModal={setModal} history={history} />
-      <SubmitButton title = "Sign In"/>
+      <SubmitButton title = "Sign In" />
     </Form>
   );
 };
